@@ -24,6 +24,98 @@
         ]
       },
       {
+        "name": "DO WHAT YOU LOVE",
+        "bio": "Do What You Love Artist...",
+        "image": "artist_0.png",
+        "featured": true,
+        "collection": [
+          {
+            "title": "Artwork 1.1",
+            "description": "Description of Artwork 1.1",
+            "image": "assets/artist1_artwork1.png"
+          },
+          {
+            "title": "Artwork 1.2",
+            "description": "Description of Artwork 1.2",
+            "image": "assets/artist1_artwork2.png"
+          },
+          {
+            "title": "Artwork 1.3",
+            "description": "Description of Artwork 1.3",
+            "image": "assets/artist1_artwork3.png"
+          }
+        ]
+      },
+      {
+        "name": "DO WHAT YOU LOVE",
+        "bio": "Do What You Love Artist...",
+        "image": "artist_0.png",
+        "featured": true,
+        "collection": [
+          {
+            "title": "Artwork 1.1",
+            "description": "Description of Artwork 1.1",
+            "image": "assets/artist1_artwork1.png"
+          },
+          {
+            "title": "Artwork 1.2",
+            "description": "Description of Artwork 1.2",
+            "image": "assets/artist1_artwork2.png"
+          },
+          {
+            "title": "Artwork 1.3",
+            "description": "Description of Artwork 1.3",
+            "image": "assets/artist1_artwork3.png"
+          }
+        ]
+      },
+      {
+        "name": "DO WHAT YOU LOVE",
+        "bio": "Do What You Love Artist...",
+        "image": "artist_0.png",
+        "featured": true,
+        "collection": [
+          {
+            "title": "Artwork 1.1",
+            "description": "Description of Artwork 1.1",
+            "image": "assets/artist1_artwork1.png"
+          },
+          {
+            "title": "Artwork 1.2",
+            "description": "Description of Artwork 1.2",
+            "image": "assets/artist1_artwork2.png"
+          },
+          {
+            "title": "Artwork 1.3",
+            "description": "Description of Artwork 1.3",
+            "image": "assets/artist1_artwork3.png"
+          }
+        ]
+      },
+      {
+        "name": "DO WHAT YOU LOVE",
+        "bio": "Do What You Love Artist...",
+        "image": "artist_0.png",
+        "featured": true,
+        "collection": [
+          {
+            "title": "Artwork 1.1",
+            "description": "Description of Artwork 1.1",
+            "image": "assets/artist1_artwork1.png"
+          },
+          {
+            "title": "Artwork 1.2",
+            "description": "Description of Artwork 1.2",
+            "image": "assets/artist1_artwork2.png"
+          },
+          {
+            "title": "Artwork 1.3",
+            "description": "Description of Artwork 1.3",
+            "image": "assets/artist1_artwork3.png"
+          }
+        ]
+      },
+      {
         "name": "AMER.SM",
         "bio": "Amer.SM...",
         "featured": true,

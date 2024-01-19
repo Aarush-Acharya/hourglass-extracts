@@ -7,7 +7,7 @@ import 'package:fineartsociety/pages/news_page.dart';
 import 'package:fineartsociety/pages/products_page.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
-import 'pages/main_page.dart';
+import 'pages/home_page.dart';
 import 'pages/artist_page.dart';
 
 void main() {
@@ -24,7 +24,7 @@ class MyApp extends StatelessWidget {
       theme: ThemeData(primarySwatch: Colors.amber, fontFamily: 'Cinzel'),
       initialRoute: '/',
       routes: {
-        '/': (context) => const MainPage(),
+        '/': (context) => MainPage(),
         '/artist': (context) => const ArtistPage(),
         '/news': (context) => const NewsPage(),
         '/allArtist': (context) => const AllArtistsPage(),

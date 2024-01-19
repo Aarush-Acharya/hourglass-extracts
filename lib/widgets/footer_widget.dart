@@ -4,12 +4,12 @@ import 'package:flutter/material.dart';
 class FooterWidget extends StatelessWidget {
   // Define the menu items
   Map<String, String> menuItems = {
-    'Home': '',
-    'Artist': 'allArtist',
-    'Events': 'events',
-    'Exhibitions': 'exhibitions',
-    'News': 'news',
-    'Contact': 'contact'
+    'Products': 'productsPage',
+    'Merch': 'allArtist',
+    'Dispensaries': 'events',
+    'About Us': 'exhibitions',
+    'Business Inuiries': 'news',
+    'Events': 'contact'
   };
 
   FooterWidget({super.key});
@@ -25,7 +25,7 @@ class FooterWidget extends StatelessWidget {
       child: Column(
         children: [
           const Divider(
-            color: Colors.amber,
+            color: Color.fromARGB(179, 255, 255, 255),
             thickness: 1,
           ),
           const SizedBox(height: 10),
@@ -105,7 +105,7 @@ class FooterWidget extends StatelessWidget {
           // Copyright Text
           const Center(
             child: Text(
-              'Fine Art Society © All Rights Reserved. ',
+              'Hourglass © All Rights Reserved. ',
               style: TextStyle(
                 color: Colors.white,
                 fontSize: 12,
