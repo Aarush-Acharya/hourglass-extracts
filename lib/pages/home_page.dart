@@ -2,13 +2,26 @@ import 'dart:convert';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter/src/scheduler/ticker.dart';
+import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:getwidget/components/animation/gf_animation.dart';
 import 'package:getwidget/types/gf_animation_type.dart';
+import 'package:riverpod_annotation/riverpod_annotation.dart';
 import '../widgets/custom_app_bar.dart';
 import '../widgets/blocks_grid.dart';
 import 'package:carousel_slider/carousel_slider.dart';
 import 'package:url_launcher/url_launcher.dart';
 import '../widgets/footer_widget.dart';
+part 'home_page.g.dart';
+
+@riverpod
+class MerchTypeState extends _$MerchTypeState {
+  @override
+  bool build() => true;
+
+  void changeState(bool newState) {
+    state = newState;
+  }
+}
 
 class MyAnimationProvider implements TickerProvider {
   @override
@@ -17,8 +30,8 @@ class MyAnimationProvider implements TickerProvider {
   }
 }
 
-class MainPage extends StatelessWidget {
-  MainPage({super.key});
+class HomePage extends ConsumerWidget {
+  HomePage({super.key});
   final MyAnimationProvider animationProvider = MyAnimationProvider();
 
   Future<List<dynamic>> readJson() async {
@@ -34,7 +47,8 @@ class MainPage extends StatelessWidget {
   }
 
   @override
-  Widget build(BuildContext context) {
+  Widget build(BuildContext context, WidgetRef ref) {
+    bool isNewReleases = ref.watch(merchTypeStateProvider);
     var controller = AnimationController(
         duration: const Duration(seconds: 1), vsync: animationProvider);
     var animation = new CurvedAnimation(
@@ -50,7 +64,6 @@ class MainPage extends StatelessWidget {
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.center,
               children: [
-                // 1. Hero Image
                 Container(
                   height: firstFoldHeight + 180,
                   color: Colors.black,
@@ -59,18 +72,17 @@ class MainPage extends StatelessWidget {
                     controller: controller,
                     type: GFAnimationType.scaleTransition,
                     child: Image.network(
-                      'https://placekitten.com/700/500',
+                      'https://placekitten.com/800/500',
                       fit: BoxFit.cover,
                       width: double.infinity,
                       height: double.infinity,
                     ),
                   ),
                 ),
-                // 2. Press Carousel
                 const SizedBox(
                   height: 40,
                 ),
-                Text(
+                const Text(
                   "Products",
                   style: TextStyle(color: Colors.white, fontSize: 20),
                 ),
@@ -82,36 +94,82 @@ class MainPage extends StatelessWidget {
                   children: [
                     Container(
                       decoration: BoxDecoration(
-                          color: Colors.red,
+                          // color: Colors.red,
                           borderRadius: BorderRadius.circular(40)),
+                      child: Column(
+                        children: [
+                          ClipRRect(
+                            borderRadius: BorderRadius.circular(50),
+                            child: Image.network(
+                              'https://placekitten.com/700/500',
+                              fit: BoxFit.cover,
+                              width: 250,
+                              height: 250,
+                            ),
+                          ),
+                          SizedBox(
+                            height: 20,
+                          ),
+                          Text(
+                            "Prod 1",
+                            style: TextStyle(color: Colors.white),
+                          )
+                        ],
+                      ),
                       height: 300,
                       width: 250,
                     ),
                     Container(
                       decoration: BoxDecoration(
-                          color: Colors.red,
+                          // color: Colors.red,
                           borderRadius: BorderRadius.circular(40)),
+                      child: Column(
+                        children: [
+                          ClipRRect(
+                            borderRadius: BorderRadius.circular(50),
+                            child: Image.network(
+                              'https://placekitten.com/700/500',
+                              fit: BoxFit.cover,
+                              width: 250,
+                              height: 250,
+                            ),
+                          ),
+                          SizedBox(
+                            height: 20,
+                          ),
+                          Text(
+                            "Prod 2",
+                            style: TextStyle(color: Colors.white),
+                          )
+                        ],
+                      ),
                       height: 300,
                       width: 250,
                     ),
                     Container(
                       decoration: BoxDecoration(
-                          color: Colors.red,
+                          // color: Colors.red,
                           borderRadius: BorderRadius.circular(40)),
-                      height: 300,
-                      width: 250,
-                    ),
-                    Container(
-                      decoration: BoxDecoration(
-                          color: Colors.red,
-                          borderRadius: BorderRadius.circular(40)),
-                      height: 300,
-                      width: 250,
-                    ),
-                    Container(
-                      decoration: BoxDecoration(
-                          color: Colors.red,
-                          borderRadius: BorderRadius.circular(40)),
+                      child: Column(
+                        children: [
+                          ClipRRect(
+                            borderRadius: BorderRadius.circular(50),
+                            child: Image.network(
+                              'https://placekitten.com/700/500',
+                              fit: BoxFit.cover,
+                              width: 250,
+                              height: 250,
+                            ),
+                          ),
+                          SizedBox(
+                            height: 20,
+                          ),
+                          Text(
+                            "Prod 3",
+                            style: TextStyle(color: Colors.white),
+                          )
+                        ],
+                      ),
                       height: 300,
                       width: 250,
                     ),
@@ -120,7 +178,6 @@ class MainPage extends StatelessWidget {
                 const SizedBox(
                   height: 60,
                 ),
-
                 const Divider(
                   color: Color.fromARGB(179, 255, 255, 255),
                 ),
@@ -144,14 +201,11 @@ class MainPage extends StatelessWidget {
                     const SizedBox(
                       width: 50,
                     ),
-                    Padding(
-                      padding: const EdgeInsets.only(bottom: 50),
-                      child: const Column(
+                    const Padding(
+                      padding: EdgeInsets.only(bottom: 50),
+                      child: Column(
                         crossAxisAlignment: CrossAxisAlignment.start,
                         children: [
-                          // SizedBox(
-                          //   height: 60,
-                          // ),
                           SizedBox(
                             width: 300,
                             child: Text(
@@ -184,87 +238,227 @@ class MainPage extends StatelessWidget {
                 const Divider(
                   color: Color.fromARGB(179, 255, 255, 255),
                 ),
-                SizedBox(
+                const SizedBox(
                   height: 50,
                 ),
-                Text(
+                const Text(
                   "Merch",
                   style: TextStyle(color: Colors.white, fontSize: 20),
                 ),
-                SizedBox(
+                const SizedBox(
                   height: 30,
                 ),
                 Row(
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: [
                     TextButton(
-                        onPressed: () {},
-                        child: Text(
+                        onPressed: () {
+                          ref
+                              .read(merchTypeStateProvider.notifier)
+                              .changeState(true);
+                        },
+                        child: const Text(
                           "New Releases",
                           style: TextStyle(color: Colors.white),
                         )),
-                    SizedBox(
+                    const SizedBox(
                       width: 100,
                     ),
                     TextButton(
-                        onPressed: () {},
-                        child: Text("Accessories",
+                        onPressed: () {
+                          ref
+                              .read(merchTypeStateProvider.notifier)
+                              .changeState(false);
+                        },
+                        child: const Text("Accessories",
                             style: TextStyle(color: Colors.white))),
                   ],
                 ),
-                SizedBox(
+                const SizedBox(
                   height: 60,
                 ),
-
-                Row(
-                  mainAxisAlignment: MainAxisAlignment.spaceAround,
-                  children: [
-                    Container(
-                      decoration: BoxDecoration(
-                          color: Colors.red,
-                          borderRadius: BorderRadius.circular(40)),
-                      height: 300,
-                      width: 250,
-                    ),
-                    Container(
-                      decoration: BoxDecoration(
-                          color: Colors.red,
-                          borderRadius: BorderRadius.circular(40)),
-                      height: 300,
-                      width: 250,
-                    ),
-                    Container(
-                      decoration: BoxDecoration(
-                          color: Colors.red,
-                          borderRadius: BorderRadius.circular(40)),
-                      height: 300,
-                      width: 250,
-                    ),
-                    Container(
-                      decoration: BoxDecoration(
-                          color: Colors.red,
-                          borderRadius: BorderRadius.circular(40)),
-                      height: 300,
-                      width: 250,
-                    ),
-                    Container(
-                      decoration: BoxDecoration(
-                          color: Colors.red,
-                          borderRadius: BorderRadius.circular(40)),
-                      height: 300,
-                      width: 250,
-                    ),
-                  ],
-                ),
-                SizedBox(
+                isNewReleases
+                    ? Row(
+                        mainAxisAlignment: MainAxisAlignment.spaceAround,
+                        children: [
+                          Container(
+                            decoration: BoxDecoration(
+                                // color: Colors.red,
+                                borderRadius: BorderRadius.circular(40)),
+                            child: Column(
+                              children: [
+                                ClipRRect(
+                                  borderRadius: BorderRadius.circular(50),
+                                  child: Image.network(
+                                    'https://placekitten.com/900/500',
+                                    fit: BoxFit.cover,
+                                    width: 250,
+                                    height: 250,
+                                  ),
+                                ),
+                                SizedBox(
+                                  height: 20,
+                                ),
+                                Text(
+                                  "Prod 4",
+                                  style: TextStyle(color: Colors.white),
+                                )
+                              ],
+                            ),
+                            height: 300,
+                            width: 250,
+                          ),
+                          Container(
+                            decoration: BoxDecoration(
+                                // color: Colors.red,
+                                borderRadius: BorderRadius.circular(40)),
+                            child: Column(
+                              children: [
+                                ClipRRect(
+                                  borderRadius: BorderRadius.circular(50),
+                                  child: Image.network(
+                                    'https://placekitten.com/900/500',
+                                    fit: BoxFit.cover,
+                                    width: 250,
+                                    height: 250,
+                                  ),
+                                ),
+                                SizedBox(
+                                  height: 20,
+                                ),
+                                Text(
+                                  "Prod 5",
+                                  style: TextStyle(color: Colors.white),
+                                )
+                              ],
+                            ),
+                            height: 300,
+                            width: 250,
+                          ),
+                          Container(
+                            decoration: BoxDecoration(
+                                // color: Colors.red,
+                                borderRadius: BorderRadius.circular(40)),
+                            child: Column(
+                              children: [
+                                ClipRRect(
+                                  borderRadius: BorderRadius.circular(50),
+                                  child: Image.network(
+                                    'https://placekitten.com/900/500',
+                                    fit: BoxFit.cover,
+                                    width: 250,
+                                    height: 250,
+                                  ),
+                                ),
+                                SizedBox(
+                                  height: 20,
+                                ),
+                                Text(
+                                  "Prod 6",
+                                  style: TextStyle(color: Colors.white),
+                                )
+                              ],
+                            ),
+                            height: 300,
+                            width: 250,
+                          ),
+                        ],
+                      )
+                    : Row(
+                        mainAxisAlignment: MainAxisAlignment.spaceAround,
+                        children: [
+                          Container(
+                            decoration: BoxDecoration(
+                                // color: Colors.red,
+                                borderRadius: BorderRadius.circular(40)),
+                            child: Column(
+                              children: [
+                                ClipRRect(
+                                  borderRadius: BorderRadius.circular(50),
+                                  child: Image.network(
+                                    'https://placekitten.com/600/500',
+                                    fit: BoxFit.cover,
+                                    width: 250,
+                                    height: 250,
+                                  ),
+                                ),
+                                SizedBox(
+                                  height: 20,
+                                ),
+                                Text(
+                                  "Prod 7",
+                                  style: TextStyle(color: Colors.white),
+                                )
+                              ],
+                            ),
+                            height: 300,
+                            width: 250,
+                          ),
+                          Container(
+                            decoration: BoxDecoration(
+                                // color: Colors.red,
+                                borderRadius: BorderRadius.circular(40)),
+                            child: Column(
+                              children: [
+                                ClipRRect(
+                                  borderRadius: BorderRadius.circular(50),
+                                  child: Image.network(
+                                    'https://placekitten.com/600/500',
+                                    fit: BoxFit.cover,
+                                    width: 250,
+                                    height: 250,
+                                  ),
+                                ),
+                                SizedBox(
+                                  height: 20,
+                                ),
+                                Text(
+                                  "Prod 8",
+                                  style: TextStyle(color: Colors.white),
+                                )
+                              ],
+                            ),
+                            height: 300,
+                            width: 250,
+                          ),
+                          Container(
+                            decoration: BoxDecoration(
+                                // color: Colors.red,
+                                borderRadius: BorderRadius.circular(40)),
+                            child: Column(
+                              children: [
+                                ClipRRect(
+                                  borderRadius: BorderRadius.circular(50),
+                                  child: Image.network(
+                                    'https://placekitten.com/600/500',
+                                    fit: BoxFit.cover,
+                                    width: 250,
+                                    height: 250,
+                                  ),
+                                ),
+                                SizedBox(
+                                  height: 20,
+                                ),
+                                Text(
+                                  "Prod 9",
+                                  style: TextStyle(color: Colors.white),
+                                )
+                              ],
+                            ),
+                            height: 300,
+                            width: 250,
+                          ),
+                        ],
+                      ),
+                const SizedBox(
                   height: 60,
                 ),
                 ElevatedButton(
                     onPressed: () {},
-                    child: Text(
+                    child: const Text(
                       "All New Accessories",
                     )),
-                SizedBox(
+                const SizedBox(
                   height: 120,
                 ),
                 Container(
@@ -282,14 +476,14 @@ class MainPage extends StatelessWidget {
                     ),
                   ),
                 ),
-                SizedBox(
+                const SizedBox(
                   height: 50,
                 ),
-                Text(
+                const Text(
                   "Blogs",
                   style: TextStyle(color: Colors.white, fontSize: 20),
                 ),
-                SizedBox(
+                const SizedBox(
                   height: 30,
                 ),
                 FutureBuilder(
@@ -301,7 +495,7 @@ class MainPage extends StatelessWidget {
                         isEvent: false,
                       );
                     }),
-                SizedBox(
+                const SizedBox(
                   height: 80,
                 ),
                 Container(
@@ -341,7 +535,6 @@ class MainPage extends StatelessWidget {
                   ),
                 ),
                 const SizedBox(height: 50),
-                // 4, Use the FooterWidget here
                 FooterWidget(),
               ],
             ),

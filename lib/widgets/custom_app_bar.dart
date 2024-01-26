@@ -36,7 +36,9 @@ class CustomAppBar extends StatelessWidget implements PreferredSizeWidget {
             mainAxisAlignment: MainAxisAlignment.spaceAround,
             children: [
               TextButton(
-                onPressed: () {},
+                onPressed: () {
+                  Navigator.pushNamed(context, '/products');
+                },
                 child: const Text(
                   'Products',
                   style: TextStyle(
@@ -48,7 +50,9 @@ class CustomAppBar extends StatelessWidget implements PreferredSizeWidget {
                 width: 30,
               ),
               TextButton(
-                onPressed: () {},
+                onPressed: () {
+                  Navigator.pushNamed(context, '/merch');
+                },
                 child: const Text(
                   'Merch',
                   style: TextStyle(
@@ -60,9 +64,11 @@ class CustomAppBar extends StatelessWidget implements PreferredSizeWidget {
                 width: 30,
               ),
               TextButton(
-                onPressed: () {},
+                onPressed: () {
+                  Navigator.pushNamed(context, '/dispensaries');
+                },
                 child: const Text(
-                  'Dispensaries',
+                  'Store Locator',
                   style: TextStyle(
                     color: Colors.black,
                   ),

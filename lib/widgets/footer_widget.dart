@@ -4,9 +4,9 @@ import 'package:flutter/material.dart';
 class FooterWidget extends StatelessWidget {
   // Define the menu items
   Map<String, String> menuItems = {
-    'Products': 'productsPage',
-    'Merch': 'allArtist',
-    'Dispensaries': 'events',
+    'Products': 'products',
+    'Merch': 'merch',
+    'Dispensaries': 'dispensaries',
     'About Us': 'exhibitions',
     'Business Inuiries': 'news',
     'Events': 'contact'
@@ -21,7 +21,7 @@ class FooterWidget extends StatelessWidget {
 
     return Container(
       padding: const EdgeInsets.all(20),
-      color: Colors.black,
+      color: Colors.white,
       child: Column(
         children: [
           const Divider(
@@ -44,7 +44,7 @@ class FooterWidget extends StatelessWidget {
                       child: Text(
                         item,
                         style: const TextStyle(
-                          color: Colors.white,
+                          color: Colors.black,
                           fontSize: 16,
                         ),
                       ),
@@ -63,7 +63,7 @@ class FooterWidget extends StatelessWidget {
                       child: Text(
                         item,
                         style: const TextStyle(
-                          color: Colors.white,
+                          color: Colors.black,
                           fontSize: 14,
                         ),
                       ),
@@ -107,7 +107,7 @@ class FooterWidget extends StatelessWidget {
             child: Text(
               'Hourglass © All Rights Reserved. ',
               style: TextStyle(
-                color: Colors.white,
+                color: Colors.black,
                 fontSize: 12,
               ),
             ),
