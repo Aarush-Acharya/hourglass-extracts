@@ -1,11 +1,11 @@
 {
-    "name": "Cash Burst",
-    "short_name": "Cash Burst",
+    "name": "Hourglass",
+    "short_name": "Hourglass",
     "start_url": ".",
     "display": "standalone",
     "background_color": "#0175C2",
     "theme_color": "#0175C2",
-    "description": "Bitcoin to Cash Exchange, cashify your Bitcoins with us.",
+    "description": "Best and Safe Cannabis products for retail",
     "orientation": "portrait-primary",
     "prefer_related_applications": false,
     "icons": [

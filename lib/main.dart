@@ -35,7 +35,7 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       scrollBehavior: AppScrollBehavior(),
-      title: 'Fine Art Society',
+      title: 'Hourglass',
       theme: ThemeData(primarySwatch: Colors.amber, fontFamily: 'Cinzel'),
       initialRoute: '/',
       routes: {
