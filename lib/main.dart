@@ -1,6 +1,7 @@
 import 'dart:async';
 import 'dart:ui';
 import 'package:fineartsociety/controller.dart';
+import 'package:fineartsociety/pages/about_page.dart';
 import 'package:fineartsociety/pages/all_artist_page.dart';
 import 'package:fineartsociety/pages/contact_page.dart';
 import 'package:fineartsociety/pages/dispensaries_page.dart';
@@ -45,6 +46,7 @@ class MyApp extends StatelessWidget {
         '/allArtist': (context) => const AllArtistsPage(),
         '/events': (context) => const EventsPage(),
         '/contact': (context) => const ContactPage(),
+        '/about': (context) => AboutPage(),
         '/dispensaries': (context) =>  DispensariesScreen(),
         '/exhibitions': (context) => const ExhibitionPage(),
         '/indivisualItem': (context) => const IndivisualPage(),

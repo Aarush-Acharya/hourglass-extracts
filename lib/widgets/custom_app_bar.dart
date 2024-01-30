@@ -78,7 +78,9 @@ class CustomAppBar extends StatelessWidget implements PreferredSizeWidget {
                 width: 30,
               ),
               TextButton(
-                onPressed: () {},
+                onPressed: () {
+                  Navigator.pushNamed(context, '/about');
+                },
                 child: const Text(
                   'About Us',
                   style: TextStyle(
