@@ -67,13 +67,18 @@ class AboutPage extends ConsumerWidget {
                               Row(
                                 crossAxisAlignment: CrossAxisAlignment.start,
                                 children: [
-                                  ClipRRect(
-                                    borderRadius: BorderRadius.circular(50),
-                                    child: Image.network(
-                                      'https://placekitten.com/900/500',
-                                      fit: BoxFit.cover,
-                                      width: 700,
-                                      height: 500,
+                                  Container(
+                                    decoration: BoxDecoration(
+                                        borderRadius:
+                                            BorderRadius.circular(40)),
+                                    child: ClipRRect(
+                                      borderRadius: BorderRadius.circular(50),
+                                      child: Image.network(
+                                        'https://placekitten.com/900/500',
+                                        fit: BoxFit.cover,
+                                        width: 700,
+                                        height: 500,
+                                      ),
                                     ),
                                   ),
                                   const SizedBox(

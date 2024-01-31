@@ -52,11 +52,14 @@ class CardGrid extends StatelessWidget {
                             height: 5,
                           ),
                           ClipRRect(
-                            borderRadius: BorderRadius.circular(10),
+                            borderRadius: BorderRadius.circular(50),
                             child: Image.network(
-                              "http://placekitten.com/g/152/125",
+                              'https://placekitten.com/700/500',
+                              fit: BoxFit.cover,
+                              width: 152,
+                              height: 125,
                             ),
-                          )
+                          ),
                         ],
                       ),
                     ),
