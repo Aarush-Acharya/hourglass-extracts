@@ -79,7 +79,7 @@ class AboutPage extends ConsumerWidget {
                                       width: 700,
                                       child: Image.network(
                                           fit: BoxFit.fill,
-                                          "http://placekitten.com/g/900/700"),
+                                          "http://placekitten.com/g/900/100"),
                                     ),
                                   ),
                                   const SizedBox(
@@ -171,7 +171,7 @@ class AboutPage extends ConsumerWidget {
                                         width: 700,
                                         child: Image.network(
                                             fit: BoxFit.fill,
-                                            "http://placekitten.com/g/900/500"),
+                                            "http://placekitten.com/g/900/800"),
                                       ),
                                     ),
                                   ],
@@ -190,7 +190,7 @@ class AboutPage extends ConsumerWidget {
                                       width: 700,
                                       child: Image.network(
                                           fit: BoxFit.fill,
-                                          "http://placekitten.com/g/900/600"),
+                                          "http://placekitten.com/g/900/300"),
                                     ),
                                   ),
                                   const SizedBox(
