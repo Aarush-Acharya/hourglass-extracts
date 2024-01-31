@@ -72,16 +72,16 @@ class AboutPage extends ConsumerWidget {
                               Row(
                                 crossAxisAlignment: CrossAxisAlignment.start,
                                 children: [
-                                  Container(
-                                    height: 500,
-                                    width: 700,
-                                    decoration: BoxDecoration(
-                                        image: const DecorationImage(
-                                            fit: BoxFit.fill,
-                                            image: NetworkImage(
-                                                "http://placekitten.com/g/900/700")),
-                                        borderRadius:
-                                            BorderRadius.circular(30)),
+                                  ClipRRect(
+                                    borderRadius: BorderRadius.circular(30),
+                                    child: SizedBox(
+                                      height: 500,
+                                      width: 700,
+                                      child: Image(
+                                          fit: BoxFit.fill,
+                                          image: NetworkImage(
+                                              "http://placekitten.com/g/900/700")),
+                                    ),
                                   ),
                                   const SizedBox(
                                     width: 120,
@@ -165,16 +165,16 @@ class AboutPage extends ConsumerWidget {
                                         ],
                                       ),
                                     ),
-                                    Container(
-                                      height: 500,
-                                      width: 700,
-                                      decoration: BoxDecoration(
-                                          image: const DecorationImage(
-                                              fit: BoxFit.fill,
-                                              image: NetworkImage(
-                                                  "http://placekitten.com/g/900/500")),
-                                          borderRadius:
-                                              BorderRadius.circular(30)),
+                                    ClipRRect(
+                                      borderRadius: BorderRadius.circular(30),
+                                      child: SizedBox(
+                                        height: 500,
+                                        width: 700,
+                                        child: Image(
+                                            fit: BoxFit.fill,
+                                            image: NetworkImage(
+                                                "http://placekitten.com/g/900/500")),
+                                      ),
                                     ),
                                   ],
                                 ),
@@ -185,16 +185,16 @@ class AboutPage extends ConsumerWidget {
                               Row(
                                 crossAxisAlignment: CrossAxisAlignment.start,
                                 children: [
-                                  Container(
-                                    height: 500,
-                                    width: 700,
-                                    decoration: BoxDecoration(
-                                        image: const DecorationImage(
-                                            fit: BoxFit.fill,
-                                            image: NetworkImage(
-                                                "http://placekitten.com/g/900/600")),
-                                        borderRadius:
-                                            BorderRadius.circular(30)),
+                                  ClipRRect(
+                                    borderRadius: BorderRadius.circular(30),
+                                    child: SizedBox(
+                                      height: 500,
+                                      width: 700,
+                                      child: Image(
+                                          fit: BoxFit.fill,
+                                          image: NetworkImage(
+                                              "http://placekitten.com/g/900/600")),
+                                    ),
                                   ),
                                   const SizedBox(
                                     width: 120,

@@ -197,7 +197,7 @@ class MerchPage extends ConsumerWidget {
                         decoration: BoxDecoration(
                             image: DecorationImage(
                                 image: NetworkImage(
-                                    'https://placekitten.com/500/800'))),
+                                    'https://placekitten.com/350/600'))),
                         height: 600,
                         width: 350,
                         child: Padding(
@@ -726,11 +726,10 @@ class MerchPage extends ConsumerWidget {
                                     height: 500,
                                     width: 700,
                                     decoration: BoxDecoration(
-                                        image: DecorationImage(
-                                            image: NetworkImage(
-                                                "http://placekitten.com/500/500")),
-                                        borderRadius:
-                                            BorderRadius.circular(30)),
+                                      image: DecorationImage(
+                                          image: NetworkImage(
+                                              "http://placekitten.com/500/500")),
+                                    ),
                                   ),
                                   const SizedBox(
                                     width: 120,
@@ -1119,16 +1118,15 @@ class MerchPage extends ConsumerWidget {
                                         ],
                                       ),
                                     ),
-                                    Container(
-                                      height: 500,
-                                      width: 700,
-                                      decoration: BoxDecoration(
-                                          image: DecorationImage(
-                                              fit: BoxFit.fill,
-                                              image: NetworkImage(
-                                                  "http://placekitten.com/700/500")),
-                                          borderRadius:
-                                              BorderRadius.circular(30)),
+                                    ClipRRect(
+                                      borderRadius: BorderRadius.circular(30),
+                                      child: SizedBox(
+                                        height: 500,
+                                        width: 700,
+                                        child: Image(
+                                            image: NetworkImage(
+                                                "http://placekitten.com/700/500")),
+                                      ),
                                     ),
                                   ],
                                 ),
@@ -1143,16 +1141,15 @@ class MerchPage extends ConsumerWidget {
                                   mainAxisAlignment:
                                       MainAxisAlignment.spaceBetween,
                                   children: [
-                                    Container(
-                                      height: 500,
-                                      width: 700,
-                                      decoration: BoxDecoration(
-                                          image: DecorationImage(
-                                              fit: BoxFit.fill,
-                                              image: NetworkImage(
-                                                  "http://placekitten.com/700/500")),
-                                          borderRadius:
-                                              BorderRadius.circular(30)),
+                                    ClipRRect(
+                                      borderRadius: BorderRadius.circular(30),
+                                      child: SizedBox(
+                                        height: 500,
+                                        width: 700,
+                                        child: Image(
+                                            image: NetworkImage(
+                                                "http://placekitten.com/700/500")),
+                                      ),
                                     ),
                                     const Padding(
                                       padding:

@@ -54,11 +54,12 @@ class EventsPage extends StatelessWidget {
                               int Minutes = Time.inMinutes - Time.inHours * 60;
 
                               return Container(
-                                padding: const EdgeInsets.symmetric(horizontal: 80),
+                                padding:
+                                    const EdgeInsets.symmetric(horizontal: 80),
                                 decoration: BoxDecoration(
                                   borderRadius: BorderRadius.circular(100),
                                   border: Border.all(
-                                      color: Colors.amber, width: 2.5),
+                                      color: Colors.white, width: 2.5),
                                   color: Colors.black,
                                 ),
                                 height: 130,
@@ -76,8 +77,7 @@ class EventsPage extends StatelessWidget {
                                                 ? '0$Days'
                                                 : '$Days',
                                             style: const TextStyle(
-                                                color: Color.fromARGB(
-                                                    255, 209, 163, 23),
+                                                color: Colors.white,
                                                 fontSize: 50),
                                           ),
                                           const SizedBox(
@@ -98,8 +98,7 @@ class EventsPage extends StatelessWidget {
                                           Text(
                                             '$Hours',
                                             style: const TextStyle(
-                                                color: Color.fromARGB(
-                                                    255, 209, 163, 23),
+                                                color: Colors.white,
                                                 fontSize: 50),
                                           ),
                                           const SizedBox(
@@ -120,8 +119,7 @@ class EventsPage extends StatelessWidget {
                                           Text(
                                             '$Minutes',
                                             style: const TextStyle(
-                                                color: Color.fromARGB(
-                                                    255, 209, 163, 23),
+                                                color: Colors.white,
                                                 fontSize: 50),
                                           ),
                                           const SizedBox(
@@ -159,7 +157,7 @@ class EventsPage extends StatelessWidget {
                         style: ElevatedButton.styleFrom(
                             backgroundColor: Colors.black,
                             side: const BorderSide(
-                                color: Colors.amber,
+                                color: Colors.white,
                                 width: 1,
                                 strokeAlign: BorderSide.strokeAlignOutside)),
                         child: const Padding(
@@ -168,7 +166,7 @@ class EventsPage extends StatelessWidget {
                             ' REQUEST ACCESS ',
                             style: TextStyle(
                               fontSize: 25,
-                              color: Color.fromARGB(255, 211, 161, 11),
+                              color: Colors.white,
                             ),
                           ),
                         ),
