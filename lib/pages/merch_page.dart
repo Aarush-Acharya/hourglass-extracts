@@ -1,4 +1,5 @@
 import 'dart:async';
+import 'dart:ui';
 import 'package:another_transformer_page_view/another_transformer_page_view.dart';
 import 'package:carousel_slider/carousel_slider.dart';
 import 'package:fineartsociety/widgets/custom_app_bar.dart';
@@ -64,7 +65,7 @@ class MerchPage extends ConsumerWidget {
     int currentItem = ref.watch(currentItemStateProvider);
     ScrollController scrollController = ScrollController();
 
-    Timer.periodic(Duration(seconds: 10), (timer) {
+    Timer.periodic(Duration(seconds: 5), (timer) {
       int currentPage = pageViewController.page!.toInt();
       pageViewController.animateToPage(currentPage == 3 ? 0 : currentPage + 1,
           duration: Duration(seconds: 1), curve: Curves.decelerate);
@@ -196,7 +197,7 @@ class MerchPage extends ConsumerWidget {
                         decoration: BoxDecoration(
                             image: DecorationImage(
                                 image: NetworkImage(
-                                    'https://placekitten.com/350/600'))),
+                                    'https://placekitten.com/500/800'))),
                         height: 600,
                         width: 350,
                         child: Padding(
@@ -725,7 +726,9 @@ class MerchPage extends ConsumerWidget {
                                     height: 500,
                                     width: 700,
                                     decoration: BoxDecoration(
-                                        color: Colors.grey,
+                                        image: DecorationImage(
+                                            image: NetworkImage(
+                                                "http://placekitten.com/500/500")),
                                         borderRadius:
                                             BorderRadius.circular(30)),
                                   ),
@@ -1120,7 +1123,10 @@ class MerchPage extends ConsumerWidget {
                                       height: 500,
                                       width: 700,
                                       decoration: BoxDecoration(
-                                          color: Colors.grey,
+                                          image: DecorationImage(
+                                              fit: BoxFit.fill,
+                                              image: NetworkImage(
+                                                  "http://placekitten.com/700/500")),
                                           borderRadius:
                                               BorderRadius.circular(30)),
                                     ),
@@ -1141,7 +1147,10 @@ class MerchPage extends ConsumerWidget {
                                       height: 500,
                                       width: 700,
                                       decoration: BoxDecoration(
-                                          color: Colors.grey,
+                                          image: DecorationImage(
+                                              fit: BoxFit.fill,
+                                              image: NetworkImage(
+                                                  "http://placekitten.com/700/500")),
                                           borderRadius:
                                               BorderRadius.circular(30)),
                                     ),
@@ -1260,6 +1269,7 @@ class MerchPage extends ConsumerWidget {
                                         height: constraints.maxWidth <= 600
                                             ? firstFoldHeight * 0.2
                                             : firstFoldHeight * 0.2,
+                                        enlargeCenterPage: true,
                                         autoPlay: true,
                                         viewportFraction:
                                             constraints.maxWidth <= 600
@@ -1276,44 +1286,8 @@ class MerchPage extends ConsumerWidget {
                               ),
                               Align(
                                 alignment: Alignment.center,
-                                child: Column(
+                                child: Stack(
                                   children: [
-                                    Text(
-                                      "Do you have any questions?",
-                                      style: TextStyle(
-                                          color: Colors.black, fontSize: 30),
-                                    ),
-                                    SizedBox(
-                                      height: 40,
-                                    ),
-                                    Text("Come and talk to us!",
-                                        style: TextStyle(
-                                            color: Colors.black, fontSize: 20)),
-                                    SizedBox(
-                                      height: 40,
-                                    ),
-                                    TextButton(
-                                        style: TextButton.styleFrom(
-                                            minimumSize: Size(180, 70),
-                                            backgroundColor: Colors.black,
-                                            shape: RoundedRectangleBorder(
-                                                borderRadius:
-                                                    BorderRadius.circular(15),
-                                                side: BorderSide(
-                                                    color: Colors.amber))),
-                                        onPressed: () {
-                                          Navigator.pushNamed(
-                                              context, '/contact');
-                                        },
-                                        child: Text(
-                                          "Contact us",
-                                          style: TextStyle(
-                                              color: Colors.white,
-                                              fontSize: 19),
-                                        )),
-                                    SizedBox(
-                                      height: 80,
-                                    ),
                                     Row(
                                       children: [
                                         Text(
@@ -1373,6 +1347,22 @@ class MerchPage extends ConsumerWidget {
                                               fontSize: 22),
                                         ),
                                       ],
+                                    ),
+                                    Positioned(
+                                      // height: 10,
+                                      // width: 50,
+                                      child: ClipRRect(
+                                        child: BackdropFilter(
+                                            filter: ImageFilter.blur(
+                                                sigmaX: 5, sigmaY: 5),
+                                            child: SizedBox(
+                                              height: 100,
+                                              width: double.maxFinite,
+                                              child: Center(
+                                                  child: Text(
+                                                      "Under Construction")),
+                                            )),
+                                      ),
                                     )
                                   ],
                                 ),
