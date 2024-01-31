@@ -3,6 +3,7 @@ import 'dart:ui';
 import 'package:fineartsociety/controller.dart';
 import 'package:fineartsociety/pages/about_page.dart';
 import 'package:fineartsociety/pages/all_artist_page.dart';
+import 'package:fineartsociety/pages/bussiness_inquiry_page.dart';
 import 'package:fineartsociety/pages/contact_page.dart';
 import 'package:fineartsociety/pages/dispensaries_page.dart';
 import 'package:fineartsociety/pages/events_page.dart';
@@ -41,6 +42,7 @@ class MyApp extends StatelessWidget {
       initialRoute: '/',
       routes: {
         '/': (context) => HomePage(),
+        '/bussinessInquiry': (context) => BussinessInquiryPage(),
         '/artist': (context) => const ArtistPage(),
         '/news': (context) => const NewsPage(),
         '/allArtist': (context) => const AllArtistsPage(),

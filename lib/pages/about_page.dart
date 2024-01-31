@@ -1,6 +1,7 @@
 import 'dart:async';
 import 'package:another_transformer_page_view/another_transformer_page_view.dart';
 import 'package:carousel_slider/carousel_slider.dart';
+import 'package:fineartsociety/widgets/card_grid.dart';
 import 'package:fineartsociety/widgets/custom_app_bar.dart';
 import 'package:fineartsociety/widgets/footer_widget.dart';
 import 'package:flutter/material.dart';
@@ -16,13 +17,12 @@ class AboutPage extends ConsumerWidget {
   @override
   Widget build(BuildContext context, WidgetRef ref) {
     PageController pageViewController = PageController();
-    double firstFoldHeight = MediaQuery.of(context).size.height * 0.75;
     ScrollController scrollController = ScrollController();
 
-    Timer.periodic(Duration(seconds: 10), (timer) {
+    Timer.periodic(const Duration(seconds: 10), (timer) {
       int currentPage = pageViewController.page!.toInt();
       pageViewController.animateToPage(currentPage == 3 ? 0 : currentPage + 1,
-          duration: Duration(seconds: 1), curve: Curves.decelerate);
+          duration: const Duration(seconds: 1), curve: Curves.decelerate);
     });
 
     List<String> urls = [
@@ -32,8 +32,8 @@ class AboutPage extends ConsumerWidget {
     ];
     IndexController _controller = IndexController();
     return Scaffold(
-      backgroundColor: Colors.white,
-      appBar: CustomAppBar(),
+      backgroundColor: Colors.black,
+      appBar: const CustomAppBar(),
       body: LayoutBuilder(
         builder: (context, constraints) {
           bool isDesktop = MediaQuery.of(context).size.width > 1168;
@@ -41,23 +41,23 @@ class AboutPage extends ConsumerWidget {
               controller: scrollController,
               child: Column(
                 children: [
-                  SizedBox(
+                  const SizedBox(
                     height: 60,
                   ),
                   const Text(
                     "Vision and Mission",
-                    style: TextStyle(color: Colors.black, fontSize: 35),
+                    style: TextStyle(color: Colors.white, fontSize: 35),
                   ),
-                  SizedBox(
+                  const SizedBox(
                     height: 30,
                   ),
-                  SizedBox(
+                  const SizedBox(
                     width: 1000,
-                    child: const Text(
+                    child: Text(
                       "We are driven by entrepreneurial spirit; guided by an authentic understanding of cannabis and cannabis culture; and committed to social justice. From license acquisition to class leading operations, STIIIZY is singularly focused on creating value for our customers, our investors and our communities..",
                       softWrap: true,
                       textAlign: TextAlign.center,
-                      style: TextStyle(color: Colors.black, fontSize: 16),
+                      style: TextStyle(color: Colors.white, fontSize: 16),
                     ),
                   ),
                   Padding(
@@ -76,7 +76,7 @@ class AboutPage extends ConsumerWidget {
                                     height: 500,
                                     width: 700,
                                     decoration: BoxDecoration(
-                                        image: DecorationImage(
+                                        image: const DecorationImage(
                                             fit: BoxFit.fill,
                                             image: NetworkImage(
                                                 "http://placekitten.com/g/900/700")),
@@ -86,32 +86,31 @@ class AboutPage extends ConsumerWidget {
                                   const SizedBox(
                                     width: 120,
                                   ),
-                                  Column(
+                                  const Column(
                                     children: [
                                       Padding(
-                                        padding:
-                                            const EdgeInsets.only(bottom: 30),
+                                        padding: EdgeInsets.only(bottom: 30),
                                         child: SizedBox(
                                           child: Column(
                                             crossAxisAlignment:
                                                 CrossAxisAlignment.start,
                                             children: [
-                                              const Text(
+                                              Text(
                                                 "INCLUSIVITY",
                                                 style: TextStyle(
-                                                    color: Colors.black,
+                                                    color: Colors.white,
                                                     fontSize: 35),
                                               ),
-                                              const SizedBox(
+                                              SizedBox(
                                                 height: 40,
                                               ),
                                               SizedBox(
                                                 width: 400,
-                                                child: const Text(
+                                                child: Text(
                                                   "Cannabis culture is a vibrant and diverse community that welcomes individuals from all walks of life - whether you're a skater, an elderly person, a college student, a veteran, or a family member. We take pride in creating an inclusive environment that encourages everyone to express themselves freely. Our culture fosters unity and promotes open and honest dialogue, bringing together people from different backgrounds and experiences.",
                                                   softWrap: true,
                                                   style: TextStyle(
-                                                      color: Colors.black,
+                                                      color: Colors.white,
                                                       fontSize: 16),
                                                 ),
                                               ),
@@ -145,7 +144,7 @@ class AboutPage extends ConsumerWidget {
                                             child: Text(
                                               "THE JOURNEY",
                                               style: TextStyle(
-                                                  color: Colors.black,
+                                                  color: Colors.white,
                                                   fontSize: 40),
                                               softWrap: true,
                                             ),
@@ -155,11 +154,11 @@ class AboutPage extends ConsumerWidget {
                                           ),
                                           SizedBox(
                                             width: 400,
-                                            child: const Text(
+                                            child: Text(
                                               "Our culture is constantly evolving and adapting, driven by new innovations and changing attitudes. We're on a journey to overcome the stigma and legal barriers that have historically plagued cannabis use, much like the fight against Prohibition in the early 20th century. We envision a future where cannabis is fully embraced as a positive force for individual and collective well-being.",
                                               softWrap: true,
                                               style: TextStyle(
-                                                  color: Colors.black,
+                                                  color: Colors.white,
                                                   fontSize: 16),
                                             ),
                                           ),
@@ -170,7 +169,7 @@ class AboutPage extends ConsumerWidget {
                                       height: 500,
                                       width: 700,
                                       decoration: BoxDecoration(
-                                          image: DecorationImage(
+                                          image: const DecorationImage(
                                               fit: BoxFit.fill,
                                               image: NetworkImage(
                                                   "http://placekitten.com/g/900/500")),
@@ -190,7 +189,7 @@ class AboutPage extends ConsumerWidget {
                                     height: 500,
                                     width: 700,
                                     decoration: BoxDecoration(
-                                        image: DecorationImage(
+                                        image: const DecorationImage(
                                             fit: BoxFit.fill,
                                             image: NetworkImage(
                                                 "http://placekitten.com/g/900/600")),
@@ -200,32 +199,31 @@ class AboutPage extends ConsumerWidget {
                                   const SizedBox(
                                     width: 120,
                                   ),
-                                  Column(
+                                  const Column(
                                     children: [
                                       Padding(
-                                        padding:
-                                            const EdgeInsets.only(bottom: 30),
+                                        padding: EdgeInsets.only(bottom: 30),
                                         child: SizedBox(
                                           child: Column(
                                             crossAxisAlignment:
                                                 CrossAxisAlignment.start,
                                             children: [
-                                              const Text(
+                                              Text(
                                                 "HEALING",
                                                 style: TextStyle(
-                                                    color: Colors.black,
+                                                    color: Colors.white,
                                                     fontSize: 35),
                                               ),
-                                              const SizedBox(
+                                              SizedBox(
                                                 height: 40,
                                               ),
                                               SizedBox(
                                                 width: 400,
-                                                child: const Text(
+                                                child: Text(
                                                   "Cannabis culture is a vibrant and diverse community that welcomes individuals from all walks of life - whether you're a skater, an elderly person, a college student, a veteran, or a family member. We take pride in creating an inclusive environment that encourages everyone to express themselves freely. Our culture fosters unity and promotes open and honest dialogue, bringing together people from different backgrounds and experiences.",
                                                   softWrap: true,
                                                   style: TextStyle(
-                                                      color: Colors.black,
+                                                      color: Colors.white,
                                                       fontSize: 16),
                                                 ),
                                               ),
@@ -237,6 +235,59 @@ class AboutPage extends ConsumerWidget {
                                   ),
                                 ],
                               ),
+                              const SizedBox(
+                                height: 70,
+                              ),
+                              const Text(
+                                "CORE VALUES",
+                                style: TextStyle(
+                                    color: Colors.white, fontSize: 42),
+                              ),
+                              const SizedBox(
+                                height: 60,
+                              ),
+                              Container(
+                                width: 800,
+                                height: 60,
+                                decoration: BoxDecoration(
+                                    borderRadius: BorderRadius.circular(2),
+                                    border: Border.all(color: Colors.white)),
+                                child: Center(
+                                  child: const Text(
+                                      "OUR VISION IS TO BRING CANNABIS CULTURE TO THE WORLD ",
+                                      style: TextStyle(
+                                          color: Colors.white,
+                                          fontSize: 18,
+                                          fontWeight: FontWeight.w500)),
+                                ),
+                              ),
+                              SizedBox(
+                                height: 20,
+                              ),
+                              Container(
+                                width: 800,
+                                decoration: BoxDecoration(
+                                    borderRadius: BorderRadius.circular(2),
+                                    border: Border.all(color: Colors.white)),
+                                child: Center(
+                                  child: Padding(
+                                    padding: const EdgeInsets.symmetric(
+                                        vertical: 20, horizontal: 90.0),
+                                    child: const Text(
+                                        "OUR PRESUIT OF EXELLENCE DRIVES US TO REVOLUTIONIZE THE CANNABIS INDUSTRY USING CUTTING EDGE TECHNOLOGY TO DELIVER UNPARALLELED PRODUCTS AND SERVICE TO OUR CUSTOMERS",
+                                        softWrap: true,
+                                        textAlign: TextAlign.center,
+                                        style: TextStyle(
+                                            color: Colors.white,
+                                            fontSize: 18,
+                                            fontWeight: FontWeight.w500)),
+                                  ),
+                                ),
+                              ),
+                              SizedBox(
+                                height: 40,
+                              ),
+                              CardGrid(girdData: ["a", "e", "i", "o", "u"])
                             ],
                           )
                         : Column(
@@ -254,7 +305,7 @@ class AboutPage extends ConsumerWidget {
                               const Text(
                                 "TITLE",
                                 style: TextStyle(
-                                    color: Colors.black, fontSize: 40),
+                                    color: Colors.white, fontSize: 40),
                               ),
                               const SizedBox(
                                 height: 60,
@@ -262,7 +313,7 @@ class AboutPage extends ConsumerWidget {
                               const Text(
                                 "DATE/TIME",
                                 style: TextStyle(
-                                    color: Colors.black, fontSize: 25),
+                                    color: Colors.white, fontSize: 25),
                               ),
                               const SizedBox(
                                 height: 40,
@@ -270,7 +321,7 @@ class AboutPage extends ConsumerWidget {
                               const Text(
                                 "LOCATION",
                                 style: TextStyle(
-                                    color: Colors.black, fontSize: 25),
+                                    color: Colors.white, fontSize: 25),
                               ),
                               const SizedBox(
                                 height: 40,
@@ -278,7 +329,7 @@ class AboutPage extends ConsumerWidget {
                               const Text(
                                 "DESCRIPTION",
                                 style: TextStyle(
-                                    color: Colors.black, fontSize: 23),
+                                    color: Colors.white, fontSize: 23),
                               ),
                             ],
                           ),
