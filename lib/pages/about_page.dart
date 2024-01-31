@@ -1,15 +1,10 @@
 import 'dart:async';
 import 'package:another_transformer_page_view/another_transformer_page_view.dart';
-import 'package:carousel_slider/carousel_slider.dart';
 import 'package:fineartsociety/widgets/card_grid.dart';
 import 'package:fineartsociety/widgets/custom_app_bar.dart';
 import 'package:fineartsociety/widgets/footer_widget.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_icon_snackbar/flutter_icon_snackbar.dart';
-import 'package:flutter_rating_bar/flutter_rating_bar.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
-import 'package:page_view_dot_indicator/page_view_dot_indicator.dart';
-import 'package:riverpod_annotation/riverpod_annotation.dart';
 
 class AboutPage extends ConsumerWidget {
   const AboutPage({super.key});
@@ -73,13 +68,12 @@ class AboutPage extends ConsumerWidget {
                                 crossAxisAlignment: CrossAxisAlignment.start,
                                 children: [
                                   ClipRRect(
-                                    borderRadius: BorderRadius.circular(30),
-                                    child: SizedBox(
-                                      height: 500,
+                                    borderRadius: BorderRadius.circular(50),
+                                    child: Image.network(
+                                      'https://placekitten.com/900/500',
+                                      fit: BoxFit.cover,
                                       width: 700,
-                                      child: Image.network(
-                                          fit: BoxFit.fill,
-                                          "http://placekitten.com/g/900/100"),
+                                      height: 500,
                                     ),
                                   ),
                                   const SizedBox(
@@ -165,13 +159,12 @@ class AboutPage extends ConsumerWidget {
                                       ),
                                     ),
                                     ClipRRect(
-                                      borderRadius: BorderRadius.circular(30),
-                                      child: SizedBox(
-                                        height: 500,
+                                      borderRadius: BorderRadius.circular(50),
+                                      child: Image.network(
+                                        'https://placekitten.com/900/500',
+                                        fit: BoxFit.cover,
                                         width: 700,
-                                        child: Image.network(
-                                            fit: BoxFit.fill,
-                                            "http://placekitten.com/g/900/800"),
+                                        height: 500,
                                       ),
                                     ),
                                   ],
@@ -184,13 +177,12 @@ class AboutPage extends ConsumerWidget {
                                 crossAxisAlignment: CrossAxisAlignment.start,
                                 children: [
                                   ClipRRect(
-                                    borderRadius: BorderRadius.circular(30),
-                                    child: SizedBox(
-                                      height: 500,
+                                    borderRadius: BorderRadius.circular(50),
+                                    child: Image.network(
+                                      'https://placekitten.com/900/500',
+                                      fit: BoxFit.cover,
                                       width: 700,
-                                      child: Image.network(
-                                          fit: BoxFit.fill,
-                                          "http://placekitten.com/g/900/300"),
+                                      height: 500,
                                     ),
                                   ),
                                   const SizedBox(
