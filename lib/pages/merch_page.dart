@@ -726,7 +726,7 @@ class MerchPage extends ConsumerWidget {
                                     borderRadius: BorderRadius.circular(50),
                                     child: Image.network(
                                       'https://placekitten.com/500/500',
-                                      fit: BoxFit.cover,
+                                      fit: BoxFit.contain,
                                       width: 700,
                                       height: 500,
                                     ),
