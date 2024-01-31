@@ -722,13 +722,13 @@ class MerchPage extends ConsumerWidget {
                               Row(
                                 crossAxisAlignment: CrossAxisAlignment.start,
                                 children: [
-                                  Container(
-                                    height: 500,
-                                    width: 700,
-                                    decoration: BoxDecoration(
-                                      image: DecorationImage(
-                                          image: NetworkImage(
-                                              "http://placekitten.com/500/500")),
+                                  ClipRRect(
+                                    borderRadius: BorderRadius.circular(50),
+                                    child: Image.network(
+                                      'https://placekitten.com/500/500',
+                                      fit: BoxFit.cover,
+                                      width: 700,
+                                      height: 500,
                                     ),
                                   ),
                                   const SizedBox(
@@ -1119,14 +1119,12 @@ class MerchPage extends ConsumerWidget {
                                       ),
                                     ),
                                     ClipRRect(
-                                      borderRadius: BorderRadius.circular(30),
-                                      child: SizedBox(
-                                        height: 500,
+                                      borderRadius: BorderRadius.circular(50),
+                                      child: Image.network(
+                                        'https://placekitten.com/700/500',
+                                        fit: BoxFit.cover,
                                         width: 700,
-                                        child: Image.network(
-                                          "http://placekitten.com/700/500",
-                                          fit: BoxFit.fill,
-                                        ),
+                                        height: 500,
                                       ),
                                     ),
                                   ],
@@ -1143,14 +1141,12 @@ class MerchPage extends ConsumerWidget {
                                       MainAxisAlignment.spaceBetween,
                                   children: [
                                     ClipRRect(
-                                      borderRadius: BorderRadius.circular(30),
-                                      child: SizedBox(
-                                        height: 500,
+                                      borderRadius: BorderRadius.circular(50),
+                                      child: Image.network(
+                                        'https://placekitten.com/700/500',
+                                        fit: BoxFit.cover,
                                         width: 700,
-                                        child: Image.network(
-                                          "http://placekitten.com/700/500",
-                                          fit: BoxFit.fill,
-                                        ),
+                                        height: 500,
                                       ),
                                     ),
                                     const Padding(
