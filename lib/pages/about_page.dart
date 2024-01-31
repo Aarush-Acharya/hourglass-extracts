@@ -77,10 +77,9 @@ class AboutPage extends ConsumerWidget {
                                     child: SizedBox(
                                       height: 500,
                                       width: 700,
-                                      child: Image(
+                                      child: Image.network(
                                           fit: BoxFit.fill,
-                                          image: NetworkImage(
-                                              "http://placekitten.com/g/900/700")),
+                                          "http://placekitten.com/g/900/700"),
                                     ),
                                   ),
                                   const SizedBox(
@@ -170,10 +169,9 @@ class AboutPage extends ConsumerWidget {
                                       child: SizedBox(
                                         height: 500,
                                         width: 700,
-                                        child: Image(
+                                        child: Image.network(
                                             fit: BoxFit.fill,
-                                            image: NetworkImage(
-                                                "http://placekitten.com/g/900/500")),
+                                            "http://placekitten.com/g/900/500"),
                                       ),
                                     ),
                                   ],
@@ -190,10 +188,9 @@ class AboutPage extends ConsumerWidget {
                                     child: SizedBox(
                                       height: 500,
                                       width: 700,
-                                      child: Image(
+                                      child: Image.network(
                                           fit: BoxFit.fill,
-                                          image: NetworkImage(
-                                              "http://placekitten.com/g/900/600")),
+                                          "http://placekitten.com/g/900/600"),
                                     ),
                                   ),
                                   const SizedBox(

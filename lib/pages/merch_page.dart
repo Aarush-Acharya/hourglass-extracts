@@ -1123,9 +1123,10 @@ class MerchPage extends ConsumerWidget {
                                       child: SizedBox(
                                         height: 500,
                                         width: 700,
-                                        child: Image(
-                                            image: NetworkImage(
-                                                "http://placekitten.com/700/500")),
+                                        child: Image.network(
+                                          "http://placekitten.com/700/500",
+                                          fit: BoxFit.fill,
+                                        ),
                                       ),
                                     ),
                                   ],
@@ -1146,9 +1147,10 @@ class MerchPage extends ConsumerWidget {
                                       child: SizedBox(
                                         height: 500,
                                         width: 700,
-                                        child: Image(
-                                            image: NetworkImage(
-                                                "http://placekitten.com/700/500")),
+                                        child: Image.network(
+                                          "http://placekitten.com/700/500",
+                                          fit: BoxFit.fill,
+                                        ),
                                       ),
                                     ),
                                     const Padding(
