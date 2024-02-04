@@ -303,9 +303,9 @@ class DispensariesScreen extends ConsumerWidget {
         parent: controller, curve: Curves.fastEaseInToSlowEaseOut);
 
     return Scaffold(
-      endDrawer: const CustomAppBar(),
+      endDrawer:  CustomAppBar(),
       backgroundColor: Colors.black,
-      appBar: const CustomAppBar(),
+      appBar:  CustomAppBar(),
       body: LayoutBuilder(
         builder: (context, constraints) {
           return SingleChildScrollView(

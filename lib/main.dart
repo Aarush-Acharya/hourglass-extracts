@@ -1,6 +1,4 @@
-import 'dart:async';
 import 'dart:ui';
-import 'package:fineartsociety/controller.dart';
 import 'package:fineartsociety/pages/about_page.dart';
 import 'package:fineartsociety/pages/all_artist_page.dart';
 import 'package:fineartsociety/pages/bussiness_inquiry_page.dart';
@@ -36,6 +34,7 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
+      debugShowCheckedModeBanner: false,
       scrollBehavior: AppScrollBehavior(),
       title: 'Hourglass',
       theme: ThemeData(primarySwatch: Colors.amber, fontFamily: 'Cinzel'),
@@ -49,7 +48,7 @@ class MyApp extends StatelessWidget {
         '/events': (context) => const EventsPage(),
         '/contact': (context) => const ContactPage(),
         '/about': (context) => AboutPage(),
-        '/dispensaries': (context) =>  DispensariesScreen(),
+        '/dispensaries': (context) => DispensariesScreen(),
         '/exhibitions': (context) => const ExhibitionPage(),
         '/indivisualItem': (context) => const IndivisualPage(),
         '/products': (context) => ProductPage(),

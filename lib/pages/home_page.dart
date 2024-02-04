@@ -53,10 +53,11 @@ class HomePage extends ConsumerWidget {
         duration: const Duration(seconds: 1), vsync: animationProvider);
     var animation = new CurvedAnimation(
         parent: controller, curve: Curves.fastEaseInToSlowEaseOut);
+    bool isDesktop = MediaQuery.sizeOf(context).width < 786;
 
     return Scaffold(
       backgroundColor: Colors.black,
-      appBar: const CustomAppBar(),
+      appBar: CustomAppBar(),
       body: LayoutBuilder(
         builder: (context, constraints) {
           double firstFoldHeight = MediaQuery.of(context).size.height * 0.75;
@@ -89,92 +90,184 @@ class HomePage extends ConsumerWidget {
                 const SizedBox(
                   height: 40,
                 ),
-                Row(
-                  mainAxisAlignment: MainAxisAlignment.spaceAround,
-                  children: [
-                    Container(
-                      decoration: BoxDecoration(
-                          // color: Colors.red,
-                          borderRadius: BorderRadius.circular(40)),
-                      child: Column(
+                !isDesktop
+                    ? Row(
+                        mainAxisAlignment: MainAxisAlignment.spaceAround,
                         children: [
-                          ClipRRect(
-                            borderRadius: BorderRadius.circular(50),
-                            child: Image.network(
-                              'https://placekitten.com/700/500',
-                              fit: BoxFit.cover,
-                              width: 250,
-                              height: 250,
+                          Container(
+                            decoration: BoxDecoration(
+                                // color: Colors.red,
+                                borderRadius: BorderRadius.circular(40)),
+                            child: Column(
+                              children: [
+                                ClipRRect(
+                                  borderRadius: BorderRadius.circular(50),
+                                  child: Image.network(
+                                    'https://placekitten.com/700/500',
+                                    fit: BoxFit.cover,
+                                    width: 250,
+                                    height: 250,
+                                  ),
+                                ),
+                                SizedBox(
+                                  height: 20,
+                                ),
+                                Text(
+                                  "Prod 1",
+                                  style: TextStyle(color: Colors.white),
+                                )
+                              ],
                             ),
+                            height: 300,
+                            width: 250,
+                          ),
+                          Container(
+                            decoration: BoxDecoration(
+                                // color: Colors.red,
+                                borderRadius: BorderRadius.circular(40)),
+                            child: Column(
+                              children: [
+                                ClipRRect(
+                                  borderRadius: BorderRadius.circular(50),
+                                  child: Image.network(
+                                    'https://placekitten.com/700/500',
+                                    fit: BoxFit.cover,
+                                    width: 250,
+                                    height: 250,
+                                  ),
+                                ),
+                                SizedBox(
+                                  height: 20,
+                                ),
+                                Text(
+                                  "Prod 2",
+                                  style: TextStyle(color: Colors.white),
+                                )
+                              ],
+                            ),
+                            height: 300,
+                            width: 250,
+                          ),
+                          Container(
+                            decoration: BoxDecoration(
+                                // color: Colors.red,
+                                borderRadius: BorderRadius.circular(40)),
+                            child: Column(
+                              children: [
+                                ClipRRect(
+                                  borderRadius: BorderRadius.circular(50),
+                                  child: Image.network(
+                                    'https://placekitten.com/700/500',
+                                    fit: BoxFit.cover,
+                                    width: 250,
+                                    height: 250,
+                                  ),
+                                ),
+                                SizedBox(
+                                  height: 20,
+                                ),
+                                Text(
+                                  "Prod 3",
+                                  style: TextStyle(color: Colors.white),
+                                )
+                              ],
+                            ),
+                            height: 300,
+                            width: 250,
+                          ),
+                        ],
+                      )
+                    : Column(
+                        children: [
+                          Container(
+                            decoration: BoxDecoration(
+                                // color: Colors.red,
+                                borderRadius: BorderRadius.circular(40)),
+                            child: Column(
+                              children: [
+                                ClipRRect(
+                                  borderRadius: BorderRadius.circular(50),
+                                  child: Image.network(
+                                    'https://placekitten.com/700/500',
+                                    fit: BoxFit.cover,
+                                    width: 250,
+                                    height: 250,
+                                  ),
+                                ),
+                                SizedBox(
+                                  height: 20,
+                                ),
+                                Text(
+                                  "Prod 1",
+                                  style: TextStyle(color: Colors.white),
+                                )
+                              ],
+                            ),
+                            height: 300,
+                            width: 250,
                           ),
                           SizedBox(
-                            height: 20,
+                            height: 40,
                           ),
-                          Text(
-                            "Prod 1",
-                            style: TextStyle(color: Colors.white),
-                          )
-                        ],
-                      ),
-                      height: 300,
-                      width: 250,
-                    ),
-                    Container(
-                      decoration: BoxDecoration(
-                          // color: Colors.red,
-                          borderRadius: BorderRadius.circular(40)),
-                      child: Column(
-                        children: [
-                          ClipRRect(
-                            borderRadius: BorderRadius.circular(50),
-                            child: Image.network(
-                              'https://placekitten.com/700/500',
-                              fit: BoxFit.cover,
-                              width: 250,
-                              height: 250,
+                          Container(
+                            decoration: BoxDecoration(
+                                // color: Colors.red,
+                                borderRadius: BorderRadius.circular(40)),
+                            child: Column(
+                              children: [
+                                ClipRRect(
+                                  borderRadius: BorderRadius.circular(50),
+                                  child: Image.network(
+                                    'https://placekitten.com/700/500',
+                                    fit: BoxFit.cover,
+                                    width: 250,
+                                    height: 250,
+                                  ),
+                                ),
+                                SizedBox(
+                                  height: 20,
+                                ),
+                                Text(
+                                  "Prod 2",
+                                  style: TextStyle(color: Colors.white),
+                                )
+                              ],
                             ),
+                            height: 300,
+                            width: 250,
                           ),
                           SizedBox(
-                            height: 20,
+                            height: 40,
                           ),
-                          Text(
-                            "Prod 2",
-                            style: TextStyle(color: Colors.white),
-                          )
-                        ],
-                      ),
-                      height: 300,
-                      width: 250,
-                    ),
-                    Container(
-                      decoration: BoxDecoration(
-                          // color: Colors.red,
-                          borderRadius: BorderRadius.circular(40)),
-                      child: Column(
-                        children: [
-                          ClipRRect(
-                            borderRadius: BorderRadius.circular(50),
-                            child: Image.network(
-                              'https://placekitten.com/700/500',
-                              fit: BoxFit.cover,
-                              width: 250,
-                              height: 250,
+                          Container(
+                            decoration: BoxDecoration(
+                                // color: Colors.red,
+                                borderRadius: BorderRadius.circular(40)),
+                            child: Column(
+                              children: [
+                                ClipRRect(
+                                  borderRadius: BorderRadius.circular(50),
+                                  child: Image.network(
+                                    'https://placekitten.com/700/500',
+                                    fit: BoxFit.cover,
+                                    width: 250,
+                                    height: 250,
+                                  ),
+                                ),
+                                SizedBox(
+                                  height: 20,
+                                ),
+                                Text(
+                                  "Prod 3",
+                                  style: TextStyle(color: Colors.white),
+                                )
+                              ],
                             ),
+                            height: 300,
+                            width: 250,
                           ),
-                          SizedBox(
-                            height: 20,
-                          ),
-                          Text(
-                            "Prod 3",
-                            style: TextStyle(color: Colors.white),
-                          )
                         ],
                       ),
-                      height: 300,
-                      width: 250,
-                    ),
-                  ],
-                ),
                 const SizedBox(
                   height: 60,
                 ),
@@ -184,54 +277,103 @@ class HomePage extends ConsumerWidget {
                 const SizedBox(
                   height: 30,
                 ),
-                Row(
-                  crossAxisAlignment: CrossAxisAlignment.center,
-                  mainAxisAlignment: MainAxisAlignment.start,
-                  children: [
-                    const SizedBox(
-                      width: 20,
-                    ),
-                    Container(
-                      height: 350,
-                      width: 700,
-                      decoration: BoxDecoration(
-                          color: Colors.grey,
-                          borderRadius: BorderRadius.circular(30)),
-                    ),
-                    const SizedBox(
-                      width: 50,
-                    ),
-                    const Padding(
-                      padding: EdgeInsets.only(bottom: 50),
-                      child: Column(
-                        crossAxisAlignment: CrossAxisAlignment.start,
+                !isDesktop
+                    ? Row(
+                        crossAxisAlignment: CrossAxisAlignment.center,
+                        mainAxisAlignment: MainAxisAlignment.start,
                         children: [
-                          SizedBox(
-                            width: 300,
-                            child: Text(
-                              "WHAT IS STIIIZY?",
-                              style:
-                                  TextStyle(color: Colors.white, fontSize: 30),
-                              softWrap: true,
+                          const SizedBox(
+                            width: 20,
+                          ),
+                          Container(
+                            height: 0.4294478528 *
+                                MediaQuery.sizeOf(context).height,
+                            width:
+                                0.4861111111 * MediaQuery.sizeOf(context).width,
+                            decoration: BoxDecoration(
+                                color: Colors.grey,
+                                borderRadius: BorderRadius.circular(30)),
+                          ),
+                          const SizedBox(
+                            width: 50,
+                          ),
+                          Padding(
+                            padding: EdgeInsets.only(bottom: 50),
+                            child: Column(
+                              crossAxisAlignment: CrossAxisAlignment.start,
+                              children: [
+                                const Text(
+                                  "WHAT IS STIIIZY?",
+                                  style: TextStyle(
+                                      color: Colors.white, fontSize: 30),
+                                  softWrap: true,
+                                ),
+                                SizedBox(
+                                  height: 40,
+                                ),
+                                SizedBox(
+                                  width:
+                                      0.41 * MediaQuery.sizeOf(context).width,
+                                  child: Text(
+                                    "STIIIZY offers a line of premium cannabis products that has set a new industry standard for portability and convenience. STIIIZY's proprietary pod system has garnered a cult-like following since its launch and has emerged as a leading lifestyle brand in cannabis.",
+                                    style: TextStyle(
+                                        color: Colors.white, fontSize: 15),
+                                    softWrap: true,
+                                  ),
+                                ),
+                              ],
                             ),
                           ),
-                          SizedBox(
-                            height: 40,
+                        ],
+                      )
+                    : Column(
+                        crossAxisAlignment: CrossAxisAlignment.center,
+                        mainAxisAlignment: MainAxisAlignment.start,
+                        children: [
+                          const SizedBox(
+                            width: 20,
                           ),
-                          SizedBox(
-                            width: 600,
-                            child: Text(
-                              "STIIIZY offers a line of premium cannabis products that has set a new industry standard for portability and convenience. STIIIZY's proprietary pod system has garnered a cult-like following since its launch and has emerged as a leading lifestyle brand in cannabis.",
-                              style:
-                                  TextStyle(color: Colors.white, fontSize: 15),
-                              softWrap: true,
+                          Container(
+                            height: 0.4294478528 *
+                                MediaQuery.sizeOf(context).height,
+                            width:
+                                0.4861111111 * MediaQuery.sizeOf(context).width,
+                            decoration: BoxDecoration(
+                                color: Colors.grey,
+                                borderRadius: BorderRadius.circular(30)),
+                          ),
+                          const SizedBox(
+                            height: 50,
+                          ),
+                          Padding(
+                            padding: EdgeInsets.only(bottom: 50),
+                            child: Column(
+                              crossAxisAlignment: CrossAxisAlignment.start,
+                              children: [
+                                const Text(
+                                  "WHAT IS STIIIZY?",
+                                  style: TextStyle(
+                                      color: Colors.white, fontSize: 30),
+                                  softWrap: true,
+                                ),
+                                SizedBox(
+                                  height: 40,
+                                ),
+                                SizedBox(
+                                  width:
+                                      0.41 * MediaQuery.sizeOf(context).width,
+                                  child: Text(
+                                    "STIIIZY offers a line of premium cannabis products that has set a new industry standard for portability and convenience. STIIIZY's proprietary pod system has garnered a cult-like following since its launch and has emerged as a leading lifestyle brand in cannabis.",
+                                    style: TextStyle(
+                                        color: Colors.white, fontSize: 15),
+                                    softWrap: true,
+                                  ),
+                                ),
+                              ],
                             ),
                           ),
                         ],
                       ),
-                    ),
-                  ],
-                ),
                 const SizedBox(
                   height: 30,
                 ),
@@ -278,178 +420,363 @@ class HomePage extends ConsumerWidget {
                   height: 60,
                 ),
                 isNewReleases
-                    ? Row(
-                        mainAxisAlignment: MainAxisAlignment.spaceAround,
-                        children: [
-                          Container(
-                            decoration: BoxDecoration(
-                                // color: Colors.red,
-                                borderRadius: BorderRadius.circular(40)),
-                            child: Column(
-                              children: [
-                                ClipRRect(
-                                  borderRadius: BorderRadius.circular(50),
-                                  child: Image.network(
-                                    'https://placekitten.com/900/500',
-                                    fit: BoxFit.cover,
-                                    width: 250,
-                                    height: 250,
-                                  ),
+                    ? !isDesktop
+                        ? Row(
+                            mainAxisAlignment: MainAxisAlignment.spaceAround,
+                            children: [
+                              Container(
+                                decoration: BoxDecoration(
+                                    // color: Colors.red,
+                                    borderRadius: BorderRadius.circular(40)),
+                                child: Column(
+                                  children: [
+                                    ClipRRect(
+                                      borderRadius: BorderRadius.circular(50),
+                                      child: Image.network(
+                                        'https://placekitten.com/900/500',
+                                        fit: BoxFit.cover,
+                                        width: 250,
+                                        height: 250,
+                                      ),
+                                    ),
+                                    SizedBox(
+                                      height: 20,
+                                    ),
+                                    Text(
+                                      "Prod 4",
+                                      style: TextStyle(color: Colors.white),
+                                    )
+                                  ],
                                 ),
-                                SizedBox(
-                                  height: 20,
+                                height: 300,
+                                width: 250,
+                              ),
+                              Container(
+                                decoration: BoxDecoration(
+                                    // color: Colors.red,
+                                    borderRadius: BorderRadius.circular(40)),
+                                child: Column(
+                                  children: [
+                                    ClipRRect(
+                                      borderRadius: BorderRadius.circular(50),
+                                      child: Image.network(
+                                        'https://placekitten.com/900/500',
+                                        fit: BoxFit.cover,
+                                        width: 250,
+                                        height: 250,
+                                      ),
+                                    ),
+                                    SizedBox(
+                                      height: 20,
+                                    ),
+                                    Text(
+                                      "Prod 5",
+                                      style: TextStyle(color: Colors.white),
+                                    )
+                                  ],
                                 ),
-                                Text(
-                                  "Prod 4",
-                                  style: TextStyle(color: Colors.white),
-                                )
-                              ],
-                            ),
-                            height: 300,
-                            width: 250,
+                                height: 300,
+                                width: 250,
+                              ),
+                              Container(
+                                decoration: BoxDecoration(
+                                    // color: Colors.red,
+                                    borderRadius: BorderRadius.circular(40)),
+                                child: Column(
+                                  children: [
+                                    ClipRRect(
+                                      borderRadius: BorderRadius.circular(50),
+                                      child: Image.network(
+                                        'https://placekitten.com/900/500',
+                                        fit: BoxFit.cover,
+                                        width: 250,
+                                        height: 250,
+                                      ),
+                                    ),
+                                    SizedBox(
+                                      height: 20,
+                                    ),
+                                    Text(
+                                      "Prod 6",
+                                      style: TextStyle(color: Colors.white),
+                                    )
+                                  ],
+                                ),
+                                height: 300,
+                                width: 250,
+                              ),
+                            ],
+                          )
+                        : Column(
+                            mainAxisAlignment: MainAxisAlignment.spaceAround,
+                            children: [
+                              Container(
+                                decoration: BoxDecoration(
+                                    // color: Colors.red,
+                                    borderRadius: BorderRadius.circular(40)),
+                                child: Column(
+                                  children: [
+                                    ClipRRect(
+                                      borderRadius: BorderRadius.circular(50),
+                                      child: Image.network(
+                                        'https://placekitten.com/900/500',
+                                        fit: BoxFit.cover,
+                                        width: 250,
+                                        height: 250,
+                                      ),
+                                    ),
+                                    SizedBox(
+                                      height: 20,
+                                    ),
+                                    Text(
+                                      "Prod 4",
+                                      style: TextStyle(color: Colors.white),
+                                    )
+                                  ],
+                                ),
+                                height: 300,
+                                width: 250,
+                              ),
+                              SizedBox(
+                                height: 30,
+                              ),
+                              Container(
+                                decoration: BoxDecoration(
+                                    // color: Colors.red,
+                                    borderRadius: BorderRadius.circular(40)),
+                                child: Column(
+                                  children: [
+                                    ClipRRect(
+                                      borderRadius: BorderRadius.circular(50),
+                                      child: Image.network(
+                                        'https://placekitten.com/900/500',
+                                        fit: BoxFit.cover,
+                                        width: 250,
+                                        height: 250,
+                                      ),
+                                    ),
+                                    SizedBox(
+                                      height: 20,
+                                    ),
+                                    Text(
+                                      "Prod 5",
+                                      style: TextStyle(color: Colors.white),
+                                    )
+                                  ],
+                                ),
+                                height: 300,
+                                width: 250,
+                              ),
+                              SizedBox(
+                                height: 30,
+                              ),
+                              Container(
+                                decoration: BoxDecoration(
+                                    // color: Colors.red,
+                                    borderRadius: BorderRadius.circular(40)),
+                                child: Column(
+                                  children: [
+                                    ClipRRect(
+                                      borderRadius: BorderRadius.circular(50),
+                                      child: Image.network(
+                                        'https://placekitten.com/900/500',
+                                        fit: BoxFit.cover,
+                                        width: 250,
+                                        height: 250,
+                                      ),
+                                    ),
+                                    SizedBox(
+                                      height: 20,
+                                    ),
+                                    Text(
+                                      "Prod 6",
+                                      style: TextStyle(color: Colors.white),
+                                    )
+                                  ],
+                                ),
+                                height: 300,
+                                width: 250,
+                              ),
+                            ],
+                          )
+                    : !isDesktop
+                        ? Row(
+                            mainAxisAlignment: MainAxisAlignment.spaceAround,
+                            children: [
+                              Container(
+                                decoration: BoxDecoration(
+                                    // color: Colors.red,
+                                    borderRadius: BorderRadius.circular(40)),
+                                child: Column(
+                                  children: [
+                                    ClipRRect(
+                                      borderRadius: BorderRadius.circular(50),
+                                      child: Image.network(
+                                        'https://placekitten.com/600/500',
+                                        fit: BoxFit.cover,
+                                        width: 250,
+                                        height: 250,
+                                      ),
+                                    ),
+                                    SizedBox(
+                                      height: 20,
+                                    ),
+                                    Text(
+                                      "Prod 7",
+                                      style: TextStyle(color: Colors.white),
+                                    )
+                                  ],
+                                ),
+                                height: 300,
+                                width: 250,
+                              ),
+                              Container(
+                                decoration: BoxDecoration(
+                                    // color: Colors.red,
+                                    borderRadius: BorderRadius.circular(40)),
+                                child: Column(
+                                  children: [
+                                    ClipRRect(
+                                      borderRadius: BorderRadius.circular(50),
+                                      child: Image.network(
+                                        'https://placekitten.com/600/500',
+                                        fit: BoxFit.cover,
+                                        width: 250,
+                                        height: 250,
+                                      ),
+                                    ),
+                                    SizedBox(
+                                      height: 20,
+                                    ),
+                                    Text(
+                                      "Prod 8",
+                                      style: TextStyle(color: Colors.white),
+                                    )
+                                  ],
+                                ),
+                                height: 300,
+                                width: 250,
+                              ),
+                              Container(
+                                decoration: BoxDecoration(
+                                    // color: Colors.red,
+                                    borderRadius: BorderRadius.circular(40)),
+                                child: Column(
+                                  children: [
+                                    ClipRRect(
+                                      borderRadius: BorderRadius.circular(50),
+                                      child: Image.network(
+                                        'https://placekitten.com/600/500',
+                                        fit: BoxFit.cover,
+                                        width: 250,
+                                        height: 250,
+                                      ),
+                                    ),
+                                    SizedBox(
+                                      height: 20,
+                                    ),
+                                    Text(
+                                      "Prod 9",
+                                      style: TextStyle(color: Colors.white),
+                                    )
+                                  ],
+                                ),
+                                height: 300,
+                                width: 250,
+                              ),
+                            ],
+                          )
+                        : Column(
+                            children: [
+                              Container(
+                                decoration: BoxDecoration(
+                                    // color: Colors.red,
+                                    borderRadius: BorderRadius.circular(40)),
+                                child: Column(
+                                  children: [
+                                    ClipRRect(
+                                      borderRadius: BorderRadius.circular(50),
+                                      child: Image.network(
+                                        'https://placekitten.com/600/500',
+                                        fit: BoxFit.cover,
+                                        width: 250,
+                                        height: 250,
+                                      ),
+                                    ),
+                                    SizedBox(
+                                      height: 20,
+                                    ),
+                                    Text(
+                                      "Prod 7",
+                                      style: TextStyle(color: Colors.white),
+                                    )
+                                  ],
+                                ),
+                                height: 300,
+                                width: 250,
+                              ),
+                              SizedBox(
+                                height: 30,
+                              ),
+                              Container(
+                                decoration: BoxDecoration(
+                                    // color: Colors.red,
+                                    borderRadius: BorderRadius.circular(40)),
+                                child: Column(
+                                  children: [
+                                    ClipRRect(
+                                      borderRadius: BorderRadius.circular(50),
+                                      child: Image.network(
+                                        'https://placekitten.com/600/500',
+                                        fit: BoxFit.cover,
+                                        width: 250,
+                                        height: 250,
+                                      ),
+                                    ),
+                                    SizedBox(
+                                      height: 20,
+                                    ),
+                                    Text(
+                                      "Prod 8",
+                                      style: TextStyle(color: Colors.white),
+                                    )
+                                  ],
+                                ),
+                                height: 300,
+                                width: 250,
+                              ),
+                              SizedBox(
+                                height: 30,
+                              ),
+                              Container(
+                                decoration: BoxDecoration(
+                                    // color: Colors.red,
+                                    borderRadius: BorderRadius.circular(40)),
+                                child: Column(
+                                  children: [
+                                    ClipRRect(
+                                      borderRadius: BorderRadius.circular(50),
+                                      child: Image.network(
+                                        'https://placekitten.com/600/500',
+                                        fit: BoxFit.cover,
+                                        width: 250,
+                                        height: 250,
+                                      ),
+                                    ),
+                                    SizedBox(
+                                      height: 20,
+                                    ),
+                                    Text(
+                                      "Prod 9",
+                                      style: TextStyle(color: Colors.white),
+                                    )
+                                  ],
+                                ),
+                                height: 300,
+                                width: 250,
+                              ),
+                            ],
                           ),
-                          Container(
-                            decoration: BoxDecoration(
-                                // color: Colors.red,
-                                borderRadius: BorderRadius.circular(40)),
-                            child: Column(
-                              children: [
-                                ClipRRect(
-                                  borderRadius: BorderRadius.circular(50),
-                                  child: Image.network(
-                                    'https://placekitten.com/900/500',
-                                    fit: BoxFit.cover,
-                                    width: 250,
-                                    height: 250,
-                                  ),
-                                ),
-                                SizedBox(
-                                  height: 20,
-                                ),
-                                Text(
-                                  "Prod 5",
-                                  style: TextStyle(color: Colors.white),
-                                )
-                              ],
-                            ),
-                            height: 300,
-                            width: 250,
-                          ),
-                          Container(
-                            decoration: BoxDecoration(
-                                // color: Colors.red,
-                                borderRadius: BorderRadius.circular(40)),
-                            child: Column(
-                              children: [
-                                ClipRRect(
-                                  borderRadius: BorderRadius.circular(50),
-                                  child: Image.network(
-                                    'https://placekitten.com/900/500',
-                                    fit: BoxFit.cover,
-                                    width: 250,
-                                    height: 250,
-                                  ),
-                                ),
-                                SizedBox(
-                                  height: 20,
-                                ),
-                                Text(
-                                  "Prod 6",
-                                  style: TextStyle(color: Colors.white),
-                                )
-                              ],
-                            ),
-                            height: 300,
-                            width: 250,
-                          ),
-                        ],
-                      )
-                    : Row(
-                        mainAxisAlignment: MainAxisAlignment.spaceAround,
-                        children: [
-                          Container(
-                            decoration: BoxDecoration(
-                                // color: Colors.red,
-                                borderRadius: BorderRadius.circular(40)),
-                            child: Column(
-                              children: [
-                                ClipRRect(
-                                  borderRadius: BorderRadius.circular(50),
-                                  child: Image.network(
-                                    'https://placekitten.com/600/500',
-                                    fit: BoxFit.cover,
-                                    width: 250,
-                                    height: 250,
-                                  ),
-                                ),
-                                SizedBox(
-                                  height: 20,
-                                ),
-                                Text(
-                                  "Prod 7",
-                                  style: TextStyle(color: Colors.white),
-                                )
-                              ],
-                            ),
-                            height: 300,
-                            width: 250,
-                          ),
-                          Container(
-                            decoration: BoxDecoration(
-                                // color: Colors.red,
-                                borderRadius: BorderRadius.circular(40)),
-                            child: Column(
-                              children: [
-                                ClipRRect(
-                                  borderRadius: BorderRadius.circular(50),
-                                  child: Image.network(
-                                    'https://placekitten.com/600/500',
-                                    fit: BoxFit.cover,
-                                    width: 250,
-                                    height: 250,
-                                  ),
-                                ),
-                                SizedBox(
-                                  height: 20,
-                                ),
-                                Text(
-                                  "Prod 8",
-                                  style: TextStyle(color: Colors.white),
-                                )
-                              ],
-                            ),
-                            height: 300,
-                            width: 250,
-                          ),
-                          Container(
-                            decoration: BoxDecoration(
-                                // color: Colors.red,
-                                borderRadius: BorderRadius.circular(40)),
-                            child: Column(
-                              children: [
-                                ClipRRect(
-                                  borderRadius: BorderRadius.circular(50),
-                                  child: Image.network(
-                                    'https://placekitten.com/600/500',
-                                    fit: BoxFit.cover,
-                                    width: 250,
-                                    height: 250,
-                                  ),
-                                ),
-                                SizedBox(
-                                  height: 20,
-                                ),
-                                Text(
-                                  "Prod 9",
-                                  style: TextStyle(color: Colors.white),
-                                )
-                              ],
-                            ),
-                            height: 300,
-                            width: 250,
-                          ),
-                        ],
-                      ),
                 const SizedBox(
                   height: 60,
                 ),

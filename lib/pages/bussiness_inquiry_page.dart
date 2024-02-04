@@ -20,7 +20,7 @@ class BussinessInquiryPage extends ConsumerWidget {
 
     return Scaffold(
       backgroundColor: Colors.black,
-      appBar: const CustomAppBar(),
+      appBar:  CustomAppBar(),
       body: LayoutBuilder(
         builder: (context, constraints) {
           // bool isDesktop = MediaQuery.of(context).size.width > 1168;

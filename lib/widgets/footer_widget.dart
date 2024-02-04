@@ -17,7 +17,7 @@ class FooterWidget extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     // Check if the screen width is greater than a specified breakpoint
-    bool isDesktop = MediaQuery.of(context).size.width > 600;
+    bool isDesktop = MediaQuery.of(context).size.width > 718;
 
     return Container(
       padding: const EdgeInsets.all(20),
