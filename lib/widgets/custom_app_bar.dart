@@ -1,6 +1,7 @@
 // lib/widgets/custom_app_bar.dart
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:flutter_svg/svg.dart';
 import 'package:riverpod_annotation/riverpod_annotation.dart';
 part "custom_app_bar.g.dart";
 
@@ -40,14 +41,13 @@ class CustomAppBar extends ConsumerWidget implements PreferredSizeWidget {
       'Merch': 'merch',
       'Dispensaries': 'dispensaries',
       'About Us': 'exhibitions',
-      'Business Inuiries': 'news',
+      'Business Inquiries': 'news',
       'Events': 'contact'
     };
 
     return PreferredSize(
       preferredSize: Size(screenSize.width, 1000),
       child: Container(
-        color: Colors.white,
         child: Padding(
           padding: EdgeInsets.only(left: 30, top: 5, bottom: 5, right: 40),
           child: Row(
@@ -61,9 +61,11 @@ class CustomAppBar extends ConsumerWidget implements PreferredSizeWidget {
                     },
                     child: Ink(
                         height: 100,
-                        child: Image.network(
-                          "https://placekitten.com/100/100",
-                          fit: BoxFit.fill,
+                        width: 100,
+                        child: SvgPicture.asset(
+                          "assets/Altrd Cannabis Asset.svg",
+                          fit: BoxFit.contain,
+                          color: Colors.white,
                         ))),
               ),
               Expanded(
@@ -98,10 +100,10 @@ class CustomAppBar extends ConsumerWidget implements PreferredSizeWidget {
                                 Text(
                                   header,
                                   style: TextStyle(
-                                    color: _isHovering[index]
-                                        ? Colors.yellow.shade800
-                                        : Colors.black,
-                                  ),
+                                      color: _isHovering[index]
+                                          ? Color.fromARGB(255, 3, 255, 142)
+                                          : Colors.white,
+                                      fontWeight: FontWeight.w600),
                                 ),
                                 SizedBox(height: 5),
                                 // For showing an underline on hover
@@ -113,8 +115,8 @@ class CustomAppBar extends ConsumerWidget implements PreferredSizeWidget {
                                   child: AnimatedContainer(
                                       duration: Duration(milliseconds: 250),
                                       height: 2,
-                                      width: _isHovering[index] ? 40 : 0,
-                                      color: Colors.black),
+                                      width: _isHovering[index] ? 50 : 0,
+                                      color: Colors.white),
                                 )
                               ],
                             ),
@@ -126,11 +128,18 @@ class CustomAppBar extends ConsumerWidget implements PreferredSizeWidget {
                   }).toList(),
                 ),
               ),
-              InkWell(onTap: () {}, child: Icon(Icons.search)),
+              InkWell(
+                  onTap: () {},
+                  child: Icon(
+                    Icons.search,
+                    color: Colors.white,
+                  )),
               SizedBox(
                 width: screenSize.width / 50,
               ),
-              InkWell(onTap: () {}, child: Icon(Icons.shopping_bag)),
+              InkWell(
+                  onTap: () {},
+                  child: Icon(Icons.shopping_bag, color: Colors.white)),
             ],
           ),
         ),

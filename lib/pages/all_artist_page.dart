@@ -19,7 +19,7 @@ class AllArtistsPage extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: Colors.black,
-      appBar:  CustomAppBar(),
+      appBar: CustomAppBar(),
       body: LayoutBuilder(
         builder: (context, constraints) {
           double firstFoldHeight = MediaQuery.of(context).size.height * 0.75;
@@ -121,7 +121,11 @@ class AllArtistsPage extends StatelessWidget {
                 FutureBuilder(
                     future: readJson(),
                     builder: (context, snapshot) {
-                      return BuildBlockGrid(girdData: snapshot.data!, isRectangular: false,isEvent: false,);
+                      return BuildBlockGrid(
+                        girdData: snapshot.data!,
+                        isRectangular: false,
+                        isEvent: false,
+                      );
                     }),
 
                 // 4, Use the FooterWidget here

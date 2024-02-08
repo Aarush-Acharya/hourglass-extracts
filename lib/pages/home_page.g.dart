@@ -22,5 +22,22 @@ final merchTypeStateProvider =
 );
 
 typedef _$MerchTypeState = AutoDisposeNotifier<bool>;
+String _$cardDimensionStateHash() =>
+    r'dcfc512f0e694c2680f71b88d4cfcf464532399d';
+
+/// See also [CardDimensionState].
+@ProviderFor(CardDimensionState)
+final cardDimensionStateProvider =
+    AutoDisposeNotifierProvider<CardDimensionState, List>.internal(
+  CardDimensionState.new,
+  name: r'cardDimensionStateProvider',
+  debugGetCreateSourceHash: const bool.fromEnvironment('dart.vm.product')
+      ? null
+      : _$cardDimensionStateHash,
+  dependencies: null,
+  allTransitiveDependencies: null,
+);
+
+typedef _$CardDimensionState = AutoDisposeNotifier<List>;
 // ignore_for_file: type=lint
 // ignore_for_file: subtype_of_sealed_class, invalid_use_of_internal_member, invalid_use_of_visible_for_testing_member

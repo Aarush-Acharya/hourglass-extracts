@@ -25,6 +25,8 @@ dependencies:
   page_view_dot_indicator: ^2.3.0
   another_transformer_page_view: ^2.0.1
   google_maps_flutter: ^2.2.8
+  simple_ripple_animation: ^0.0.9
+  hovering: ^1.0.4
 
 dev_dependencies:
   flutter_test:
@@ -46,3 +48,6 @@ flutter:
     - family: Cinzel
       fonts:
         - asset: assets/fonts/Cinzel.ttf
+    - family: Roboto
+      fonts:
+        - asset: assets/fonts/Roboto-Black.ttf
