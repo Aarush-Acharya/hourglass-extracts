@@ -9,8 +9,10 @@ import 'package:getwidget/types/gf_animation_type.dart';
 import 'package:hovering/hovering.dart';
 import 'package:riverpod_annotation/riverpod_annotation.dart';
 import 'package:simple_ripple_animation/simple_ripple_animation.dart';
+import 'package:video_player/video_player.dart';
 import '../widgets/custom_app_bar.dart';
 import '../widgets/blocks_grid.dart';
+import 'package:flutter_svg/svg.dart';
 import 'package:carousel_slider/carousel_slider.dart';
 import '../widgets/footer_widget.dart';
 part 'home_page.g.dart';
@@ -160,7 +162,7 @@ class HomePage extends ConsumerWidget {
                                     SizedBox(
                                       width: 500,
                                       child: Text(
-                                        "Discover your perfect high with over 100 curated strains, personalized recommendations, and precise weight by the gram - elevating your experience to new heights. Cambridge, Vermont Dispensary EST 2022",
+                                        "Discover your perfect high with over 100 curated strains, personalized recommendations, and precise weight by the gram - elevating your experience to new heights. Altrd, EST 2021",
                                         style: TextStyle(
                                             color: Colors.white,
                                             fontSize: 20,
@@ -488,13 +490,48 @@ class HomePage extends ConsumerWidget {
                               ],
                             ),
                           ),
-                          const SizedBox(
-                            height: 40,
-                          ),
                         ],
                       ),
                 const SizedBox(
-                  height: 100,
+                  height: 60,
+                ),
+                const Text(
+                  "Our Stores",
+                  style: TextStyle(color: Colors.black, fontSize: 30),
+                ),
+                const SizedBox(
+                  height: 20,
+                ),
+                Container(
+                  width: MediaQuery.of(context)
+                      .size
+                      .width, // Full width of the screen
+                  height: 0.4294478528 *
+                      MediaQuery.of(context).size.height, // Adjusted height
+                  decoration: BoxDecoration(
+                    image: DecorationImage(
+                      image: AssetImage('assets/mep2.jpeg'),
+                      fit: BoxFit.cover, // Cover the container with the image
+                    ),
+                  ),
+                ),
+                // const SizedBox(
+                //   height: 50,
+                // ),
+                const SizedBox(
+                  height: 20,
+                ),
+                const Text(
+                  "Find the nearest ALTRD store now",
+                  style: TextStyle(
+                    color: Colors.black,
+                    fontSize: 20,
+                    fontFamily: 'Roboto',
+                  ),
+                  softWrap: true,
+                ),
+                const SizedBox(
+                  height: 50,
                 ),
                 const Divider(
                   color: Color.fromARGB(112, 255, 255, 255),
@@ -513,24 +550,24 @@ class HomePage extends ConsumerWidget {
                                 .height, // Adjusted height
                         decoration: BoxDecoration(
                           image: DecorationImage(
-                            image: AssetImage('assets/stiizy.jpeg'),
+                            image: AssetImage('assets/stiizy-crop.jpeg'),
                             fit: BoxFit
                                 .cover, // Cover the container with the image
                           ),
                         ),
                         child: Padding(
                           padding: const EdgeInsets.all(
-                              20), // Padding to create space between the edge of the image and the text container
+                              0), // Padding to create space between the edge of the image and the text container
                           child: Container(
                             decoration: BoxDecoration(
                               color: Colors.black.withOpacity(
                                   0.5), // Semi-transparent black background for the text container
                               borderRadius: BorderRadius.circular(
-                                  10), // Optional: Adds rounded corners to the text container
+                                  0), // Optional: Adds rounded corners to the text container
                             ),
                             child: Padding(
                               padding: const EdgeInsets.all(
-                                  20), // Padding inside the text container for spacing around the text
+                                  50), // Padding inside the text container for spacing around the text
                               child: Column(
                                 crossAxisAlignment: CrossAxisAlignment.start,
                                 mainAxisAlignment: MainAxisAlignment
@@ -672,8 +709,8 @@ class HomePage extends ConsumerWidget {
                                   children: [
                                     ClipRRect(
                                       borderRadius: BorderRadius.circular(50),
-                                      child: Image.network(
-                                        'https://www.stiiizy.com/cdn/shop/files/BACK-04_3d1f77b4-f216-4daf-b986-6d2f75d16565_1800x1800.png?v=1700083875',
+                                      child: Image.asset(
+                                        'assets/merch-shirt.png',
                                         fit: BoxFit.cover,
                                         width: 250,
                                         height: 250,
@@ -699,8 +736,8 @@ class HomePage extends ConsumerWidget {
                                   children: [
                                     ClipRRect(
                                       borderRadius: BorderRadius.circular(50),
-                                      child: Image.network(
-                                        'https://www.stiiizy.com/cdn/shop/files/BACK-04_3d1f77b4-f216-4daf-b986-6d2f75d16565_1800x1800.png?v=1700083875',
+                                      child: Image.asset(
+                                        'assets/merch-shirt.png',
                                         fit: BoxFit.cover,
                                         width: 250,
                                         height: 250,
@@ -711,7 +748,7 @@ class HomePage extends ConsumerWidget {
                                     ),
                                     const Text(
                                       "Prod 4",
-                                      style: TextStyle(color: Colors.white),
+                                      style: TextStyle(color: Colors.black),
                                     )
                                   ],
                                 ),
@@ -726,8 +763,8 @@ class HomePage extends ConsumerWidget {
                                   children: [
                                     ClipRRect(
                                       borderRadius: BorderRadius.circular(50),
-                                      child: Image.network(
-                                        'https://www.stiiizy.com/cdn/shop/files/BACK-04_3d1f77b4-f216-4daf-b986-6d2f75d16565_1800x1800.png?v=1700083875',
+                                      child: Image.asset(
+                                        'assets/merch-shirt.png',
                                         fit: BoxFit.cover,
                                         width: 250,
                                         height: 250,
@@ -753,8 +790,8 @@ class HomePage extends ConsumerWidget {
                                   children: [
                                     ClipRRect(
                                       borderRadius: BorderRadius.circular(50),
-                                      child: Image.network(
-                                        'https://www.stiiizy.com/cdn/shop/files/BACK-04_3d1f77b4-f216-4daf-b986-6d2f75d16565_1800x1800.png?v=1700083875',
+                                      child: Image.asset(
+                                        'assets/merch-shirt.png',
                                         fit: BoxFit.cover,
                                         width: 250,
                                         height: 250,
@@ -785,8 +822,8 @@ class HomePage extends ConsumerWidget {
                                   children: [
                                     ClipRRect(
                                       borderRadius: BorderRadius.circular(50),
-                                      child: Image.network(
-                                        'https://www.stiiizy.com/cdn/shop/files/BACK-04_3d1f77b4-f216-4daf-b986-6d2f75d16565_1800x1800.png?v=1700083875',
+                                      child: Image.asset(
+                                        'assets/merch-shirt.png',
                                         fit: BoxFit.cover,
                                         width: 250,
                                         height: 250,
@@ -807,62 +844,8 @@ class HomePage extends ConsumerWidget {
                               const SizedBox(
                                 height: 30,
                               ),
-                              Container(
-                                decoration: BoxDecoration(
-                                    // color: Colors.red,
-                                    borderRadius: BorderRadius.circular(40)),
-                                child: Column(
-                                  children: [
-                                    ClipRRect(
-                                      borderRadius: BorderRadius.circular(50),
-                                      child: Image.network(
-                                        'https://www.stiiizy.com/cdn/shop/files/BACK-04_3d1f77b4-f216-4daf-b986-6d2f75d16565_1800x1800.png?v=1700083875',
-                                        fit: BoxFit.cover,
-                                        width: 250,
-                                        height: 250,
-                                      ),
-                                    ),
-                                    const SizedBox(
-                                      height: 20,
-                                    ),
-                                    const Text(
-                                      "Prod 5",
-                                      style: TextStyle(color: Colors.black),
-                                    )
-                                  ],
-                                ),
-                                height: 300,
-                                width: 250,
-                              ),
                               const SizedBox(
                                 height: 30,
-                              ),
-                              Container(
-                                decoration: BoxDecoration(
-                                    // color: Colors.red,
-                                    borderRadius: BorderRadius.circular(40)),
-                                child: Column(
-                                  children: [
-                                    ClipRRect(
-                                      borderRadius: BorderRadius.circular(50),
-                                      child: Image.network(
-                                        'https://www.stiiizy.com/cdn/shop/files/BACK-04_3d1f77b4-f216-4daf-b986-6d2f75d16565_1800x1800.png?v=1700083875',
-                                        fit: BoxFit.cover,
-                                        width: 250,
-                                        height: 250,
-                                      ),
-                                    ),
-                                    const SizedBox(
-                                      height: 20,
-                                    ),
-                                    const Text(
-                                      "Prod 6",
-                                      style: TextStyle(color: Colors.black),
-                                    )
-                                  ],
-                                ),
-                                height: 300,
-                                width: 250,
                               ),
                             ],
                           )
@@ -878,8 +861,8 @@ class HomePage extends ConsumerWidget {
                                   children: [
                                     ClipRRect(
                                       borderRadius: BorderRadius.circular(50),
-                                      child: Image.network(
-                                        'https://www.stiiizy.com/cdn/shop/files/BACK-04_3d1f77b4-f216-4daf-b986-6d2f75d16565_1800x1800.png?v=1700083875',
+                                      child: Image.asset(
+                                        'assets/merch-shirt.png',
                                         fit: BoxFit.cover,
                                         width: 250,
                                         height: 250,
@@ -905,8 +888,8 @@ class HomePage extends ConsumerWidget {
                                   children: [
                                     ClipRRect(
                                       borderRadius: BorderRadius.circular(50),
-                                      child: Image.network(
-                                        'https://www.stiiizy.com/cdn/shop/files/BACK-04_3d1f77b4-f216-4daf-b986-6d2f75d16565_1800x1800.png?v=1700083875',
+                                      child: Image.asset(
+                                        'assets/merch-shirt.png',
                                         fit: BoxFit.cover,
                                         width: 250,
                                         height: 250,
@@ -932,8 +915,8 @@ class HomePage extends ConsumerWidget {
                                   children: [
                                     ClipRRect(
                                       borderRadius: BorderRadius.circular(50),
-                                      child: Image.network(
-                                        'https://www.stiiizy.com/cdn/shop/files/BACK-04_3d1f77b4-f216-4daf-b986-6d2f75d16565_1800x1800.png?v=1700083875',
+                                      child: Image.asset(
+                                        'assets/merch-shirt.png',
                                         fit: BoxFit.cover,
                                         width: 250,
                                         height: 250,
@@ -959,8 +942,8 @@ class HomePage extends ConsumerWidget {
                                   children: [
                                     ClipRRect(
                                       borderRadius: BorderRadius.circular(50),
-                                      child: Image.network(
-                                        'https://www.stiiizy.com/cdn/shop/files/BACK-04_3d1f77b4-f216-4daf-b986-6d2f75d16565_1800x1800.png?v=1700083875',
+                                      child: Image.asset(
+                                        'assets/merch-shirt.png',
                                         fit: BoxFit.cover,
                                         width: 250,
                                         height: 250,
@@ -990,8 +973,8 @@ class HomePage extends ConsumerWidget {
                                   children: [
                                     ClipRRect(
                                       borderRadius: BorderRadius.circular(50),
-                                      child: Image.network(
-                                        'https://www.stiiizy.com/cdn/shop/files/BACK-04_3d1f77b4-f216-4daf-b986-6d2f75d16565_1800x1800.png?v=1700083875',
+                                      child: Image.asset(
+                                        'assets/merch-shirt.png',
                                         fit: BoxFit.cover,
                                         width: 250,
                                         height: 250,
@@ -1020,8 +1003,8 @@ class HomePage extends ConsumerWidget {
                                   children: [
                                     ClipRRect(
                                       borderRadius: BorderRadius.circular(50),
-                                      child: Image.network(
-                                        'https://www.stiiizy.com/cdn/shop/files/BACK-04_3d1f77b4-f216-4daf-b986-6d2f75d16565_1800x1800.png?v=1700083875',
+                                      child: Image.asset(
+                                        'assets/merch-shirt.png',
                                         fit: BoxFit.cover,
                                         width: 250,
                                         height: 250,
@@ -1050,8 +1033,8 @@ class HomePage extends ConsumerWidget {
                                   children: [
                                     ClipRRect(
                                       borderRadius: BorderRadius.circular(50),
-                                      child: Image.network(
-                                        'https://www.stiiizy.com/cdn/shop/files/BACK-04_3d1f77b4-f216-4daf-b986-6d2f75d16565_1800x1800.png?v=1700083875',
+                                      child: Image.asset(
+                                        'assets/merch-shirt.png',
                                         fit: BoxFit.cover,
                                         width: 250,
                                         height: 250,
@@ -1075,87 +1058,250 @@ class HomePage extends ConsumerWidget {
                   height: 60,
                 ),
                 ElevatedButton(
-                    onPressed: () {},
-                    child: const Text(
-                      "View All",
-                    )),
+                  onPressed: () {},
+                  style: ElevatedButton.styleFrom(
+                    primary: Colors.black, // Set the background color to black
+                    padding: EdgeInsets.symmetric(
+                        horizontal: 50,
+                        vertical:
+                            20), // Increase the button's size through padding
+                    textStyle:
+                        TextStyle(fontSize: 20), // Increase the font size
+                  ),
+                  child: const Text(
+                    "All new releases",
+                    style: TextStyle(
+                        color: Colors
+                            .white), // Ensure the text color is white for contrast
+                  ),
+                ),
                 const SizedBox(
                   height: 120,
                 ),
                 Container(
                   height: firstFoldHeight + 180,
                   color: Colors.white,
-                  child: GFAnimation(
-                    turnsAnimation: animation,
-                    controller: controller,
-                    type: GFAnimationType.scaleTransition,
-                    child: Image.network(
-                      'https://media1.tenor.com/m/Yc8wjmfgknsAAAAC/party-party-animal.gif',
-                      fit: BoxFit.cover,
-                      width: double.infinity,
-                      height: double.infinity,
-                    ),
-                  ),
+                  child:
+                      VideoPlayerWidget(), // Include the video player widget here
                 ),
                 const SizedBox(
                   height: 50,
                 ),
                 const Text(
                   "Blogs",
-                  style: TextStyle(color: Colors.black, fontSize: 20),
+                  style: TextStyle(color: Colors.black, fontSize: 30),
                 ),
                 const SizedBox(
                   height: 30,
                 ),
-                FutureBuilder(
-                    future: readJson(),
-                    builder: (context, snapshot) {
-                      return BuildBlockGrid(
-                        girdData: snapshot.data!,
-                        isRectangular: false,
-                        isEvent: false,
-                      );
-                    }),
-                const SizedBox(
-                  height: 80,
+                Column(
+                  children: [
+                    // First row of blogs
+                    Row(
+                      mainAxisAlignment: MainAxisAlignment
+                          .spaceEvenly, // Distribute space evenly
+                      children: [
+                        // Wrap each blog container in a Column to add headings
+                        Expanded(
+                          child: Column(
+                            children: [
+                              Container(
+                                color: Colors.black54,
+                                height: 300, // Adjust the height as needed
+                                margin: EdgeInsets.symmetric(
+                                    horizontal:
+                                        8), // Add some horizontal margin between containers
+                                child: Center(
+                                  child: SvgPicture.asset(
+                                      'assets/Altrd Cannabis Asset.svg'), // Your image asset
+                                ),
+                              ),
+                              Text(
+                                "Lorem ipsum dolor sit amet, consectetur adipiscing",
+                                style: TextStyle(
+                                    color: Colors.black,
+                                    fontSize: 20,
+                                    fontWeight: FontWeight.bold),
+                                textAlign: TextAlign.start,
+                              ),
+                            ],
+                          ),
+                        ),
+                        Expanded(
+                          child: Column(
+                            children: [
+                              Container(
+                                color: Colors.black54,
+                                height: 300,
+                                margin: EdgeInsets.symmetric(horizontal: 8),
+                                child: Center(
+                                  child: SvgPicture.asset(
+                                      'assets/Altrd Cannabis Asset.svg'),
+                                ),
+                              ),
+                              Text(
+                                "Lorem ipsum dolor sit amet, consectetur adipiscing",
+                                style: TextStyle(
+                                    color: Colors.black,
+                                    fontSize: 20,
+                                    fontWeight: FontWeight.bold),
+                                textAlign: TextAlign.start,
+                              ),
+                            ],
+                          ),
+                        ),
+                        Expanded(
+                          child: Column(
+                            children: [
+                              Container(
+                                color: Colors.black54,
+                                height: 300,
+                                margin: EdgeInsets.symmetric(horizontal: 8),
+                                child: Center(
+                                  child: SvgPicture.asset(
+                                      'assets/Altrd Cannabis Asset.svg'),
+                                ),
+                              ),
+                              Text(
+                                "Lorem ipsum dolor sit amet, consectetur adipiscing",
+                                style: TextStyle(
+                                    color: Colors.black,
+                                    fontSize: 20,
+                                    fontWeight: FontWeight.bold),
+                                textAlign: TextAlign.start,
+                              ),
+                            ],
+                          ),
+                        ),
+                      ],
+                    ),
+                    const SizedBox(
+                      height: 20, // Space between the two rows
+                    ),
+                    // Second row of blogs, structured similarly
+                    Row(
+                      mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                      children: [
+                        Expanded(
+                          child: Column(
+                            children: [
+                              Container(
+                                color: Colors.black54,
+                                height: 300,
+                                margin: EdgeInsets.symmetric(horizontal: 8),
+                                child: Center(
+                                  child: SvgPicture.asset(
+                                      'assets/Altrd Cannabis Asset.svg'),
+                                ),
+                              ),
+                              Text(
+                                "Lorem ipsum dolor sit amet, consectetur adipiscing",
+                                style: TextStyle(
+                                    color: Colors.black,
+                                    fontSize: 20,
+                                    fontWeight: FontWeight.bold),
+                                textAlign: TextAlign.start,
+                              ),
+                            ],
+                          ),
+                        ),
+                        Expanded(
+                          child: Column(
+                            children: [
+                              Container(
+                                color: Colors.black54,
+                                height: 300,
+                                margin: EdgeInsets.symmetric(horizontal: 8),
+                                child: Center(
+                                  child: SvgPicture.asset(
+                                      'assets/Altrd Cannabis Asset.svg'),
+                                ),
+                              ),
+                              Text(
+                                "Lorem ipsum dolor sit amet, consectetur adipiscing",
+                                style: TextStyle(
+                                    color: Colors.black,
+                                    fontSize: 20,
+                                    fontWeight: FontWeight.bold),
+                                textAlign: TextAlign.start,
+                              ),
+                            ],
+                          ),
+                        ),
+                        Expanded(
+                          child: Column(
+                            children: [
+                              Container(
+                                color: Colors.black54,
+                                height: 300,
+                                margin: EdgeInsets.symmetric(horizontal: 8),
+                                child: Center(
+                                  child: SvgPicture.asset(
+                                      'assets/Altrd Cannabis Asset.svg'),
+                                ),
+                              ),
+                              Text(
+                                "Lorem ipsum dolor sit amet, consectetur adipiscing",
+                                style: TextStyle(
+                                    color: Colors.black,
+                                    fontSize: 20,
+                                    fontWeight: FontWeight.bold),
+                                textAlign: TextAlign.start,
+                              ),
+                            ],
+                          ),
+                        ),
+                      ],
+                    ),
+                  ],
                 ),
-                Container(
-                  color: Colors.black,
-                  child: Column(
-                    crossAxisAlignment: CrossAxisAlignment.center,
-                    children: [
-                      const SizedBox(height: 20),
-                      const Center(
-                        child: Text(
-                          'Trusted By',
-                          style: TextStyle(fontSize: 20, color: Colors.black),
-                        ),
-                      ),
-                      CarouselSlider(
-                        items: [
-                          'assets/press1.png',
-                          'assets/press2.png',
-                          'assets/press3.png',
-                          'assets/press1.png',
-                          'assets/press2.png',
-                          'assets/press3.png',
-                        ].map((pressImagePath) {
-                          return Image.asset(pressImagePath);
-                        }).toList(),
-                        options: CarouselOptions(
-                          height: constraints.maxWidth <= 600
-                              ? firstFoldHeight * 0.2
-                              : firstFoldHeight * 0.2,
-                          autoPlay: true,
-                          viewportFraction:
-                              constraints.maxWidth <= 600 ? 0.2 : 0.2,
-                          enableInfiniteScroll: false,
-                        ),
-                      ),
-                    ],
+
+                const SizedBox(
+                  height: 40,
+                ),
+                const Center(
+                  child: Text(
+                    'Our partners',
+                    style: TextStyle(
+                        fontSize: 30,
+                        color: Colors
+                            .black), // Ensure the text color is white for visibility
                   ),
                 ),
-                const SizedBox(height: 50),
+                Column(
+                  crossAxisAlignment: CrossAxisAlignment.center,
+                  children: [
+                    // const SizedBox(height: 5),
+                    // Removed Expanded widget from here
+                    GridView.builder(
+                      shrinkWrap:
+                          true, // Allow the GridView to determine its own height
+                      physics:
+                          const NeverScrollableScrollPhysics(), // Essential for use in a SingleChildScrollView
+                      gridDelegate:
+                          const SliverGridDelegateWithFixedCrossAxisCount(
+                        crossAxisCount:
+                            12, // Adjust the number of logos per row as needed
+                        childAspectRatio:
+                            1, // Maintain the aspect ratio of the logos
+                        crossAxisSpacing: 0, // Remove spacing between columns
+                        mainAxisSpacing: 0, // Remove spacing between rows
+                      ),
+                      itemCount: 48, // Total number of logos
+                      itemBuilder: (context, index) {
+                        String imagePath = 'assets/press${(index % 3) + 1}.png';
+                        return Image.asset(
+                          imagePath,
+                          fit: BoxFit.cover, // Cover the grid cell completely
+                        );
+                      },
+                    ),
+                  ],
+                ),
+
+                // const SizedBox(height: 50),
+                // Text(
+                //     'Altrd is a Canadian-based cannabis company that has been in business for over 10 years. We are a')
                 FooterWidget(),
               ],
             ),
@@ -1163,5 +1309,50 @@ class HomePage extends ConsumerWidget {
         },
       ),
     );
+  }
+}
+
+class VideoPlayerWidget extends StatefulWidget {
+  @override
+  _VideoPlayerWidgetState createState() => _VideoPlayerWidgetState();
+}
+
+class _VideoPlayerWidgetState extends State<VideoPlayerWidget> {
+  late VideoPlayerController _controller;
+
+  @override
+  void initState() {
+    super.initState();
+    _controller = VideoPlayerController.asset('assets/altrd-vid.mp4')
+      ..initialize().then((_) {
+        setState(() {}); // Trigger a rebuild once the video is initialized
+        print("Video initialized");
+      }).catchError((error) {
+        print("Error initializing video player: $error");
+      });
+    _controller.setLooping(true);
+    _controller.play();
+  }
+
+  @override
+  void dispose() {
+    _controller
+        .dispose(); // Dispose of the controller when the widget is removed from the widget tree
+    super.dispose();
+  }
+
+  @override
+  Widget build(BuildContext context) {
+    // Check if the video controller has initialized
+    if (_controller.value.isInitialized) {
+      return AspectRatio(
+        aspectRatio:
+            _controller.value.aspectRatio, // Use the aspect ratio of the video
+        child: VideoPlayer(_controller), // Display the video player
+      );
+    } else {
+      // If not initialized, show a loading spinner
+      return Center(child: CircularProgressIndicator());
+    }
   }
 }

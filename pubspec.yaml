@@ -27,6 +27,7 @@ dependencies:
   google_maps_flutter: ^2.2.8
   simple_ripple_animation: ^0.0.9
   hovering: ^1.0.4
+  video_player: ^2.8.2
 
 dev_dependencies:
   flutter_test:
@@ -43,6 +44,8 @@ flutter:
   assets:
   
     - assets/
+    - assets/altrd-vid.mp4
+
     # Add paths to all artist images
   fonts:
     - family: Cinzel
