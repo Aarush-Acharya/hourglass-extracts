@@ -15,6 +15,9 @@ import 'package:carousel_slider/carousel_slider.dart';
 import '../widgets/footer_widget.dart';
 part 'home_page.g.dart';
 
+final hoveredIndexProvider =
+    StateProvider<int?>((ref) => null); // Initially, no item is hovered
+
 @riverpod
 class MerchTypeState extends _$MerchTypeState {
   @override
@@ -61,6 +64,10 @@ class HomePage extends ConsumerWidget {
         await rootBundle.loadString('assets/artists_data.json');
     var data = await json.decode(response);
     List<dynamic> artists = data['artists'];
+    // final List<String> productNames = [
+    //   "Edibles", "Moonrocks", "Resins", "Thundersticks",
+    //   "Moonrocks" // Example product names
+    // ];
     List<dynamic> featuredArtists = artists.where((item) {
       return item['featured'] == true;
     }).toList();
@@ -70,8 +77,17 @@ class HomePage extends ConsumerWidget {
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
+    List<String> productNames = [
+      "Edibles",
+      "Moonrocks",
+      "Resins",
+      "Thundersticks",
+      "Moonrocks"
+    ];
+
     bool isNewReleases = ref.watch(merchTypeStateProvider);
     List dimensions = ref.watch(cardDimensionStateProvider);
+    int hoveredIndex = -1;
     var controller = AnimationController(
         duration: const Duration(seconds: 1), vsync: animationProvider);
     var animation = new CurvedAnimation(
@@ -80,7 +96,7 @@ class HomePage extends ConsumerWidget {
 
     return Scaffold(
       extendBodyBehindAppBar: true,
-      backgroundColor: Colors.black,
+      backgroundColor: Colors.white,
       appBar: const CustomAppBar(),
       body: LayoutBuilder(
         builder: (context, constraints) {
@@ -128,6 +144,7 @@ class HomePage extends ConsumerWidget {
                                   mainAxisAlignment: MainAxisAlignment.center,
                                   crossAxisAlignment: CrossAxisAlignment
                                       .start, // Align text to start
+
                                   children: [
                                     const Text(
                                       "ALTR YOUR LIFESTYLE",
@@ -253,149 +270,61 @@ class HomePage extends ConsumerWidget {
                 ),
                 const Text(
                   "Explore our products",
-                  style: TextStyle(color: Colors.white, fontSize: 30),
+                  style: TextStyle(color: Colors.black, fontSize: 30),
                 ),
                 // const SizedBox(
                 //   height: 60,
                 // ),
                 !isDesktop
                     ? Row(
-                        mainAxisAlignment: MainAxisAlignment.center,
-                        children: [
-                          Column(
-                            mainAxisAlignment: MainAxisAlignment.center,
-                            children: [
-                              // SizedBox(
-                              //   height: 40,
-                              // ),
-                              Image.asset(
-                                'assets/prod 1.png',
-                                fit: BoxFit.contain,
-                                width: 450,
-                                height: 200,
-                              ),
-                              const SizedBox(
-                                height: 30,
-                              ),
-                              const Text(
-                                "Edibles",
-                                style: TextStyle(
-                                    fontSize: 20,
-                                    color: Color.fromARGB(255, 255, 255, 255),
-                                    fontWeight: FontWeight.w600),
-                              ),
-                              // const SizedBox(
-                              //   height: 20,
-                              // ),
-                            ],
-                          ),
-                          Center(
+                        mainAxisAlignment: MainAxisAlignment
+                            .spaceBetween, // Ensures equal spacing
+                        children: List.generate(productNames.length, (index) {
+                          return Expanded(
                             child: Column(
                               mainAxisAlignment: MainAxisAlignment.center,
                               children: [
-                                Image.asset(
-                                  'assets/prod 2.png',
-                                  fit: BoxFit.contain,
-                                  width: 250,
-                                  height: 200,
+                                MouseRegion(
+                                  onEnter: (_) => ref
+                                      .read(hoveredIndexProvider.notifier)
+                                      .state = index,
+                                  onExit: (_) => ref
+                                      .read(hoveredIndexProvider.notifier)
+                                      .state = null,
+                                  child: AnimatedContainer(
+                                    duration: const Duration(milliseconds: 200),
+                                    transform: Matrix4.identity()
+                                      ..scale(
+                                          hoveredIndex == index ? 1.1 : 1.0),
+                                    child: Image.asset(
+                                      'assets/prod ${index + 1}.png',
+                                      fit: BoxFit.contain,
+                                      width: MediaQuery.of(context).size.width /
+                                          4.5, // Adjusted for larger images
+                                      height:
+                                          MediaQuery.of(context).size.width /
+                                              4.5 /
+                                              2, // Maintain aspect ratio
+                                    ),
+                                  ),
                                 ),
-                                const SizedBox(
-                                  height: 30,
-                                ),
-                                Center(
-                                  child: const Text(
-                                    "Moonrocks",
-                                    style: TextStyle(
-                                        fontSize: 20,
-                                        color:
-                                            Color.fromARGB(255, 255, 255, 255),
-                                        fontWeight: FontWeight.w600),
+                                const SizedBox(height: 30),
+                                Text(
+                                  productNames[index],
+                                  style: const TextStyle(
+                                    fontSize: 20,
+                                    color: Colors.black,
+                                    fontWeight: FontWeight.w600,
                                   ),
                                 ),
                               ],
                             ),
-                          ),
-                          Column(
-                            mainAxisAlignment: MainAxisAlignment.center,
-                            children: [
-                              // SizedBox(
-                              //   height: 40,
-                              // ),
-                              Image.asset(
-                                'assets/prod 3.png',
-                                fit: BoxFit.contain,
-                                width: 250,
-                                height: 200,
-                              ),
-                              const SizedBox(
-                                height: 30,
-                              ),
-                              const Text(
-                                "Resins",
-                                style: TextStyle(
-                                    fontSize: 20,
-                                    color: Color.fromARGB(255, 255, 255, 255),
-                                    fontWeight: FontWeight.w600),
-                              ),
-                              // const SizedBox(
-                              //   height: 20,
-                              // ),
-                            ],
-                          ),
-                          Column(
-                            mainAxisAlignment: MainAxisAlignment.center,
-                            children: [
-                              // SizedBox(
-                              //   height: 40,
-                              // ),
-                              Image.asset(
-                                'assets/prod 4.png',
-                                fit: BoxFit.contain,
-                                width: 250,
-                                height: 200,
-                              ),
-                              const SizedBox(
-                                height: 30,
-                              ),
-                              const Text(
-                                "Thundersticks",
-                                style: TextStyle(
-                                    fontSize: 20,
-                                    color: Color.fromARGB(255, 255, 255, 255),
-                                    fontWeight: FontWeight.w600),
-                              ),
-                              // const SizedBox(
-                              //   height: 20,
-                              // ),
-                            ],
-                          ),
-                          Column(
-                            // mainAxisAlignment: MainAxisAlignment.center,
-                            children: [
-                              // SizedBox(
-                              //   height: 40,
-                              // ),
-                              Image.asset(
-                                'assets/prod 5.png',
-                                fit: BoxFit.contain,
-                                width: 450,
-                                height: 200,
-                              ),
-                              const SizedBox(
-                                height: 30,
-                              ),
-                              const Text(
-                                "Moonrocks",
-                                style: TextStyle(
-                                    fontSize: 20,
-                                    color: Color.fromARGB(255, 255, 255, 255),
-                                    fontWeight: FontWeight.w600),
-                              ),
-                            ],
-                          ),
-                        ],
+                          );
+                        }),
                       )
-                    : Column(
+                    : // Your code for isDesktop = true
+
+                    Column(
                         children: [
                           Container(
                             height: 450,
@@ -570,57 +499,72 @@ class HomePage extends ConsumerWidget {
                 const Divider(
                   color: Color.fromARGB(112, 255, 255, 255),
                 ),
-                const SizedBox(
-                  height: 100,
-                ),
+                // const SizedBox(
+                //   height: 100,
+                // ),
                 !isDesktop
-                    ? Row(
-                        crossAxisAlignment: CrossAxisAlignment.center,
-                        mainAxisAlignment: MainAxisAlignment.start,
-                        children: [
-                          const SizedBox(
-                            width: 20,
+                    ? Container(
+                        width: MediaQuery.of(context)
+                            .size
+                            .width, // Full width of the screen
+                        height: 0.4294478528 *
+                            MediaQuery.of(context)
+                                .size
+                                .height, // Adjusted height
+                        decoration: BoxDecoration(
+                          image: DecorationImage(
+                            image: AssetImage('assets/stiizy.jpeg'),
+                            fit: BoxFit
+                                .cover, // Cover the container with the image
                           ),
-                          Image.asset(
-                            'assets/stiizy.jpeg',
-                            fit: BoxFit.cover,
-                            width:
-                                0.4861111111 * MediaQuery.sizeOf(context).width,
-                            height: 0.4294478528 *
-                                MediaQuery.sizeOf(context).height,
-                          ),
-                          const SizedBox(
-                            width: 50,
-                          ),
-                          Padding(
-                            padding: const EdgeInsets.only(bottom: 50),
-                            child: Column(
-                              crossAxisAlignment: CrossAxisAlignment.start,
-                              children: [
-                                const Text(
-                                  "WHAT IS ALTRD?",
-                                  style: TextStyle(
-                                      color: Colors.white, fontSize: 30),
-                                  softWrap: true,
-                                ),
-                                const SizedBox(
-                                  height: 40,
-                                ),
-                                SizedBox(
-                                  width:
-                                      0.41 * MediaQuery.sizeOf(context).width,
-                                  child: const Text(
-                                    "Started in a garage, ALTRD embodies the spirit of picking yourself up and following opportunity. STIIIZY's proprietary pod system has garnered a cult-like following since its launch and has emerged as a leading lifestyle brand in cannabis.",
+                        ),
+                        child: Padding(
+                          padding: const EdgeInsets.all(
+                              20), // Padding to create space between the edge of the image and the text container
+                          child: Container(
+                            decoration: BoxDecoration(
+                              color: Colors.black.withOpacity(
+                                  0.5), // Semi-transparent black background for the text container
+                              borderRadius: BorderRadius.circular(
+                                  10), // Optional: Adds rounded corners to the text container
+                            ),
+                            child: Padding(
+                              padding: const EdgeInsets.all(
+                                  20), // Padding inside the text container for spacing around the text
+                              child: Column(
+                                crossAxisAlignment: CrossAxisAlignment.start,
+                                mainAxisAlignment: MainAxisAlignment
+                                    .center, // Center the column vertically
+                                children: [
+                                  const Text(
+                                    "WHAT IS ALTRD?",
                                     style: TextStyle(
-                                        color: Colors.white, fontSize: 15),
+                                      color: Colors.white,
+                                      fontSize: 55,
+                                      fontFamily: 'Roboto',
+                                    ),
                                     softWrap: true,
                                   ),
-                                ),
-                              ],
-                              //style="background-image: url(https://altrdcannabis.com/wp-content/uploads/2021/11/Asset-23@2x-100-783x1024.jpg);"
+                                  const SizedBox(height: 40),
+                                  SizedBox(
+                                    width: 0.41 *
+                                        MediaQuery.of(context)
+                                            .size
+                                            .width, // Width of the text content
+                                    child: const Text(
+                                      "Started in a garage, ALTRD embodies the spirit of picking yourself up and following opportunity. STIIIZY's proprietary pod system has garnered a cult-like following since its launch and has emerged as a leading lifestyle brand in cannabis.",
+                                      style: TextStyle(
+                                        color: Colors.white,
+                                        fontSize: 15,
+                                      ),
+                                      softWrap: true,
+                                    ),
+                                  ),
+                                ],
+                              ),
                             ),
                           ),
-                        ],
+                        ),
                       )
                     : Column(
                         crossAxisAlignment: CrossAxisAlignment.center,
@@ -669,18 +613,18 @@ class HomePage extends ConsumerWidget {
                           ),
                         ],
                       ),
-                const SizedBox(
-                  height: 100,
-                ),
-                const Divider(
-                  color: Color.fromARGB(112, 255, 255, 255),
-                ),
+                // const SizedBox(
+                //   height: 100,
+                // ),
+                // const Divider(
+                //   color: Colors.black,
+                // ),
                 const SizedBox(
                   height: 20,
                 ),
                 const Text(
                   "Merch",
-                  style: TextStyle(color: Colors.white, fontSize: 30),
+                  style: TextStyle(color: Colors.black, fontSize: 30),
                 ),
                 const SizedBox(
                   height: 30,
@@ -696,7 +640,7 @@ class HomePage extends ConsumerWidget {
                         },
                         child: const Text(
                           "New Releases",
-                          style: TextStyle(color: Colors.white, fontSize: 20),
+                          style: TextStyle(color: Colors.black, fontSize: 20),
                         )),
                     const SizedBox(
                       width: 100,
@@ -709,7 +653,7 @@ class HomePage extends ConsumerWidget {
                         },
                         child: const Text("Accessories",
                             style:
-                                TextStyle(color: Colors.white, fontSize: 20))),
+                                TextStyle(color: Colors.black, fontSize: 20))),
                   ],
                 ),
                 const SizedBox(
@@ -740,7 +684,7 @@ class HomePage extends ConsumerWidget {
                                     ),
                                     const Text(
                                       "Prod 4",
-                                      style: TextStyle(color: Colors.white),
+                                      style: TextStyle(color: Colors.black),
                                     )
                                   ],
                                 ),
@@ -794,7 +738,7 @@ class HomePage extends ConsumerWidget {
                                     ),
                                     const Text(
                                       "Prod 5",
-                                      style: TextStyle(color: Colors.white),
+                                      style: TextStyle(color: Colors.black),
                                     )
                                   ],
                                 ),
@@ -821,7 +765,7 @@ class HomePage extends ConsumerWidget {
                                     ),
                                     const Text(
                                       "Prod 6",
-                                      style: TextStyle(color: Colors.white),
+                                      style: TextStyle(color: Colors.black),
                                     )
                                   ],
                                 ),
@@ -853,7 +797,7 @@ class HomePage extends ConsumerWidget {
                                     ),
                                     const Text(
                                       "Prod 4",
-                                      style: TextStyle(color: Colors.white),
+                                      style: TextStyle(color: Colors.black),
                                     )
                                   ],
                                 ),
@@ -883,7 +827,7 @@ class HomePage extends ConsumerWidget {
                                     ),
                                     const Text(
                                       "Prod 5",
-                                      style: TextStyle(color: Colors.white),
+                                      style: TextStyle(color: Colors.black),
                                     )
                                   ],
                                 ),
@@ -913,7 +857,7 @@ class HomePage extends ConsumerWidget {
                                     ),
                                     const Text(
                                       "Prod 6",
-                                      style: TextStyle(color: Colors.white),
+                                      style: TextStyle(color: Colors.black),
                                     )
                                   ],
                                 ),
@@ -946,7 +890,7 @@ class HomePage extends ConsumerWidget {
                                     ),
                                     const Text(
                                       "Prod 7",
-                                      style: TextStyle(color: Colors.white),
+                                      style: TextStyle(color: Colors.black),
                                     )
                                   ],
                                 ),
@@ -973,7 +917,7 @@ class HomePage extends ConsumerWidget {
                                     ),
                                     const Text(
                                       "Prod 7",
-                                      style: TextStyle(color: Colors.white),
+                                      style: TextStyle(color: Colors.black),
                                     )
                                   ],
                                 ),
@@ -1000,7 +944,7 @@ class HomePage extends ConsumerWidget {
                                     ),
                                     const Text(
                                       "Prod 8",
-                                      style: TextStyle(color: Colors.white),
+                                      style: TextStyle(color: Colors.black),
                                     )
                                   ],
                                 ),
@@ -1027,7 +971,7 @@ class HomePage extends ConsumerWidget {
                                     ),
                                     const Text(
                                       "Prod 9",
-                                      style: TextStyle(color: Colors.white),
+                                      style: TextStyle(color: Colors.black),
                                     )
                                   ],
                                 ),
@@ -1058,7 +1002,7 @@ class HomePage extends ConsumerWidget {
                                     ),
                                     const Text(
                                       "Prod 7",
-                                      style: TextStyle(color: Colors.white),
+                                      style: TextStyle(color: Colors.black),
                                     )
                                   ],
                                 ),
@@ -1088,7 +1032,7 @@ class HomePage extends ConsumerWidget {
                                     ),
                                     const Text(
                                       "Prod 8",
-                                      style: TextStyle(color: Colors.white),
+                                      style: TextStyle(color: Colors.black),
                                     )
                                   ],
                                 ),
@@ -1118,7 +1062,7 @@ class HomePage extends ConsumerWidget {
                                     ),
                                     const Text(
                                       "Prod 9",
-                                      style: TextStyle(color: Colors.white),
+                                      style: TextStyle(color: Colors.black),
                                     )
                                   ],
                                 ),
@@ -1140,7 +1084,7 @@ class HomePage extends ConsumerWidget {
                 ),
                 Container(
                   height: firstFoldHeight + 180,
-                  color: Colors.black,
+                  color: Colors.white,
                   child: GFAnimation(
                     turnsAnimation: animation,
                     controller: controller,
@@ -1158,7 +1102,7 @@ class HomePage extends ConsumerWidget {
                 ),
                 const Text(
                   "Blogs",
-                  style: TextStyle(color: Colors.white, fontSize: 20),
+                  style: TextStyle(color: Colors.black, fontSize: 20),
                 ),
                 const SizedBox(
                   height: 30,
@@ -1184,7 +1128,7 @@ class HomePage extends ConsumerWidget {
                       const Center(
                         child: Text(
                           'Trusted By',
-                          style: TextStyle(fontSize: 20, color: Colors.white),
+                          style: TextStyle(fontSize: 20, color: Colors.black),
                         ),
                       ),
                       CarouselSlider(
