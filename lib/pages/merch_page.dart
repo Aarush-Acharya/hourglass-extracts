@@ -282,7 +282,7 @@ class MerchPage extends ConsumerWidget {
                                                 borderRadius:
                                                     BorderRadius.circular(50),
                                                 child: Image.network(
-                                                  'https://placekitten.com/900/500',
+                                                  'https://www.stiiizy.com/cdn/shop/files/BACK-04_3d1f77b4-f216-4daf-b986-6d2f75d16565_1800x1800.png?v=1700083875',
                                                   fit: BoxFit.cover,
                                                   width: 250,
                                                   height: 250,
@@ -312,7 +312,7 @@ class MerchPage extends ConsumerWidget {
                                                 borderRadius:
                                                     BorderRadius.circular(50),
                                                 child: Image.network(
-                                                  'https://placekitten.com/900/500',
+                                                  'https://www.stiiizy.com/cdn/shop/files/BACK-04_3d1f77b4-f216-4daf-b986-6d2f75d16565_1800x1800.png?v=1700083875',
                                                   fit: BoxFit.cover,
                                                   width: 250,
                                                   height: 250,
@@ -342,7 +342,7 @@ class MerchPage extends ConsumerWidget {
                                                 borderRadius:
                                                     BorderRadius.circular(50),
                                                 child: Image.network(
-                                                  'https://placekitten.com/900/500',
+                                                  'https://www.stiiizy.com/cdn/shop/files/BACK-04_3d1f77b4-f216-4daf-b986-6d2f75d16565_1800x1800.png?v=1700083875',
                                                   fit: BoxFit.cover,
                                                   width: 250,
                                                   height: 250,
@@ -378,7 +378,7 @@ class MerchPage extends ConsumerWidget {
                                                 borderRadius:
                                                     BorderRadius.circular(50),
                                                 child: Image.network(
-                                                  'https://placekitten.com/600/500',
+                                                  'https://www.stiiizy.com/cdn/shop/files/BACK-04_3d1f77b4-f216-4daf-b986-6d2f75d16565_1800x1800.png?v=1700083875',
                                                   fit: BoxFit.cover,
                                                   width: 250,
                                                   height: 250,
@@ -408,7 +408,7 @@ class MerchPage extends ConsumerWidget {
                                                 borderRadius:
                                                     BorderRadius.circular(50),
                                                 child: Image.network(
-                                                  'https://placekitten.com/600/500',
+                                                  'https://www.stiiizy.com/cdn/shop/files/BACK-04_3d1f77b4-f216-4daf-b986-6d2f75d16565_1800x1800.png?v=1700083875',
                                                   fit: BoxFit.cover,
                                                   width: 250,
                                                   height: 250,
@@ -438,7 +438,7 @@ class MerchPage extends ConsumerWidget {
                                                 borderRadius:
                                                     BorderRadius.circular(50),
                                                 child: Image.network(
-                                                  'https://placekitten.com/600/500',
+                                                  'https://www.stiiizy.com/cdn/shop/files/BACK-04_3d1f77b4-f216-4daf-b986-6d2f75d16565_1800x1800.png?v=1700083875',
                                                   fit: BoxFit.cover,
                                                   width: 250,
                                                   height: 250,

@@ -1,4 +1,3 @@
-// lib/widgets/custom_app_bar.dart
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:flutter_svg/svg.dart';
@@ -48,8 +47,10 @@ class CustomAppBar extends ConsumerWidget implements PreferredSizeWidget {
     return PreferredSize(
       preferredSize: Size(screenSize.width, 1000),
       child: Container(
+        color: Colors.white, // Set the background color to white
+        padding: EdgeInsets.only(left: 30, top: 5, bottom: 5, right: 40),
         child: Padding(
-          padding: EdgeInsets.only(left: 30, top: 5, bottom: 5, right: 40),
+          padding: const EdgeInsets.all(8.0),
           child: Row(
             children: [
               ClipRRect(
@@ -65,7 +66,8 @@ class CustomAppBar extends ConsumerWidget implements PreferredSizeWidget {
                         child: SvgPicture.asset(
                           "assets/Altrd Cannabis Asset.svg",
                           fit: BoxFit.contain,
-                          color: Colors.white,
+                          // Adjust SVG color for better visibility against white background
+                          color: Colors.black,
                         ))),
               ),
               Expanded(
@@ -80,17 +82,11 @@ class CustomAppBar extends ConsumerWidget implements PreferredSizeWidget {
                         SizedBox(width: screenSize.width / 40),
                         InkWell(
                           onHover: (value) {
-                            print(value);
                             ref
                                 .read(currentHoveringStatesProvider.notifier)
                                 .changeState(index);
                           },
-                          onTap: () {
-                            print("I am envoked");
-                            // ref
-                            //     .read(currentHoveringStatesProvider.notifier)
-                            //     .changeState(0);
-                          },
+                          onTap: () {},
                           child: Padding(
                             padding: const EdgeInsets.only(top: 7),
                             child: Column(
@@ -102,11 +98,10 @@ class CustomAppBar extends ConsumerWidget implements PreferredSizeWidget {
                                   style: TextStyle(
                                       color: _isHovering[index]
                                           ? Color.fromARGB(255, 3, 255, 142)
-                                          : Colors.white,
+                                          : Colors.black, // Changed text color
                                       fontWeight: FontWeight.w600),
                                 ),
                                 SizedBox(height: 5),
-                                // For showing an underline on hover
                                 Visibility(
                                   maintainAnimation: true,
                                   maintainState: true,
@@ -116,7 +111,8 @@ class CustomAppBar extends ConsumerWidget implements PreferredSizeWidget {
                                       duration: Duration(milliseconds: 250),
                                       height: 2,
                                       width: _isHovering[index] ? 50 : 0,
-                                      color: Colors.white),
+                                      color: Colors
+                                          .black), // Adjusted for visibility
                                 )
                               ],
                             ),
@@ -132,14 +128,15 @@ class CustomAppBar extends ConsumerWidget implements PreferredSizeWidget {
                   onTap: () {},
                   child: Icon(
                     Icons.search,
-                    color: Colors.white,
+                    color: Colors.black, // Adjust icon color for visibility
                   )),
               SizedBox(
                 width: screenSize.width / 50,
               ),
               InkWell(
                   onTap: () {},
-                  child: Icon(Icons.shopping_bag, color: Colors.white)),
+                  child: Icon(Icons.shopping_bag,
+                      color: Colors.black)), // Adjust icon color
             ],
           ),
         ),

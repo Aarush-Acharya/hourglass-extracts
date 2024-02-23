@@ -99,185 +99,345 @@ class HomePage extends ConsumerWidget {
                         height: firstFoldHeight + 80,
                         child: Stack(
                           children: [
-                            ImageFiltered(
-                              imageFilter:
-                                  ImageFilter.blur(sigmaX: 2, sigmaY: 2),
-                              child: GFAnimation(
-                                turnsAnimation: animation,
-                                controller: controller,
-                                type: GFAnimationType.scaleTransition,
-                                child: Image.asset(
-                                  'assets/people_adventure.jpeg',
-                                  fit: BoxFit.cover,
-                                  width: double.infinity,
-                                  height: double.infinity,
+                            Align(
+                              alignment: Alignment
+                                  .centerRight, // Align the image to the right
+                              child: ImageFiltered(
+                                imageFilter:
+                                    ImageFilter.blur(sigmaX: 0, sigmaY: 0),
+                                child: GFAnimation(
+                                  turnsAnimation: animation,
+                                  controller: controller,
+                                  type: GFAnimationType.scaleTransition,
+                                  child: Image.asset(
+                                    'assets/people_adventure.jpeg',
+                                    fit: BoxFit.cover,
+                                    width: double.infinity,
+                                    height: double.infinity,
+                                  ),
                                 ),
                               ),
                             ),
                             Align(
-                              alignment: Alignment.center,
-                              child: Column(
-                                mainAxisAlignment: MainAxisAlignment.center,
-                                children: [
-                                  const Text(
-                                    "ALTR YOUR LIFESTYLE",
-                                    style: TextStyle(
-                                      color: Colors.white,
-                                      fontSize: 55,
-                                      fontFamily: 'Roboto',
-                                    ),
-                                  ),
-                                  const SizedBox(
-                                    height: 20,
-                                  ),
-                                  const SizedBox(
-                                    width: 500,
-                                    child: Text(
-                                      "Discover your perfect high with over 100 curated strains, personalized recommendations, and precise weight by the gram - elevating your experience to new heights.Cambridge, Vermont Dispensary EST 2022",
+                              alignment: Alignment
+                                  .centerLeft, // Align the text to the left
+                              child: Padding(
+                                padding: const EdgeInsets.only(
+                                    left: 50), // Adjust padding as needed
+                                child: Column(
+                                  mainAxisAlignment: MainAxisAlignment.center,
+                                  crossAxisAlignment: CrossAxisAlignment
+                                      .start, // Align text to start
+                                  children: [
+                                    const Text(
+                                      "ALTR YOUR LIFESTYLE",
                                       style: TextStyle(
                                         color: Colors.white,
-                                        // fontFamily: 'Roboto',
+                                        fontSize: 55,
+                                        fontFamily: 'Roboto',
                                       ),
-                                      softWrap: true,
-                                      textAlign: TextAlign.center,
                                     ),
-                                  ),
-                                  const SizedBox(
-                                    height: 40,
-                                  ),
-                                  SizedBox(
-                                      width: 380,
-                                      child: Row(
-                                        mainAxisAlignment:
-                                            MainAxisAlignment.spaceBetween,
-                                        children: [
-                                          TextButton(
-                                              style: TextButton.styleFrom(
-                                                  minimumSize:
-                                                      const Size(180, 50),
-                                                  backgroundColor: Colors.black,
-                                                  shape: RoundedRectangleBorder(
-                                                      borderRadius:
-                                                          BorderRadius.circular(
-                                                              100))),
-                                              onPressed: () {},
-                                              child: const Text(
-                                                "Shop Menu",
-                                                style: TextStyle(
-                                                    color: Colors.white),
-                                              )),
-                                          TextButton(
-                                              style: TextButton.styleFrom(
-                                                  minimumSize:
-                                                      const Size(180, 50),
-                                                  backgroundColor:
-                                                      const Color.fromARGB(
-                                                          3, 255, 153, 0),
-                                                  shape: RoundedRectangleBorder(
-                                                      side: const BorderSide(
-                                                          color: Colors.black),
-                                                      borderRadius:
-                                                          BorderRadius.circular(
-                                                              100))),
-                                              onPressed: () {},
-                                              child: const Text(
-                                                "Get Directions",
-                                                style: TextStyle(
-                                                    color: Colors.white),
-                                              ))
-                                        ],
-                                      ))
-                                ],
-                              ),
-                            ),
-                            Positioned(
-                              left: 1020,
-                              top: 250,
-                              child: Transform.rotate(
-                                angle: -0.75,
-                                child: Image.asset(
-                                  'assets/Cannabis_leaflets.png',
-                                  fit: BoxFit.cover,
-                                  width: 700,
-                                  height: 700,
-                                ),
-                              ),
-                            ),
-                            Positioned(
-                              right: 1030,
-                              bottom: 250,
-                              child: Transform.rotate(
-                                angle: 0.65,
-                                child: Image.asset(
-                                  'assets/Cannabis_leaflets.png',
-                                  fit: BoxFit.cover,
-                                  width: 700,
-                                  height: 700,
+                                    const SizedBox(
+                                      height: 20,
+                                    ),
+                                    const SizedBox(
+                                      width: 500,
+                                      child: Text(
+                                        "Discover your perfect high with over 100 curated strains, personalized recommendations, and precise weight by the gram - elevating your experience to new heights. Cambridge, Vermont Dispensary EST 2022",
+                                        style: TextStyle(
+                                          color: Colors.white,
+                                          fontSize: 20,
+                                        ),
+                                        softWrap: true,
+                                        textAlign: TextAlign
+                                            .left, // Align text to left
+                                      ),
+                                    ),
+                                    const SizedBox(
+                                      height: 40,
+                                    ),
+                                    SizedBox(
+                                        width: 380,
+                                        child: Row(
+                                          mainAxisAlignment: MainAxisAlignment
+                                              .start, // Align buttons to start
+                                          children: [
+                                            TextButton(
+                                                style: TextButton.styleFrom(
+                                                    minimumSize:
+                                                        const Size(180, 50),
+                                                    backgroundColor:
+                                                        Colors.black,
+                                                    shape:
+                                                        RoundedRectangleBorder(
+                                                            borderRadius:
+                                                                BorderRadius
+                                                                    .circular(
+                                                                        100))),
+                                                onPressed: () {},
+                                                child: const Text(
+                                                  "Shop Menu",
+                                                  style: TextStyle(
+                                                      color: Colors.white),
+                                                )),
+                                            const SizedBox(
+                                                width:
+                                                    20), // Add spacing between buttons
+                                            TextButton(
+                                                style: TextButton.styleFrom(
+                                                    minimumSize:
+                                                        const Size(180, 50),
+                                                    backgroundColor:
+                                                        const Color.fromARGB(
+                                                            3, 255, 153, 0),
+                                                    shape: RoundedRectangleBorder(
+                                                        side: const BorderSide(
+                                                            color:
+                                                                Colors.black),
+                                                        borderRadius:
+                                                            BorderRadius
+                                                                .circular(
+                                                                    100))),
+                                                onPressed: () {},
+                                                child: const Text(
+                                                  "Get Directions",
+                                                  style: TextStyle(
+                                                      color: Colors.black,
+                                                      fontWeight:
+                                                          FontWeight.bold),
+                                                ))
+                                          ],
+                                        ))
+                                  ],
                                 ),
                               ),
                             ),
                           ],
                         ),
                       ),
-                      Align(
-                        alignment: Alignment.bottomCenter,
-                        child: RippleAnimation(
-                          child: GestureDetector(
-                            onTap: () {
-                              scrollController.animateTo(
-                                  scrollController.offset + 730,
-                                  duration: const Duration(seconds: 1),
-                                  curve: Curves.easeInOut);
-                            },
-                            child: const CircleAvatar(
-                              backgroundColor: Color.fromARGB(173, 65, 64, 64),
-                              radius: 20,
-                              child: Center(
-                                child: Icon(
-                                  Icons.keyboard_arrow_down_rounded,
-                                  color: Colors.white,
-                                  size: 30,
-                                ),
-                              ),
-                            ),
-                          ),
-                          color: const Color.fromARGB(178, 30, 231, 100),
-                          delay: const Duration(milliseconds: 500),
-                          repeat: true,
-                          minRadius: 30,
-                          ripplesCount: 0,
-                          duration: const Duration(seconds: 2),
-                        ),
-                      )
+                      // Align(
+                      //   alignment: Alignment.bottomCenter,
+                      //   child: RippleAnimation(
+                      //     child: GestureDetector(
+                      //       onTap: () {
+                      //         scrollController.animateTo(
+                      //             scrollController.offset + 730,
+                      //             duration: const Duration(seconds: 1),
+                      //             curve: Curves.easeInOut);
+                      //       },
+                      //       child: const CircleAvatar(
+                      //         backgroundColor: Color.fromARGB(173, 65, 64, 64),
+                      //         radius: 20,
+                      //         child: Center(
+                      //           child: Icon(
+                      //             Icons.keyboard_arrow_down_rounded,
+                      //             color: Colors.white,
+                      //             size: 30,
+                      //           ),
+                      //         ),
+                      //       ),
+                      //     ),
+                      //     color: const Color.fromARGB(178, 30, 231, 100),
+                      //     delay: const Duration(milliseconds: 500),
+                      //     repeat: true,
+                      //     minRadius: 30,
+                      //     ripplesCount: 0,
+                      //     duration: const Duration(seconds: 2),
+                      //   ),
+                      // )
                     ],
                   ),
                 ),
                 const SizedBox(
-                  height: 140,
+                  height: 20,
                 ),
                 const Text(
-                  "Explore by category, \nfind what you like",
+                  "Explore our products",
                   style: TextStyle(color: Colors.white, fontSize: 30),
                 ),
-                const SizedBox(
-                  height: 60,
-                ),
+                // const SizedBox(
+                //   height: 60,
+                // ),
                 !isDesktop
                     ? Row(
-                        mainAxisAlignment: MainAxisAlignment.spaceAround,
+                        mainAxisAlignment: MainAxisAlignment.center,
                         children: [
-                          InkWell(
-                            mouseCursor: MouseCursor.defer,
-                            onTap: () {},
-                            onHover: (value) {
-                              ref
-                                  .read(cardDimensionStateProvider.notifier)
-                                  .changeState(0);
-                            },
-                            child: AnimatedContainer(
-                              duration: Duration(milliseconds: 200),
-                              height: dimensions[0] ? 450 : 400,
-                              width: dimensions[0] ? 281 : 250,
+                          Column(
+                            mainAxisAlignment: MainAxisAlignment.center,
+                            children: [
+                              // SizedBox(
+                              //   height: 40,
+                              // ),
+                              Image.asset(
+                                'assets/prod 1.png',
+                                fit: BoxFit.contain,
+                                width: 450,
+                                height: 200,
+                              ),
+                              const SizedBox(
+                                height: 30,
+                              ),
+                              const Text(
+                                "Edibles",
+                                style: TextStyle(
+                                    fontSize: 20,
+                                    color: Color.fromARGB(255, 255, 255, 255),
+                                    fontWeight: FontWeight.w600),
+                              ),
+                              // const SizedBox(
+                              //   height: 20,
+                              // ),
+                            ],
+                          ),
+                          Center(
+                            child: Column(
+                              mainAxisAlignment: MainAxisAlignment.center,
+                              children: [
+                                Image.asset(
+                                  'assets/prod 2.png',
+                                  fit: BoxFit.contain,
+                                  width: 250,
+                                  height: 200,
+                                ),
+                                const SizedBox(
+                                  height: 30,
+                                ),
+                                Center(
+                                  child: const Text(
+                                    "Moonrocks",
+                                    style: TextStyle(
+                                        fontSize: 20,
+                                        color:
+                                            Color.fromARGB(255, 255, 255, 255),
+                                        fontWeight: FontWeight.w600),
+                                  ),
+                                ),
+                              ],
+                            ),
+                          ),
+                          Column(
+                            mainAxisAlignment: MainAxisAlignment.center,
+                            children: [
+                              // SizedBox(
+                              //   height: 40,
+                              // ),
+                              Image.asset(
+                                'assets/prod 3.png',
+                                fit: BoxFit.contain,
+                                width: 250,
+                                height: 200,
+                              ),
+                              const SizedBox(
+                                height: 30,
+                              ),
+                              const Text(
+                                "Resins",
+                                style: TextStyle(
+                                    fontSize: 20,
+                                    color: Color.fromARGB(255, 255, 255, 255),
+                                    fontWeight: FontWeight.w600),
+                              ),
+                              // const SizedBox(
+                              //   height: 20,
+                              // ),
+                            ],
+                          ),
+                          Column(
+                            mainAxisAlignment: MainAxisAlignment.center,
+                            children: [
+                              // SizedBox(
+                              //   height: 40,
+                              // ),
+                              Image.asset(
+                                'assets/prod 4.png',
+                                fit: BoxFit.contain,
+                                width: 250,
+                                height: 200,
+                              ),
+                              const SizedBox(
+                                height: 30,
+                              ),
+                              const Text(
+                                "Thundersticks",
+                                style: TextStyle(
+                                    fontSize: 20,
+                                    color: Color.fromARGB(255, 255, 255, 255),
+                                    fontWeight: FontWeight.w600),
+                              ),
+                              // const SizedBox(
+                              //   height: 20,
+                              // ),
+                            ],
+                          ),
+                          Column(
+                            // mainAxisAlignment: MainAxisAlignment.center,
+                            children: [
+                              // SizedBox(
+                              //   height: 40,
+                              // ),
+                              Image.asset(
+                                'assets/prod 5.png',
+                                fit: BoxFit.contain,
+                                width: 450,
+                                height: 200,
+                              ),
+                              const SizedBox(
+                                height: 30,
+                              ),
+                              const Text(
+                                "Moonrocks",
+                                style: TextStyle(
+                                    fontSize: 20,
+                                    color: Color.fromARGB(255, 255, 255, 255),
+                                    fontWeight: FontWeight.w600),
+                              ),
+                            ],
+                          ),
+                        ],
+                      )
+                    : Column(
+                        children: [
+                          Container(
+                            height: 450,
+                            width: 290,
+                            decoration: BoxDecoration(
+                                color: Color(0xffe4e3ce),
+                                borderRadius: BorderRadius.circular(15)),
+                            child: Column(
+                              mainAxisAlignment: MainAxisAlignment.center,
+                              children: [
+                                SizedBox(
+                                  height: 100,
+                                ),
+                                Image.asset(
+                                  'assets/prod 1.png',
+                                  fit: BoxFit.contain,
+                                  height: 450,
+                                  width: 290,
+                                ),
+                                const SizedBox(
+                                  height: 30,
+                                ),
+                                const Text(
+                                  "Edibles",
+                                  style: TextStyle(
+                                      fontSize: 16,
+                                      color: Color.fromARGB(255, 255, 255, 255),
+                                      fontWeight: FontWeight.w600),
+                                ),
+                                const SizedBox(
+                                  height: 20,
+                                ),
+                              ],
+                            ),
+                          ),
+                          const SizedBox(
+                            height: 40,
+                          ),
+                          Center(
+                            child: Container(
+                              height: 400,
+                              width: 250,
                               decoration: BoxDecoration(
                                   color: Color(0xffe4e3ce),
                                   borderRadius: BorderRadius.circular(15)),
@@ -288,97 +448,51 @@ class HomePage extends ConsumerWidget {
                                     height: 40,
                                   ),
                                   Image.asset(
-                                    'assets/prod 1.png',
+                                    'assets/prod 2.png',
                                     fit: BoxFit.contain,
-                                    height: dimensions[0] ? 225 : 200,
-                                    width: dimensions[0] ? 281 : 250,
+                                    width: 250,
+                                    height: 200,
                                   ),
                                   const SizedBox(
                                     height: 30,
                                   ),
-                                  const Text(
-                                    "Sticks",
-                                    style: TextStyle(
-                                        color: Color(0xff22362b),
-                                        fontWeight: FontWeight.w600),
+                                  Center(
+                                    child: const Text(
+                                      "Moonrocks",
+                                      style: TextStyle(
+                                          fontSize: 16,
+                                          color: Color.fromARGB(
+                                              255, 255, 255, 255),
+                                          fontWeight: FontWeight.w600),
+                                    ),
                                   ),
                                   const SizedBox(
                                     height: 20,
                                   ),
-                                  TextButton(
-                                      style: TextButton.styleFrom(
-                                          minimumSize: Size(170, 45),
-                                          shape: RoundedRectangleBorder(
-                                              borderRadius:
-                                                  BorderRadius.circular(100)),
-                                          backgroundColor: Color(0xff22362b)),
-                                      onPressed: () {},
-                                      child: Text(
-                                        "Shop Now",
-                                        style: TextStyle(color: Colors.white),
-                                      ))
+                                  // TextButton(
+                                  //     style: TextButton.styleFrom(
+                                  //         minimumSize: Size(170, 45),
+                                  //         shape: RoundedRectangleBorder(
+                                  //             borderRadius:
+                                  //                 BorderRadius.circular(100)),
+                                  //         backgroundColor: Color(0xff22362b)),
+                                  //     onPressed: () {},
+                                  //     child: Text(
+                                  //       "Shop Now",
+                                  //       style: TextStyle(color: Colors.white),
+                                  //     ))
                                 ],
                               ),
                             ),
                           ),
-                          HoverAnimatedContainer(
-                            hoveraAlignment: Alignment.center,
-                            duration: Duration(milliseconds: 200),
-                            height: 400,
-                            hoverHeight: 450,
-                            hoverWidth: 281.25,
-                            width: 250,
-                            decoration: BoxDecoration(
-                                color: Color(0xffe4e3ce),
-                                borderRadius: BorderRadius.circular(15)),
-                            child: Column(
-                              mainAxisAlignment: MainAxisAlignment.center,
-                              children: [
-                                SizedBox(
-                                  height: 40,
-                                ),
-                                Image.asset(
-                                  'assets/prod 2.png',
-                                  fit: BoxFit.contain,
-                                  width: 250,
-                                  height: 200,
-                                ),
-                                const SizedBox(
-                                  height: 30,
-                                ),
-                                const Text(
-                                  "Flower",
-                                  style: TextStyle(
-                                      color: Color(0xff22362b),
-                                      fontWeight: FontWeight.w600),
-                                ),
-                                const SizedBox(
-                                  height: 20,
-                                ),
-                                TextButton(
-                                    style: TextButton.styleFrom(
-                                        minimumSize: Size(170, 45),
-                                        shape: RoundedRectangleBorder(
-                                            borderRadius:
-                                                BorderRadius.circular(100)),
-                                        backgroundColor: Color(0xff22362b)),
-                                    onPressed: () {},
-                                    child: Text(
-                                      "Shop Now",
-                                      style: TextStyle(color: Colors.white),
-                                    ))
-                              ],
-                            ),
+                          const SizedBox(
+                            height: 40,
                           ),
-                          HoverAnimatedContainer(
-                            hoveraAlignment: Alignment.center,
-                            duration: Duration(milliseconds: 200),
+                          Container(
                             height: 400,
-                            hoverHeight: 450,
-                            hoverWidth: 281.25,
                             width: 250,
                             decoration: BoxDecoration(
-                                color: Color(0xffe4e3ce),
+                                color: Color.fromARGB(255, 0, 0, 0),
                                 borderRadius: BorderRadius.circular(15)),
                             child: Column(
                               mainAxisAlignment: MainAxisAlignment.center,
@@ -396,86 +510,26 @@ class HomePage extends ConsumerWidget {
                                   height: 30,
                                 ),
                                 const Text(
-                                  "Edibles",
+                                  "Resins",
                                   style: TextStyle(
-                                      color: Color(0xff22362b),
+                                      fontSize: 16,
+                                      color: Color.fromARGB(255, 255, 255, 255),
                                       fontWeight: FontWeight.w600),
                                 ),
                                 const SizedBox(
                                   height: 20,
                                 ),
-                                TextButton(
-                                    style: TextButton.styleFrom(
-                                        minimumSize: Size(170, 45),
-                                        shape: RoundedRectangleBorder(
-                                            borderRadius:
-                                                BorderRadius.circular(100)),
-                                        backgroundColor: Color(0xff22362b)),
-                                    onPressed: () {},
-                                    child: Text(
-                                      "Shop Now",
-                                      style: TextStyle(color: Colors.white),
-                                    ))
                               ],
                             ),
                           ),
-                        ],
-                      )
-                    : Column(
-                        children: [
-                          Container(
-                            height: 400,
-                            width: 250,
-                            decoration: BoxDecoration(
-                                color: Color(0xffe4e3ce),
-                                borderRadius: BorderRadius.circular(15)),
-                            child: Column(
-                              mainAxisAlignment: MainAxisAlignment.center,
-                              children: [
-                                SizedBox(
-                                  height: 40,
-                                ),
-                                Image.asset(
-                                  'assets/prod 1.png',
-                                  fit: BoxFit.contain,
-                                  width: 250,
-                                  height: 200,
-                                ),
-                                const SizedBox(
-                                  height: 30,
-                                ),
-                                const Text(
-                                  "Sticks",
-                                  style: TextStyle(
-                                      color: Color(0xff22362b),
-                                      fontWeight: FontWeight.w600),
-                                ),
-                                const SizedBox(
-                                  height: 20,
-                                ),
-                                TextButton(
-                                    style: TextButton.styleFrom(
-                                        minimumSize: Size(170, 45),
-                                        shape: RoundedRectangleBorder(
-                                            borderRadius:
-                                                BorderRadius.circular(100)),
-                                        backgroundColor: Color(0xff22362b)),
-                                    onPressed: () {},
-                                    child: Text(
-                                      "Shop Now",
-                                      style: TextStyle(color: Colors.white),
-                                    ))
-                              ],
-                            ),
-                          ),
-                          const SizedBox(
+                          SizedBox(
                             height: 40,
                           ),
                           Container(
                             height: 400,
                             width: 250,
                             decoration: BoxDecoration(
-                                color: Color(0xffe4e3ce),
+                                color: Color.fromARGB(255, 6, 6, 6),
                                 borderRadius: BorderRadius.circular(15)),
                             child: Column(
                               mainAxisAlignment: MainAxisAlignment.center,
@@ -484,7 +538,7 @@ class HomePage extends ConsumerWidget {
                                   height: 40,
                                 ),
                                 Image.asset(
-                                  'assets/prod 2.png',
+                                  'assets/prod 4.png',
                                   fit: BoxFit.contain,
                                   width: 250,
                                   height: 200,
@@ -493,76 +547,20 @@ class HomePage extends ConsumerWidget {
                                   height: 30,
                                 ),
                                 const Text(
-                                  "Flower",
+                                  "Thundersticks",
                                   style: TextStyle(
-                                      color: Color(0xff22362b),
+                                      fontSize: 16,
+                                      color: Color.fromARGB(255, 255, 255, 255),
                                       fontWeight: FontWeight.w600),
                                 ),
                                 const SizedBox(
                                   height: 20,
                                 ),
-                                TextButton(
-                                    style: TextButton.styleFrom(
-                                        minimumSize: Size(170, 45),
-                                        shape: RoundedRectangleBorder(
-                                            borderRadius:
-                                                BorderRadius.circular(100)),
-                                        backgroundColor: Color(0xff22362b)),
-                                    onPressed: () {},
-                                    child: Text(
-                                      "Shop Now",
-                                      style: TextStyle(color: Colors.white),
-                                    ))
                               ],
                             ),
                           ),
                           const SizedBox(
                             height: 40,
-                          ),
-                          Container(
-                            height: 400,
-                            width: 250,
-                            decoration: BoxDecoration(
-                                color: Color(0xffe4e3ce),
-                                borderRadius: BorderRadius.circular(15)),
-                            child: Column(
-                              mainAxisAlignment: MainAxisAlignment.center,
-                              children: [
-                                SizedBox(
-                                  height: 40,
-                                ),
-                                Image.asset(
-                                  'assets/prod 3.png',
-                                  fit: BoxFit.contain,
-                                  width: 250,
-                                  height: 200,
-                                ),
-                                const SizedBox(
-                                  height: 30,
-                                ),
-                                const Text(
-                                  "Edibles",
-                                  style: TextStyle(
-                                      color: Color(0xff22362b),
-                                      fontWeight: FontWeight.w600),
-                                ),
-                                const SizedBox(
-                                  height: 20,
-                                ),
-                                TextButton(
-                                    style: TextButton.styleFrom(
-                                        minimumSize: Size(170, 45),
-                                        shape: RoundedRectangleBorder(
-                                            borderRadius:
-                                                BorderRadius.circular(100)),
-                                        backgroundColor: Color(0xff22362b)),
-                                    onPressed: () {},
-                                    child: Text(
-                                      "Shop Now",
-                                      style: TextStyle(color: Colors.white),
-                                    ))
-                              ],
-                            ),
                           ),
                         ],
                       ),
@@ -583,14 +581,13 @@ class HomePage extends ConsumerWidget {
                           const SizedBox(
                             width: 20,
                           ),
-                          Container(
-                            height: 0.4294478528 *
-                                MediaQuery.sizeOf(context).height,
+                          Image.asset(
+                            'assets/stiizy.jpeg',
+                            fit: BoxFit.cover,
                             width:
                                 0.4861111111 * MediaQuery.sizeOf(context).width,
-                            decoration: BoxDecoration(
-                                color: Colors.grey,
-                                borderRadius: BorderRadius.circular(30)),
+                            height: 0.4294478528 *
+                                MediaQuery.sizeOf(context).height,
                           ),
                           const SizedBox(
                             width: 50,
@@ -601,7 +598,7 @@ class HomePage extends ConsumerWidget {
                               crossAxisAlignment: CrossAxisAlignment.start,
                               children: [
                                 const Text(
-                                  "WHAT IS STIIIZY?",
+                                  "WHAT IS ALTRD?",
                                   style: TextStyle(
                                       color: Colors.white, fontSize: 30),
                                   softWrap: true,
@@ -613,13 +610,14 @@ class HomePage extends ConsumerWidget {
                                   width:
                                       0.41 * MediaQuery.sizeOf(context).width,
                                   child: const Text(
-                                    "STIIIZY offers a line of premium cannabis products that has set a new industry standard for portability and convenience. STIIIZY's proprietary pod system has garnered a cult-like following since its launch and has emerged as a leading lifestyle brand in cannabis.",
+                                    "Started in a garage, ALTRD embodies the spirit of picking yourself up and following opportunity. STIIIZY's proprietary pod system has garnered a cult-like following since its launch and has emerged as a leading lifestyle brand in cannabis.",
                                     style: TextStyle(
                                         color: Colors.white, fontSize: 15),
                                     softWrap: true,
                                   ),
                                 ),
                               ],
+                              //style="background-image: url(https://altrdcannabis.com/wp-content/uploads/2021/11/Asset-23@2x-100-783x1024.jpg);"
                             ),
                           ),
                         ],
@@ -631,14 +629,13 @@ class HomePage extends ConsumerWidget {
                           const SizedBox(
                             width: 20,
                           ),
-                          Container(
-                            height: 0.4294478528 *
-                                MediaQuery.sizeOf(context).height,
+                          Image.asset(
+                            'assets/stiizy.jpeg',
+                            fit: BoxFit.cover,
                             width:
                                 0.4861111111 * MediaQuery.sizeOf(context).width,
-                            decoration: BoxDecoration(
-                                color: Colors.grey,
-                                borderRadius: BorderRadius.circular(30)),
+                            height: 0.4294478528 *
+                                MediaQuery.sizeOf(context).height,
                           ),
                           const SizedBox(
                             height: 50,
@@ -649,7 +646,7 @@ class HomePage extends ConsumerWidget {
                               crossAxisAlignment: CrossAxisAlignment.start,
                               children: [
                                 const Text(
-                                  "WHAT IS STIIIZY?",
+                                  "WHAT IS ALTRD?",
                                   style: TextStyle(
                                       color: Colors.white, fontSize: 30),
                                   softWrap: true,
@@ -661,7 +658,7 @@ class HomePage extends ConsumerWidget {
                                   width:
                                       0.41 * MediaQuery.sizeOf(context).width,
                                   child: const Text(
-                                    "STIIIZY offers a line of premium cannabis products that has set a new industry standard for portability and convenience. STIIIZY's proprietary pod system has garnered a cult-like following since its launch and has emerged as a leading lifestyle brand in cannabis.",
+                                    "Started in a garage, ALTRD embodies the spirit of picking yourself up and following opportunity. STIIIZY's proprietary pod system has garnered a cult-like following since its launch and has emerged as a leading lifestyle brand in cannabis.",
                                     style: TextStyle(
                                         color: Colors.white, fontSize: 15),
                                     softWrap: true,
@@ -679,11 +676,11 @@ class HomePage extends ConsumerWidget {
                   color: Color.fromARGB(112, 255, 255, 255),
                 ),
                 const SizedBox(
-                  height: 100,
+                  height: 20,
                 ),
                 const Text(
                   "Merch",
-                  style: TextStyle(color: Colors.white, fontSize: 20),
+                  style: TextStyle(color: Colors.white, fontSize: 30),
                 ),
                 const SizedBox(
                   height: 30,
@@ -699,7 +696,7 @@ class HomePage extends ConsumerWidget {
                         },
                         child: const Text(
                           "New Releases",
-                          style: TextStyle(color: Colors.white),
+                          style: TextStyle(color: Colors.white, fontSize: 20),
                         )),
                     const SizedBox(
                       width: 100,
@@ -711,11 +708,12 @@ class HomePage extends ConsumerWidget {
                               .changeState(false);
                         },
                         child: const Text("Accessories",
-                            style: TextStyle(color: Colors.white))),
+                            style:
+                                TextStyle(color: Colors.white, fontSize: 20))),
                   ],
                 ),
                 const SizedBox(
-                  height: 60,
+                  height: 40,
                 ),
                 isNewReleases
                     ? !isDesktop
@@ -731,7 +729,7 @@ class HomePage extends ConsumerWidget {
                                     ClipRRect(
                                       borderRadius: BorderRadius.circular(50),
                                       child: Image.network(
-                                        'https://placekitten.com/900/500',
+                                        'https://www.stiiizy.com/cdn/shop/files/BACK-04_3d1f77b4-f216-4daf-b986-6d2f75d16565_1800x1800.png?v=1700083875',
                                         fit: BoxFit.cover,
                                         width: 250,
                                         height: 250,
@@ -758,7 +756,34 @@ class HomePage extends ConsumerWidget {
                                     ClipRRect(
                                       borderRadius: BorderRadius.circular(50),
                                       child: Image.network(
-                                        'https://placekitten.com/900/500',
+                                        'https://www.stiiizy.com/cdn/shop/files/BACK-04_3d1f77b4-f216-4daf-b986-6d2f75d16565_1800x1800.png?v=1700083875',
+                                        fit: BoxFit.cover,
+                                        width: 250,
+                                        height: 250,
+                                      ),
+                                    ),
+                                    const SizedBox(
+                                      height: 20,
+                                    ),
+                                    const Text(
+                                      "Prod 4",
+                                      style: TextStyle(color: Colors.white),
+                                    )
+                                  ],
+                                ),
+                                height: 300,
+                                width: 250,
+                              ),
+                              Container(
+                                decoration: BoxDecoration(
+                                    // color: Colors.red,
+                                    borderRadius: BorderRadius.circular(40)),
+                                child: Column(
+                                  children: [
+                                    ClipRRect(
+                                      borderRadius: BorderRadius.circular(50),
+                                      child: Image.network(
+                                        'https://www.stiiizy.com/cdn/shop/files/BACK-04_3d1f77b4-f216-4daf-b986-6d2f75d16565_1800x1800.png?v=1700083875',
                                         fit: BoxFit.cover,
                                         width: 250,
                                         height: 250,
@@ -785,7 +810,7 @@ class HomePage extends ConsumerWidget {
                                     ClipRRect(
                                       borderRadius: BorderRadius.circular(50),
                                       child: Image.network(
-                                        'https://placekitten.com/900/500',
+                                        'https://www.stiiizy.com/cdn/shop/files/BACK-04_3d1f77b4-f216-4daf-b986-6d2f75d16565_1800x1800.png?v=1700083875',
                                         fit: BoxFit.cover,
                                         width: 250,
                                         height: 250,
@@ -817,7 +842,7 @@ class HomePage extends ConsumerWidget {
                                     ClipRRect(
                                       borderRadius: BorderRadius.circular(50),
                                       child: Image.network(
-                                        'https://placekitten.com/900/500',
+                                        'https://www.stiiizy.com/cdn/shop/files/BACK-04_3d1f77b4-f216-4daf-b986-6d2f75d16565_1800x1800.png?v=1700083875',
                                         fit: BoxFit.cover,
                                         width: 250,
                                         height: 250,
@@ -847,7 +872,7 @@ class HomePage extends ConsumerWidget {
                                     ClipRRect(
                                       borderRadius: BorderRadius.circular(50),
                                       child: Image.network(
-                                        'https://placekitten.com/900/500',
+                                        'https://www.stiiizy.com/cdn/shop/files/BACK-04_3d1f77b4-f216-4daf-b986-6d2f75d16565_1800x1800.png?v=1700083875',
                                         fit: BoxFit.cover,
                                         width: 250,
                                         height: 250,
@@ -877,7 +902,7 @@ class HomePage extends ConsumerWidget {
                                     ClipRRect(
                                       borderRadius: BorderRadius.circular(50),
                                       child: Image.network(
-                                        'https://placekitten.com/900/500',
+                                        'https://www.stiiizy.com/cdn/shop/files/BACK-04_3d1f77b4-f216-4daf-b986-6d2f75d16565_1800x1800.png?v=1700083875',
                                         fit: BoxFit.cover,
                                         width: 250,
                                         height: 250,
@@ -910,7 +935,7 @@ class HomePage extends ConsumerWidget {
                                     ClipRRect(
                                       borderRadius: BorderRadius.circular(50),
                                       child: Image.network(
-                                        'https://placekitten.com/600/500',
+                                        'https://www.stiiizy.com/cdn/shop/files/BACK-04_3d1f77b4-f216-4daf-b986-6d2f75d16565_1800x1800.png?v=1700083875',
                                         fit: BoxFit.cover,
                                         width: 250,
                                         height: 250,
@@ -937,7 +962,34 @@ class HomePage extends ConsumerWidget {
                                     ClipRRect(
                                       borderRadius: BorderRadius.circular(50),
                                       child: Image.network(
-                                        'https://placekitten.com/600/500',
+                                        'https://www.stiiizy.com/cdn/shop/files/BACK-04_3d1f77b4-f216-4daf-b986-6d2f75d16565_1800x1800.png?v=1700083875',
+                                        fit: BoxFit.cover,
+                                        width: 250,
+                                        height: 250,
+                                      ),
+                                    ),
+                                    const SizedBox(
+                                      height: 20,
+                                    ),
+                                    const Text(
+                                      "Prod 7",
+                                      style: TextStyle(color: Colors.white),
+                                    )
+                                  ],
+                                ),
+                                height: 300,
+                                width: 250,
+                              ),
+                              Container(
+                                decoration: BoxDecoration(
+                                    // color: Colors.red,
+                                    borderRadius: BorderRadius.circular(40)),
+                                child: Column(
+                                  children: [
+                                    ClipRRect(
+                                      borderRadius: BorderRadius.circular(50),
+                                      child: Image.network(
+                                        'https://www.stiiizy.com/cdn/shop/files/BACK-04_3d1f77b4-f216-4daf-b986-6d2f75d16565_1800x1800.png?v=1700083875',
                                         fit: BoxFit.cover,
                                         width: 250,
                                         height: 250,
@@ -964,7 +1016,7 @@ class HomePage extends ConsumerWidget {
                                     ClipRRect(
                                       borderRadius: BorderRadius.circular(50),
                                       child: Image.network(
-                                        'https://placekitten.com/600/500',
+                                        'https://www.stiiizy.com/cdn/shop/files/BACK-04_3d1f77b4-f216-4daf-b986-6d2f75d16565_1800x1800.png?v=1700083875',
                                         fit: BoxFit.cover,
                                         width: 250,
                                         height: 250,
@@ -995,7 +1047,7 @@ class HomePage extends ConsumerWidget {
                                     ClipRRect(
                                       borderRadius: BorderRadius.circular(50),
                                       child: Image.network(
-                                        'https://placekitten.com/600/500',
+                                        'https://www.stiiizy.com/cdn/shop/files/BACK-04_3d1f77b4-f216-4daf-b986-6d2f75d16565_1800x1800.png?v=1700083875',
                                         fit: BoxFit.cover,
                                         width: 250,
                                         height: 250,
@@ -1025,7 +1077,7 @@ class HomePage extends ConsumerWidget {
                                     ClipRRect(
                                       borderRadius: BorderRadius.circular(50),
                                       child: Image.network(
-                                        'https://placekitten.com/600/500',
+                                        'https://www.stiiizy.com/cdn/shop/files/BACK-04_3d1f77b4-f216-4daf-b986-6d2f75d16565_1800x1800.png?v=1700083875',
                                         fit: BoxFit.cover,
                                         width: 250,
                                         height: 250,
@@ -1055,7 +1107,7 @@ class HomePage extends ConsumerWidget {
                                     ClipRRect(
                                       borderRadius: BorderRadius.circular(50),
                                       child: Image.network(
-                                        'https://placekitten.com/600/500',
+                                        'https://www.stiiizy.com/cdn/shop/files/BACK-04_3d1f77b4-f216-4daf-b986-6d2f75d16565_1800x1800.png?v=1700083875',
                                         fit: BoxFit.cover,
                                         width: 250,
                                         height: 250,
@@ -1081,7 +1133,7 @@ class HomePage extends ConsumerWidget {
                 ElevatedButton(
                     onPressed: () {},
                     child: const Text(
-                      "All New Accessories",
+                      "View All",
                     )),
                 const SizedBox(
                   height: 120,
@@ -1093,8 +1145,8 @@ class HomePage extends ConsumerWidget {
                     turnsAnimation: animation,
                     controller: controller,
                     type: GFAnimationType.scaleTransition,
-                    child: Image.asset(
-                      'assets/mygif.gif',
+                    child: Image.network(
+                      'https://media1.tenor.com/m/Yc8wjmfgknsAAAAC/party-party-animal.gif',
                       fit: BoxFit.cover,
                       width: double.infinity,
                       height: double.infinity,

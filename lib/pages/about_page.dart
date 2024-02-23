@@ -28,7 +28,7 @@ class AboutPage extends ConsumerWidget {
     IndexController _controller = IndexController();
     return Scaffold(
       backgroundColor: Colors.black,
-      appBar:  CustomAppBar(),
+      appBar: CustomAppBar(),
       body: LayoutBuilder(
         builder: (context, constraints) {
           bool isDesktop = MediaQuery.of(context).size.width > 1168;
@@ -74,7 +74,7 @@ class AboutPage extends ConsumerWidget {
                                     child: ClipRRect(
                                       borderRadius: BorderRadius.circular(50),
                                       child: Image.network(
-                                        'https://placekitten.com/900/500',
+                                        'https://www.stiiizy.com/cdn/shop/files/BACK-04_3d1f77b4-f216-4daf-b986-6d2f75d16565_1800x1800.png?v=1700083875',
                                         fit: BoxFit.cover,
                                         width: 700,
                                         height: 500,
@@ -166,7 +166,7 @@ class AboutPage extends ConsumerWidget {
                                     ClipRRect(
                                       borderRadius: BorderRadius.circular(50),
                                       child: Image.network(
-                                        'https://placekitten.com/900/500',
+                                        'https://www.stiiizy.com/cdn/shop/files/BACK-04_3d1f77b4-f216-4daf-b986-6d2f75d16565_1800x1800.png?v=1700083875',
                                         fit: BoxFit.cover,
                                         width: 700,
                                         height: 500,
@@ -184,7 +184,7 @@ class AboutPage extends ConsumerWidget {
                                   ClipRRect(
                                     borderRadius: BorderRadius.circular(50),
                                     child: Image.network(
-                                      'https://placekitten.com/900/500',
+                                      'https://www.stiiizy.com/cdn/shop/files/BACK-04_3d1f77b4-f216-4daf-b986-6d2f75d16565_1800x1800.png?v=1700083875',
                                       fit: BoxFit.cover,
                                       width: 700,
                                       height: 500,
