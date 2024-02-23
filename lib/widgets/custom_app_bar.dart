@@ -50,7 +50,7 @@ class CustomAppBar extends ConsumerWidget implements PreferredSizeWidget {
         color: Colors.white, // Set the background color to white
         padding: EdgeInsets.only(left: 30, top: 5, bottom: 5, right: 40),
         child: Padding(
-          padding: const EdgeInsets.all(8.0),
+          padding: const EdgeInsets.all(4),
           child: Row(
             children: [
               ClipRRect(
@@ -61,11 +61,11 @@ class CustomAppBar extends ConsumerWidget implements PreferredSizeWidget {
                       Navigator.pushNamed(context, '/');
                     },
                     child: Ink(
-                        height: 100,
-                        width: 100,
+                        height: 170,
+                        width: 70,
                         child: SvgPicture.asset(
                           "assets/Altrd Cannabis Asset.svg",
-                          fit: BoxFit.contain,
+                          fit: BoxFit.fill,
                           // Adjust SVG color for better visibility against white background
                           color: Colors.black,
                         ))),
@@ -97,7 +97,7 @@ class CustomAppBar extends ConsumerWidget implements PreferredSizeWidget {
                                   header,
                                   style: TextStyle(
                                       color: _isHovering[index]
-                                          ? Color.fromARGB(255, 3, 255, 142)
+                                          ? Color.fromARGB(255, 36, 98, 7)
                                           : Colors.black, // Changed text color
                                       fontWeight: FontWeight.w600),
                                 ),

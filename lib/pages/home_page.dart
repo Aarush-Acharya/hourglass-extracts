@@ -149,22 +149,23 @@ class HomePage extends ConsumerWidget {
                                     const Text(
                                       "ALTR YOUR LIFESTYLE",
                                       style: TextStyle(
-                                        color: Colors.white,
-                                        fontSize: 55,
-                                        fontFamily: 'Roboto',
-                                      ),
+                                          color: Colors.white,
+                                          fontSize: 55,
+                                          fontFamily: 'Roboto',
+                                          fontWeight: FontWeight.w900),
                                     ),
                                     const SizedBox(
                                       height: 20,
                                     ),
-                                    const SizedBox(
+                                    SizedBox(
                                       width: 500,
                                       child: Text(
                                         "Discover your perfect high with over 100 curated strains, personalized recommendations, and precise weight by the gram - elevating your experience to new heights. Cambridge, Vermont Dispensary EST 2022",
                                         style: TextStyle(
-                                          color: Colors.white,
-                                          fontSize: 20,
-                                        ),
+                                            color: Colors.white,
+                                            fontSize: 20,
+                                            fontFamily: 'Roboto',
+                                            fontWeight: FontWeight.w500),
                                         softWrap: true,
                                         textAlign: TextAlign
                                             .left, // Align text to left
@@ -205,8 +206,7 @@ class HomePage extends ConsumerWidget {
                                                     minimumSize:
                                                         const Size(180, 50),
                                                     backgroundColor:
-                                                        const Color.fromARGB(
-                                                            3, 255, 153, 0),
+                                                        Colors.white,
                                                     shape: RoundedRectangleBorder(
                                                         side: const BorderSide(
                                                             color:
@@ -539,10 +539,10 @@ class HomePage extends ConsumerWidget {
                                   const Text(
                                     "WHAT IS ALTRD?",
                                     style: TextStyle(
-                                      color: Colors.white,
-                                      fontSize: 55,
-                                      fontFamily: 'Roboto',
-                                    ),
+                                        color: Colors.white,
+                                        fontSize: 55,
+                                        fontFamily: 'Roboto',
+                                        fontWeight: FontWeight.w700),
                                     softWrap: true,
                                   ),
                                   const SizedBox(height: 40),
@@ -552,10 +552,10 @@ class HomePage extends ConsumerWidget {
                                             .size
                                             .width, // Width of the text content
                                     child: const Text(
-                                      "Started in a garage, ALTRD embodies the spirit of picking yourself up and following opportunity. STIIIZY's proprietary pod system has garnered a cult-like following since its launch and has emerged as a leading lifestyle brand in cannabis.",
+                                      "Change or cause to change in character or composition, typically in a comparatively small but significant way.",
                                       style: TextStyle(
                                         color: Colors.white,
-                                        fontSize: 15,
+                                        fontSize: 25,
                                       ),
                                       softWrap: true,
                                     ),

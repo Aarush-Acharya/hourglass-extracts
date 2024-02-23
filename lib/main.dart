@@ -37,7 +37,7 @@ class MyApp extends StatelessWidget {
       debugShowCheckedModeBanner: false,
       scrollBehavior: AppScrollBehavior(),
       title: 'Hourglass',
-      theme: ThemeData(primarySwatch: Colors.amber, fontFamily: 'Cinzel'),
+      theme: ThemeData(primarySwatch: Colors.amber, fontFamily: 'Roboto'),
       initialRoute: '/',
       routes: {
         '/': (context) => HomePage(),
