@@ -60,6 +60,12 @@ class MyAnimationProvider implements TickerProvider {
 class HomePage extends ConsumerWidget {
   HomePage({super.key});
   final MyAnimationProvider animationProvider = MyAnimationProvider();
+  VideoPlayerController videoController =
+      VideoPlayerController.asset('assets/altrd-vid.mp4')
+        ..initialize()
+        ..play()
+        ..setLooping(true);
+
   // bool checkState
   Future<List<dynamic>> readJson() async {
     final String response =
@@ -1080,10 +1086,20 @@ class HomePage extends ConsumerWidget {
                 ),
                 Container(
                   height: firstFoldHeight + 180,
-                  color: Colors.white,
-                  child:
-                      VideoPlayerWidget(), // Include the video player widget here
+                  width: 1440,
+                  child: videoController.value.isInitialized
+                      ? Text("Not initialised")
+                      : VideoPlayer(videoController), // Include the video player widget here
                 ),
+                const SizedBox(
+                  height: 50,
+                ),
+                // ElevatedButton(
+                //     onPressed: () {
+                //       videoController.play();
+                //       videoController.setLooping(true);
+                //     },
+                //     child: Text("play")),
                 const SizedBox(
                   height: 50,
                 ),
