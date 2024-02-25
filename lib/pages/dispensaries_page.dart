@@ -108,6 +108,12 @@ class DispensariesScreen extends ConsumerWidget {
     return featuredArtists;
   }
 
+  Set<Marker> stores = {
+    Marker(markerId: MarkerId("first"), position: LatLng(28.56474, 77.32197)),
+    Marker(markerId: MarkerId("second"), position: LatLng(28.45376, 77.10201)),
+    Marker(markerId: MarkerId("third"), position: LatLng(28.5889, 77.2534)),
+  };
+
   List<String> steps = [
     "Insert your Bank Card",
     "Select Cash or Bitcoin",
@@ -278,8 +284,8 @@ class DispensariesScreen extends ConsumerWidget {
       Completer<GoogleMapController>();
 
   static const CameraPosition _kGooglePlex = CameraPosition(
-    target: LatLng(37.42796133580664, -122.085749655962),
-    zoom: 14.4746,
+    target: LatLng(28.56474, 77.32197),
+    zoom: 10,
   );
 
   @override
@@ -296,6 +302,384 @@ class DispensariesScreen extends ConsumerWidget {
       "United States": [isExpandedValueStates.isExpanded4, 3],
     };
 
+    onMapCreate(GoogleMapController controller) {
+      _controller.complete(controller);
+      controller.setMapStyle('''[
+    {
+        "featureType": "all",
+        "elementType": "labels.text.fill",
+        "stylers": [
+            {
+                "saturation": 36
+            },
+            {
+                "color": "#dedede"
+            },
+            {
+                "lightness": 40
+            }
+        ]
+    },
+    {
+        "featureType": "all",
+        "elementType": "labels.text.stroke",
+        "stylers": [
+            {
+                "visibility": "off"
+            },
+            {
+                "color": "#000000"
+            },
+            {
+                "lightness": 16
+            }
+        ]
+    },
+    {
+        "featureType": "all",
+        "elementType": "labels.icon",
+        "stylers": [
+            {
+                "visibility": "off"
+            }
+        ]
+    },
+    {
+        "featureType": "administrative",
+        "elementType": "geometry.fill",
+        "stylers": [
+            {
+                "color": "#000000"
+            },
+            {
+                "lightness": 20
+            }
+        ]
+    },
+    {
+        "featureType": "administrative",
+        "elementType": "geometry.stroke",
+        "stylers": [
+            {
+                "color": "#000000"
+            },
+            {
+                "lightness": 17
+            },
+            {
+                "weight": 1.2
+            }
+        ]
+    },
+    {
+        "featureType": "landscape",
+        "elementType": "geometry",
+        "stylers": [
+            {
+                "color": "#000000"
+            },
+            {
+                "lightness": 20
+            }
+        ]
+    },
+    {
+        "featureType": "poi",
+        "elementType": "geometry",
+        "stylers": [
+            {
+                "color": "#000000"
+            },
+            {
+                "lightness": 21
+            }
+        ]
+    },
+    {
+        "featureType": "poi",
+        "elementType": "geometry.stroke",
+        "stylers": [
+            {
+                "visibility": "on"
+            },
+            {
+                "color": "#000000"
+            }
+        ]
+    },
+    {
+        "featureType": "poi",
+        "elementType": "labels.text.fill",
+        "stylers": [
+            {
+                "weight": "10.00"
+            },
+            {
+                "invert_lightness": true
+            },
+            {
+                "gamma": "7.24"
+            },
+            {
+                "lightness": "60"
+            },
+            {
+                "saturation": "66"
+            }
+        ]
+    },
+    {
+        "featureType": "poi",
+        "elementType": "labels.text.stroke",
+        "stylers": [
+            {
+                "color": "#ffffff"
+            },
+            {
+                "invert_lightness": true
+            }
+        ]
+    },
+    {
+        "featureType": "poi",
+        "elementType": "labels.icon",
+        "stylers": [
+            {
+                "visibility": "on"
+            }
+        ]
+    },
+    {
+        "featureType": "poi.attraction",
+        "elementType": "all",
+        "stylers": [
+            {
+                "visibility": "off"
+            }
+        ]
+    },
+    {
+        "featureType": "poi.business",
+        "elementType": "all",
+        "stylers": [
+            {
+                "visibility": "off"
+            }
+        ]
+    },
+    {
+        "featureType": "poi.government",
+        "elementType": "all",
+        "stylers": [
+            {
+                "visibility": "off"
+            }
+        ]
+    },
+    {
+        "featureType": "poi.medical",
+        "elementType": "all",
+        "stylers": [
+            {
+                "visibility": "off"
+            }
+        ]
+    },
+    {
+        "featureType": "poi.park",
+        "elementType": "all",
+        "stylers": [
+            {
+                "visibility": "off"
+            }
+        ]
+    },
+    {
+        "featureType": "poi.place_of_worship",
+        "elementType": "all",
+        "stylers": [
+            {
+                "visibility": "off"
+            }
+        ]
+    },
+    {
+        "featureType": "poi.school",
+        "elementType": "all",
+        "stylers": [
+            {
+                "visibility": "off"
+            }
+        ]
+    },
+    {
+        "featureType": "poi.sports_complex",
+        "elementType": "geometry.fill",
+        "stylers": [
+            {
+                "visibility": "on"
+            },
+            {
+                "color": "#d2cece"
+            },
+            {
+                "invert_lightness": true
+            },
+            {
+                "weight": "10.00"
+            }
+        ]
+    },
+    {
+        "featureType": "poi.sports_complex",
+        "elementType": "geometry.stroke",
+        "stylers": [
+            {
+                "visibility": "on"
+            },
+            {
+                "color": "#ffffff"
+            }
+        ]
+    },
+    {
+        "featureType": "poi.sports_complex",
+        "elementType": "labels.text",
+        "stylers": [
+            {
+                "visibility": "simplified"
+            }
+        ]
+    },
+    {
+        "featureType": "poi.sports_complex",
+        "elementType": "labels.text.fill",
+        "stylers": [
+            {
+                "visibility": "on"
+            },
+            {
+                "color": "#ff0000"
+            }
+        ]
+    },
+    {
+        "featureType": "poi.sports_complex",
+        "elementType": "labels.text.stroke",
+        "stylers": [
+            {
+                "gamma": "10.00"
+            },
+            {
+                "invert_lightness": true
+            },
+            {
+                "weight": "10.00"
+            },
+            {
+                "color": "#ffffff"
+            },
+            {
+                "visibility": "off"
+            }
+        ]
+    },
+    {
+        "featureType": "poi.sports_complex",
+        "elementType": "labels.icon",
+        "stylers": [
+            {
+                "visibility": "on"
+            },
+            {
+                "weight": "5.10"
+            },
+            {
+                "gamma": "0.00"
+            },
+            {
+                "hue": "#ff0000"
+            }
+        ]
+    },
+    {
+        "featureType": "road.highway",
+        "elementType": "geometry.fill",
+        "stylers": [
+            {
+                "color": "#393939"
+            },
+            {
+                "lightness": 17
+            }
+        ]
+    },
+    {
+        "featureType": "road.highway",
+        "elementType": "geometry.stroke",
+        "stylers": [
+            {
+                "color": "#000000"
+            },
+            {
+                "lightness": 29
+            },
+            {
+                "weight": 0.2
+            }
+        ]
+    },
+    {
+        "featureType": "road.arterial",
+        "elementType": "geometry",
+        "stylers": [
+            {
+                "color": "#1c1c1c"
+            },
+            {
+                "lightness": 18
+            }
+        ]
+    },
+    {
+        "featureType": "road.local",
+        "elementType": "geometry",
+        "stylers": [
+            {
+                "color": "#343434"
+            },
+            {
+                "lightness": 16
+            }
+        ]
+    },
+    {
+        "featureType": "transit",
+        "elementType": "geometry",
+        "stylers": [
+            {
+                "color": "#000000"
+            },
+            {
+                "lightness": 19
+            }
+        ]
+    },
+    {
+        "featureType": "water",
+        "elementType": "geometry",
+        "stylers": [
+            {
+                "color": "#000000"
+            },
+            {
+                "lightness": 17
+            }
+        ]
+    }
+]''');
+    }
+
     double firstFoldHeight = MediaQuery.of(context).size.height * 0.6;
     var controller = AnimationController(
         duration: const Duration(seconds: 1), vsync: animationProvider);
@@ -303,9 +687,9 @@ class DispensariesScreen extends ConsumerWidget {
         parent: controller, curve: Curves.fastEaseInToSlowEaseOut);
 
     return Scaffold(
-      endDrawer:  CustomAppBar(),
+      endDrawer: CustomAppBar(),
       backgroundColor: Colors.black,
-      appBar:  CustomAppBar(),
+      appBar: CustomAppBar(),
       body: LayoutBuilder(
         builder: (context, constraints) {
           return SingleChildScrollView(
@@ -362,7 +746,6 @@ class DispensariesScreen extends ConsumerWidget {
                                   child: const Text(
                                     "Search using address city and state or ZIP",
                                     softWrap: true,
-                                    textAlign: TextAlign.center,
                                     style: TextStyle(
                                         fontSize: 18, color: Colors.black),
                                   ),
@@ -422,7 +805,7 @@ class DispensariesScreen extends ConsumerWidget {
                                         ),
                                       ),
                                       const SizedBox(
-                                        width: 8,
+                                        width: 15,
                                       ),
                                       Transform.rotate(
                                           angle: 45 * math.pi / 180,
@@ -434,46 +817,6 @@ class DispensariesScreen extends ConsumerWidget {
                                 SizedBox(
                                   height:
                                       0.04 * MediaQuery.sizeOf(context).height,
-                                ),
-                                Row(
-                                  mainAxisAlignment: MainAxisAlignment.center,
-                                  children: [
-                                    const Text(
-                                      "I want to: ",
-                                      style: TextStyle(fontSize: 18),
-                                    ),
-                                    const SizedBox(
-                                      width: 20,
-                                    ),
-                                    Checkbox(
-                                        value: state.state1,
-                                        onChanged: (onChanged) {
-                                          ref
-                                              .read(valueProvider.notifier)
-                                              .changeState(0);
-                                        }),
-                                    const Text(
-                                      "Buy",
-                                      style: TextStyle(fontSize: 18),
-                                    ),
-                                    const SizedBox(
-                                      width: 30,
-                                    ),
-                                    Checkbox(
-                                        value: state.state2,
-                                        onChanged: (onChanged) {
-                                          ref
-                                              .read(valueProvider.notifier)
-                                              .changeState(1);
-                                        }),
-                                    const Text(
-                                      "Sell",
-                                      style: TextStyle(fontSize: 18),
-                                    )
-                                  ],
-                                ),
-                                const SizedBox(
-                                  height: 30,
                                 ),
                                 const Text(
                                   "Get notified of new locations",
@@ -580,18 +923,17 @@ class DispensariesScreen extends ConsumerWidget {
                             ),
                           ),
                           Padding(
-                            padding: const EdgeInsets.only(left: 20),
+                            padding: const EdgeInsets.only(left: 13),
                             child: SizedBox(
                               height: 720,
                               width: 800,
                               child: GoogleMap(
-                                zoomControlsEnabled: false,
-                                mapType: MapType.normal,
-                                initialCameraPosition: _kGooglePlex,
-                                onMapCreated: (GoogleMapController controller) {
-                                  _controller.complete(controller);
-                                },
-                              ),
+                                  markers: stores,
+                                  zoomControlsEnabled: false,
+                                  fortyFiveDegreeImageryEnabled: true,
+                                  mapType: MapType.normal,
+                                  initialCameraPosition: _kGooglePlex,
+                                  onMapCreated: onMapCreate),
                             ),
                           ),
                         ]),

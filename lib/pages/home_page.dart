@@ -1,3 +1,4 @@
+import 'dart:async';
 import 'dart:convert';
 import 'dart:ui';
 import 'package:flutter/material.dart';
@@ -6,6 +7,7 @@ import 'package:flutter/src/scheduler/ticker.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:getwidget/components/animation/gf_animation.dart';
 import 'package:getwidget/types/gf_animation_type.dart';
+import 'package:google_maps_flutter/google_maps_flutter.dart';
 import 'package:hovering/hovering.dart';
 import 'package:riverpod_annotation/riverpod_annotation.dart';
 import 'package:simple_ripple_animation/simple_ripple_animation.dart';
@@ -65,6 +67,14 @@ class HomePage extends ConsumerWidget {
         ..initialize()
         ..play()
         ..setLooping(true);
+  final Completer<GoogleMapController> _controller =
+      Completer<GoogleMapController>();
+
+  Set<Marker> stores = {
+    Marker(markerId: MarkerId("first"), position: LatLng(28.56474, 77.32197)),
+    Marker(markerId: MarkerId("second"), position: LatLng(28.45376, 77.10201)),
+    Marker(markerId: MarkerId("third"), position: LatLng(28.5889, 77.2534)),
+  };
 
   // bool checkState
   Future<List<dynamic>> readJson() async {
@@ -82,6 +92,11 @@ class HomePage extends ConsumerWidget {
     print(featuredArtists);
     return featuredArtists;
   }
+
+  static const CameraPosition _kGooglePlex = CameraPosition(
+    target: LatLng(28.56474, 77.32197),
+    zoom: 10,
+  );
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
@@ -277,12 +292,12 @@ class HomePage extends ConsumerWidget {
                   height: 20,
                 ),
                 const Text(
-                  "Explore our products",
+                  "Explore Our Products",
                   style: TextStyle(color: Colors.black, fontSize: 30),
                 ),
-                // const SizedBox(
-                //   height: 60,
-                // ),
+                const SizedBox(
+                  height: 30,
+                ),
                 !isDesktop
                     ? Row(
                         mainAxisAlignment: MainAxisAlignment
@@ -498,8 +513,9 @@ class HomePage extends ConsumerWidget {
                           ),
                         ],
                       ),
+
                 const SizedBox(
-                  height: 60,
+                  height: 90,
                 ),
                 const Text(
                   "Our Stores",
@@ -514,11 +530,20 @@ class HomePage extends ConsumerWidget {
                       .width, // Full width of the screen
                   height: 0.4294478528 *
                       MediaQuery.of(context).size.height, // Adjusted height
-                  decoration: BoxDecoration(
-                    image: DecorationImage(
-                      image: AssetImage('assets/mep2.jpeg'),
-                      fit: BoxFit.cover, // Cover the container with the image
-                    ),
+                  // decoration: BoxDecoration(
+                  //   image: DecorationImage(
+                  //     image: AssetImage('assets/mep2.jpeg'),
+                  //     fit: BoxFit.cover, // Cover the container with the image
+                  //   ),
+                  // ),
+                  child: GoogleMap(
+                    zoomControlsEnabled: false,
+                    mapType: MapType.normal,
+                    initialCameraPosition: _kGooglePlex,
+                    onMapCreated: (GoogleMapController controller) {
+                      _controller.complete(controller);
+                    },
+                    markers: stores,
                   ),
                 ),
                 // const SizedBox(
@@ -663,7 +688,7 @@ class HomePage extends ConsumerWidget {
                 //   color: Colors.black,
                 // ),
                 const SizedBox(
-                  height: 20,
+                  height: 80,
                 ),
                 const Text(
                   "Merch",
@@ -1089,7 +1114,8 @@ class HomePage extends ConsumerWidget {
                   width: 1440,
                   child: videoController.value.isInitialized
                       ? Text("Not initialised")
-                      : VideoPlayer(videoController), // Include the video player widget here
+                      : VideoPlayer(
+                          videoController), // Include the video player widget here
                 ),
                 const SizedBox(
                   height: 50,
@@ -1211,7 +1237,7 @@ class HomePage extends ConsumerWidget {
                                 ),
                               ),
                               Text(
-                                "Lorem ipsum dolor sit amet, consectetur adipiscing",
+                                "Sample Blog Title",
                                 style: TextStyle(
                                     color: Colors.black,
                                     fontSize: 20,

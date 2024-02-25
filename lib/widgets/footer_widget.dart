@@ -7,9 +7,7 @@ class FooterWidget extends StatelessWidget {
     'Products': 'products',
     'Merch': 'merch',
     'Dispensaries': 'dispensaries',
-    'About Us': 'exhibitions',
-    'Business Inuiries': 'news',
-    'Events': 'contact'
+    'About Us': 'about',
   };
 
   FooterWidget({super.key});

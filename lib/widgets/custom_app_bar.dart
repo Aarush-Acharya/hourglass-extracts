@@ -39,9 +39,7 @@ class CustomAppBar extends ConsumerWidget implements PreferredSizeWidget {
       'Products': 'products',
       'Merch': 'merch',
       'Dispensaries': 'dispensaries',
-      'About Us': 'exhibitions',
-      'Business Inquiries': 'news',
-      'Events': 'contact'
+      'About Us': 'about',
     };
 
     return PreferredSize(
@@ -79,14 +77,18 @@ class CustomAppBar extends ConsumerWidget implements PreferredSizeWidget {
                     String header = entry.value;
                     return Row(
                       children: [
-                        SizedBox(width: screenSize.width / 40),
+                        SizedBox(width: screenSize.width / 20),
                         InkWell(
                           onHover: (value) {
                             ref
                                 .read(currentHoveringStatesProvider.notifier)
                                 .changeState(index);
                           },
-                          onTap: () {},
+                          onTap: () {
+                            print("Here");
+                            Navigator.pushNamed(
+                                context, '/${appbarHeaders[header]!}');
+                          },
                           child: Padding(
                             padding: const EdgeInsets.only(top: 7),
                             child: Column(
@@ -99,7 +101,8 @@ class CustomAppBar extends ConsumerWidget implements PreferredSizeWidget {
                                       color: _isHovering[index]
                                           ? Color.fromARGB(255, 36, 98, 7)
                                           : Colors.black, // Changed text color
-                                      fontWeight: FontWeight.w600),
+                                      fontWeight: FontWeight.w600,
+                                      fontSize: 16),
                                 ),
                                 SizedBox(height: 5),
                                 Visibility(
@@ -110,7 +113,7 @@ class CustomAppBar extends ConsumerWidget implements PreferredSizeWidget {
                                   child: AnimatedContainer(
                                       duration: Duration(milliseconds: 250),
                                       height: 2,
-                                      width: _isHovering[index] ? 50 : 0,
+                                      width: _isHovering[index] ? 40 : 0,
                                       color: Colors
                                           .black), // Adjusted for visibility
                                 )
