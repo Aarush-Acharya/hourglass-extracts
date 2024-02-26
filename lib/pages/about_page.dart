@@ -73,8 +73,8 @@ class AboutPage extends ConsumerWidget {
                                             BorderRadius.circular(40)),
                                     child: ClipRRect(
                                       borderRadius: BorderRadius.circular(50),
-                                      child: Image.network(
-                                        'https://www.stiiizy.com/cdn/shop/files/BACK-04_3d1f77b4-f216-4daf-b986-6d2f75d16565_1800x1800.png?v=1700083875',
+                                      child: Image.asset(
+                                        'assets/abt-1.png',
                                         fit: BoxFit.cover,
                                         width: 700,
                                         height: 500,
@@ -94,7 +94,7 @@ class AboutPage extends ConsumerWidget {
                                                 CrossAxisAlignment.start,
                                             children: [
                                               Text(
-                                                "INCLUSIVITY",
+                                                "KIND, BUT NOT WEAK",
                                                 style: TextStyle(
                                                     color: Colors.white,
                                                     fontSize: 35),
@@ -140,7 +140,7 @@ class AboutPage extends ConsumerWidget {
                                           SizedBox(
                                             width: 300,
                                             child: Text(
-                                              "THE JOURNEY",
+                                              "INDEPENDENT, BUT NOT ALONE",
                                               style: TextStyle(
                                                   color: Colors.white,
                                                   fontSize: 40),
@@ -165,8 +165,8 @@ class AboutPage extends ConsumerWidget {
                                     ),
                                     ClipRRect(
                                       borderRadius: BorderRadius.circular(50),
-                                      child: Image.network(
-                                        'https://www.stiiizy.com/cdn/shop/files/BACK-04_3d1f77b4-f216-4daf-b986-6d2f75d16565_1800x1800.png?v=1700083875',
+                                      child: Image.asset(
+                                        'assets/abt-2.png',
                                         fit: BoxFit.cover,
                                         width: 700,
                                         height: 500,
@@ -183,8 +183,8 @@ class AboutPage extends ConsumerWidget {
                                 children: [
                                   ClipRRect(
                                     borderRadius: BorderRadius.circular(50),
-                                    child: Image.network(
-                                      'https://www.stiiizy.com/cdn/shop/files/BACK-04_3d1f77b4-f216-4daf-b986-6d2f75d16565_1800x1800.png?v=1700083875',
+                                    child: Image.asset(
+                                      'assets/stiizy.jpeg',
                                       fit: BoxFit.cover,
                                       width: 700,
                                       height: 500,
@@ -203,7 +203,7 @@ class AboutPage extends ConsumerWidget {
                                                 CrossAxisAlignment.start,
                                             children: [
                                               Text(
-                                                "HEALING",
+                                                "BRAVE, BUT NOT ARROGANT",
                                                 style: TextStyle(
                                                     color: Colors.white,
                                                     fontSize: 35),
@@ -233,55 +233,55 @@ class AboutPage extends ConsumerWidget {
                                 height: 70,
                               ),
                               const Text(
-                                "CORE VALUES",
+                                "FOLLOW, BUT DON'T OBEY",
                                 style: TextStyle(
                                     color: Colors.white, fontSize: 42),
                               ),
-                              const SizedBox(
-                                height: 60,
-                              ),
-                              Container(
-                                width: 800,
-                                height: 60,
-                                decoration: BoxDecoration(
-                                    borderRadius: BorderRadius.circular(2),
-                                    border: Border.all(color: Colors.white)),
-                                child: Center(
-                                  child: const Text(
-                                      "OUR VISION IS TO BRING CANNABIS CULTURE TO THE WORLD ",
-                                      style: TextStyle(
-                                          color: Colors.white,
-                                          fontSize: 18,
-                                          fontWeight: FontWeight.w500)),
-                                ),
-                              ),
-                              SizedBox(
-                                height: 20,
-                              ),
-                              Container(
-                                width: 800,
-                                decoration: BoxDecoration(
-                                    borderRadius: BorderRadius.circular(2),
-                                    border: Border.all(color: Colors.white)),
-                                child: Center(
-                                  child: Padding(
-                                    padding: const EdgeInsets.symmetric(
-                                        vertical: 20, horizontal: 90.0),
-                                    child: const Text(
-                                        "OUR PRESUIT OF EXELLENCE DRIVES US TO REVOLUTIONIZE THE CANNABIS INDUSTRY USING CUTTING EDGE TECHNOLOGY TO DELIVER UNPARALLELED PRODUCTS AND SERVICE TO OUR CUSTOMERS",
-                                        softWrap: true,
-                                        textAlign: TextAlign.center,
-                                        style: TextStyle(
-                                            color: Colors.white,
-                                            fontSize: 18,
-                                            fontWeight: FontWeight.w500)),
-                                  ),
-                                ),
-                              ),
-                              SizedBox(
-                                height: 40,
-                              ),
-                              CardGrid(girdData: ["a", "e", "i", "o", "u"])
+                              // const SizedBox(
+                              //   height: 60,
+                              // ),
+                              // Container(
+                              //   width: 800,
+                              //   height: 60,
+                              //   decoration: BoxDecoration(
+                              //       borderRadius: BorderRadius.circular(2),
+                              //       border: Border.all(color: Colors.white)),
+                              //   child: Center(
+                              //     child: const Text(
+                              //         "OUR VISION IS TO BRING CANNABIS CULTURE TO THE WORLD ",
+                              //         style: TextStyle(
+                              //             color: Colors.white,
+                              //             fontSize: 18,
+                              //             fontWeight: FontWeight.w500)),
+                              //   ),
+                              // ),
+                              // SizedBox(
+                              //   height: 20,
+                              // ),
+                              // Container(
+                              //   width: 800,
+                              //   decoration: BoxDecoration(
+                              //       borderRadius: BorderRadius.circular(2),
+                              //       border: Border.all(color: Colors.white)),
+                              //   child: Center(
+                              //     child: Padding(
+                              //       padding: const EdgeInsets.symmetric(
+                              //           vertical: 20, horizontal: 90.0),
+                              //       child: const Text(
+                              //           "OUR PRESUIT OF EXELLENCE DRIVES US TO REVOLUTIONIZE THE CANNABIS INDUSTRY USING CUTTING EDGE TECHNOLOGY TO DELIVER UNPARALLELED PRODUCTS AND SERVICE TO OUR CUSTOMERS",
+                              //           softWrap: true,
+                              //           textAlign: TextAlign.center,
+                              //           style: TextStyle(
+                              //               color: Colors.white,
+                              //               fontSize: 18,
+                              //               fontWeight: FontWeight.w500)),
+                              //     ),
+                              //   ),
+                              // ),
+                              // SizedBox(
+                              //   height: 40,
+                              // ),
+                              // CardGrid(girdData: ["a", "e", "i", "o", "u"])
                             ],
                           )
                         : Column(

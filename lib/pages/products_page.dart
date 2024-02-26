@@ -41,9 +41,15 @@ class ProductPage extends ConsumerWidget {
         duration: const Duration(seconds: 1), vsync: animationProvider);
     var animation = new CurvedAnimation(
         parent: controller, curve: Curves.fastEaseInToSlowEaseOut);
-
+    List<String> productNames = [
+      "Edibles",
+      "Moonrocks",
+      "Resins",
+      "Thundersticks",
+      "Moonrocks"
+    ];
     return Scaffold(
-      backgroundColor: Colors.black,
+      backgroundColor: Colors.white,
       appBar: CustomAppBar(),
       body: LayoutBuilder(
         builder: (context, constraints) {
@@ -53,98 +59,51 @@ class ProductPage extends ConsumerWidget {
               crossAxisAlignment: CrossAxisAlignment.center,
               children: [
                 SizedBox(
-                  height: 100,
+                  height: 50,
                 ),
+                Text('Products',
+                    style: TextStyle(
+                      fontSize: 30,
+                    )),
                 Row(
-                  mainAxisAlignment: MainAxisAlignment.spaceAround,
-                  children: [
-                    Container(
-                      decoration: BoxDecoration(
-                          // color: Colors.red,
-                          borderRadius: BorderRadius.circular(40)),
+                  mainAxisAlignment:
+                      MainAxisAlignment.spaceBetween, // Ensures equal spacing
+                  children: List.generate(productNames.length, (index) {
+                    return Expanded(
                       child: Column(
+                        mainAxisAlignment: MainAxisAlignment.center,
                         children: [
-                          ClipRRect(
-                            borderRadius: BorderRadius.circular(50),
-                            child: Image.network(
-                              'https://placekitten.com/700/500',
-                              fit: BoxFit.cover,
-                              width: 250,
-                              height: 250,
+                          AnimatedContainer(
+                            duration: const Duration(milliseconds: 200),
+                            child: Image.asset(
+                              'assets/prod ${index + 1}.png',
+                              fit: BoxFit.contain,
+                              // Decrease divisor from 4.5 to 3 to increase image size
+                              width: MediaQuery.of(context).size.width /
+                                  3, // Increased size for larger images
+                              height: MediaQuery.of(context).size.width /
+                                  3 /
+                                  2, // Maintain aspect ratio
                             ),
                           ),
-                          SizedBox(
-                            height: 20,
-                          ),
+                          const SizedBox(height: 30),
                           Text(
-                            "Prod 1",
-                            style: TextStyle(color: Colors.white),
-                          )
-                        ],
-                      ),
-                      height: 300,
-                      width: 250,
-                    ),
-                    Container(
-                      decoration: BoxDecoration(
-                          // color: Colors.red,
-                          borderRadius: BorderRadius.circular(40)),
-                      child: Column(
-                        children: [
-                          ClipRRect(
-                            borderRadius: BorderRadius.circular(50),
-                            child: Image.network(
-                              'https://placekitten.com/700/500',
-                              fit: BoxFit.cover,
-                              width: 250,
-                              height: 250,
+                            productNames[index],
+                            style: const TextStyle(
+                              fontSize: 20,
+                              color: Colors.black,
+                              fontWeight: FontWeight.w600,
                             ),
                           ),
-                          SizedBox(
-                            height: 20,
-                          ),
-                          Text(
-                            "Prod 2",
-                            style: TextStyle(color: Colors.white),
-                          )
                         ],
                       ),
-                      height: 300,
-                      width: 250,
-                    ),
-                    Container(
-                      decoration: BoxDecoration(
-                          // color: Colors.red,
-                          borderRadius: BorderRadius.circular(40)),
-                      child: Column(
-                        children: [
-                          ClipRRect(
-                            borderRadius: BorderRadius.circular(50),
-                            child: Image.network(
-                              'https://placekitten.com/700/500',
-                              fit: BoxFit.cover,
-                              width: 250,
-                              height: 250,
-                            ),
-                          ),
-                          SizedBox(
-                            height: 20,
-                          ),
-                          Text(
-                            "Prod 3",
-                            style: TextStyle(color: Colors.white),
-                          )
-                        ],
-                      ),
-                      height: 300,
-                      width: 250,
-                    ),
-                  ],
+                    );
+                  }),
                 ),
                 const SizedBox(height: 100),
                 Text(
-                  "#1 BRAND IN CALIFORNIA FOR PREMIUM CHOCOLATE DELIGHTS",
-                  style: TextStyle(color: Colors.white, fontSize: 30),
+                  "#1 BRAND IN CALIFORNIA FOR INNOVATIVE CANNABIS PRODUCTS",
+                  style: TextStyle(color: Colors.black, fontSize: 30),
                 ),
                 SizedBox(
                   height: 30,
@@ -152,9 +111,9 @@ class ProductPage extends ConsumerWidget {
                 SizedBox(
                   width: 1000,
                   child: Text(
-                    "STIIIZY's range encompasses cutting-edge chocolate experiences to artisanal confectionery delights. Dive into our innovative chocolate creations, featuring the exquisite STIIIZY Chocolate Bar and the indulgent BIIIG Truffle Collection, paired with a convenient treat carrier for uninterrupted enjoyment.",
+                    "ALTRD specializes in a diverse array of cannabis delights, ranging from gourmet edibles to potent moonrocks, pure resins, and our signature thundersticks. Explore the pinnacle of flavor and effect with our meticulously crafted edibles, indulge in the celestial experience of our premium moonrocks, or dive deep into the essence of cannabis with our rich, aromatic resins. Our thundersticks offer an unparalleled experience, combining innovation and tradition for a truly electrifying session.",
                     style: TextStyle(
-                      color: Colors.white,
+                      color: Colors.black,
                     ),
                     softWrap: true,
                     textAlign: TextAlign.center,
@@ -164,8 +123,8 @@ class ProductPage extends ConsumerWidget {
                   height: 40,
                 ),
                 Text(
-                  "PROD 1:",
-                  style: TextStyle(color: Colors.white, fontSize: 20),
+                  "EDIBLES:",
+                  style: TextStyle(color: Colors.black, fontSize: 20),
                 ),
                 SizedBox(
                   height: 10,
@@ -173,9 +132,9 @@ class ProductPage extends ConsumerWidget {
                 SizedBox(
                   width: 1000,
                   child: Text(
-                    "Our Original Cocoa Pods, boasting naturally derived cocoa profiles, set the industry benchmark with their consistent aroma and taste. For a more authentic chocolate touch, our Cocoa-Derived Bliss Pods are extracted from local, single-sourced cacao plants, ensuring a perfect blend of flavor and richness. Immerse yourself in full-spectrum chocolate delight with our Live Cocoa Pods, harvested at their peak and flash-frozen. Take your chocolate experience to new heights with our Liquid Cocoa Diamonds Pods, blending high cocoa potency and true chocolate flavor for a luxurious, melt-in-your-mouth experience. For the chocolate purists, our Solventless Live Cocoa Pods deliver the essence of the cocoa bean in its purest form. Experience on-the-go chocolate convenience with our All-in-One Cocoa Pens and LIIIL disposable cocoa pens, seamlessly combining portability and premium quality for chocolate pleasure anytime, anywhere.",
+                    "ALTRD's edibles redefine the boundaries of taste and potency, offering a gourmet journey through an array of flavors. Each edible is crafted with the finest ingredients and the purest extracts, ensuring a consistent and enjoyable experience. From the subtle elegance of our infused chocolates to the bold burst of our gummy delights, our edibles are designed for discerning palates and refined effects.",
                     style: TextStyle(
-                      color: Colors.white,
+                      color: Colors.black,
                     ),
                     softWrap: true,
                     textAlign: TextAlign.center,
@@ -185,8 +144,8 @@ class ProductPage extends ConsumerWidget {
                   height: 30,
                 ),
                 Text(
-                  "PROD 2:",
-                  style: TextStyle(color: Colors.white, fontSize: 20),
+                  "MOONROCKS:",
+                  style: TextStyle(color: Colors.black, fontSize: 20),
                 ),
                 SizedBox(
                   height: 10,
@@ -194,9 +153,9 @@ class ProductPage extends ConsumerWidget {
                 SizedBox(
                   width: 1000,
                   child: Text(
-                    "Our Original Cocoa Pods, boasting naturally derived cocoa profiles, set the industry benchmark with their consistent aroma and taste. For a more authentic chocolate touch, our Cocoa-Derived Bliss Pods are extracted from local, single-sourced cacao plants, ensuring a perfect blend of flavor and richness. Immerse yourself in full-spectrum chocolate delight with our Live Cocoa Pods, harvested at their peak and flash-frozen. Take your chocolate experience to new heights with our Liquid Cocoa Diamonds Pods, blending high cocoa potency and true chocolate flavor for a luxurious, melt-in-your-mouth experience. For the chocolate purists, our Solventless Live Cocoa Pods deliver the essence of the cocoa bean in its purest form. Experience on-the-go chocolate convenience with our All-in-One Cocoa Pens and LIIIL disposable cocoa pens, seamlessly combining portability and premium quality for chocolate pleasure anytime, anywhere.",
+                    "Experience the zenith of potency with ALTRD's moonrocks, a harmonious blend of top-shelf flower, golden hash oil, and kief. Each moonrock is a masterpiece of flavor and intensity, designed to elevate your experience to cosmic proportions. Whether enjoyed alone or shared among friends, our moonrocks promise an unforgettable journey.",
                     style: TextStyle(
-                      color: Colors.white,
+                      color: Colors.black,
                     ),
                     softWrap: true,
                     textAlign: TextAlign.center,
@@ -206,8 +165,8 @@ class ProductPage extends ConsumerWidget {
                   height: 30,
                 ),
                 Text(
-                  "PROD 3:",
-                  style: TextStyle(color: Colors.white, fontSize: 20),
+                  "RESINS & THUNDERSTICKS:",
+                  style: TextStyle(color: Colors.black, fontSize: 20),
                 ),
                 SizedBox(
                   height: 10,
@@ -215,65 +174,28 @@ class ProductPage extends ConsumerWidget {
                 SizedBox(
                   width: 1000,
                   child: Text(
-                    "Our Original Cocoa Pods, boasting naturally derived cocoa profiles, set the industry benchmark with their consistent aroma and taste. For a more authentic chocolate touch, our Cocoa-Derived Bliss Pods are extracted from local, single-sourced cacao plants, ensuring a perfect blend of flavor and richness. Immerse yourself in full-spectrum chocolate delight with our Live Cocoa Pods, harvested at their peak and flash-frozen. Take your chocolate experience to new heights with our Liquid Cocoa Diamonds Pods, blending high cocoa potency and true chocolate flavor for a luxurious, melt-in-your-mouth experience. For the chocolate purists, our Solventless Live Cocoa Pods deliver the essence of the cocoa bean in its purest form. Experience on-the-go chocolate convenience with our All-in-One Cocoa Pens and LIIIL disposable cocoa pens, seamlessly combining portability and premium quality for chocolate pleasure anytime, anywhere.",
+                    "Dive into the pure essence of cannabis with ALTRD's resins, capturing the full spectrum of cannabinoids and terpenes for an authentic and potent experience. Our thundersticks, a bold fusion of premium flower and concentrate, offer a unique experience that ignites the senses and propels you to new heights. Embrace the power and purity of ALTRD's resins and thundersticks for a transcendent cannabis experience.",
                     style: TextStyle(
-                      color: Colors.white,
+                      color: Colors.black,
                     ),
                     softWrap: true,
                     textAlign: TextAlign.center,
                   ),
                 ),
                 SizedBox(
-                  height: 80,
+                  height: 50,
                 ),
-                Row(
-                  mainAxisAlignment: MainAxisAlignment.center,
-                  children: [
-                    Column(
-                      children: [
-                        ClipRRect(
-                          borderRadius: BorderRadius.circular(50),
-                          child: Image.network(
-                            'https://placekitten.com/600/400',
-                            fit: BoxFit.cover,
-                            width: 200,
-                            height: 200,
-                          ),
-                        ),
-                        SizedBox(
-                          height: 10,
-                        ),
-                        Text(
-                          "PickUp",
-                          style: TextStyle(color: Colors.white),
-                        )
-                      ],
-                    ),
-                    SizedBox(
-                      width: 150,
-                    ),
-                    Column(
-                      children: [
-                        ClipRRect(
-                          borderRadius: BorderRadius.circular(50),
-                          child: Image.network(
-                            'https://placekitten.com/600/400',
-                            fit: BoxFit.cover,
-                            width: 200,
-                            height: 200,
-                          ),
-                        ),
-                        SizedBox(
-                          height: 10,
-                        ),
-                        Text(
-                          "Delivery",
-                          style: TextStyle(color: Colors.white),
-                        )
-                      ],
-                    ),
-                  ],
-                ),
+                TextButton(
+                    style: TextButton.styleFrom(
+                        minimumSize: const Size(180, 50),
+                        backgroundColor: Colors.black,
+                        shape: RoundedRectangleBorder(
+                            borderRadius: BorderRadius.circular(100))),
+                    onPressed: () {},
+                    child: const Text(
+                      "Go to Dispensary",
+                      style: TextStyle(color: Colors.white),
+                    )),
                 SizedBox(
                   height: 40,
                 ),

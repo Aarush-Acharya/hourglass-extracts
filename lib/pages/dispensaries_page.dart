@@ -696,21 +696,21 @@ class DispensariesScreen extends ConsumerWidget {
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
-                Container(
-                  height: firstFoldHeight,
-                  color: Colors.black,
-                  child: GFAnimation(
-                    turnsAnimation: animation,
-                    controller: controller,
-                    type: GFAnimationType.scaleTransition,
-                    child: Image.network(
-                      'https://picsum.photos/800/500',
-                      fit: BoxFit.cover,
-                      width: double.infinity,
-                      height: double.infinity,
-                    ),
-                  ),
-                ),
+                // Container(
+                //   height: firstFoldHeight,
+                //   color: Colors.black,
+                //   child: GFAnimation(
+                //     turnsAnimation: animation,
+                //     controller: controller,
+                //     type: GFAnimationType.scaleTransition,
+                //     child: Image.network(
+                //       'https://picsum.photos/800/500',
+                //       fit: BoxFit.cover,
+                //       width: double.infinity,
+                //       height: double.infinity,
+                //     ),
+                //   ),
+                // ),
                 Padding(
                   padding:
                       const EdgeInsets.symmetric(horizontal: 24, vertical: 40),

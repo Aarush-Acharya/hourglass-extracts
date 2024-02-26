@@ -100,26 +100,26 @@ class MerchPage extends ConsumerWidget {
                                 .changeState(value);
                           },
                           children: <Widget>[
-                            Image.network(
-                              'https://placekitten.com/1440/500',
+                            Image.asset(
+                              'assets/merch-hero-1.png',
                               fit: BoxFit.cover,
                               width: 250,
                               height: 250,
                             ),
-                            Image.network(
-                              'https://placekitten.com/1440/600',
+                            Image.asset(
+                              'assets/merch-hero-2.png',
                               fit: BoxFit.cover,
                               width: 250,
                               height: 250,
                             ),
-                            Image.network(
-                              'https://placekitten.com/1440/400',
+                            Image.asset(
+                              'assets/merch-hero-3.png',
                               fit: BoxFit.cover,
                               width: 250,
                               height: 250,
                             ),
-                            Image.network(
-                              'https://placekitten.com/1440/700',
+                            Image.asset(
+                              'assets/merch-hero-1.png',
                               fit: BoxFit.cover,
                               width: 250,
                               height: 250,
@@ -152,68 +152,86 @@ class MerchPage extends ConsumerWidget {
                       Container(
                         decoration: BoxDecoration(
                             image: DecorationImage(
-                                image: NetworkImage(
-                                    'https://placekitten.com/350/600'))),
+                          image: AssetImage('assets/merch-hero-1.png'),
+                          fit: BoxFit
+                              .cover, // Make the image cover the entire container
+                        )),
                         height: 600,
                         width: 350,
-                        child: Padding(
-                            padding: EdgeInsets.only(
-                                top: 500, left: 200, right: 50, bottom: 50),
-                            child: TextButton(
-                              style: TextButton.styleFrom(
-                                  shape: RoundedRectangleBorder(
-                                      side: BorderSide(
-                                          color: Colors.white, width: 2))),
-                              onPressed: () {},
-                              child: Text(
-                                "Mens",
-                                style: TextStyle(color: Colors.white),
-                              ),
-                            )),
+                        child: Align(
+                          // Use Align for better control over the button's position
+                          alignment: Alignment.bottomRight, // Adjust as needed
+                          child: Padding(
+                              padding: EdgeInsets.only(
+                                  right: 20, bottom: 10), // Adjust padding
+                              child: TextButton(
+                                style: TextButton.styleFrom(
+                                    shape: RoundedRectangleBorder(
+                                        side: BorderSide(
+                                            color: Colors.white, width: 2))),
+                                onPressed: () {},
+                                child: Text(
+                                  "Mens",
+                                  style: TextStyle(color: Colors.white),
+                                ),
+                              )),
+                        ),
                       ),
                       Container(
                         decoration: BoxDecoration(
                             image: DecorationImage(
-                                image: NetworkImage(
-                                    'https://placekitten.com/350/600'))),
+                          image: AssetImage('assets/stiizy-crop.jpeg'),
+                          fit: BoxFit
+                              .cover, // Make the image cover the entire container
+                        )),
                         height: 600,
                         width: 350,
-                        child: Padding(
-                            padding: EdgeInsets.only(
-                                top: 500, left: 200, right: 50, bottom: 50),
-                            child: TextButton(
-                              style: TextButton.styleFrom(
-                                  shape: RoundedRectangleBorder(
-                                      side: BorderSide(
-                                          color: Colors.white, width: 2))),
-                              onPressed: () {},
-                              child: Text(
-                                "Womens",
-                                style: TextStyle(color: Colors.white),
-                              ),
-                            )),
+                        child: Align(
+                          // Use Align for better control over the button's position
+                          alignment: Alignment.bottomRight, // Adjust as needed
+                          child: Padding(
+                              padding: EdgeInsets.only(
+                                  right: 20, bottom: 10), // Adjust padding
+                              child: TextButton(
+                                style: TextButton.styleFrom(
+                                    shape: RoundedRectangleBorder(
+                                        side: BorderSide(
+                                            color: Colors.white, width: 2))),
+                                onPressed: () {},
+                                child: Text(
+                                  "Womens",
+                                  style: TextStyle(color: Colors.white),
+                                ),
+                              )),
+                        ),
                       ),
                       Container(
                         decoration: BoxDecoration(
                             image: DecorationImage(
-                                image: NetworkImage(
-                                    'https://placekitten.com/350/600'))),
+                          image: AssetImage('assets/cap.png'),
+                          fit: BoxFit
+                              .cover, // Make the image cover the entire container
+                        )),
                         height: 600,
                         width: 350,
-                        child: Padding(
-                            padding: EdgeInsets.only(
-                                top: 500, left: 220, right: 30, bottom: 50),
-                            child: TextButton(
-                              style: TextButton.styleFrom(
-                                  shape: RoundedRectangleBorder(
-                                      side: BorderSide(
-                                          color: Colors.white, width: 2))),
-                              onPressed: () {},
-                              child: Text(
-                                "Hats",
-                                style: TextStyle(color: Colors.white),
-                              ),
-                            )),
+                        child: Align(
+                          // Use Align for better control over the button's position
+                          alignment: Alignment.bottomRight, // Adjust as needed
+                          child: Padding(
+                              padding: EdgeInsets.only(
+                                  right: 20, bottom: 10), // Adjust padding
+                              child: TextButton(
+                                style: TextButton.styleFrom(
+                                    shape: RoundedRectangleBorder(
+                                        side: BorderSide(
+                                            color: Colors.white, width: 2))),
+                                onPressed: () {},
+                                child: Text(
+                                  "Hats",
+                                  style: TextStyle(color: Colors.white),
+                                ),
+                              )),
+                        ),
                       ),
                     ],
                   ),
@@ -281,8 +299,8 @@ class MerchPage extends ConsumerWidget {
                                               ClipRRect(
                                                 borderRadius:
                                                     BorderRadius.circular(50),
-                                                child: Image.network(
-                                                  'https://www.stiiizy.com/cdn/shop/files/BACK-04_3d1f77b4-f216-4daf-b986-6d2f75d16565_1800x1800.png?v=1700083875',
+                                                child: Image.asset(
+                                                  'assets/merch-shirt.png',
                                                   fit: BoxFit.cover,
                                                   width: 250,
                                                   height: 250,
@@ -311,8 +329,38 @@ class MerchPage extends ConsumerWidget {
                                               ClipRRect(
                                                 borderRadius:
                                                     BorderRadius.circular(50),
-                                                child: Image.network(
-                                                  'https://www.stiiizy.com/cdn/shop/files/BACK-04_3d1f77b4-f216-4daf-b986-6d2f75d16565_1800x1800.png?v=1700083875',
+                                                child: Image.asset(
+                                                  'assets/merch-shirt.png',
+                                                  fit: BoxFit.cover,
+                                                  width: 250,
+                                                  height: 250,
+                                                ),
+                                              ),
+                                              SizedBox(
+                                                height: 20,
+                                              ),
+                                              Text(
+                                                "Prod 4",
+                                                style: TextStyle(
+                                                    color: Colors.black),
+                                              )
+                                            ],
+                                          ),
+                                          height: 300,
+                                          width: 250,
+                                        ),
+                                        Container(
+                                          decoration: BoxDecoration(
+                                              // color: Colors.red,
+                                              borderRadius:
+                                                  BorderRadius.circular(40)),
+                                          child: Column(
+                                            children: [
+                                              ClipRRect(
+                                                borderRadius:
+                                                    BorderRadius.circular(50),
+                                                child: Image.asset(
+                                                  'assets/merch-shirt.png',
                                                   fit: BoxFit.cover,
                                                   width: 250,
                                                   height: 250,
@@ -341,8 +389,8 @@ class MerchPage extends ConsumerWidget {
                                               ClipRRect(
                                                 borderRadius:
                                                     BorderRadius.circular(50),
-                                                child: Image.network(
-                                                  'https://www.stiiizy.com/cdn/shop/files/BACK-04_3d1f77b4-f216-4daf-b986-6d2f75d16565_1800x1800.png?v=1700083875',
+                                                child: Image.asset(
+                                                  'assets/merch-shirt.png',
                                                   fit: BoxFit.cover,
                                                   width: 250,
                                                   height: 250,
@@ -377,8 +425,8 @@ class MerchPage extends ConsumerWidget {
                                               ClipRRect(
                                                 borderRadius:
                                                     BorderRadius.circular(50),
-                                                child: Image.network(
-                                                  'https://www.stiiizy.com/cdn/shop/files/BACK-04_3d1f77b4-f216-4daf-b986-6d2f75d16565_1800x1800.png?v=1700083875',
+                                                child: Image.asset(
+                                                  'assets/merch-shirt.png',
                                                   fit: BoxFit.cover,
                                                   width: 250,
                                                   height: 250,
@@ -407,9 +455,8 @@ class MerchPage extends ConsumerWidget {
                                               ClipRRect(
                                                 borderRadius:
                                                     BorderRadius.circular(50),
-                                                child: Image.network(
-                                                  'https://www.stiiizy.com/cdn/shop/files/BACK-04_3d1f77b4-f216-4daf-b986-6d2f75d16565_1800x1800.png?v=1700083875',
-                                                  fit: BoxFit.cover,
+                                                child: Image.asset(
+                                                  'assets/merch-shirt.png',
                                                   width: 250,
                                                   height: 250,
                                                 ),
@@ -437,8 +484,8 @@ class MerchPage extends ConsumerWidget {
                                               ClipRRect(
                                                 borderRadius:
                                                     BorderRadius.circular(50),
-                                                child: Image.network(
-                                                  'https://www.stiiizy.com/cdn/shop/files/BACK-04_3d1f77b4-f216-4daf-b986-6d2f75d16565_1800x1800.png?v=1700083875',
+                                                child: Image.asset(
+                                                  'assets/merch-shirt.png',
                                                   fit: BoxFit.cover,
                                                   width: 250,
                                                   height: 250,
@@ -465,18 +512,32 @@ class MerchPage extends ConsumerWidget {
                               Row(
                                 mainAxisAlignment: MainAxisAlignment.center,
                                 children: [
-                                  ElevatedButton(
+                                  TextButton(
+                                      style: TextButton.styleFrom(
+                                          minimumSize: const Size(180, 50),
+                                          backgroundColor: Colors.black,
+                                          shape: RoundedRectangleBorder(
+                                              borderRadius:
+                                                  BorderRadius.circular(100))),
                                       onPressed: () {},
                                       child: const Text(
-                                        "All New Accessories",
+                                        "All new arrivals",
+                                        style: TextStyle(color: Colors.white),
                                       )),
                                   SizedBox(
                                     width: 20,
                                   ),
-                                  ElevatedButton(
+                                  TextButton(
+                                      style: TextButton.styleFrom(
+                                          minimumSize: const Size(180, 50),
+                                          backgroundColor: Colors.black,
+                                          shape: RoundedRectangleBorder(
+                                              borderRadius:
+                                                  BorderRadius.circular(100))),
                                       onPressed: () {},
                                       child: const Text(
-                                        "Shop All",
+                                        "Shop Now",
+                                        style: TextStyle(color: Colors.white),
                                       )),
                                 ],
                               ),
@@ -509,8 +570,8 @@ class MerchPage extends ConsumerWidget {
                                         ClipRRect(
                                           borderRadius:
                                               BorderRadius.circular(50),
-                                          child: Image.network(
-                                            'https://placekitten.com/700/500',
+                                          child: Image.asset(
+                                            'assets/merch-hero-2.png',
                                             fit: BoxFit.cover,
                                             width: 250,
                                             height: 250,
@@ -538,8 +599,8 @@ class MerchPage extends ConsumerWidget {
                                         ClipRRect(
                                           borderRadius:
                                               BorderRadius.circular(50),
-                                          child: Image.network(
-                                            'https://placekitten.com/700/500',
+                                          child: Image.asset(
+                                            'assets/merch-hero-2.png',
                                             fit: BoxFit.cover,
                                             width: 250,
                                             height: 250,
@@ -567,8 +628,8 @@ class MerchPage extends ConsumerWidget {
                                         ClipRRect(
                                           borderRadius:
                                               BorderRadius.circular(50),
-                                          child: Image.network(
-                                            'https://placekitten.com/700/500',
+                                          child: Image.asset(
+                                            'assets/merch-hero-2.png',
                                             fit: BoxFit.cover,
                                             width: 250,
                                             height: 250,
@@ -586,15 +647,51 @@ class MerchPage extends ConsumerWidget {
                                     height: 300,
                                     width: 250,
                                   ),
+                                  Container(
+                                    decoration: BoxDecoration(
+                                        // color: Colors.red,
+                                        borderRadius:
+                                            BorderRadius.circular(40)),
+                                    child: Column(
+                                      children: [
+                                        ClipRRect(
+                                          borderRadius:
+                                              BorderRadius.circular(50),
+                                          child: Image.asset(
+                                            'assets/merch-hero-2.png',
+                                            fit: BoxFit.cover,
+                                            width: 250,
+                                            height: 250,
+                                          ),
+                                        ),
+                                        SizedBox(
+                                          height: 20,
+                                        ),
+                                        Text(
+                                          "Prod 4",
+                                          style: TextStyle(color: Colors.black),
+                                        )
+                                      ],
+                                    ),
+                                    height: 300,
+                                    width: 250,
+                                  ),
                                 ],
                               ),
                               SizedBox(
                                 height: 60,
                               ),
-                              ElevatedButton(
+                              TextButton(
+                                  style: TextButton.styleFrom(
+                                      minimumSize: const Size(180, 50),
+                                      backgroundColor: Colors.black,
+                                      shape: RoundedRectangleBorder(
+                                          borderRadius:
+                                              BorderRadius.circular(100))),
                                   onPressed: () {},
                                   child: const Text(
-                                    "All Smocking Products",
+                                    "All smoking products",
+                                    style: TextStyle(color: Colors.white),
                                   )),
                               SizedBox(
                                 height: 40,
@@ -625,8 +722,8 @@ class MerchPage extends ConsumerWidget {
                                         ClipRRect(
                                           borderRadius:
                                               BorderRadius.circular(50),
-                                          child: Image.network(
-                                            'https://placekitten.com/700/500',
+                                          child: Image.asset(
+                                            'assets/cap.png',
                                             fit: BoxFit.cover,
                                             width: 250,
                                             height: 250,
@@ -654,8 +751,8 @@ class MerchPage extends ConsumerWidget {
                                         ClipRRect(
                                           borderRadius:
                                               BorderRadius.circular(50),
-                                          child: Image.network(
-                                            'https://placekitten.com/700/500',
+                                          child: Image.asset(
+                                            'assets/cap.png',
                                             fit: BoxFit.cover,
                                             width: 250,
                                             height: 250,
@@ -683,8 +780,8 @@ class MerchPage extends ConsumerWidget {
                                         ClipRRect(
                                           borderRadius:
                                               BorderRadius.circular(50),
-                                          child: Image.network(
-                                            'https://placekitten.com/700/500',
+                                          child: Image.asset(
+                                            'assets/cap.png',
                                             fit: BoxFit.cover,
                                             width: 250,
                                             height: 250,
@@ -695,7 +792,36 @@ class MerchPage extends ConsumerWidget {
                                         ),
                                         Text(
                                           "Prod 3",
-                                          style: TextStyle(color: Colors.white),
+                                          style: TextStyle(color: Colors.black),
+                                        )
+                                      ],
+                                    ),
+                                    height: 300,
+                                    width: 250,
+                                  ),
+                                  Container(
+                                    decoration: BoxDecoration(
+                                        // color: Colors.red,
+                                        borderRadius:
+                                            BorderRadius.circular(40)),
+                                    child: Column(
+                                      children: [
+                                        ClipRRect(
+                                          borderRadius:
+                                              BorderRadius.circular(50),
+                                          child: Image.asset(
+                                            'assets/cap.png',
+                                            fit: BoxFit.cover,
+                                            width: 250,
+                                            height: 250,
+                                          ),
+                                        ),
+                                        SizedBox(
+                                          height: 20,
+                                        ),
+                                        Text(
+                                          "Prod 4",
+                                          style: TextStyle(color: Colors.black),
                                         )
                                       ],
                                     ),
@@ -707,10 +833,17 @@ class MerchPage extends ConsumerWidget {
                               SizedBox(
                                 height: 60,
                               ),
-                              ElevatedButton(
+                              TextButton(
+                                  style: TextButton.styleFrom(
+                                      minimumSize: const Size(180, 50),
+                                      backgroundColor: Colors.black,
+                                      shape: RoundedRectangleBorder(
+                                          borderRadius:
+                                              BorderRadius.circular(100))),
                                   onPressed: () {},
                                   child: const Text(
-                                    "All Non-Smocking Products",
+                                    "All non-smoking products",
+                                    style: TextStyle(color: Colors.white),
                                   )),
                               const SizedBox(
                                 height: 40,
@@ -724,8 +857,8 @@ class MerchPage extends ConsumerWidget {
                                 children: [
                                   ClipRRect(
                                     borderRadius: BorderRadius.circular(50),
-                                    child: Image.network(
-                                      'https://placekitten.com/500/500',
+                                    child: Image.asset(
+                                      'assets/kit.png',
                                       fit: BoxFit.contain,
                                       width: 700,
                                       height: 500,
@@ -909,459 +1042,53 @@ class MerchPage extends ConsumerWidget {
                                               const SizedBox(
                                                 height: 40,
                                               ),
-                                              ElevatedButton(
-                                                  style:
-                                                      ElevatedButton.styleFrom(
-                                                    minimumSize: const Size(
-                                                        double.maxFinite, 50),
-                                                  ),
+                                              TextButton(
+                                                  style: TextButton.styleFrom(
+                                                      minimumSize: const Size(
+                                                          280, 50),
+                                                      backgroundColor:
+                                                          Colors.black,
+                                                      shape:
+                                                          RoundedRectangleBorder(
+                                                              borderRadius:
+                                                                  BorderRadius
+                                                                      .circular(
+                                                                          100))),
                                                   onPressed: () {},
                                                   child: const Text(
-                                                    "Buy Now",
+                                                    "Buy now",
                                                     style: TextStyle(
-                                                        fontSize: 20,
-                                                        color: Colors.black),
+                                                        color: Colors.white),
                                                   )),
                                               const SizedBox(
                                                 height: 20,
                                               ),
-                                              ElevatedButton(
-                                                  style:
-                                                      ElevatedButton.styleFrom(
-                                                    minimumSize: const Size(
-                                                        double.maxFinite, 50),
-                                                  ),
+                                              TextButton(
+                                                  style: TextButton.styleFrom(
+                                                      minimumSize: const Size(
+                                                          280, 50),
+                                                      backgroundColor:
+                                                          Colors.black,
+                                                      shape:
+                                                          RoundedRectangleBorder(
+                                                              borderRadius:
+                                                                  BorderRadius
+                                                                      .circular(
+                                                                          100))),
                                                   onPressed: () {},
                                                   child: const Text(
-                                                    "Add to Cart",
+                                                    "Add to cart",
                                                     style: TextStyle(
-                                                        fontSize: 20,
-                                                        color: Colors.black),
+                                                        color: Colors.white),
                                                   )),
                                             ],
                                           ),
                                         ),
                                       ),
-                                      const SizedBox(
-                                        height: 10,
-                                      ),
-                                      const Row(
-                                        crossAxisAlignment:
-                                            CrossAxisAlignment.start,
-                                        children: [
-                                          Column(
-                                            children: [
-                                              Icon(
-                                                Icons.handshake,
-                                                color: Colors.black,
-                                                size: 30,
-                                              ),
-                                              SizedBox(
-                                                height: 10,
-                                              ),
-                                              Text(
-                                                textAlign: TextAlign.center,
-                                                "Safe\nTransactions",
-                                                softWrap: true,
-                                                style: TextStyle(
-                                                  color: Colors.black,
-                                                ),
-                                              ),
-                                            ],
-                                          ),
-                                          SizedBox(
-                                            width: 30,
-                                          ),
-                                          Column(
-                                            children: [
-                                              Icon(
-                                                Icons.people,
-                                                color: Colors.black,
-                                                size: 30,
-                                              ),
-                                              SizedBox(
-                                                height: 10,
-                                              ),
-                                              Text(
-                                                textAlign: TextAlign.center,
-                                                "Connect\nwith Artist",
-                                                style: TextStyle(
-                                                  color: Colors.black,
-                                                ),
-                                              ),
-                                            ],
-                                          ),
-                                          SizedBox(
-                                            width: 30,
-                                          ),
-                                          Column(
-                                            children: [
-                                              Icon(
-                                                Icons.verified,
-                                                color: Colors.black,
-                                                size: 30,
-                                              ),
-                                              SizedBox(
-                                                height: 10,
-                                              ),
-                                              Text(
-                                                "Verified and\nTrusted Artist",
-                                                textAlign: TextAlign.center,
-                                                style: TextStyle(
-                                                  color: Colors.black,
-                                                ),
-                                              ),
-                                            ],
-                                          ),
-                                        ],
-                                      ),
-                                      const SizedBox(
-                                        height: 30,
-                                      ),
-                                      const Text(
-                                        "☝️ One-Time Payment, No Monthly Fees",
-                                        style: TextStyle(color: Colors.black),
-                                      )
                                     ],
                                   ),
                                 ],
                               ),
-                              const SizedBox(
-                                height: 80,
-                              ),
-                              Padding(
-                                padding: const EdgeInsets.all(10),
-                                child: Row(
-                                  crossAxisAlignment: CrossAxisAlignment.start,
-                                  mainAxisAlignment:
-                                      MainAxisAlignment.spaceBetween,
-                                  children: [
-                                    const Padding(
-                                      padding: EdgeInsets.only(
-                                          top: 30, bottom: 60, left: 60),
-                                      child: Column(
-                                        crossAxisAlignment:
-                                            CrossAxisAlignment.start,
-                                        children: [
-                                          SizedBox(
-                                            width: 300,
-                                            child: Text(
-                                              "Boost your Wall Decour, form your Villa.",
-                                              style: TextStyle(
-                                                  color: Colors.black,
-                                                  fontSize: 40),
-                                              softWrap: true,
-                                            ),
-                                          ),
-                                          SizedBox(
-                                            height: 40,
-                                          ),
-                                          Text(
-                                            "This Artwork was meant to be hung on walls of the\nplace you call home",
-                                            style: TextStyle(
-                                                color: Colors.black,
-                                                fontSize: 15),
-                                          ),
-                                          SizedBox(
-                                            height: 40,
-                                          ),
-                                          Row(
-                                            children: [
-                                              Icon(
-                                                Icons.check_box,
-                                                color: Colors.green,
-                                              ),
-                                              SizedBox(
-                                                width: 10,
-                                              ),
-                                              Text("Purely HandMade",
-                                                  style: TextStyle(
-                                                      color: Colors.black)),
-                                            ],
-                                          ),
-                                          SizedBox(
-                                            height: 10,
-                                          ),
-                                          Row(
-                                            children: [
-                                              Icon(
-                                                Icons.check_box,
-                                                color: Colors.green,
-                                              ),
-                                              SizedBox(
-                                                width: 10,
-                                              ),
-                                              Text(
-                                                  "Directly from the hands of the Artist to your wall",
-                                                  style: TextStyle(
-                                                      color: Colors.black)),
-                                            ],
-                                          ),
-                                          SizedBox(
-                                            height: 10,
-                                          ),
-                                          Row(
-                                            children: [
-                                              Icon(
-                                                Icons.check_box,
-                                                color: Colors.green,
-                                              ),
-                                              SizedBox(
-                                                width: 10,
-                                              ),
-                                              Text(
-                                                  "Non-Standard, Artist Centric Prices",
-                                                  style: TextStyle(
-                                                      color: Colors.black)),
-                                            ],
-                                          ),
-                                        ],
-                                      ),
-                                    ),
-                                    ClipRRect(
-                                      borderRadius: BorderRadius.circular(50),
-                                      child: Image.network(
-                                        'https://placekitten.com/700/500',
-                                        fit: BoxFit.cover,
-                                        width: 700,
-                                        height: 500,
-                                      ),
-                                    ),
-                                  ],
-                                ),
-                              ),
-                              const SizedBox(
-                                height: 80,
-                              ),
-                              Padding(
-                                padding: const EdgeInsets.all(10),
-                                child: Row(
-                                  crossAxisAlignment: CrossAxisAlignment.start,
-                                  mainAxisAlignment:
-                                      MainAxisAlignment.spaceBetween,
-                                  children: [
-                                    ClipRRect(
-                                      borderRadius: BorderRadius.circular(50),
-                                      child: Image.network(
-                                        'https://placekitten.com/700/500',
-                                        fit: BoxFit.cover,
-                                        width: 700,
-                                        height: 500,
-                                      ),
-                                    ),
-                                    const Padding(
-                                      padding:
-                                          EdgeInsets.only(top: 60, right: 100),
-                                      child: Column(
-                                        crossAxisAlignment:
-                                            CrossAxisAlignment.start,
-                                        children: [
-                                          SizedBox(
-                                            width: 300,
-                                            child: Text(
-                                              "Things to Note",
-                                              style: TextStyle(
-                                                  color: Colors.black,
-                                                  fontSize: 40),
-                                              softWrap: true,
-                                            ),
-                                          ),
-                                          SizedBox(
-                                            height: 40,
-                                          ),
-                                          Text(
-                                            "what's unique in this artwork?",
-                                            style: TextStyle(
-                                                color: Colors.black,
-                                                fontSize: 15),
-                                          ),
-                                          SizedBox(
-                                            height: 40,
-                                          ),
-                                          Row(
-                                            children: [
-                                              Icon(
-                                                Icons.brush,
-                                                color: Colors.pink,
-                                              ),
-                                              SizedBox(
-                                                width: 10,
-                                              ),
-                                              Text(
-                                                  "Conventional Paint Art Style",
-                                                  style: TextStyle(
-                                                      color: Colors.black)),
-                                            ],
-                                          ),
-                                          SizedBox(
-                                            height: 20,
-                                          ),
-                                          Row(
-                                            children: [
-                                              Icon(
-                                                Icons.rectangle_rounded,
-                                                color: Colors.yellow,
-                                              ),
-                                              SizedBox(
-                                                width: 10,
-                                              ),
-                                              Text(
-                                                  "Dimensions (Height, Width):  820cm X 1920cm",
-                                                  style: TextStyle(
-                                                      color: Colors.black)),
-                                            ],
-                                          ),
-                                          SizedBox(
-                                            height: 20,
-                                          ),
-                                          Row(
-                                            children: [
-                                              Icon(
-                                                Icons.water_drop,
-                                                color: Colors.blue,
-                                              ),
-                                              SizedBox(
-                                                width: 10,
-                                              ),
-                                              Text(
-                                                  "100mm Water Resistant paint",
-                                                  style: TextStyle(
-                                                      color: Colors.black)),
-                                            ],
-                                          ),
-                                        ],
-                                      ),
-                                    ),
-                                  ],
-                                ),
-                              ),
-                              SizedBox(
-                                height: 130,
-                              ),
-                              Padding(
-                                padding:
-                                    const EdgeInsets.symmetric(horizontal: 100),
-                                child: Column(
-                                  children: [
-                                    Text("They trust us",
-                                        style: TextStyle(
-                                            color: Colors.black, fontSize: 25)),
-                                    SizedBox(
-                                      height: 50,
-                                    ),
-                                    CarouselSlider(
-                                      items: [
-                                        'assets/press1.png',
-                                        'assets/press2.png',
-                                        'assets/press3.png',
-                                        'assets/press1.png',
-                                        'assets/press2.png',
-                                        'assets/press3.png',
-                                      ].map((pressImagePath) {
-                                        return Image.asset(pressImagePath);
-                                      }).toList(),
-                                      options: CarouselOptions(
-                                        height: constraints.maxWidth <= 600
-                                            ? firstFoldHeight * 0.2
-                                            : firstFoldHeight * 0.2,
-                                        enlargeCenterPage: true,
-                                        autoPlay: true,
-                                        viewportFraction:
-                                            constraints.maxWidth <= 600
-                                                ? 0.2
-                                                : 0.2,
-                                        enableInfiniteScroll: false,
-                                      ),
-                                    ),
-                                  ],
-                                ),
-                              ),
-                              SizedBox(
-                                height: 120,
-                              ),
-                              Align(
-                                alignment: Alignment.center,
-                                child: Stack(
-                                  children: [
-                                    Row(
-                                      children: [
-                                        Text(
-                                          "Reviews",
-                                          style: TextStyle(
-                                              fontSize: 30,
-                                              color: Colors.black),
-                                        ),
-                                        SizedBox(
-                                          width: 20,
-                                        ),
-                                        RatingBar.builder(
-                                          unratedColor: Colors.grey,
-                                          // tapOnlyMode: true,
-                                          itemSize: 30,
-                                          ignoreGestures: true,
-                                          initialRating: 4.5,
-                                          minRating: 1,
-                                          direction: Axis.horizontal,
-                                          allowHalfRating: true,
-                                          itemCount: 5,
-                                          itemPadding: EdgeInsets.symmetric(
-                                              horizontal: 4.0),
-                                          itemBuilder: (context, _) => Icon(
-                                            Icons.star,
-                                            color: Colors.amber,
-                                          ),
-                                          onRatingUpdate: (rating) {
-                                            print(rating);
-                                          },
-                                        ),
-                                        SizedBox(
-                                          width: 10,
-                                        ),
-                                        Text(
-                                          "4.5",
-                                          style: TextStyle(
-                                              color: Colors.black,
-                                              fontSize: 25),
-                                        ),
-                                        SizedBox(
-                                          width: 10,
-                                        ),
-                                        Text(
-                                          "·",
-                                          style: TextStyle(
-                                              color: Colors.black,
-                                              fontSize: 30),
-                                        ),
-                                        SizedBox(
-                                          width: 10,
-                                        ),
-                                        Text(
-                                          "313 ratings",
-                                          style: TextStyle(
-                                              color: Colors.black,
-                                              fontSize: 22),
-                                        ),
-                                      ],
-                                    ),
-                                    Positioned(
-                                      // height: 10,
-                                      // width: 50,
-                                      child: ClipRRect(
-                                        child: BackdropFilter(
-                                            filter: ImageFilter.blur(
-                                                sigmaX: 5, sigmaY: 5),
-                                            child: SizedBox(
-                                              height: 100,
-                                              width: double.maxFinite,
-                                              child: Center(
-                                                  child: Text(
-                                                      "Under Construction")),
-                                            )),
-                                      ),
-                                    )
-                                  ],
-                                ),
-                              )
                             ],
                           )
                         : Column(
