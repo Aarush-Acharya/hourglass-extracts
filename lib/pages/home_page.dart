@@ -1363,7 +1363,7 @@ class HomePage extends ConsumerWidget {
                 ElevatedButton(
                   onPressed: () {},
                   style: ElevatedButton.styleFrom(
-                    primary: Colors.black, // Set the background color to black
+                    backgroundColor: Colors.black, // Set the background color to black
                     padding: EdgeInsets.symmetric(
                         horizontal: 50,
                         vertical:
