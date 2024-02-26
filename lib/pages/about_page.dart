@@ -237,51 +237,6 @@ class AboutPage extends ConsumerWidget {
                                 style: TextStyle(
                                     color: Colors.white, fontSize: 42),
                               ),
-                              // const SizedBox(
-                              //   height: 60,
-                              // ),
-                              // Container(
-                              //   width: 800,
-                              //   height: 60,
-                              //   decoration: BoxDecoration(
-                              //       borderRadius: BorderRadius.circular(2),
-                              //       border: Border.all(color: Colors.white)),
-                              //   child: Center(
-                              //     child: const Text(
-                              //         "OUR VISION IS TO BRING CANNABIS CULTURE TO THE WORLD ",
-                              //         style: TextStyle(
-                              //             color: Colors.white,
-                              //             fontSize: 18,
-                              //             fontWeight: FontWeight.w500)),
-                              //   ),
-                              // ),
-                              // SizedBox(
-                              //   height: 20,
-                              // ),
-                              // Container(
-                              //   width: 800,
-                              //   decoration: BoxDecoration(
-                              //       borderRadius: BorderRadius.circular(2),
-                              //       border: Border.all(color: Colors.white)),
-                              //   child: Center(
-                              //     child: Padding(
-                              //       padding: const EdgeInsets.symmetric(
-                              //           vertical: 20, horizontal: 90.0),
-                              //       child: const Text(
-                              //           "OUR PRESUIT OF EXELLENCE DRIVES US TO REVOLUTIONIZE THE CANNABIS INDUSTRY USING CUTTING EDGE TECHNOLOGY TO DELIVER UNPARALLELED PRODUCTS AND SERVICE TO OUR CUSTOMERS",
-                              //           softWrap: true,
-                              //           textAlign: TextAlign.center,
-                              //           style: TextStyle(
-                              //               color: Colors.white,
-                              //               fontSize: 18,
-                              //               fontWeight: FontWeight.w500)),
-                              //     ),
-                              //   ),
-                              // ),
-                              // SizedBox(
-                              //   height: 40,
-                              // ),
-                              // CardGrid(girdData: ["a", "e", "i", "o", "u"])
                             ],
                           )
                         : Column(

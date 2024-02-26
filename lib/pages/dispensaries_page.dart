@@ -108,12 +108,6 @@ class DispensariesScreen extends ConsumerWidget {
     return featuredArtists;
   }
 
-  Set<Marker> stores = {
-    Marker(markerId: MarkerId("first"), position: LatLng(28.56474, 77.32197)),
-    Marker(markerId: MarkerId("second"), position: LatLng(28.45376, 77.10201)),
-    Marker(markerId: MarkerId("third"), position: LatLng(28.5889, 77.2534)),
-  };
-
   List<String> steps = [
     "Insert your Bank Card",
     "Select Cash or Bitcoin",
@@ -283,8 +277,17 @@ class DispensariesScreen extends ConsumerWidget {
   final Completer<GoogleMapController> _controller =
       Completer<GoogleMapController>();
 
+  Set<Marker> stores = {
+    Marker(
+        markerId: MarkerId("first"), position: LatLng(35.503120, -97.565740)),
+    Marker(
+        markerId: MarkerId("second"), position: LatLng(35.552740, -97.626120)),
+    Marker(
+        markerId: MarkerId("third"), position: LatLng(35.636810, -97.565740)),
+  };
+
   static const CameraPosition _kGooglePlex = CameraPosition(
-    target: LatLng(28.56474, 77.32197),
+    target: LatLng(35.503120, -97.565740),
     zoom: 10,
   );
 

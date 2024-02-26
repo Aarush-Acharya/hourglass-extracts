@@ -1,6 +1,7 @@
 import 'dart:async';
 import 'dart:convert';
 import 'dart:ui';
+import 'package:fineartsociety/pages/indivisual_category_page.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter/src/scheduler/ticker.dart';
@@ -33,16 +34,16 @@ class MerchTypeState extends _$MerchTypeState {
 }
 
 @riverpod
-class CardDimensionState extends _$CardDimensionState {
+class CardScaleState extends _$CardScaleState {
   @override
-  List build() => [false, false, false];
+  List<double> build() => [1, 1, 1, 1, 1];
 
-  void changeState(int index) {
+  void changeScale(int index) {
     state = state
         .asMap()
-        .map<int, bool>((currentIndex, value) {
+        .map<int, double>((currentIndex, value) {
           if (currentIndex == index) {
-            return MapEntry(currentIndex, !value);
+            return MapEntry(currentIndex, value == 1.3 ? 1 : 1.3);
           } else {
             return MapEntry(currentIndex, value);
           }
@@ -70,22 +71,12 @@ class HomePage extends ConsumerWidget {
   final Completer<GoogleMapController> _controller =
       Completer<GoogleMapController>();
 
-  Set<Marker> stores = {
-    Marker(markerId: MarkerId("first"), position: LatLng(28.56474, 77.32197)),
-    Marker(markerId: MarkerId("second"), position: LatLng(28.45376, 77.10201)),
-    Marker(markerId: MarkerId("third"), position: LatLng(28.5889, 77.2534)),
-  };
-
   // bool checkState
   Future<List<dynamic>> readJson() async {
     final String response =
         await rootBundle.loadString('assets/artists_data.json');
     var data = await json.decode(response);
     List<dynamic> artists = data['artists'];
-    // final List<String> productNames = [
-    //   "Edibles", "Moonrocks", "Resins", "Thundersticks",
-    //   "Moonrocks" // Example product names
-    // ];
     List<dynamic> featuredArtists = artists.where((item) {
       return item['featured'] == true;
     }).toList();
@@ -93,10 +84,397 @@ class HomePage extends ConsumerWidget {
     return featuredArtists;
   }
 
+  Set<Marker> stores = {
+    Marker(
+        markerId: MarkerId("first"), position: LatLng(35.503120, -97.565740)),
+    Marker(
+        markerId: MarkerId("second"), position: LatLng(35.552740, -97.626120)),
+    Marker(
+        markerId: MarkerId("third"), position: LatLng(35.636810, -97.565740)),
+  };
+
   static const CameraPosition _kGooglePlex = CameraPosition(
-    target: LatLng(28.56474, 77.32197),
+    target: LatLng(35.503120, -97.565740),
     zoom: 10,
   );
+
+  onMapCreate(GoogleMapController controller) {
+    _controller.complete(controller);
+    controller.setMapStyle('''[
+    {
+        "featureType": "all",
+        "elementType": "labels.text.fill",
+        "stylers": [
+            {
+                "saturation": 36
+            },
+            {
+                "color": "#dedede"
+            },
+            {
+                "lightness": 40
+            }
+        ]
+    },
+    {
+        "featureType": "all",
+        "elementType": "labels.text.stroke",
+        "stylers": [
+            {
+                "visibility": "off"
+            },
+            {
+                "color": "#000000"
+            },
+            {
+                "lightness": 16
+            }
+        ]
+    },
+    {
+        "featureType": "all",
+        "elementType": "labels.icon",
+        "stylers": [
+            {
+                "visibility": "off"
+            }
+        ]
+    },
+    {
+        "featureType": "administrative",
+        "elementType": "geometry.fill",
+        "stylers": [
+            {
+                "color": "#000000"
+            },
+            {
+                "lightness": 20
+            }
+        ]
+    },
+    {
+        "featureType": "administrative",
+        "elementType": "geometry.stroke",
+        "stylers": [
+            {
+                "color": "#000000"
+            },
+            {
+                "lightness": 17
+            },
+            {
+                "weight": 1.2
+            }
+        ]
+    },
+    {
+        "featureType": "landscape",
+        "elementType": "geometry",
+        "stylers": [
+            {
+                "color": "#000000"
+            },
+            {
+                "lightness": 20
+            }
+        ]
+    },
+    {
+        "featureType": "poi",
+        "elementType": "geometry",
+        "stylers": [
+            {
+                "color": "#000000"
+            },
+            {
+                "lightness": 21
+            }
+        ]
+    },
+    {
+        "featureType": "poi",
+        "elementType": "geometry.stroke",
+        "stylers": [
+            {
+                "visibility": "on"
+            },
+            {
+                "color": "#000000"
+            }
+        ]
+    },
+    {
+        "featureType": "poi",
+        "elementType": "labels.text.fill",
+        "stylers": [
+            {
+                "weight": "10.00"
+            },
+            {
+                "invert_lightness": true
+            },
+            {
+                "gamma": "7.24"
+            },
+            {
+                "lightness": "60"
+            },
+            {
+                "saturation": "66"
+            }
+        ]
+    },
+    {
+        "featureType": "poi",
+        "elementType": "labels.text.stroke",
+        "stylers": [
+            {
+                "color": "#ffffff"
+            },
+            {
+                "invert_lightness": true
+            }
+        ]
+    },
+    {
+        "featureType": "poi",
+        "elementType": "labels.icon",
+        "stylers": [
+            {
+                "visibility": "on"
+            }
+        ]
+    },
+    {
+        "featureType": "poi.attraction",
+        "elementType": "all",
+        "stylers": [
+            {
+                "visibility": "off"
+            }
+        ]
+    },
+    {
+        "featureType": "poi.business",
+        "elementType": "all",
+        "stylers": [
+            {
+                "visibility": "off"
+            }
+        ]
+    },
+    {
+        "featureType": "poi.government",
+        "elementType": "all",
+        "stylers": [
+            {
+                "visibility": "off"
+            }
+        ]
+    },
+    {
+        "featureType": "poi.medical",
+        "elementType": "all",
+        "stylers": [
+            {
+                "visibility": "off"
+            }
+        ]
+    },
+    {
+        "featureType": "poi.park",
+        "elementType": "all",
+        "stylers": [
+            {
+                "visibility": "off"
+            }
+        ]
+    },
+    {
+        "featureType": "poi.place_of_worship",
+        "elementType": "all",
+        "stylers": [
+            {
+                "visibility": "off"
+            }
+        ]
+    },
+    {
+        "featureType": "poi.school",
+        "elementType": "all",
+        "stylers": [
+            {
+                "visibility": "off"
+            }
+        ]
+    },
+    {
+        "featureType": "poi.sports_complex",
+        "elementType": "geometry.fill",
+        "stylers": [
+            {
+                "visibility": "on"
+            },
+            {
+                "color": "#d2cece"
+            },
+            {
+                "invert_lightness": true
+            },
+            {
+                "weight": "10.00"
+            }
+        ]
+    },
+    {
+        "featureType": "poi.sports_complex",
+        "elementType": "geometry.stroke",
+        "stylers": [
+            {
+                "visibility": "on"
+            },
+            {
+                "color": "#ffffff"
+            }
+        ]
+    },
+    {
+        "featureType": "poi.sports_complex",
+        "elementType": "labels.text",
+        "stylers": [
+            {
+                "visibility": "simplified"
+            }
+        ]
+    },
+    {
+        "featureType": "poi.sports_complex",
+        "elementType": "labels.text.fill",
+        "stylers": [
+            {
+                "visibility": "on"
+            },
+            {
+                "color": "#ff0000"
+            }
+        ]
+    },
+    {
+        "featureType": "poi.sports_complex",
+        "elementType": "labels.text.stroke",
+        "stylers": [
+            {
+                "gamma": "10.00"
+            },
+            {
+                "invert_lightness": true
+            },
+            {
+                "weight": "10.00"
+            },
+            {
+                "color": "#ffffff"
+            },
+            {
+                "visibility": "off"
+            }
+        ]
+    },
+    {
+        "featureType": "poi.sports_complex",
+        "elementType": "labels.icon",
+        "stylers": [
+            {
+                "visibility": "on"
+            },
+            {
+                "weight": "5.10"
+            },
+            {
+                "gamma": "0.00"
+            },
+            {
+                "hue": "#ff0000"
+            }
+        ]
+    },
+    {
+        "featureType": "road.highway",
+        "elementType": "geometry.fill",
+        "stylers": [
+            {
+                "color": "#393939"
+            },
+            {
+                "lightness": 17
+            }
+        ]
+    },
+    {
+        "featureType": "road.highway",
+        "elementType": "geometry.stroke",
+        "stylers": [
+            {
+                "color": "#000000"
+            },
+            {
+                "lightness": 29
+            },
+            {
+                "weight": 0.2
+            }
+        ]
+    },
+    {
+        "featureType": "road.arterial",
+        "elementType": "geometry",
+        "stylers": [
+            {
+                "color": "#1c1c1c"
+            },
+            {
+                "lightness": 18
+            }
+        ]
+    },
+    {
+        "featureType": "road.local",
+        "elementType": "geometry",
+        "stylers": [
+            {
+                "color": "#343434"
+            },
+            {
+                "lightness": 16
+            }
+        ]
+    },
+    {
+        "featureType": "transit",
+        "elementType": "geometry",
+        "stylers": [
+            {
+                "color": "#000000"
+            },
+            {
+                "lightness": 19
+            }
+        ]
+    },
+    {
+        "featureType": "water",
+        "elementType": "geometry",
+        "stylers": [
+            {
+                "color": "#000000"
+            },
+            {
+                "lightness": 17
+            }
+        ]
+    }
+]''');
+  }
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
@@ -109,7 +487,7 @@ class HomePage extends ConsumerWidget {
     ];
 
     bool isNewReleases = ref.watch(merchTypeStateProvider);
-    List dimensions = ref.watch(cardDimensionStateProvider);
+    List scales = ref.watch(cardScaleStateProvider);
     int hoveredIndex = -1;
     var controller = AnimationController(
         duration: const Duration(seconds: 1), vsync: animationProvider);
@@ -307,31 +685,42 @@ class HomePage extends ConsumerWidget {
                             child: Column(
                               mainAxisAlignment: MainAxisAlignment.center,
                               children: [
-                                MouseRegion(
-                                  onEnter: (_) => ref
-                                      .read(hoveredIndexProvider.notifier)
-                                      .state = index,
-                                  onExit: (_) => ref
-                                      .read(hoveredIndexProvider.notifier)
-                                      .state = null,
-                                  child: AnimatedContainer(
-                                    duration: const Duration(milliseconds: 200),
-                                    transform: Matrix4.identity()
-                                      ..scale(
-                                          hoveredIndex == index ? 1.1 : 1.0),
-                                    child: Image.asset(
-                                      'assets/prod ${index + 1}.png',
-                                      fit: BoxFit.contain,
-                                      width: MediaQuery.of(context).size.width /
-                                          4.5, // Adjusted for larger images
-                                      height:
-                                          MediaQuery.of(context).size.width /
-                                              4.5 /
-                                              2, // Maintain aspect ratio
+                                InkWell(
+                                  hoverColor: null,
+                                  onTap: () {
+                                    Navigator.pushNamed(
+                                        context, '/categoryProducts');
+                                  },
+                                  onHover: (value) {
+                                    ref
+                                        .watch(cardScaleStateProvider.notifier)
+                                        .changeScale(index);
+                                  },
+                                  child: ClipRRect(
+                                    child: Expanded(
+                                      child: AnimatedContainer(
+                                        height: 300,
+                                        width: 230,
+                                        color: Colors.white,
+                                        transformAlignment: Alignment.center,
+                                        duration: const Duration(
+                                            milliseconds:
+                                                300), // Adjust the duration as needed
+                                        curve: Curves
+                                            .easeInOut, // Adjust the curve as needed
+                                        transform: Matrix4.identity()
+                                          ..scale(scales[index]),
+                                        child: Padding(
+                                          padding: const EdgeInsets.symmetric(
+                                              horizontal: 25.0),
+                                          child: Image.asset(
+                                              'assets/prod ${index + 1}.png',
+                                              fit: BoxFit.contain),
+                                        ),
+                                      ),
                                     ),
                                   ),
                                 ),
-                                const SizedBox(height: 30),
                                 Text(
                                   productNames[index],
                                   style: const TextStyle(
@@ -345,175 +734,60 @@ class HomePage extends ConsumerWidget {
                           );
                         }),
                       )
-                    : // Your code for isDesktop = true
-
-                    Column(
-                        children: [
-                          Container(
-                            height: 450,
-                            width: 290,
-                            decoration: BoxDecoration(
-                                color: Color(0xffe4e3ce),
-                                borderRadius: BorderRadius.circular(15)),
+                    : Column(
+                        mainAxisAlignment: MainAxisAlignment
+                            .spaceBetween, // Ensures equal spacing
+                        children: List.generate(productNames.length, (index) {
+                          return Expanded(
                             child: Column(
                               mainAxisAlignment: MainAxisAlignment.center,
                               children: [
-                                SizedBox(
-                                  height: 100,
-                                ),
-                                Image.asset(
-                                  'assets/prod 1.png',
-                                  fit: BoxFit.contain,
-                                  height: 450,
-                                  width: 290,
-                                ),
-                                const SizedBox(
-                                  height: 30,
-                                ),
-                                const Text(
-                                  "Edibles",
-                                  style: TextStyle(
-                                      fontSize: 16,
-                                      color: Color.fromARGB(255, 255, 255, 255),
-                                      fontWeight: FontWeight.w600),
-                                ),
-                                const SizedBox(
-                                  height: 20,
-                                ),
-                              ],
-                            ),
-                          ),
-                          const SizedBox(
-                            height: 40,
-                          ),
-                          Center(
-                            child: Container(
-                              height: 400,
-                              width: 250,
-                              decoration: BoxDecoration(
-                                  color: Color(0xffe4e3ce),
-                                  borderRadius: BorderRadius.circular(15)),
-                              child: Column(
-                                mainAxisAlignment: MainAxisAlignment.center,
-                                children: [
-                                  SizedBox(
-                                    height: 40,
-                                  ),
-                                  Image.asset(
-                                    'assets/prod 2.png',
-                                    fit: BoxFit.contain,
-                                    width: 250,
-                                    height: 200,
-                                  ),
-                                  const SizedBox(
-                                    height: 30,
-                                  ),
-                                  Center(
-                                    child: const Text(
-                                      "Moonrocks",
-                                      style: TextStyle(
-                                          fontSize: 16,
-                                          color: Color.fromARGB(
-                                              255, 255, 255, 255),
-                                          fontWeight: FontWeight.w600),
+                                InkWell(
+                                  hoverColor: null,
+                                  onTap: () {},
+                                  onHover: (value) {
+                                    ref
+                                        .watch(cardScaleStateProvider.notifier)
+                                        .changeScale(index);
+                                  },
+                                  child: ClipRRect(
+                                    child: Expanded(
+                                      child: AnimatedContainer(
+                                        height: 300,
+                                        width: 230,
+                                        color: Colors.white,
+                                        transformAlignment: Alignment.center,
+                                        duration: const Duration(
+                                            milliseconds:
+                                                700), // Adjust the duration as needed
+                                        curve: Curves
+                                            .easeInOut, // Adjust the curve as needed
+                                        transform: Matrix4.identity()
+                                          ..scale(scales[index]),
+                                        child: Padding(
+                                          padding: const EdgeInsets.symmetric(
+                                              horizontal: 25.0),
+                                          child: Image.asset(
+                                              'assets/prod ${index + 1}.png',
+                                              fit: BoxFit.contain),
+                                        ),
+                                      ),
                                     ),
                                   ),
-                                  const SizedBox(
-                                    height: 20,
+                                ),
+                                Text(
+                                  productNames[index],
+                                  style: const TextStyle(
+                                    fontSize: 20,
+                                    color: Colors.black,
+                                    fontWeight: FontWeight.w600,
                                   ),
-                                  // TextButton(
-                                  //     style: TextButton.styleFrom(
-                                  //         minimumSize: Size(170, 45),
-                                  //         shape: RoundedRectangleBorder(
-                                  //             borderRadius:
-                                  //                 BorderRadius.circular(100)),
-                                  //         backgroundColor: Color(0xff22362b)),
-                                  //     onPressed: () {},
-                                  //     child: Text(
-                                  //       "Shop Now",
-                                  //       style: TextStyle(color: Colors.white),
-                                  //     ))
-                                ],
-                              ),
-                            ),
-                          ),
-                          const SizedBox(
-                            height: 40,
-                          ),
-                          Container(
-                            height: 400,
-                            width: 250,
-                            decoration: BoxDecoration(
-                                color: Color.fromARGB(255, 0, 0, 0),
-                                borderRadius: BorderRadius.circular(15)),
-                            child: Column(
-                              mainAxisAlignment: MainAxisAlignment.center,
-                              children: [
-                                SizedBox(
-                                  height: 40,
-                                ),
-                                Image.asset(
-                                  'assets/prod 3.png',
-                                  fit: BoxFit.contain,
-                                  width: 250,
-                                  height: 200,
-                                ),
-                                const SizedBox(
-                                  height: 30,
-                                ),
-                                const Text(
-                                  "Resins",
-                                  style: TextStyle(
-                                      fontSize: 16,
-                                      color: Color.fromARGB(255, 255, 255, 255),
-                                      fontWeight: FontWeight.w600),
-                                ),
-                                const SizedBox(
-                                  height: 20,
                                 ),
                               ],
                             ),
-                          ),
-                          SizedBox(
-                            height: 40,
-                          ),
-                          Container(
-                            height: 400,
-                            width: 250,
-                            decoration: BoxDecoration(
-                                color: Color.fromARGB(255, 6, 6, 6),
-                                borderRadius: BorderRadius.circular(15)),
-                            child: Column(
-                              mainAxisAlignment: MainAxisAlignment.center,
-                              children: [
-                                SizedBox(
-                                  height: 40,
-                                ),
-                                Image.asset(
-                                  'assets/prod 4.png',
-                                  fit: BoxFit.contain,
-                                  width: 250,
-                                  height: 200,
-                                ),
-                                const SizedBox(
-                                  height: 30,
-                                ),
-                                const Text(
-                                  "Thundersticks",
-                                  style: TextStyle(
-                                      fontSize: 16,
-                                      color: Color.fromARGB(255, 255, 255, 255),
-                                      fontWeight: FontWeight.w600),
-                                ),
-                                const SizedBox(
-                                  height: 20,
-                                ),
-                              ],
-                            ),
-                          ),
-                        ],
+                          );
+                        }),
                       ),
-
                 const SizedBox(
                   height: 90,
                 ),
@@ -540,9 +814,7 @@ class HomePage extends ConsumerWidget {
                     zoomControlsEnabled: false,
                     mapType: MapType.normal,
                     initialCameraPosition: _kGooglePlex,
-                    onMapCreated: (GoogleMapController controller) {
-                      _controller.complete(controller);
-                    },
+                    onMapCreated: onMapCreate,
                     markers: stores,
                   ),
                 ),

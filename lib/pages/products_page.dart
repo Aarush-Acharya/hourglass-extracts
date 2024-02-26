@@ -1,4 +1,5 @@
 import 'dart:convert';
+import 'package:fineartsociety/pages/home_page.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter/src/scheduler/ticker.dart';
@@ -37,6 +38,7 @@ class ProductPage extends ConsumerWidget {
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
+    List scales = ref.watch(cardScaleStateProvider);
     var controller = AnimationController(
         duration: const Duration(seconds: 1), vsync: animationProvider);
     var animation = new CurvedAnimation(
@@ -54,6 +56,7 @@ class ProductPage extends ConsumerWidget {
       body: LayoutBuilder(
         builder: (context, constraints) {
           double firstFoldHeight = MediaQuery.of(context).size.height * 0.75;
+          bool isDesktop = MediaQuery.sizeOf(context).width < 786;
           return SingleChildScrollView(
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.center,
@@ -65,41 +68,115 @@ class ProductPage extends ConsumerWidget {
                     style: TextStyle(
                       fontSize: 30,
                     )),
-                Row(
-                  mainAxisAlignment:
-                      MainAxisAlignment.spaceBetween, // Ensures equal spacing
-                  children: List.generate(productNames.length, (index) {
-                    return Expanded(
-                      child: Column(
-                        mainAxisAlignment: MainAxisAlignment.center,
-                        children: [
-                          AnimatedContainer(
-                            duration: const Duration(milliseconds: 200),
-                            child: Image.asset(
-                              'assets/prod ${index + 1}.png',
-                              fit: BoxFit.contain,
-                              // Decrease divisor from 4.5 to 3 to increase image size
-                              width: MediaQuery.of(context).size.width /
-                                  3, // Increased size for larger images
-                              height: MediaQuery.of(context).size.width /
-                                  3 /
-                                  2, // Maintain aspect ratio
+                !isDesktop
+                    ? Row(
+                        mainAxisAlignment: MainAxisAlignment
+                            .spaceBetween, // Ensures equal spacing
+                        children: List.generate(productNames.length, (index) {
+                          return Expanded(
+                            child: Column(
+                              mainAxisAlignment: MainAxisAlignment.center,
+                              children: [
+                                InkWell(
+                                  hoverColor: null,
+                                  onTap: () {},
+                                  onHover: (value) {
+                                    ref
+                                        .watch(cardScaleStateProvider.notifier)
+                                        .changeScale(index);
+                                  },
+                                  child: ClipRRect(
+                                    child: Expanded(
+                                      child: AnimatedContainer(
+                                        height: 300,
+                                        width: 230,
+                                        color: Colors.white,
+                                        transformAlignment: Alignment.center,
+                                        duration: const Duration(
+                                            milliseconds:
+                                                700), // Adjust the duration as needed
+                                        curve: Curves
+                                            .easeInOut, // Adjust the curve as needed
+                                        transform: Matrix4.identity()
+                                          ..scale(scales[index]),
+                                        child: Padding(
+                                          padding: const EdgeInsets.symmetric(
+                                              horizontal: 25.0),
+                                          child: Image.asset(
+                                              'assets/prod ${index + 1}.png',
+                                              fit: BoxFit.contain),
+                                        ),
+                                      ),
+                                    ),
+                                  ),
+                                ),
+                                Text(
+                                  productNames[index],
+                                  style: const TextStyle(
+                                    fontSize: 20,
+                                    color: Colors.black,
+                                    fontWeight: FontWeight.w600,
+                                  ),
+                                ),
+                              ],
                             ),
-                          ),
-                          const SizedBox(height: 30),
-                          Text(
-                            productNames[index],
-                            style: const TextStyle(
-                              fontSize: 20,
-                              color: Colors.black,
-                              fontWeight: FontWeight.w600,
+                          );
+                        }),
+                      )
+                    : Column(
+                        mainAxisAlignment: MainAxisAlignment
+                            .spaceBetween, // Ensures equal spacing
+                        children: List.generate(productNames.length, (index) {
+                          return Expanded(
+                            child: Column(
+                              mainAxisAlignment: MainAxisAlignment.center,
+                              children: [
+                                InkWell(
+                                  hoverColor: null,
+                                  onTap: () {},
+                                  onHover: (value) {
+                                    ref
+                                        .watch(cardScaleStateProvider.notifier)
+                                        .changeScale(index);
+                                  },
+                                  child: ClipRRect(
+                                    child: Expanded(
+                                      child: AnimatedContainer(
+                                        height: 300,
+                                        width: 230,
+                                        color: Colors.white,
+                                        transformAlignment: Alignment.center,
+                                        duration: const Duration(
+                                            milliseconds:
+                                                700), // Adjust the duration as needed
+                                        curve: Curves
+                                            .easeInOut, // Adjust the curve as needed
+                                        transform: Matrix4.identity()
+                                          ..scale(scales[index]),
+                                        child: Padding(
+                                          padding: const EdgeInsets.symmetric(
+                                              horizontal: 25.0),
+                                          child: Image.asset(
+                                              'assets/prod ${index + 1}.png',
+                                              fit: BoxFit.contain),
+                                        ),
+                                      ),
+                                    ),
+                                  ),
+                                ),
+                                Text(
+                                  productNames[index],
+                                  style: const TextStyle(
+                                    fontSize: 20,
+                                    color: Colors.black,
+                                    fontWeight: FontWeight.w600,
+                                  ),
+                                ),
+                              ],
                             ),
-                          ),
-                        ],
+                          );
+                        }),
                       ),
-                    );
-                  }),
-                ),
                 const SizedBox(height: 100),
                 Text(
                   "#1 BRAND IN CALIFORNIA FOR INNOVATIVE CANNABIS PRODUCTS",
