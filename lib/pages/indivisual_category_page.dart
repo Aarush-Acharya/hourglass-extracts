@@ -3,11 +3,11 @@ import 'package:fineartsociety/widgets/footer_widget.dart';
 import 'package:flutter/material.dart';
 
 class CategoryProducts extends StatelessWidget {
-  List productsData = ["EDIBLES", [], "hi", "hi"];
   CategoryProducts({super.key});
 
   @override
   Widget build(BuildContext context) {
+    dynamic productsData = ModalRoute.of(context)!.settings.arguments!;
     return Scaffold(
       backgroundColor: Colors.black,
       appBar: CustomAppBar(),
@@ -42,7 +42,7 @@ class CategoryProducts extends StatelessWidget {
                               child: ClipRRect(
                                 borderRadius: BorderRadius.circular(50),
                                 child: Image.asset(
-                                  'assets/abt-1.png',
+                                  productsData[index + 1][2],
                                   fit: BoxFit.cover,
                                   width: 700,
                                   height: 500,
@@ -62,7 +62,7 @@ class CategoryProducts extends StatelessWidget {
                                           CrossAxisAlignment.start,
                                       children: [
                                         Text(
-                                          "KIND, BUT NOT WEAK",
+                                          productsData[index + 1][0],
                                           style: TextStyle(
                                               color: Colors.white,
                                               fontSize: 35),
@@ -73,7 +73,7 @@ class CategoryProducts extends StatelessWidget {
                                         SizedBox(
                                           width: 400,
                                           child: Text(
-                                            "Cannabis culture is a vibrant and diverse community that welcomes individuals from all walks of life - whether you're a skater, an elderly person, a college student, a veteran, or a family member. We take pride in creating an inclusive environment that encourages everyone to express themselves freely. Our culture fosters unity and promotes open and honest dialogue, bringing together people from different backgrounds and experiences.",
+                                            productsData[index + 1][1],
                                             softWrap: true,
                                             style: TextStyle(
                                                 color: Colors.white,
@@ -120,7 +120,7 @@ class CategoryProducts extends StatelessWidget {
                                           CrossAxisAlignment.start,
                                       children: [
                                         Text(
-                                          "KIND, BUT NOT WEAK",
+                                          productsData[index + 1][0],
                                           style: TextStyle(
                                               color: Colors.white,
                                               fontSize: 35),
@@ -131,7 +131,7 @@ class CategoryProducts extends StatelessWidget {
                                         SizedBox(
                                           width: 400,
                                           child: Text(
-                                            "Cannabis culture is a vibrant and diverse community that welcomes individuals from all walks of life - whether you're a skater, an elderly person, a college student, a veteran, or a family member. We take pride in creating an inclusive environment that encourages everyone to express themselves freely. Our culture fosters unity and promotes open and honest dialogue, bringing together people from different backgrounds and experiences.",
+                                            productsData[index + 1][1],
                                             softWrap: true,
                                             style: TextStyle(
                                                 color: Colors.white,
@@ -150,7 +150,7 @@ class CategoryProducts extends StatelessWidget {
                                               padding:
                                                   const EdgeInsets.all(10.0),
                                               child: Text(
-                                                   "Get Directions",
+                                                "Get Directions",
                                                 style: TextStyle(
                                                   color: Colors.white,
                                                   letterSpacing: 5,
@@ -172,7 +172,7 @@ class CategoryProducts extends StatelessWidget {
                               child: ClipRRect(
                                 borderRadius: BorderRadius.circular(50),
                                 child: Image.asset(
-                                  'assets/abt-1.png',
+                                  productsData[index + 1][2],
                                   fit: BoxFit.cover,
                                   width: 700,
                                   height: 500,

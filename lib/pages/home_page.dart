@@ -688,8 +688,31 @@ class HomePage extends ConsumerWidget {
                                 InkWell(
                                   hoverColor: null,
                                   onTap: () {
-                                    Navigator.pushNamed(
-                                        context, '/categoryProducts');
+                                    if (index == 0) {
+                                      Navigator.pushNamed(
+                                          context, '/categoryProducts',
+                                          arguments: [
+                                            "Batteries",
+                                            [
+                                              "STIIIZY BATTERY",
+                                              "The STIIIZY Battery Starter Kit is your essential power pack, featuring a standard battery, a USB charging cable, and easy charging via any USB port.",
+                                              "assets/prod 5.png"
+                                            ],
+                                            [
+                                              "STIIIZY BIIIG BATTERY",
+                                              "Experience longer-lasting sessions with the STIIIZY BIIIG Battery, designed for durability and smooth operation. USB charging accessories included.",
+                                              "assets/prod 5.png"
+                                            ],
+                                            [
+                                              "STIIIZY PORTABLE POWER CASE",
+                                              "Keep your devices powered on-the-go with the sleek STIIIZY Portable Power Case, complete with a USB charging cable and Micro USB Power Adapter.",
+                                              "assets/prod 5.png"
+                                            ]
+                                          ]);
+                                    } else if (index == 1) {
+                                    } else if (index == 2) {
+                                    } else if (index == 3) {
+                                    } else {}
                                   },
                                   onHover: (value) {
                                     ref
