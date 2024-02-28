@@ -697,26 +697,24 @@ class HomePage extends ConsumerWidget {
                                         .changeScale(index);
                                   },
                                   child: ClipRRect(
-                                    child: Expanded(
-                                      child: AnimatedContainer(
-                                        height: 300,
-                                        width: 230,
-                                        color: Colors.white,
-                                        transformAlignment: Alignment.center,
-                                        duration: const Duration(
-                                            milliseconds:
-                                                300), // Adjust the duration as needed
-                                        curve: Curves
-                                            .easeInOut, // Adjust the curve as needed
-                                        transform: Matrix4.identity()
-                                          ..scale(scales[index]),
-                                        child: Padding(
-                                          padding: const EdgeInsets.symmetric(
-                                              horizontal: 25.0),
-                                          child: Image.asset(
-                                              'assets/prod ${index + 1}.png',
-                                              fit: BoxFit.contain),
-                                        ),
+                                    child: AnimatedContainer(
+                                      height: 300,
+                                      width: 230,
+                                      color: Colors.white,
+                                      transformAlignment: Alignment.center,
+                                      duration: const Duration(
+                                          milliseconds:
+                                              300), // Adjust the duration as needed
+                                      curve: Curves
+                                          .easeInOut, // Adjust the curve as needed
+                                      transform: Matrix4.identity()
+                                        ..scale(scales[index]),
+                                      child: Padding(
+                                        padding: const EdgeInsets.symmetric(
+                                            horizontal: 25.0),
+                                        child: Image.asset(
+                                            'assets/prod ${index + 1}.png',
+                                            fit: BoxFit.contain),
                                       ),
                                     ),
                                   ),
@@ -751,26 +749,24 @@ class HomePage extends ConsumerWidget {
                                         .changeScale(index);
                                   },
                                   child: ClipRRect(
-                                    child: Expanded(
-                                      child: AnimatedContainer(
-                                        height: 300,
-                                        width: 230,
-                                        color: Colors.white,
-                                        transformAlignment: Alignment.center,
-                                        duration: const Duration(
-                                            milliseconds:
-                                                700), // Adjust the duration as needed
-                                        curve: Curves
-                                            .easeInOut, // Adjust the curve as needed
-                                        transform: Matrix4.identity()
-                                          ..scale(scales[index]),
-                                        child: Padding(
-                                          padding: const EdgeInsets.symmetric(
-                                              horizontal: 25.0),
-                                          child: Image.asset(
-                                              'assets/prod ${index + 1}.png',
-                                              fit: BoxFit.contain),
-                                        ),
+                                    child: AnimatedContainer(
+                                      height: 300,
+                                      width: 230,
+                                      color: Colors.white,
+                                      transformAlignment: Alignment.center,
+                                      duration: const Duration(
+                                          milliseconds:
+                                              700), // Adjust the duration as needed
+                                      curve: Curves
+                                          .easeInOut, // Adjust the curve as needed
+                                      transform: Matrix4.identity()
+                                        ..scale(scales[index]),
+                                      child: Padding(
+                                        padding: const EdgeInsets.symmetric(
+                                            horizontal: 25.0),
+                                        child: Image.asset(
+                                            'assets/prod ${index + 1}.png',
+                                            fit: BoxFit.contain),
                                       ),
                                     ),
                                   ),
@@ -1363,7 +1359,8 @@ class HomePage extends ConsumerWidget {
                 ElevatedButton(
                   onPressed: () {},
                   style: ElevatedButton.styleFrom(
-                    backgroundColor: Colors.black, // Set the background color to black
+                    backgroundColor:
+                        Colors.black, // Set the background color to black
                     padding: EdgeInsets.symmetric(
                         horizontal: 50,
                         vertical:
