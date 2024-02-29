@@ -7,6 +7,7 @@ import 'package:fineartsociety/pages/dispensaries_page.dart';
 import 'package:fineartsociety/pages/events_page.dart';
 import 'package:fineartsociety/pages/exhibitions_page.dart';
 import 'package:fineartsociety/pages/indivisual_category_page.dart';
+import 'package:fineartsociety/pages/indivisual_merch_page.dart';
 import 'package:fineartsociety/pages/indivisual_page.dart';
 import 'package:fineartsociety/pages/news_page.dart';
 import 'package:fineartsociety/pages/merch_page.dart';
@@ -53,6 +54,7 @@ class MyApp extends StatelessWidget {
         '/indivisualItem': (context) => const IndivisualPage(),
         '/products': (context) => ProductPage(),
         '/merch': (context) => const MerchPage(),
+        '/indivisualMerchPage': (context) => IndividualMerchPage(),
         '/categoryProducts': (context) => CategoryProducts()
       },
     );

@@ -1,12 +1,22 @@
 import 'package:flutter/material.dart';
+import 'package:fineartsociety/pages/dispensaries_page.dart';
+import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:google_maps_flutter/google_maps_flutter.dart';
 
-class StoreGrid extends StatelessWidget {
+class StoreGrid extends ConsumerWidget {
   final List<dynamic> girdData;
+  final ScrollController scrollController;
+  final List<LatLng> stores;
 
-  const StoreGrid({super.key, required this.girdData});
+  const StoreGrid(
+      {super.key,
+      required this.girdData,
+      required this.scrollController,
+      required this.stores});
 
   @override
-  Widget build(BuildContext context) {
+  Widget build(BuildContext contex, WidgetRef ref) {
+    GoogleMapController? mapController = ref.watch(mapControllerProvider);
     return Container(
       color: Colors.black, // Set the background color here
       child: Column(
@@ -17,7 +27,6 @@ class StoreGrid extends StatelessWidget {
             alignment: WrapAlignment.center,
             children: List.generate(girdData.length, (index) {
               String address = girdData[index]["address"];
-              address = address.replaceAll(", ", ", \n");
               return Container(
                   width: 400,
                   height: 552,
@@ -26,9 +35,9 @@ class StoreGrid extends StatelessWidget {
                     children: [
                       SizedBox(
                           height: 200,
-                          child: Image.network(
-                            "https://picsum.photos/600/100",
-                            fit: BoxFit.fill,
+                          child: Image.asset(
+                            'assets/p${index + 1}.png',
+                            fit: BoxFit.cover,
                           )),
                       SizedBox(
                         height: 10,
@@ -53,6 +62,7 @@ class StoreGrid extends StatelessWidget {
                         height: 50,
                       ),
                       SizedBox(
+                        width: 300,
                         child: Text(
                           address,
                           style: TextStyle(
@@ -95,7 +105,15 @@ class StoreGrid extends StatelessWidget {
                                   backgroundColor:
                                       Color.fromARGB(199, 99, 99, 99),
                                   shape: RoundedRectangleBorder()),
-                              onPressed: () {},
+                              onPressed: () {
+                                scrollController.animateTo(50,
+                                    duration: Duration(seconds: 1),
+                                    curve: Curves.easeInOut);
+                                mapController!.animateCamera(
+                                    CameraUpdate.newCameraPosition(
+                                        CameraPosition(
+                                            target: stores[index], zoom: 14)));
+                              },
                               child: Text(
                                 "View Store",
                                 style: TextStyle(

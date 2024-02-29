@@ -1,13 +1,18 @@
 import 'dart:async';
 import 'dart:convert';
+import 'dart:js_interop';
 import 'package:fineartsociety/widgets/store_grid.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/scheduler.dart';
 import 'package:flutter/services.dart';
+import 'package:flutter_icon_snackbar/flutter_icon_snackbar.dart';
+import 'package:flutter_polyline_points/flutter_polyline_points.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:getwidget/components/animation/gf_animation.dart';
 import 'package:getwidget/types/gf_animation_type.dart';
 import 'package:google_maps_flutter/google_maps_flutter.dart';
+import 'package:http/http.dart' as http;
+import 'package:location/location.dart';
 import 'package:riverpod_annotation/riverpod_annotation.dart';
 import '../widgets/custom_app_bar.dart';
 import '../widgets/footer_widget.dart';
@@ -34,6 +39,26 @@ class Value extends _$Value {
   }
 }
 
+@riverpod
+class PolylineState extends _$PolylineState {
+  @override
+  Set<Polyline> build() => <Polyline>{};
+
+  void addPolyline(Polyline newPolyline) {
+    state = {...state, newPolyline};
+  }
+}
+
+@riverpod
+class IsTappedState extends _$IsTappedState {
+  @override
+  bool build() => false;
+
+  void changeState() {
+    state = !state;
+  }
+}
+
 class IsExpandedValues {
   IsExpandedValues(
       {required this.isExpanded1,
@@ -44,6 +69,16 @@ class IsExpandedValues {
   bool isExpanded2;
   bool isExpanded3;
   bool isExpanded4;
+}
+
+@riverpod
+class MapController extends _$MapController {
+  @override
+  GoogleMapController? build() => null;
+
+  void addvalue(GoogleMapController controller) {
+    state = controller;
+  }
 }
 
 @riverpod
@@ -108,167 +143,29 @@ class DispensariesScreen extends ConsumerWidget {
     return featuredArtists;
   }
 
-  List<String> steps = [
-    "Insert your Bank Card",
-    "Select Cash or Bitcoin",
-    "Input your Desired Amount",
-    "Enter your KYC Verification ( Bitcoin Only )",
-    "Receive your Cash or Bitcoin!"
-  ];
-
   List<dynamic> storeData = [
     [
       {
-        "name": "Hourglass Sydney",
-        "description":
-            "A trendy coffee shop in the heart of Sydney offering a cozy ambiance and a variety of freshly brewed coffee.",
-        "address": "123 George Street, Sydney",
-        "timings": "Monday - Sunday: 6:00 AM - 9:45 PM"
-      },
-      {
-        "name": "Hourglass Melbourne",
-        "description":
-            "Discover the essence of Melbourne at Hourglass, where artisanal coffee meets a vibrant atmosphere.",
-        "address": "456 Collins Street, Melbourne",
-        "timings": "Monday - Sunday: 6:00 AM - 9:45 PM"
-      },
-      {
-        "name": "Hourglass Brisbane",
-        "description":
-            "Escape the hustle and bustle at Hourglass Brisbane, a serene coffee haven serving the finest blends.",
-        "address": "789 Queen Street, Brisbane",
-        "timings": "Monday - Sunday: 6:00 AM - 9:45 PM"
-      },
-      {
-        "name": "Hourglass Sydney",
-        "description":
-            "A trendy coffee shop in the heart of Sydney offering a cozy ambiance and a variety of freshly brewed coffee.",
-        "address": "123 George Street, Sydney",
-        "timings": "Monday - Sunday: 6:00 AM - 9:45 PM"
-      },
-      {
-        "name": "Hourglass Melbourne",
-        "description":
-            "Discover the essence of Melbourne at Hourglass, where artisanal coffee meets a vibrant atmosphere.",
-        "address": "456 Collins Street, Melbourne",
-        "timings": "Monday - Sunday: 6:00 AM - 9:45 PM"
-      },
-      {
-        "name": "Hourglass Brisbane",
-        "description":
-            "Escape the hustle and bustle at Hourglass Brisbane, a serene coffee haven serving the finest blends.",
-        "address": "789 Queen Street, Brisbane",
-        "timings": "Monday - Sunday: 6:00 AM - 9:45 PM"
-      },
-    ],
-    [
-      {
-        "name": "Hourglass Toronto",
-        "description":
-            "Indulge in the warmth of Toronto at Hourglass, where every cup tells a tale of quality and passion.",
-        "address": "101 Yonge Street, Toronto",
-        "timings": "Monday - Sunday: 6:00 AM - 9:45 PM"
-      },
-      {
-        "name": "Hourglass Vancouver",
-        "description":
-            "Sip on excellence in Vancouver at Hourglass, a place where coffee enthusiasts gather for a delightful experience.",
-        "address": "202 Granville Street, Vancouver",
-        "timings": "Monday - Sunday: 6:00 AM - 9:45 PM"
-      },
-      {
-        "name": "Hourglass Montreal",
-        "description":
-            "Montreal's rendezvous for coffee lovers – Hourglass Montreal, where each cup is a journey of flavors.",
-        "address": "303 Saint-Catherine Street, Montreal",
-        "timings": "Monday - Sunday: 6:00 AM - 9:45 PM"
-      },
-    ],
-    [
-      {
-        "name": "Hourglass Carolina",
-        "description":
-            "Experience the charm of Carolina at Hourglass, a coffee sanctuary nestled in the heart of the city.",
-        "address": "45 Main Street, Carolina",
-        "timings": "Monday - Sunday: 6:00 AM - 9:45 PM"
-      },
-      {
-        "name": "Hourglass Ponce",
-        "description":
-            "Hourglass Ponce invites you to savor the richness of coffee in a tranquil setting that feels like home.",
-        "address": "67 Ponce de Leon Avenue, Ponce",
-        "timings": "Monday - Sunday: 6:00 AM - 9:45 PM"
-      },
-      {
-        "name": "Hourglass Caguas",
-        "description":
-            "Caguas' haven for coffee aficionados – Hourglass Caguas, where passion and quality unite in every cup.",
-        "address": "89 Juana Díaz Street, Caguas",
-        "timings": "Monday - Sunday: 6:00 AM - 9:45 PM"
-      },
-      {
-        "name": "Hourglass Carolina",
-        "description":
-            "Experience the charm of Carolina at Hourglass, a coffee sanctuary nestled in the heart of the city.",
-        "address": "45 Main Street, Carolina",
-        "timings": "Monday - Sunday: 6:00 AM - 9:45 PM"
-      },
-      {
-        "name": "Hourglass Ponce",
-        "description":
-            "Hourglass Ponce invites you to savor the richness of coffee in a tranquil setting that feels like home.",
-        "address": "67 Ponce de Leon Avenue, Ponce",
-        "timings": "Monday - Sunday: 6:00 AM - 9:45 PM"
-      },
-      {
-        "name": "Hourglass Caguas",
-        "description":
-            "Caguas' haven for coffee aficionados – Hourglass Caguas, where passion and quality unite in every cup.",
-        "address": "89 Juana Díaz Street, Caguas",
-        "timings": "Monday - Sunday: 6:00 AM - 9:45 PM"
-      },
-      {
-        "name": "Hourglass Carolina",
-        "description":
-            "Experience the charm of Carolina at Hourglass, a coffee sanctuary nestled in the heart of the city.",
-        "address": "45 Main Street, Carolina",
-        "timings": "Monday - Sunday: 6:00 AM - 9:45 PM"
-      },
-      {
-        "name": "Hourglass Ponce",
-        "description":
-            "Hourglass Ponce invites you to savor the richness of coffee in a tranquil setting that feels like home.",
-        "address": "67 Ponce de Leon Avenue, Ponce",
-        "timings": "Monday - Sunday: 6:00 AM - 9:45 PM"
-      },
-      {
-        "name": "Hourglass Caguas",
-        "description":
-            "Caguas' haven for coffee aficionados – Hourglass Caguas, where passion and quality unite in every cup.",
-        "address": "89 Juana Díaz Street, Caguas",
-        "timings": "Monday - Sunday: 6:00 AM - 9:45 PM"
-      },
-    ],
-    [
-      {
-        "name": "Hourglass New York",
+        "name": "Mango Cannabis, May Ave",
         "description":
             "Immerse yourself in the energy of New York at Hourglass, a coffee destination in the city that never sleeps.",
-        "address": "150 Fifth Avenue, New York",
+        "address": "3301 N May Ave, Oklahoma City, OK 73112, United States",
         "timings": "Monday - Sunday: 6:00 AM - 9:45 PM"
       },
       {
-        "name": "Hourglass San Francisco",
+        "name": "Mango Cannabis, NW EXPY",
         "description":
             "Discover the flavors of San Francisco at Hourglass, where artisanal coffee meets breathtaking views.",
-        "address": "200 Market Street, San Francisco",
+        "address":
+            "6201 Northwest Expy, Oklahoma City, OK 73132, United States",
         "timings": "Monday - Sunday: 6:00 AM - 9:45 PM"
       },
       {
-        "name": "Hourglass Chicago",
+        "name": "Mango Cannabis, Edmond",
         "description":
             "Chicago's coffee gem – Hourglass Chicago, where quality meets comfort in every cup served.",
-        "address": "300 Michigan Avenue, Chicago",
+        "address":
+            "16309 N Santa Fe Ave STE B, Edmond, OK 73013, United States",
         "timings": "Monday - Sunday: 6:00 AM - 9:45 PM"
       },
     ],
@@ -277,36 +174,67 @@ class DispensariesScreen extends ConsumerWidget {
   final Completer<GoogleMapController> _controller =
       Completer<GoogleMapController>();
 
-  Set<Marker> stores = {
-    Marker(
-        markerId: MarkerId("first"), position: LatLng(35.503120, -97.565740)),
-    Marker(
-        markerId: MarkerId("second"), position: LatLng(35.552740, -97.626120)),
-    Marker(
-        markerId: MarkerId("third"), position: LatLng(35.636810, -97.565740)),
-  };
+  ScrollController scrollController = ScrollController();
 
   static const CameraPosition _kGooglePlex = CameraPosition(
     target: LatLng(35.503120, -97.565740),
     zoom: 10,
   );
 
+  int count = 1;
+
   @override
   Widget build(BuildContext context, WidgetRef ref) {
     final MyAnimationProvider animationProvider = MyAnimationProvider();
     CheckBoxStates state = ref.watch(valueProvider);
-    IsExpandedValues isExpandedValueStates =
-        ref.watch(isExpandedValueStatesProvider);
 
-    Map<String, dynamic> firstFoldList = {
-      "Australia": [isExpandedValueStates.isExpanded1, 0],
-      "Canada": [isExpandedValueStates.isExpanded2, 1],
-      "Rico": [isExpandedValueStates.isExpanded3, 2],
-      "United States": [isExpandedValueStates.isExpanded4, 3],
+    Set<Marker> stores = {
+      Marker(
+        onTap: () {
+          ref.watch(isTappedStateProvider.notifier).changeState();
+        },
+        consumeTapEvents: true,
+        markerId: MarkerId("first"),
+        position: LatLng(35.503120, -97.565740),
+        infoWindow: InfoWindow(
+            onTap: () {
+              print("hi");
+            },
+            title: "Mango Cannabis, May Ave",
+            snippet: "35.503120, -97.565740"),
+      ),
+      Marker(
+          onTap: () {
+            ref.watch(isTappedStateProvider.notifier).changeState();
+          },
+          markerId: MarkerId("second"),
+          position: LatLng(35.552740, -97.626120),
+          infoWindow: InfoWindow(
+              title: "Mango Cannabis, NW EXPY",
+              snippet: "35.552740, -97.626120")),
+      Marker(
+          onTap: () {
+            ref.watch(isTappedStateProvider.notifier).changeState();
+          },
+          markerId: MarkerId("third"),
+          position: LatLng(35.636810, -97.565740),
+          infoWindow: InfoWindow(
+              title: "Mango Cannabis, Edmond",
+              snippet: "35.636810, -97.565740")),
     };
 
+    bool isTapped = ref.watch(isTappedStateProvider);
+    IsExpandedValues isExpandedValueStates =
+        ref.watch(isExpandedValueStatesProvider);
+    Set<Polyline> polylines = ref.watch(polylineStateProvider);
+
+    Map<String, dynamic> firstFoldList = {
+      "Oklahoma": [isExpandedValueStates.isExpanded1, 0],
+    };
     onMapCreate(GoogleMapController controller) {
+      ref.watch(mapControllerProvider.notifier).addvalue(controller);
       _controller.complete(controller);
+
       controller.setMapStyle('''[
     {
         "featureType": "all",
@@ -688,6 +616,21 @@ class DispensariesScreen extends ConsumerWidget {
         duration: const Duration(seconds: 1), vsync: animationProvider);
     var animation = CurvedAnimation(
         parent: controller, curve: Curves.fastEaseInToSlowEaseOut);
+    GoogleMapController? mapController = ref.watch(mapControllerProvider);
+    List<LatLng> polylineCoordinates = [];
+
+    void decodePoly(String toDebug) {
+      polylineCoordinates.clear();
+      PolylinePoints polylinePoints = PolylinePoints();
+      List<PointLatLng> decodedPolylinePoints =
+          polylinePoints.decodePolyline(toDebug);
+
+      if (decodedPolylinePoints.isNotEmpty) {
+        decodedPolylinePoints.forEach((PointLatLng point) {
+          polylineCoordinates.add(LatLng(point.latitude, point.longitude));
+        });
+      }
+    }
 
     return Scaffold(
       endDrawer: CustomAppBar(),
@@ -696,24 +639,10 @@ class DispensariesScreen extends ConsumerWidget {
       body: LayoutBuilder(
         builder: (context, constraints) {
           return SingleChildScrollView(
+            controller: scrollController,
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
-                // Container(
-                //   height: firstFoldHeight,
-                //   color: Colors.black,
-                //   child: GFAnimation(
-                //     turnsAnimation: animation,
-                //     controller: controller,
-                //     type: GFAnimationType.scaleTransition,
-                //     child: Image.network(
-                //       'https://picsum.photos/800/500',
-                //       fit: BoxFit.cover,
-                //       width: double.infinity,
-                //       height: double.infinity,
-                //     ),
-                //   ),
-                // ),
                 Padding(
                   padding:
                       const EdgeInsets.symmetric(horizontal: 24, vertical: 40),
@@ -930,13 +859,139 @@ class DispensariesScreen extends ConsumerWidget {
                             child: SizedBox(
                               height: 720,
                               width: 800,
-                              child: GoogleMap(
-                                  markers: stores,
-                                  zoomControlsEnabled: false,
-                                  fortyFiveDegreeImageryEnabled: true,
-                                  mapType: MapType.normal,
-                                  initialCameraPosition: _kGooglePlex,
-                                  onMapCreated: onMapCreate),
+                              child: Stack(
+                                children: [
+                                  GoogleMap(
+                                      polylines: polylines,
+                                      markers: stores,
+                                      indoorViewEnabled: true,
+                                      zoomControlsEnabled: false,
+                                      fortyFiveDegreeImageryEnabled: true,
+                                      mapType: MapType.normal,
+                                      initialCameraPosition: _kGooglePlex,
+                                      onMapCreated: onMapCreate),
+                                  Align(
+                                    alignment: Alignment.bottomRight,
+                                    child: Padding(
+                                      padding: const EdgeInsets.only(
+                                          bottom: 20.0, right: 20),
+                                      child: IconButton(
+                                        hoverColor:
+                                            Color.fromARGB(158, 123, 122, 122),
+                                        icon: Icon(
+                                          Icons.directions,
+                                          size: 30,
+                                          color: Colors.white,
+                                        ),
+                                        onPressed: () async {
+                                          bool isFirst = await mapController!
+                                              .isMarkerInfoWindowShown(
+                                                  MarkerId("first"));
+                                          bool isSecond = await mapController!
+                                              .isMarkerInfoWindowShown(
+                                                  MarkerId("second"));
+                                          bool isThird = await mapController!
+                                              .isMarkerInfoWindowShown(
+                                                  MarkerId("third"));
+                                          Location location = new Location();
+                                          var _permissionGranted =
+                                              await location
+                                                  .requestPermission();
+
+                                          print(_permissionGranted.name);
+
+                                          LocationData userPosition =
+                                              await location.getLocation();
+                                          if (isFirst) {
+                                            var request = http.Request(
+                                                'GET',
+                                                Uri.parse(
+                                                    'http://0.0.0.0:8080/https://maps.googleapis.com/maps/api/directions/json?origin=35.50312,-97.56574&destination=${userPosition.latitude},${userPosition.longitude}&key=AIzaSyBJ5WtDvw2lyjzfljtKdNHwxdzgoQ-KTiQ'));
+
+                                            http.StreamedResponse response =
+                                                await request.send();
+
+                                            Map values = jsonDecode(
+                                                await response.stream
+                                                    .bytesToString());
+
+                                            decodePoly(values["routes"][0]
+                                                    ["overview_polyline"]
+                                                ["points"]);
+                                            ref
+                                                .watch(polylineStateProvider
+                                                    .notifier)
+                                                .addPolyline(Polyline(
+                                                    polylineId:
+                                                        PolylineId("first"),
+                                                    width: 4,
+                                                    points: polylineCoordinates,
+                                                    color: Colors.white));
+                                          } else if (isSecond) {
+                                            var request = http.Request(
+                                                'GET',
+                                                Uri.parse(
+                                                    'http://0.0.0.0:8080/https://maps.googleapis.com/maps/api/directions/json?origin=35.552740,-97.626120&destination=${userPosition.latitude},${userPosition.longitude}&key=AIzaSyBJ5WtDvw2lyjzfljtKdNHwxdzgoQ-KTiQ'));
+
+                                            http.StreamedResponse response =
+                                                await request.send();
+
+                                            Map values = jsonDecode(
+                                                await response.stream
+                                                    .bytesToString());
+
+                                            decodePoly(values["routes"][0]
+                                                    ["overview_polyline"]
+                                                ["points"]);
+                                            ref
+                                                .watch(polylineStateProvider
+                                                    .notifier)
+                                                .addPolyline(Polyline(
+                                                    polylineId:
+                                                        PolylineId("first"),
+                                                    width: 4,
+                                                    points: polylineCoordinates,
+                                                    color: Colors.white));
+                                          } else if (isThird) {
+                                            var request = http.Request(
+                                                'GET',
+                                                Uri.parse(
+                                                    'http://0.0.0.0:8080/https://maps.googleapis.com/maps/api/directions/json?origin=35.636810,-97.565740&destination=${userPosition.latitude},${userPosition.longitude}&key=AIzaSyBJ5WtDvw2lyjzfljtKdNHwxdzgoQ-KTiQ'));
+
+                                            http.StreamedResponse response =
+                                                await request.send();
+
+                                            Map values = jsonDecode(
+                                                await response.stream
+                                                    .bytesToString());
+
+                                            decodePoly(values["routes"][0]
+                                                    ["overview_polyline"]
+                                                ["points"]);
+                                            ref
+                                                .watch(polylineStateProvider
+                                                    .notifier)
+                                                .addPolyline(Polyline(
+                                                    polylineId:
+                                                        PolylineId("first"),
+                                                    width: 4,
+                                                    points: polylineCoordinates,
+                                                    color: Colors.white));
+                                          } else {
+                                            IconSnackBar.show(
+                                                duration: Duration(seconds: 3),
+                                                context: context,
+                                                snackBarType:
+                                                    SnackBarType.alert,
+                                                label:
+                                                    'Please select a dispensary to get directions');
+                                          }
+                                        },
+                                      ),
+                                    ),
+                                  )
+                                ],
+                              ),
                             ),
                           ),
                         ]),
@@ -973,7 +1028,15 @@ class DispensariesScreen extends ConsumerWidget {
                             ),
                           );
                         },
-                        body: StoreGrid(girdData: storeData[data.value[1]]));
+                        body: StoreGrid(
+                          girdData: storeData[data.value[1]],
+                          scrollController: scrollController,
+                          stores: [
+                            LatLng(35.503120, -97.565740),
+                            LatLng(35.552740, -97.626120),
+                            LatLng(35.636810, -97.565740)
+                          ],
+                        ));
                   }).toList(),
                 ),
                 FooterWidget(),
