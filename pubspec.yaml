@@ -54,6 +54,9 @@ flutter:
     - family: Cinzel
       fonts:
         - asset: assets/fonts/Cinzel.ttf
+    - family: Brown
+      fonts:
+        - asset: assets/fonts/Brown.otf
     - family: Roboto
       fonts:
         - asset: assets/fonts/Roboto-Black.ttf

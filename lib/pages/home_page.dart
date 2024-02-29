@@ -1043,9 +1043,13 @@ class HomePage extends ConsumerWidget {
                               .read(merchTypeStateProvider.notifier)
                               .changeState(true);
                         },
-                        child: const Text(
-                          "New Releases",
-                          style: TextStyle(color: Colors.black, fontSize: 20),
+                        child: Padding(
+                          padding: const EdgeInsets.symmetric(
+                              horizontal: 8.0, vertical: 2),
+                          child: const Text(
+                            "New Releases",
+                            style: TextStyle(color: Colors.black, fontSize: 18),
+                          ),
                         )),
                     const SizedBox(
                       width: 100,
@@ -1056,9 +1060,13 @@ class HomePage extends ConsumerWidget {
                               .read(merchTypeStateProvider.notifier)
                               .changeState(false);
                         },
-                        child: const Text("Accessories",
-                            style:
-                                TextStyle(color: Colors.black, fontSize: 20))),
+                        child: Padding(
+                          padding: const EdgeInsets.symmetric(
+                              horizontal: 8.0, vertical: 2),
+                          child: const Text("Accessories",
+                              style:
+                                  TextStyle(color: Colors.black, fontSize: 18)),
+                        )),
                   ],
                 ),
                 const SizedBox(

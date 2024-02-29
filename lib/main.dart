@@ -38,7 +38,7 @@ class MyApp extends StatelessWidget {
       debugShowCheckedModeBanner: false,
       scrollBehavior: AppScrollBehavior(),
       title: 'Altrd',
-      theme: ThemeData(primarySwatch: Colors.amber, fontFamily: 'Roboto'),
+      theme: ThemeData(primarySwatch: Colors.amber, fontFamily: 'Brown'),
       initialRoute: '/',
       routes: {
         '/': (context) => HomePage(),
