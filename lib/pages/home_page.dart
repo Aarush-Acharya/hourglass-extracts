@@ -884,14 +884,19 @@ class HomePage extends ConsumerWidget {
                 const SizedBox(
                   height: 20,
                 ),
-                const Text(
-                  "Find the nearest ALTRD store now",
-                  style: TextStyle(
-                    color: Colors.black,
-                    fontSize: 20,
-                    fontFamily: 'Roboto',
+                TextButton(
+                  onPressed: () {
+                    Navigator.pushNamed(context, '/dispensaries');
+                  },
+                  child: const Text(
+                    "Find the nearest ALTRD store now",
+                    style: TextStyle(
+                      color: Colors.black,
+                      fontSize: 20,
+                      fontFamily: 'Roboto',
+                    ),
+                    softWrap: true,
                   ),
-                  softWrap: true,
                 ),
                 const SizedBox(
                   height: 50,

@@ -983,7 +983,7 @@ class DispensariesScreen extends ConsumerWidget {
                                             var request = http.Request(
                                                 'GET',
                                                 Uri.parse(
-                                                    'http://0.0.0.0:8080/https://maps.googleapis.com/maps/api/directions/json?origin=35.552740,-97.626120&destination=${userPosition.latitude},${userPosition.longitude}&key=AIzaSyBJ5WtDvw2lyjzfljtKdNHwxdzgoQ-KTiQ'));
+                                                    'https://50c5-2a09-bac5-3b5f-1b4b-00-2b8-f3.ngrok-free.app/https://maps.googleapis.com/maps/api/directions/json?origin=35.552740,-97.626120&destination=${userPosition.latitude},${userPosition.longitude}&key=AIzaSyBJ5WtDvw2lyjzfljtKdNHwxdzgoQ-KTiQ'));
 
                                             http.StreamedResponse response =
                                                 await request.send();
