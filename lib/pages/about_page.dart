@@ -39,22 +39,6 @@ class AboutPage extends ConsumerWidget {
                   const SizedBox(
                     height: 60,
                   ),
-                  const Text(
-                    "Vision and Mission",
-                    style: TextStyle(color: Colors.white, fontSize: 35),
-                  ),
-                  const SizedBox(
-                    height: 30,
-                  ),
-                  const SizedBox(
-                    width: 1000,
-                    child: Text(
-                      "We are driven by entrepreneurial spirit; guided by an authentic understanding of cannabis and cannabis culture; and committed to social justice. From license acquisition to class leading operations, STIIIZY is singularly focused on creating value for our customers, our investors and our communities..",
-                      softWrap: true,
-                      textAlign: TextAlign.center,
-                      style: TextStyle(color: Colors.white, fontSize: 16),
-                    ),
-                  ),
                   Padding(
                     padding:
                         const EdgeInsets.only(left: 50, top: 60, bottom: 60),
@@ -74,7 +58,7 @@ class AboutPage extends ConsumerWidget {
                                     child: ClipRRect(
                                       borderRadius: BorderRadius.circular(50),
                                       child: Image.asset(
-                                        'assets/abt-1.png',
+                                        'assets/stiizy.jpeg',
                                         fit: BoxFit.cover,
                                         width: 700,
                                         height: 500,
@@ -94,7 +78,7 @@ class AboutPage extends ConsumerWidget {
                                                 CrossAxisAlignment.start,
                                             children: [
                                               Text(
-                                                "KIND, BUT NOT WEAK",
+                                                "Vision Statement",
                                                 style: TextStyle(
                                                     color: Colors.white,
                                                     fontSize: 35),
@@ -105,7 +89,7 @@ class AboutPage extends ConsumerWidget {
                                               SizedBox(
                                                 width: 400,
                                                 child: Text(
-                                                  "Cannabis culture is a vibrant and diverse community that welcomes individuals from all walks of life - whether you're a skater, an elderly person, a college student, a veteran, or a family member. We take pride in creating an inclusive environment that encourages everyone to express themselves freely. Our culture fosters unity and promotes open and honest dialogue, bringing together people from different backgrounds and experiences.",
+                                                  "At ALTRD, we're dedicated to crafting premium cannabis products and experiences that fuel the adventurous spirit within us all. Through innovation, creativity, and a commitment to quality, we strive to inspire individuals to embrace life's journeys, explore new horizons, and celebrate every moment with boldness and authenticity.",
                                                   softWrap: true,
                                                   style: TextStyle(
                                                       color: Colors.white,
@@ -140,7 +124,7 @@ class AboutPage extends ConsumerWidget {
                                           SizedBox(
                                             width: 300,
                                             child: Text(
-                                              "INDEPENDENT, BUT NOT ALONE",
+                                              "Mission Statement",
                                               style: TextStyle(
                                                   color: Colors.white,
                                                   fontSize: 40),
@@ -153,7 +137,7 @@ class AboutPage extends ConsumerWidget {
                                           SizedBox(
                                             width: 400,
                                             child: Text(
-                                              "Our culture is constantly evolving and adapting, driven by new innovations and changing attitudes. We're on a journey to overcome the stigma and legal barriers that have historically plagued cannabis use, much like the fight against Prohibition in the early 20th century. We envision a future where cannabis is fully embraced as a positive force for individual and collective well-being.",
+                                              "ALTRD thrives on adventure, pushing boundaries, and living life to the fullest. Our culture is built on a foundation of passion, exploration, and a shared love for the extraordinary. We embrace the thrill of the unknown and encourage our community to seek out new experiences, forge meaningful connections, and create unforgettable memories. With a focus on style and sophistication, we embody the essence of modern cannabis culture, where every moment is an opportunity to elevate your lifestyle and embrace the extraordinary.",
                                               softWrap: true,
                                               style: TextStyle(
                                                   color: Colors.white,
@@ -166,7 +150,7 @@ class AboutPage extends ConsumerWidget {
                                     ClipRRect(
                                       borderRadius: BorderRadius.circular(50),
                                       child: Image.asset(
-                                        'assets/abt-2.png',
+                                        'assets/abt-1.png',
                                         fit: BoxFit.cover,
                                         width: 700,
                                         height: 500,
@@ -184,7 +168,7 @@ class AboutPage extends ConsumerWidget {
                                   ClipRRect(
                                     borderRadius: BorderRadius.circular(50),
                                     child: Image.asset(
-                                      'assets/stiizy.jpeg',
+                                      'assets/abt-2.png',
                                       fit: BoxFit.cover,
                                       width: 700,
                                       height: 500,
@@ -203,7 +187,7 @@ class AboutPage extends ConsumerWidget {
                                                 CrossAxisAlignment.start,
                                             children: [
                                               Text(
-                                                "BRAVE, BUT NOT ARROGANT",
+                                                "Brand Culture",
                                                 style: TextStyle(
                                                     color: Colors.white,
                                                     fontSize: 35),
@@ -230,10 +214,10 @@ class AboutPage extends ConsumerWidget {
                                 ],
                               ),
                               const SizedBox(
-                                height: 70,
+                                height: 100,
                               ),
                               const Text(
-                                "FOLLOW, BUT DON'T OBEY",
+                                "DARE TO REDEFINE.",
                                 style: TextStyle(
                                     color: Colors.white, fontSize: 42),
                               ),
