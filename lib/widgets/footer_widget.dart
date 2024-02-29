@@ -75,25 +75,31 @@ class FooterWidget extends StatelessWidget {
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
               Image.asset(
-                'assets/facebook_icon.png', // Replace with your Facebook icon asset
+                'assets/facebook.jpeg', // Replace with your Facebook icon asset
                 width: 30,
                 height: 30,
               ),
               const SizedBox(width: 10),
               Image.asset(
-                'assets/instagram_icon.png', // Replace with your Instagram icon asset
+                'assets/insta.jpeg', // Replace with your Instagram icon asset
                 width: 30,
                 height: 30,
               ),
               const SizedBox(width: 10),
               Image.asset(
-                'assets/x_icon.png', // Replace with your Twitter icon asset
+                'assets/google.jpeg', // Replace with your Twitter icon asset
                 width: 30,
                 height: 30,
               ),
               const SizedBox(width: 10),
               Image.asset(
-                'assets/google_icon.png', // Replace with your Google icon asset
+                'assets/twitter.jpeg', // Replace with your Google icon asset
+                width: 30,
+                height: 30,
+              ),
+                 const SizedBox(width: 10),
+              Image.asset(
+                'assets/email.jpeg', // Replace with your Google icon asset
                 width: 30,
                 height: 30,
               ),
@@ -103,7 +109,7 @@ class FooterWidget extends StatelessWidget {
           // Copyright Text
           const Center(
             child: Text(
-              'Hourglass © All Rights Reserved. ',
+              'Altrd © All Rights Reserved. ',
               style: TextStyle(
                 color: Colors.black,
                 fontSize: 12,

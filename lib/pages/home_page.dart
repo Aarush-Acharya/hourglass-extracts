@@ -53,6 +53,16 @@ class CardScaleState extends _$CardScaleState {
   }
 }
 
+@riverpod
+class IsVideoInitialized extends _$IsVideoInitialized {
+  @override
+  bool build() => false;
+
+  void changeState() {
+    state = true;
+  }
+}
+
 class MyAnimationProvider implements TickerProvider {
   @override
   Ticker createTicker(TickerCallback onTick) {
@@ -63,11 +73,7 @@ class MyAnimationProvider implements TickerProvider {
 class HomePage extends ConsumerWidget {
   HomePage({super.key});
   final MyAnimationProvider animationProvider = MyAnimationProvider();
-  VideoPlayerController videoController =
-      VideoPlayerController.asset('assets/altrd-vid.mp4')
-        ..initialize()
-        ..play()
-        ..setLooping(true);
+
   final Completer<GoogleMapController> _controller =
       Completer<GoogleMapController>();
 
@@ -494,6 +500,13 @@ class HomePage extends ConsumerWidget {
     var animation = new CurvedAnimation(
         parent: controller, curve: Curves.fastEaseInToSlowEaseOut);
     bool isDesktop = MediaQuery.sizeOf(context).width < 786;
+    bool videoInitialised = ref.watch(isVideoInitializedProvider);
+    VideoPlayerController videoController =
+        VideoPlayerController.asset('assets/altrd-vid.mp4')
+          ..initialize()
+          ..play()
+          ..setLooping(true).then((value) =>
+              {ref.read(isVideoInitializedProvider.notifier).changeState()});
 
     return Scaffold(
       extendBodyBehindAppBar: true,
@@ -1424,8 +1437,8 @@ class HomePage extends ConsumerWidget {
                 Container(
                   height: firstFoldHeight + 180,
                   width: 1440,
-                  child: videoController.value.isInitialized
-                      ? Text("Not initialised")
+                  child: videoInitialised
+                      ? CircularProgressIndicator()
                       : VideoPlayer(
                           videoController), // Include the video player widget here
                 ),
@@ -1456,18 +1469,39 @@ class HomePage extends ConsumerWidget {
                           .spaceEvenly, // Distribute space evenly
                       children: [
                         // Wrap each blog container in a Column to add headings
+                        Column(
+                          children: [
+                            Container(
+                              color: Colors.black54,
+                              height: 290, // Adjust the height as needed
+                              margin: EdgeInsets.symmetric(
+                                  horizontal:
+                                      8), // Add some horizontal margin between containers
+                              child: Center(
+                                child: Image.asset('assets/1.jpeg',
+                                    fit: BoxFit.fill), // Your image asset
+                              ),
+                            ),
+                            Text(
+                              "Sample Blog Title",
+                              style: TextStyle(
+                                  color: Colors.black,
+                                  fontSize: 20,
+                                  fontWeight: FontWeight.bold),
+                              textAlign: TextAlign.start,
+                            ),
+                          ],
+                        ),
                         Expanded(
                           child: Column(
                             children: [
                               Container(
                                 color: Colors.black54,
-                                height: 300, // Adjust the height as needed
-                                margin: EdgeInsets.symmetric(
-                                    horizontal:
-                                        8), // Add some horizontal margin between containers
+                                height: 290,
+                                margin: EdgeInsets.symmetric(horizontal: 8),
                                 child: Center(
-                                  child: SvgPicture.asset(
-                                      'assets/Altrd Cannabis Asset.svg'), // Your image asset
+                                  child: Image.asset('assets/6.jpeg',
+                                      fit: BoxFit.fill),
                                 ),
                               ),
                               Text(
@@ -1486,34 +1520,11 @@ class HomePage extends ConsumerWidget {
                             children: [
                               Container(
                                 color: Colors.black54,
-                                height: 300,
+                                height: 290,
                                 margin: EdgeInsets.symmetric(horizontal: 8),
                                 child: Center(
-                                  child: SvgPicture.asset(
-                                      'assets/Altrd Cannabis Asset.svg'),
-                                ),
-                              ),
-                              Text(
-                                "Sample Blog Title",
-                                style: TextStyle(
-                                    color: Colors.black,
-                                    fontSize: 20,
-                                    fontWeight: FontWeight.bold),
-                                textAlign: TextAlign.start,
-                              ),
-                            ],
-                          ),
-                        ),
-                        Expanded(
-                          child: Column(
-                            children: [
-                              Container(
-                                color: Colors.black54,
-                                height: 300,
-                                margin: EdgeInsets.symmetric(horizontal: 8),
-                                child: Center(
-                                  child: SvgPicture.asset(
-                                      'assets/Altrd Cannabis Asset.svg'),
+                                  child: Image.asset('assets/2.jpeg',
+                                      fit: BoxFit.fill),
                                 ),
                               ),
                               Text(
@@ -1541,11 +1552,11 @@ class HomePage extends ConsumerWidget {
                             children: [
                               Container(
                                 color: Colors.black54,
-                                height: 300,
+                                height: 290,
                                 margin: EdgeInsets.symmetric(horizontal: 8),
                                 child: Center(
-                                  child: SvgPicture.asset(
-                                      'assets/Altrd Cannabis Asset.svg'),
+                                  child: Image.asset('assets/3.jpeg',
+                                      fit: BoxFit.fill),
                                 ),
                               ),
                               Text(
@@ -1564,11 +1575,11 @@ class HomePage extends ConsumerWidget {
                             children: [
                               Container(
                                 color: Colors.black54,
-                                height: 300,
+                                height: 290,
                                 margin: EdgeInsets.symmetric(horizontal: 8),
                                 child: Center(
-                                  child: SvgPicture.asset(
-                                      'assets/Altrd Cannabis Asset.svg'),
+                                  child: Image.asset('assets/4.jpeg',
+                                      fit: BoxFit.fill),
                                 ),
                               ),
                               Text(
@@ -1587,11 +1598,13 @@ class HomePage extends ConsumerWidget {
                             children: [
                               Container(
                                 color: Colors.black54,
-                                height: 300,
+                                height: 290,
                                 margin: EdgeInsets.symmetric(horizontal: 8),
                                 child: Center(
-                                  child: SvgPicture.asset(
-                                      'assets/Altrd Cannabis Asset.svg'),
+                                  child: Image.asset(
+                                    'assets/5.jpeg',
+                                    fit: BoxFit.fill,
+                                  ),
                                 ),
                               ),
                               Text(
@@ -1611,7 +1624,7 @@ class HomePage extends ConsumerWidget {
                 ),
 
                 const SizedBox(
-                  height: 40,
+                  height: 100,
                 ),
                 const Center(
                   child: Text(
@@ -1622,37 +1635,15 @@ class HomePage extends ConsumerWidget {
                             .black), // Ensure the text color is white for visibility
                   ),
                 ),
-                Column(
-                  crossAxisAlignment: CrossAxisAlignment.center,
-                  children: [
-                    // const SizedBox(height: 5),
-                    // Removed Expanded widget from here
-                    GridView.builder(
-                      shrinkWrap:
-                          true, // Allow the GridView to determine its own height
-                      physics:
-                          const NeverScrollableScrollPhysics(), // Essential for use in a SingleChildScrollView
-                      gridDelegate:
-                          const SliverGridDelegateWithFixedCrossAxisCount(
-                        crossAxisCount:
-                            12, // Adjust the number of logos per row as needed
-                        childAspectRatio:
-                            1, // Maintain the aspect ratio of the logos
-                        crossAxisSpacing: 0, // Remove spacing between columns
-                        mainAxisSpacing: 0, // Remove spacing between rows
-                      ),
-                      itemCount: 48, // Total number of logos
-                      itemBuilder: (context, index) {
-                        String imagePath = 'assets/press${(index % 3) + 1}.png';
-                        return Image.asset(
-                          imagePath,
-                          fit: BoxFit.cover, // Cover the grid cell completely
-                        );
-                      },
-                    ),
-                  ],
+                Center(
+                  child: SizedBox(
+                      height: 250,
+                      width: 400,
+                      child: Image.asset("assets/mango-cannabis-logo.jpeg")),
                 ),
-
+                SizedBox(
+                  height: 50,
+                ),
                 // const SizedBox(height: 50),
                 // Text(
                 //     'Altrd is a Canadian-based cannabis company that has been in business for over 10 years. We are a')
@@ -1663,50 +1654,5 @@ class HomePage extends ConsumerWidget {
         },
       ),
     );
-  }
-}
-
-class VideoPlayerWidget extends StatefulWidget {
-  @override
-  _VideoPlayerWidgetState createState() => _VideoPlayerWidgetState();
-}
-
-class _VideoPlayerWidgetState extends State<VideoPlayerWidget> {
-  late VideoPlayerController _controller;
-
-  @override
-  void initState() {
-    super.initState();
-    _controller = VideoPlayerController.asset('assets/altrd-vid.mp4')
-      ..initialize().then((_) {
-        setState(() {}); // Trigger a rebuild once the video is initialized
-        print("Video initialized");
-      }).catchError((error) {
-        print("Error initializing video player: $error");
-      });
-    _controller.setLooping(true);
-    _controller.play();
-  }
-
-  @override
-  void dispose() {
-    _controller
-        .dispose(); // Dispose of the controller when the widget is removed from the widget tree
-    super.dispose();
-  }
-
-  @override
-  Widget build(BuildContext context) {
-    // Check if the video controller has initialized
-    if (_controller.value.isInitialized) {
-      return AspectRatio(
-        aspectRatio:
-            _controller.value.aspectRatio, // Use the aspect ratio of the video
-        child: VideoPlayer(_controller), // Display the video player
-      );
-    } else {
-      // If not initialized, show a loading spinner
-      return Center(child: CircularProgressIndicator());
-    }
   }
 }

@@ -902,11 +902,13 @@ class DispensariesScreen extends ConsumerWidget {
 
                                           LocationData userPosition =
                                               await location.getLocation();
+                                          print(userPosition.latitude);
+                                          print(userPosition.longitude);
                                           if (isFirst) {
                                             var request = http.Request(
                                                 'GET',
                                                 Uri.parse(
-                                                    'http://0.0.0.0:8080/https://maps.googleapis.com/maps/api/directions/json?origin=35.50312,-97.56574&destination=${userPosition.latitude},${userPosition.longitude}&key=AIzaSyBJ5WtDvw2lyjzfljtKdNHwxdzgoQ-KTiQ'));
+                                                    'http://0.0.0.0:8080/https://maps.googleapis.com/maps/api/directions/json?origin=35.552740,-97.626120&destination=${userPosition.latitude},${userPosition.longitude}&key=AIzaSyBJ5WtDvw2lyjzfljtKdNHwxdzgoQ-KTiQ'));
 
                                             http.StreamedResponse response =
                                                 await request.send();
@@ -915,6 +917,21 @@ class DispensariesScreen extends ConsumerWidget {
                                                 await response.stream
                                                     .bytesToString());
 
+                                            print(values["status"] ==
+                                                "ZERO_RESULTS");
+                                            if (values["status"] ==
+                                                "ZERO_RESULTS") {
+                                              print("Hi");
+                                              IconSnackBar.show(
+                                                  duration:
+                                                      Duration(seconds: 3),
+                                                  context: context,
+                                                  snackBarType:
+                                                      SnackBarType.alert,
+                                                  label:
+                                                      'There is no route on land from your Location to the Dispensary');
+                                              return;
+                                            }
                                             decodePoly(values["routes"][0]
                                                     ["overview_polyline"]
                                                 ["points"]);
@@ -939,7 +956,17 @@ class DispensariesScreen extends ConsumerWidget {
                                             Map values = jsonDecode(
                                                 await response.stream
                                                     .bytesToString());
-
+                                            if (values["routes"] == null) {
+                                              IconSnackBar.show(
+                                                  duration:
+                                                      Duration(seconds: 3),
+                                                  context: context,
+                                                  snackBarType:
+                                                      SnackBarType.alert,
+                                                  label:
+                                                      'There is no route on land from your Location to the Dispensary');
+                                              return;
+                                            }
                                             decodePoly(values["routes"][0]
                                                     ["overview_polyline"]
                                                 ["points"]);
@@ -956,7 +983,7 @@ class DispensariesScreen extends ConsumerWidget {
                                             var request = http.Request(
                                                 'GET',
                                                 Uri.parse(
-                                                    'http://0.0.0.0:8080/https://maps.googleapis.com/maps/api/directions/json?origin=35.636810,-97.565740&destination=${userPosition.latitude},${userPosition.longitude}&key=AIzaSyBJ5WtDvw2lyjzfljtKdNHwxdzgoQ-KTiQ'));
+                                                    'http://0.0.0.0:8080/https://maps.googleapis.com/maps/api/directions/json?origin=35.552740,-97.626120&destination=${userPosition.latitude},${userPosition.longitude}&key=AIzaSyBJ5WtDvw2lyjzfljtKdNHwxdzgoQ-KTiQ'));
 
                                             http.StreamedResponse response =
                                                 await request.send();
@@ -964,7 +991,17 @@ class DispensariesScreen extends ConsumerWidget {
                                             Map values = jsonDecode(
                                                 await response.stream
                                                     .bytesToString());
-
+                                            if (values["routes"] == null) {
+                                              IconSnackBar.show(
+                                                  duration:
+                                                      Duration(seconds: 3),
+                                                  context: context,
+                                                  snackBarType:
+                                                      SnackBarType.alert,
+                                                  label:
+                                                      'There is no route on land from your Location to the Dispensary');
+                                              return;
+                                            }
                                             decodePoly(values["routes"][0]
                                                     ["overview_polyline"]
                                                 ["points"]);
