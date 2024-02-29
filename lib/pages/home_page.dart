@@ -501,13 +501,21 @@ class HomePage extends ConsumerWidget {
         parent: controller, curve: Curves.fastEaseInToSlowEaseOut);
     bool isDesktop = MediaQuery.sizeOf(context).width < 786;
     bool videoInitialised = ref.watch(isVideoInitializedProvider);
-    VideoPlayerController videoController =
-        VideoPlayerController.asset('assets/altrd-vid.mp4')
-          ..initialize()
-          ..play()
-          ..setLooping(true).then((value) =>
-              {ref.read(isVideoInitializedProvider.notifier).changeState()});
+    VideoPlayerController videoPlayerController =
+        VideoPlayerController.asset('assets/altrd-vid.mp4');
 
+    videoPlayerController.initialize().then((_) {
+      // Initialization completed, now start playing
+      videoPlayerController.play();
+    }).then((_) {
+      // Play has started, now set looping
+      videoPlayerController.setLooping(true);
+    }).then((_) {
+      // Looping has been set, now print and notify
+      print("heyy");
+      // Assuming ref is a reference to something, you can notify here
+      ref.read(isVideoInitializedProvider.notifier).changeState();
+    });
     return Scaffold(
       extendBodyBehindAppBar: true,
       backgroundColor: Colors.white,
@@ -1437,10 +1445,10 @@ class HomePage extends ConsumerWidget {
                 Container(
                   height: firstFoldHeight + 180,
                   width: 1440,
-                  child: videoInitialised
+                  child: !videoInitialised
                       ? CircularProgressIndicator()
                       : VideoPlayer(
-                          videoController), // Include the video player widget here
+                          videoPlayerController), // Include the video player widget here
                 ),
                 const SizedBox(
                   height: 50,
