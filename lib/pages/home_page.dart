@@ -1432,6 +1432,9 @@ class HomePage extends ConsumerWidget {
                                     fit: BoxFit.fill), // Your image asset
                               ),
                             ),
+                            SizedBox(
+                              height: 10,
+                            ),
                             Text(
                               "Sample Blog Title",
                               style: TextStyle(
@@ -1453,6 +1456,9 @@ class HomePage extends ConsumerWidget {
                                   child: Image.asset('assets/6.jpeg',
                                       fit: BoxFit.fill),
                                 ),
+                              ),
+                              SizedBox(
+                                height: 10,
                               ),
                               Text(
                                 "Sample Blog Title",
@@ -1476,6 +1482,9 @@ class HomePage extends ConsumerWidget {
                                   child: Image.asset('assets/2.jpeg',
                                       fit: BoxFit.fill),
                                 ),
+                              ),
+                              SizedBox(
+                                height: 10,
                               ),
                               Text(
                                 "Sample Blog Title",
@@ -1509,6 +1518,9 @@ class HomePage extends ConsumerWidget {
                                       fit: BoxFit.fill),
                                 ),
                               ),
+                              SizedBox(
+                                height: 10,
+                              ),
                               Text(
                                 "Sample Blog Title",
                                 style: TextStyle(
@@ -1531,6 +1543,9 @@ class HomePage extends ConsumerWidget {
                                   child: Image.asset('assets/4.jpeg',
                                       fit: BoxFit.fill),
                                 ),
+                              ),
+                              SizedBox(
+                                height: 10,
                               ),
                               Text(
                                 "Sample Blog Title",
@@ -1556,6 +1571,9 @@ class HomePage extends ConsumerWidget {
                                     fit: BoxFit.fill,
                                   ),
                                 ),
+                              ),
+                              SizedBox(
+                                height: 10,
                               ),
                               Text(
                                 "Sample Blog Title",
