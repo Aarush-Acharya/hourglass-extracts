@@ -27,7 +27,7 @@ class AboutPage extends ConsumerWidget {
     ];
     IndexController _controller = IndexController();
     return Scaffold(
-      backgroundColor: Colors.black,
+      backgroundColor: Colors.white,
       appBar: CustomAppBar(),
       body: LayoutBuilder(
         builder: (context, constraints) {
@@ -80,7 +80,7 @@ class AboutPage extends ConsumerWidget {
                                               Text(
                                                 "Vision Statement",
                                                 style: TextStyle(
-                                                    color: Colors.white,
+                                                    color: Colors.black,
                                                     fontSize: 35),
                                               ),
                                               SizedBox(
@@ -92,7 +92,7 @@ class AboutPage extends ConsumerWidget {
                                                   "At ALTRD, we're dedicated to crafting premium cannabis products and experiences that fuel the adventurous spirit within us all. Through innovation, creativity, and a commitment to quality, we strive to inspire individuals to embrace life's journeys, explore new horizons, and celebrate every moment with boldness and authenticity.",
                                                   softWrap: true,
                                                   style: TextStyle(
-                                                      color: Colors.white,
+                                                      color: Colors.black,
                                                       fontSize: 16),
                                                 ),
                                               ),
@@ -126,7 +126,7 @@ class AboutPage extends ConsumerWidget {
                                             child: Text(
                                               "Mission Statement",
                                               style: TextStyle(
-                                                  color: Colors.white,
+                                                  color: Colors.black,
                                                   fontSize: 40),
                                               softWrap: true,
                                             ),
@@ -140,7 +140,7 @@ class AboutPage extends ConsumerWidget {
                                               "ALTRD thrives on adventure, pushing boundaries, and living life to the fullest. Our culture is built on a foundation of passion, exploration, and a shared love for the extraordinary. We embrace the thrill of the unknown and encourage our community to seek out new experiences, forge meaningful connections, and create unforgettable memories. With a focus on style and sophistication, we embody the essence of modern cannabis culture, where every moment is an opportunity to elevate your lifestyle and embrace the extraordinary.",
                                               softWrap: true,
                                               style: TextStyle(
-                                                  color: Colors.white,
+                                                  color: Colors.black,
                                                   fontSize: 16),
                                             ),
                                           ),
@@ -189,7 +189,7 @@ class AboutPage extends ConsumerWidget {
                                               Text(
                                                 "Brand Culture",
                                                 style: TextStyle(
-                                                    color: Colors.white,
+                                                    color: Colors.black,
                                                     fontSize: 35),
                                               ),
                                               SizedBox(
@@ -201,7 +201,7 @@ class AboutPage extends ConsumerWidget {
                                                   "Cannabis culture is a vibrant and diverse community that welcomes individuals from all walks of life - whether you're a skater, an elderly person, a college student, a veteran, or a family member. We take pride in creating an inclusive environment that encourages everyone to express themselves freely. Our culture fosters unity and promotes open and honest dialogue, bringing together people from different backgrounds and experiences.",
                                                   softWrap: true,
                                                   style: TextStyle(
-                                                      color: Colors.white,
+                                                      color: Colors.black,
                                                       fontSize: 16),
                                                 ),
                                               ),
@@ -219,7 +219,7 @@ class AboutPage extends ConsumerWidget {
                               const Text(
                                 "DARE TO REDEFINE.",
                                 style: TextStyle(
-                                    color: Colors.white, fontSize: 42),
+                                    color: Colors.black, fontSize: 42),
                               ),
                             ],
                           )
