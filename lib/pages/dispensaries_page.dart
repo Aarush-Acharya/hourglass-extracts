@@ -634,7 +634,7 @@ class DispensariesScreen extends ConsumerWidget {
 
     return Scaffold(
       endDrawer: CustomAppBar(),
-      backgroundColor: Colors.black,
+      backgroundColor: Colors.white,
       appBar: CustomAppBar(),
       body: LayoutBuilder(
         builder: (context, constraints) {
@@ -1035,7 +1035,7 @@ class DispensariesScreen extends ConsumerWidget {
                   ),
                 ),
                 ExpansionPanelList(
-                  expandIconColor: Colors.white,
+                  expandIconColor: Colors.black,
                   expansionCallback: (int index, bool isExpanded) {
                     ref
                         .read(isExpandedValueStatesProvider.notifier)
@@ -1045,7 +1045,7 @@ class DispensariesScreen extends ConsumerWidget {
                     return ExpansionPanel(
                         isExpanded: data.value[0],
                         canTapOnHeader: true,
-                        backgroundColor: Colors.black,
+                        backgroundColor: Colors.white,
                         headerBuilder: (BuildContext context, bool isExpanded) {
                           // Your header widget or logic here
                           return SizedBox(
@@ -1059,7 +1059,7 @@ class DispensariesScreen extends ConsumerWidget {
                                 Text(
                                   data.key,
                                   style: const TextStyle(
-                                      fontSize: 28, color: Colors.white),
+                                      fontSize: 28, color: Colors.black),
                                 )
                               ],
                             ),
