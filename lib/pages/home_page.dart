@@ -573,7 +573,6 @@ class HomePage extends ConsumerWidget {
                                       style: TextStyle(
                                           color: Colors.white,
                                           fontSize: 55,
-                                          fontFamily: 'Roboto',
                                           fontWeight: FontWeight.w900),
                                     ),
                                     const SizedBox(
@@ -586,7 +585,6 @@ class HomePage extends ConsumerWidget {
                                         style: TextStyle(
                                             color: Colors.white,
                                             fontSize: 20,
-                                            fontFamily: 'Roboto',
                                             fontWeight: FontWeight.w500),
                                         softWrap: true,
                                         textAlign: TextAlign
@@ -893,7 +891,6 @@ class HomePage extends ConsumerWidget {
                     style: TextStyle(
                       color: Colors.black,
                       fontSize: 20,
-                      fontFamily: 'Roboto',
                     ),
                     softWrap: true,
                   ),
@@ -946,7 +943,6 @@ class HomePage extends ConsumerWidget {
                                     style: TextStyle(
                                         color: Colors.white,
                                         fontSize: 55,
-                                        fontFamily: 'Roboto',
                                         fontWeight: FontWeight.w700),
                                     softWrap: true,
                                   ),
