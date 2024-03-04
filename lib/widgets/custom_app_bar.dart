@@ -43,19 +43,10 @@ class CustomAppBar extends ConsumerWidget implements PreferredSizeWidget {
       'About Us': 'about',
     };
 
-    return PreferredSize(
-      preferredSize: Size(screenSize.width, 1000),
-      child: Container(
-        color: Colors.white, // Set the background color to white
-        padding: EdgeInsets.only(left: 30, top: 5, bottom: 5, right: 40),
-        child: Padding(
-          padding: const EdgeInsets.all(4),
-          child: Row(
-            children: [
-              ClipRRect(
-                borderRadius: BorderRadius.circular(5),
+    return shouldShow
+        ? AppBar(
+            title: Material(
                 child: InkWell(
-                    borderRadius: BorderRadius.circular(5),
                     onTap: () {
                       Navigator.pushNamed(context, '/');
                     },
@@ -64,13 +55,40 @@ class CustomAppBar extends ConsumerWidget implements PreferredSizeWidget {
                         width: 70,
                         child: SvgPicture.asset(
                           "assets/Altrd Cannabis Asset.svg",
-                          fit: BoxFit.fill,
+                          fit: BoxFit.contain,
                           // Adjust SVG color for better visibility against white background
                           color: Colors.black,
-                        ))),
-              ),
-              !shouldShow
-                  ? Expanded(
+                        )))),
+            automaticallyImplyLeading: false,
+            backgroundColor: Colors.white,
+            centerTitle: false)
+        : PreferredSize(
+            preferredSize: Size(screenSize.width, 1000),
+            child: Container(
+              color: Colors.white, // Set the background color to white
+              padding: EdgeInsets.only(left: 30, top: 5, bottom: 5, right: 40),
+              child: Padding(
+                padding: const EdgeInsets.all(4),
+                child: Row(
+                  children: [
+                    ClipRRect(
+                      borderRadius: BorderRadius.circular(5),
+                      child: InkWell(
+                          borderRadius: BorderRadius.circular(5),
+                          onTap: () {
+                            Navigator.pushNamed(context, '/');
+                          },
+                          child: Ink(
+                              height: 170,
+                              width: 70,
+                              child: SvgPicture.asset(
+                                "assets/Altrd Cannabis Asset.svg",
+                                fit: BoxFit.fill,
+                                // Adjust SVG color for better visibility against white background
+                                color: Colors.black,
+                              ))),
+                    ),
+                    Expanded(
                       child: Row(
                         mainAxisAlignment: MainAxisAlignment.center,
                         children: appbarHeaders.keys
@@ -134,32 +152,26 @@ class CustomAppBar extends ConsumerWidget implements PreferredSizeWidget {
                           );
                         }).toList(),
                       ),
-                    )
-                  : SizedBox(),
-              !shouldShow
-                  ? InkWell(
-                      onTap: () {},
-                      child: Icon(
-                        Icons.search,
-                        color: Colors.black, // Adjust icon color for visibility
-                      ))
-                  : SizedBox(),
-              !shouldShow
-                  ? SizedBox(
+                    ),
+                    InkWell(
+                        onTap: () {},
+                        child: Icon(
+                          Icons.search,
+                          color:
+                              Colors.black, // Adjust icon color for visibility
+                        )),
+                    SizedBox(
                       width: screenSize.width / 50,
-                    )
-                  : SizedBox(),
-              !shouldShow
-                  ? InkWell(
-                      onTap: () {
-                        Navigator.pushNamed(context, '/cart');
-                      },
-                      child: Icon(Icons.shopping_bag, color: Colors.black))
-                  : SizedBox() // Adjust icon color
-            ],
-          ),
-        ),
-      ),
-    );
+                    ),
+                    InkWell(
+                        onTap: () {
+                          Navigator.pushNamed(context, '/cart');
+                        },
+                        child: Icon(Icons.shopping_bag, color: Colors.black))
+                  ],
+                ),
+              ),
+            ),
+          );
   }
 }

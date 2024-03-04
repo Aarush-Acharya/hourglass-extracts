@@ -24,46 +24,46 @@ class AltrdDrawer extends ConsumerWidget {
         padding: EdgeInsets.zero,
         children: [
           ListTile(
-            title: const Text('Home'),
+            title: const Text('Products'),
             selected: state == 0 ? true : false,
             selectedColor: Color.fromARGB(255, 36, 98, 7),
             onTap: () {
               // Update the state of the app
               // Then close the drawer
-              Navigator.pushNamed(context, '/');
+              Navigator.pushNamed(context, '/products');
               ref.read(stateProvider.notifier).changeState(0);
             },
           ),
           ListTile(
-            title: const Text('Find ATM'),
+            title: const Text('Merch'),
             selected: state == 1 ? true : false,
             selectedColor: Color.fromARGB(255, 36, 98, 7),
             onTap: () {
               // Update the state of the app
               // Then close the drawer
-              Navigator.pushNamed(context, '/findAtm');
+              Navigator.pushNamed(context, '/merch');
               ref.read(stateProvider.notifier).changeState(1);
             },
           ),
           ListTile(
-            title: const Text('Customer Support'),
+            title: const Text('Dispensaries'),
             selected: state == 2 ? true : false,
             selectedColor: Color.fromARGB(255, 36, 98, 7),
             onTap: () {
               // Update the state of the app
               // Then close the drawer
-              Navigator.pushNamed(context, '/customerSupport');
+              Navigator.pushNamed(context, '/dispensaries');
               ref.read(stateProvider.notifier).changeState(2);
             },
           ),
           ListTile(
-            title: const Text('Host Atm'),
+            title: const Text('About'),
             selected: state == 3 ? true : false,
             selectedColor: Color.fromARGB(255, 36, 98, 7),
             onTap: () {
               // Update the state of the app
               // Then close the drawer
-              Navigator.pushNamed(context, '/hostAtm');
+              Navigator.pushNamed(context, '/about');
               ref.read(stateProvider.notifier).changeState(3);
             },
           ),

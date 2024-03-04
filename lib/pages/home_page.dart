@@ -584,15 +584,18 @@ class HomePage extends ConsumerWidget {
                                     ),
                                     SizedBox(
                                       width: 500,
-                                      child: Text(
-                                        "Discover your perfect high with over 100 curated strains, personalized recommendations, and precise weight by the gram - elevating your experience to new heights. Altrd, EST 2021",
-                                        style: TextStyle(
-                                            color: Colors.white,
-                                            fontSize: 20,
-                                            fontWeight: FontWeight.w500),
-                                        softWrap: true,
-                                        textAlign: TextAlign
-                                            .left, // Align text to left
+                                      child: Padding(
+                                        padding: const EdgeInsets.all(10.0),
+                                        child: Text(
+                                          "Discover your perfect high with over 100 curated strains, personalized recommendations, and precise weight by the gram - elevating your experience to new heights. Altrd, EST 2021",
+                                          style: TextStyle(
+                                              color: Colors.white,
+                                              fontSize: 20,
+                                              fontWeight: FontWeight.w500),
+                                          softWrap: true,
+                                          textAlign: TextAlign
+                                              .left, // Align text to left
+                                        ),
                                       ),
                                     ),
                                     const SizedBox(
