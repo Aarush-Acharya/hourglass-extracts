@@ -1,5 +1,6 @@
 import 'dart:convert';
 import 'package:fineartsociety/pages/home_page.dart';
+import 'package:fineartsociety/widgets/drawer_altrd.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter/src/scheduler/ticker.dart';
@@ -50,16 +51,21 @@ class ProductPage extends ConsumerWidget {
       "Thundersticks",
       "Moonrocks"
     ];
+    bool isDesktop = MediaQuery.of(context).size.width > 1168;
+    bool shouldShowSideBar = MediaQuery.sizeOf(context).width < 724;
+    double firstFoldHeight = MediaQuery.of(context).size.height * 0.75;
+
     return Scaffold(
-      backgroundColor: Colors.white,
-      appBar: CustomAppBar(shouldShow: false,),
-      body: LayoutBuilder(
-        builder: (context, constraints) {
-          double firstFoldHeight = MediaQuery.of(context).size.height * 0.75;
-          bool isDesktop = MediaQuery.sizeOf(context).width < 786;
-          return SingleChildScrollView(
+        endDrawer: AltrdDrawer(),
+        extendBodyBehindAppBar: true,
+        backgroundColor: Colors.white,
+        appBar: CustomAppBar(
+          shouldShow: shouldShowSideBar,
+        ),
+        body: SingleChildScrollView(
+          child: Padding(
+            padding: const EdgeInsets.symmetric(horizontal: 20),
             child: Column(
-              crossAxisAlignment: CrossAxisAlignment.center,
               children: [
                 SizedBox(
                   height: 50,
@@ -68,7 +74,7 @@ class ProductPage extends ConsumerWidget {
                     style: TextStyle(
                       fontSize: 30,
                     )),
-               !isDesktop
+                isDesktop
                     ? Row(
                         mainAxisAlignment: MainAxisAlignment
                             .spaceBetween, // Ensures equal spacing
@@ -122,68 +128,68 @@ class ProductPage extends ConsumerWidget {
                                           ]
                                         ]);
                                   } else if (index == 2) {
-                                        Navigator.pushNamed(
-                                          context, '/categoryProducts',
-                                          arguments: [
-                                            "Edibles",
-                                            [
-                                              "STIIIZY BATTERY",
-                                              "The STIIIZY Battery Starter Kit is your essential power pack, featuring a standard battery, a USB charging cable, and easy charging via any USB port.",
-                                              "assets/prod 5.png"
-                                            ],
-                                            [
-                                              "STIIIZY BIIIG BATTERY",
-                                              "Experience longer-lasting sessions with the STIIIZY BIIIG Battery, designed for durability and smooth operation. USB charging accessories included.",
-                                              "assets/prod 5.png"
-                                            ],
-                                            [
-                                              "STIIIZY PORTABLE POWER CASE",
-                                              "Keep your devices powered on-the-go with the sleek STIIIZY Portable Power Case, complete with a USB charging cable and Micro USB Power Adapter.",
-                                              "assets/prod 5.png"
-                                            ]
-                                          ]);
+                                    Navigator.pushNamed(
+                                        context, '/categoryProducts',
+                                        arguments: [
+                                          "Edibles",
+                                          [
+                                            "STIIIZY BATTERY",
+                                            "The STIIIZY Battery Starter Kit is your essential power pack, featuring a standard battery, a USB charging cable, and easy charging via any USB port.",
+                                            "assets/prod 5.png"
+                                          ],
+                                          [
+                                            "STIIIZY BIIIG BATTERY",
+                                            "Experience longer-lasting sessions with the STIIIZY BIIIG Battery, designed for durability and smooth operation. USB charging accessories included.",
+                                            "assets/prod 5.png"
+                                          ],
+                                          [
+                                            "STIIIZY PORTABLE POWER CASE",
+                                            "Keep your devices powered on-the-go with the sleek STIIIZY Portable Power Case, complete with a USB charging cable and Micro USB Power Adapter.",
+                                            "assets/prod 5.png"
+                                          ]
+                                        ]);
                                   } else if (index == 3) {
-                                        Navigator.pushNamed(
-                                          context, '/categoryProducts',
-                                          arguments: [
-                                            "Edibles",
-                                            [
-                                              "STIIIZY BATTERY",
-                                              "The STIIIZY Battery Starter Kit is your essential power pack, featuring a standard battery, a USB charging cable, and easy charging via any USB port.",
-                                              "assets/prod 5.png"
-                                            ],
-                                            [
-                                              "STIIIZY BIIIG BATTERY",
-                                              "Experience longer-lasting sessions with the STIIIZY BIIIG Battery, designed for durability and smooth operation. USB charging accessories included.",
-                                              "assets/prod 5.png"
-                                            ],
-                                            [
-                                              "STIIIZY PORTABLE POWER CASE",
-                                              "Keep your devices powered on-the-go with the sleek STIIIZY Portable Power Case, complete with a USB charging cable and Micro USB Power Adapter.",
-                                              "assets/prod 5.png"
-                                            ]
-                                          ]);
+                                    Navigator.pushNamed(
+                                        context, '/categoryProducts',
+                                        arguments: [
+                                          "Edibles",
+                                          [
+                                            "STIIIZY BATTERY",
+                                            "The STIIIZY Battery Starter Kit is your essential power pack, featuring a standard battery, a USB charging cable, and easy charging via any USB port.",
+                                            "assets/prod 5.png"
+                                          ],
+                                          [
+                                            "STIIIZY BIIIG BATTERY",
+                                            "Experience longer-lasting sessions with the STIIIZY BIIIG Battery, designed for durability and smooth operation. USB charging accessories included.",
+                                            "assets/prod 5.png"
+                                          ],
+                                          [
+                                            "STIIIZY PORTABLE POWER CASE",
+                                            "Keep your devices powered on-the-go with the sleek STIIIZY Portable Power Case, complete with a USB charging cable and Micro USB Power Adapter.",
+                                            "assets/prod 5.png"
+                                          ]
+                                        ]);
                                   } else {
-                                        Navigator.pushNamed(
-                                          context, '/categoryProducts',
-                                          arguments: [
-                                            "Edibles",
-                                            [
-                                              "STIIIZY BATTERY",
-                                              "The STIIIZY Battery Starter Kit is your essential power pack, featuring a standard battery, a USB charging cable, and easy charging via any USB port.",
-                                              "assets/prod 5.png"
-                                            ],
-                                            [
-                                              "STIIIZY BIIIG BATTERY",
-                                              "Experience longer-lasting sessions with the STIIIZY BIIIG Battery, designed for durability and smooth operation. USB charging accessories included.",
-                                              "assets/prod 5.png"
-                                            ],
-                                            [
-                                              "STIIIZY PORTABLE POWER CASE",
-                                              "Keep your devices powered on-the-go with the sleek STIIIZY Portable Power Case, complete with a USB charging cable and Micro USB Power Adapter.",
-                                              "assets/prod 5.png"
-                                            ]
-                                          ]);
+                                    Navigator.pushNamed(
+                                        context, '/categoryProducts',
+                                        arguments: [
+                                          "Edibles",
+                                          [
+                                            "STIIIZY BATTERY",
+                                            "The STIIIZY Battery Starter Kit is your essential power pack, featuring a standard battery, a USB charging cable, and easy charging via any USB port.",
+                                            "assets/prod 5.png"
+                                          ],
+                                          [
+                                            "STIIIZY BIIIG BATTERY",
+                                            "Experience longer-lasting sessions with the STIIIZY BIIIG Battery, designed for durability and smooth operation. USB charging accessories included.",
+                                            "assets/prod 5.png"
+                                          ],
+                                          [
+                                            "STIIIZY PORTABLE POWER CASE",
+                                            "Keep your devices powered on-the-go with the sleek STIIIZY Portable Power Case, complete with a USB charging cable and Micro USB Power Adapter.",
+                                            "assets/prod 5.png"
+                                          ]
+                                        ]);
                                   }
                                 },
                                 onHover: (value) {
@@ -227,54 +233,158 @@ class ProductPage extends ConsumerWidget {
                         }),
                       )
                     : Column(
-                        mainAxisAlignment: MainAxisAlignment
-                            .spaceBetween, // Ensures equal spacing
+                        // Ensures equal spacing
                         children: List.generate(productNames.length, (index) {
-                          return Expanded(
-                            child: Column(
-                              mainAxisAlignment: MainAxisAlignment.center,
-                              children: [
-                                InkWell(
-                                  hoverColor: null,
-                                  onTap: () {},
-                                  onHover: (value) {
-                                    ref
-                                        .watch(cardScaleStateProvider.notifier)
-                                        .changeScale(index);
-                                  },
-                                  child: ClipRRect(
-                                    child: AnimatedContainer(
-                                      height: 300,
-                                      width: 230,
-                                      color: Colors.white,
-                                      transformAlignment: Alignment.center,
-                                      duration: const Duration(
-                                          milliseconds:
-                                              700), // Adjust the duration as needed
-                                      curve: Curves
-                                          .easeInOut, // Adjust the curve as needed
-                                      transform: Matrix4.identity()
-                                        ..scale(scales[index]),
-                                      child: Padding(
-                                        padding: const EdgeInsets.symmetric(
-                                            horizontal: 25.0),
-                                        child: Image.asset(
-                                            'assets/prod ${index + 1}.png',
-                                            fit: BoxFit.contain),
-                                      ),
+                          return Column(
+                            mainAxisAlignment: MainAxisAlignment.center,
+                            children: [
+                              InkWell(
+                                hoverColor: null,
+                                onTap: () {
+                                  if (index == 0) {
+                                    Navigator.pushNamed(
+                                        context, '/categoryProducts',
+                                        arguments: [
+                                          "Edibles",
+                                          [
+                                            "STIIIZY BATTERY",
+                                            "The STIIIZY Battery Starter Kit is your essential power pack, featuring a standard battery, a USB charging cable, and easy charging via any USB port.",
+                                            "assets/prod 5.png"
+                                          ],
+                                          [
+                                            "STIIIZY BIIIG BATTERY",
+                                            "Experience longer-lasting sessions with the STIIIZY BIIIG Battery, designed for durability and smooth operation. USB charging accessories included.",
+                                            "assets/prod 5.png"
+                                          ],
+                                          [
+                                            "STIIIZY PORTABLE POWER CASE",
+                                            "Keep your devices powered on-the-go with the sleek STIIIZY Portable Power Case, complete with a USB charging cable and Micro USB Power Adapter.",
+                                            "assets/prod 5.png"
+                                          ]
+                                        ]);
+                                  } else if (index == 1) {
+                                    Navigator.pushNamed(
+                                        context, '/categoryProducts',
+                                        arguments: [
+                                          "MoonRocks",
+                                          [
+                                            "STIIIZY BATTERY",
+                                            "The STIIIZY Battery Starter Kit is your essential power pack, featuring a standard battery, a USB charging cable, and easy charging via any USB port.",
+                                            "assets/prod 5.png"
+                                          ],
+                                          [
+                                            "STIIIZY BIIIG BATTERY",
+                                            "Experience longer-lasting sessions with the STIIIZY BIIIG Battery, designed for durability and smooth operation. USB charging accessories included.",
+                                            "assets/prod 5.png"
+                                          ],
+                                          [
+                                            "STIIIZY PORTABLE POWER CASE",
+                                            "Keep your devices powered on-the-go with the sleek STIIIZY Portable Power Case, complete with a USB charging cable and Micro USB Power Adapter.",
+                                            "assets/prod 5.png"
+                                          ]
+                                        ]);
+                                  } else if (index == 2) {
+                                    Navigator.pushNamed(
+                                        context, '/categoryProducts',
+                                        arguments: [
+                                          "Edibles",
+                                          [
+                                            "STIIIZY BATTERY",
+                                            "The STIIIZY Battery Starter Kit is your essential power pack, featuring a standard battery, a USB charging cable, and easy charging via any USB port.",
+                                            "assets/prod 5.png"
+                                          ],
+                                          [
+                                            "STIIIZY BIIIG BATTERY",
+                                            "Experience longer-lasting sessions with the STIIIZY BIIIG Battery, designed for durability and smooth operation. USB charging accessories included.",
+                                            "assets/prod 5.png"
+                                          ],
+                                          [
+                                            "STIIIZY PORTABLE POWER CASE",
+                                            "Keep your devices powered on-the-go with the sleek STIIIZY Portable Power Case, complete with a USB charging cable and Micro USB Power Adapter.",
+                                            "assets/prod 5.png"
+                                          ]
+                                        ]);
+                                  } else if (index == 3) {
+                                    Navigator.pushNamed(
+                                        context, '/categoryProducts',
+                                        arguments: [
+                                          "Edibles",
+                                          [
+                                            "STIIIZY BATTERY",
+                                            "The STIIIZY Battery Starter Kit is your essential power pack, featuring a standard battery, a USB charging cable, and easy charging via any USB port.",
+                                            "assets/prod 5.png"
+                                          ],
+                                          [
+                                            "STIIIZY BIIIG BATTERY",
+                                            "Experience longer-lasting sessions with the STIIIZY BIIIG Battery, designed for durability and smooth operation. USB charging accessories included.",
+                                            "assets/prod 5.png"
+                                          ],
+                                          [
+                                            "STIIIZY PORTABLE POWER CASE",
+                                            "Keep your devices powered on-the-go with the sleek STIIIZY Portable Power Case, complete with a USB charging cable and Micro USB Power Adapter.",
+                                            "assets/prod 5.png"
+                                          ]
+                                        ]);
+                                  } else {
+                                    Navigator.pushNamed(
+                                        context, '/categoryProducts',
+                                        arguments: [
+                                          "Edibles",
+                                          [
+                                            "STIIIZY BATTERY",
+                                            "The STIIIZY Battery Starter Kit is your essential power pack, featuring a standard battery, a USB charging cable, and easy charging via any USB port.",
+                                            "assets/prod 5.png"
+                                          ],
+                                          [
+                                            "STIIIZY BIIIG BATTERY",
+                                            "Experience longer-lasting sessions with the STIIIZY BIIIG Battery, designed for durability and smooth operation. USB charging accessories included.",
+                                            "assets/prod 5.png"
+                                          ],
+                                          [
+                                            "STIIIZY PORTABLE POWER CASE",
+                                            "Keep your devices powered on-the-go with the sleek STIIIZY Portable Power Case, complete with a USB charging cable and Micro USB Power Adapter.",
+                                            "assets/prod 5.png"
+                                          ]
+                                        ]);
+                                  }
+                                },
+                                onHover: (value) {
+                                  ref
+                                      .watch(cardScaleStateProvider.notifier)
+                                      .changeScale(index);
+                                },
+                                child: ClipRRect(
+                                  child: AnimatedContainer(
+                                    height: 300,
+                                    width: 230,
+                                    color: Colors.white,
+                                    transformAlignment: Alignment.center,
+                                    duration: const Duration(
+                                        milliseconds:
+                                            300), // Adjust the duration as needed
+                                    curve: Curves
+                                        .easeInOut, // Adjust the curve as needed
+                                    transform: Matrix4.identity()
+                                      ..scale(scales[index]),
+                                    child: Padding(
+                                      padding: const EdgeInsets.symmetric(
+                                          horizontal: 25.0),
+                                      child: Image.asset(
+                                          'assets/prod ${index + 1}.png',
+                                          fit: BoxFit.contain),
                                     ),
                                   ),
                                 ),
-                                Text(
-                                  productNames[index],
-                                  style: const TextStyle(
-                                    fontSize: 20,
-                                    color: Colors.black,
-                                    fontWeight: FontWeight.w600,
-                                  ),
+                              ),
+                              Text(
+                                productNames[index],
+                                style: const TextStyle(
+                                  fontSize: 20,
+                                  color: Colors.black,
+                                  fontWeight: FontWeight.w600,
                                 ),
-                              ],
-                            ),
+                              ),
+                            ],
                           );
                         }),
                       ),
@@ -282,6 +392,7 @@ class ProductPage extends ConsumerWidget {
                 Text(
                   "#1 BRAND IN CALIFORNIA FOR INNOVATIVE CANNABIS PRODUCTS",
                   style: TextStyle(color: Colors.black, fontSize: 30),
+                  textAlign: TextAlign.center,
                 ),
                 SizedBox(
                   height: 30,
@@ -380,9 +491,7 @@ class ProductPage extends ConsumerWidget {
                 FooterWidget(),
               ],
             ),
-          );
-        },
-      ),
-    );
+          ),
+        ));
   }
 }
