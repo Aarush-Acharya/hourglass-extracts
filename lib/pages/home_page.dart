@@ -493,7 +493,7 @@ class HomePage extends ConsumerWidget {
       "Moonrocks"
     ];
     bool shouldShowSideBar = MediaQuery.sizeOf(context).width < 724;
-    bool isNewReleases = ref.watch(merchTypeStateProvider);
+
     List scales = ref.watch(cardScaleStateProvider);
     int hoveredIndex = -1;
     var controller = AnimationController(
@@ -501,7 +501,7 @@ class HomePage extends ConsumerWidget {
     var animation = new CurvedAnimation(
         parent: controller, curve: Curves.fastEaseInToSlowEaseOut);
     bool isDesktop = MediaQuery.sizeOf(context).width < 786;
-    bool videoInitialised = ref.watch(isVideoInitializedProvider);
+
     VideoPlayerController videoPlayerController =
         VideoPlayerController.asset('assets/altrd-vid.mp4');
 
@@ -515,8 +515,10 @@ class HomePage extends ConsumerWidget {
       // Looping has been set, now print and notify
       print("heyy");
       // Assuming ref is a reference to something, you can notify here
-      ref.read(isVideoInitializedProvider.notifier).changeState();
+      ref.watch(isVideoInitializedProvider.notifier).changeState();
     });
+    bool isNewReleases = ref.watch(merchTypeStateProvider);
+    bool videoInitialised = ref.watch(isVideoInitializedProvider);
     return Scaffold(
       endDrawer: AltrdDrawer(),
       extendBodyBehindAppBar: true,
@@ -564,16 +566,21 @@ class HomePage extends ConsumerWidget {
                               alignment: Alignment
                                   .centerLeft, // Align the text to the left
                               child: Padding(
-                                padding: const EdgeInsets.only(
-                                    left: 50), // Adjust padding as needed
+                                padding: EdgeInsets.only(
+                                    left: shouldShowSideBar
+                                        ? 0
+                                        : 50), // Adjust padding as needed
                                 child: Column(
                                   mainAxisAlignment: MainAxisAlignment.center,
                                   crossAxisAlignment: CrossAxisAlignment
                                       .start, // Align text to start
 
                                   children: [
-                                    const Text(
+                                    Text(
                                       "ALTR YOUR LIFESTYLE",
+                                      textAlign: shouldShowSideBar
+                                          ? TextAlign.center
+                                          : TextAlign.left,
                                       style: TextStyle(
                                           color: Colors.white,
                                           fontSize: 55,
@@ -585,7 +592,9 @@ class HomePage extends ConsumerWidget {
                                     SizedBox(
                                       width: 500,
                                       child: Padding(
-                                        padding: const EdgeInsets.all(10.0),
+                                        padding: EdgeInsets.symmetric(
+                                            horizontal:
+                                                shouldShowSideBar ? 20 : 0),
                                         child: Text(
                                           "Discover your perfect high with over 100 curated strains, personalized recommendations, and precise weight by the gram - elevating your experience to new heights. Altrd, EST 2021",
                                           style: TextStyle(
@@ -593,71 +602,66 @@ class HomePage extends ConsumerWidget {
                                               fontSize: 20,
                                               fontWeight: FontWeight.w500),
                                           softWrap: true,
-                                          textAlign: TextAlign
-                                              .left, // Align text to left
+                                          textAlign: shouldShowSideBar
+                                              ? TextAlign.center
+                                              : TextAlign
+                                                  .left, // Align text to left
                                         ),
                                       ),
                                     ),
                                     const SizedBox(
                                       height: 40,
                                     ),
-                                    SizedBox(
-                                        width: 380,
-                                        child: Row(
-                                          mainAxisAlignment: MainAxisAlignment
+                                    Row(
+                                      mainAxisAlignment: shouldShowSideBar
+                                          ? MainAxisAlignment.center
+                                          : MainAxisAlignment
                                               .start, // Align buttons to start
-                                          children: [
-                                            TextButton(
-                                                style: TextButton.styleFrom(
-                                                    minimumSize:
-                                                        const Size(180, 50),
-                                                    backgroundColor:
-                                                        Colors.black,
-                                                    shape:
-                                                        RoundedRectangleBorder(
-                                                            borderRadius:
-                                                                BorderRadius
-                                                                    .circular(
-                                                                        100))),
-                                                onPressed: () {
-                                                  Navigator.pushNamed(
-                                                      context, '/products');
-                                                },
-                                                child: const Text(
-                                                  "Explore Products",
-                                                  style: TextStyle(
-                                                      color: Colors.white),
-                                                )),
-                                            const SizedBox(
-                                                width:
-                                                    20), // Add spacing between buttons
-                                            TextButton(
-                                                style: TextButton.styleFrom(
-                                                    minimumSize:
-                                                        const Size(180, 50),
-                                                    backgroundColor:
-                                                        Colors.white,
-                                                    shape: RoundedRectangleBorder(
-                                                        side: const BorderSide(
-                                                            color:
-                                                                Colors.black),
-                                                        borderRadius:
-                                                            BorderRadius
-                                                                .circular(
-                                                                    100))),
-                                                onPressed: () {
-                                                  Navigator.pushNamed(
-                                                      context, "/dispensaries");
-                                                },
-                                                child: const Text(
-                                                  "Get Directions",
-                                                  style: TextStyle(
-                                                      color: Colors.black,
-                                                      fontWeight:
-                                                          FontWeight.bold),
-                                                ))
-                                          ],
-                                        ))
+                                      children: [
+                                        TextButton(
+                                            style: TextButton.styleFrom(
+                                                minimumSize:
+                                                    const Size(180, 50),
+                                                backgroundColor: Colors.black,
+                                                shape: RoundedRectangleBorder(
+                                                    borderRadius:
+                                                        BorderRadius.circular(
+                                                            100))),
+                                            onPressed: () {
+                                              Navigator.pushNamed(
+                                                  context, '/products');
+                                            },
+                                            child: const Text(
+                                              "Explore Products",
+                                              style: TextStyle(
+                                                  color: Colors.white),
+                                            )),
+                                        const SizedBox(
+                                            width:
+                                                20), // Add spacing between buttons
+                                        TextButton(
+                                            style: TextButton.styleFrom(
+                                                minimumSize:
+                                                    const Size(180, 50),
+                                                backgroundColor: Colors.white,
+                                                shape: RoundedRectangleBorder(
+                                                    side: const BorderSide(
+                                                        color: Colors.black),
+                                                    borderRadius:
+                                                        BorderRadius.circular(
+                                                            100))),
+                                            onPressed: () {
+                                              Navigator.pushNamed(
+                                                  context, "/dispensaries");
+                                            },
+                                            child: const Text(
+                                              "Get Directions",
+                                              style: TextStyle(
+                                                  color: Colors.black,
+                                                  fontWeight: FontWeight.bold),
+                                            ))
+                                      ],
+                                    )
                                   ],
                                 ),
                               ),
@@ -1058,7 +1062,7 @@ class HomePage extends ConsumerWidget {
                           Padding(
                             padding: const EdgeInsets.only(bottom: 50),
                             child: Column(
-                              crossAxisAlignment: CrossAxisAlignment.start,
+                              crossAxisAlignment: CrossAxisAlignment.center,
                               children: [
                                 const Text(
                                   "WHAT IS ALTRD?",
@@ -1077,6 +1081,7 @@ class HomePage extends ConsumerWidget {
                                     style: TextStyle(
                                         color: Colors.black, fontSize: 15),
                                     softWrap: true,
+                                    textAlign: TextAlign.center,
                                   ),
                                 ),
                               ],
