@@ -1,6 +1,7 @@
 import 'dart:async';
 import 'dart:convert';
 import 'dart:js_interop';
+import 'package:fineartsociety/widgets/drawer_altrd.dart';
 import 'package:fineartsociety/widgets/store_grid.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/scheduler.dart';
@@ -632,9 +633,15 @@ class DispensariesScreen extends ConsumerWidget {
       }
     }
 
+    bool shouldShowSideBar = MediaQuery.sizeOf(context).width < 724;
+    bool isDesktop = MediaQuery.of(context).size.width > 1168;
     return Scaffold(
+      endDrawer: AltrdDrawer(),
+      extendBodyBehindAppBar: true,
       backgroundColor: Colors.white,
-      appBar: CustomAppBar(shouldShow: false,),
+      appBar: CustomAppBar(
+        shouldShow: shouldShowSideBar,
+      ),
       body: LayoutBuilder(
         builder: (context, constraints) {
           return SingleChildScrollView(
@@ -650,15 +657,430 @@ class DispensariesScreen extends ConsumerWidget {
                       top: 40,
                     ),
                     color: Colors.white,
-                    child: Row(
-                        crossAxisAlignment: CrossAxisAlignment.start,
-                        children: [
-                          Padding(
-                            padding:
-                                const EdgeInsets.symmetric(horizontal: 20.0),
-                            child: Column(
-                              crossAxisAlignment: CrossAxisAlignment.start,
-                              children: [
+                    child: isDesktop
+                        ? Row(
+                            crossAxisAlignment: CrossAxisAlignment.start,
+                            children: [
+                                Padding(
+                                  padding: const EdgeInsets.symmetric(
+                                      horizontal: 20.0),
+                                  child: Column(
+                                    crossAxisAlignment:
+                                        CrossAxisAlignment.start,
+                                    children: [
+                                      const SizedBox(
+                                        height: 20,
+                                      ),
+                                      const Text(
+                                        "Find A Location",
+                                        softWrap: true,
+                                        style: TextStyle(
+                                            color: Colors.black, fontSize: 30),
+                                      ),
+                                      SizedBox(
+                                        height: 0.05 *
+                                            MediaQuery.sizeOf(context).height,
+                                      ),
+                                      SizedBox(
+                                        width: 0.3 *
+                                            MediaQuery.sizeOf(context).width,
+                                        child: const Text(
+                                          "Search using address city and state or ZIP",
+                                          softWrap: true,
+                                          style: TextStyle(
+                                              fontSize: 18,
+                                              color: Colors.black),
+                                        ),
+                                      ),
+                                      SizedBox(
+                                        height: 0.03 *
+                                            MediaQuery.sizeOf(context).height,
+                                      ),
+                                      SizedBox(
+                                        child: Row(
+                                          mainAxisAlignment:
+                                              MainAxisAlignment.center,
+                                          children: [
+                                            SizedBox(
+                                              width: MediaQuery.sizeOf(context)
+                                                          .width >
+                                                      1000
+                                                  ? 500
+                                                  : 0.8 *
+                                                      MediaQuery.sizeOf(context)
+                                                          .width,
+                                              child: TextField(
+                                                decoration: InputDecoration(
+                                                  suffixIcon: const Row(
+                                                    mainAxisSize:
+                                                        MainAxisSize.min,
+                                                    children: [
+                                                      Icon(Icons.search),
+                                                      SizedBox(
+                                                        width: 5,
+                                                      )
+                                                    ],
+                                                  ),
+                                                  label: const Text(
+                                                      'Find Location'),
+                                                  hintText: 'Enter your search',
+                                                  enabledBorder:
+                                                      OutlineInputBorder(
+                                                    borderSide:
+                                                        const BorderSide(
+                                                            color: Colors.grey),
+                                                    borderRadius:
+                                                        BorderRadius.circular(
+                                                            10),
+                                                  ),
+                                                  focusedBorder:
+                                                      OutlineInputBorder(
+                                                    borderSide:
+                                                        const BorderSide(
+                                                      color: Colors.black,
+                                                      width: 2,
+                                                    ),
+                                                    borderRadius:
+                                                        BorderRadius.circular(
+                                                            15),
+                                                  ),
+                                                  errorBorder:
+                                                      OutlineInputBorder(
+                                                    borderSide:
+                                                        const BorderSide(
+                                                      color: Colors.red,
+                                                      width: 2,
+                                                    ),
+                                                    borderRadius:
+                                                        BorderRadius.circular(
+                                                            10),
+                                                  ),
+                                                ),
+                                              ),
+                                            ),
+                                            const SizedBox(
+                                              width: 15,
+                                            ),
+                                            Transform.rotate(
+                                                angle: 45 * math.pi / 180,
+                                                child: const Icon(
+                                                    Icons.navigation_rounded))
+                                          ],
+                                        ),
+                                      ),
+                                      SizedBox(
+                                        height: 0.04 *
+                                            MediaQuery.sizeOf(context).height,
+                                      ),
+                                      const Text(
+                                        "Get notified of new locations",
+                                        style: TextStyle(fontSize: 16),
+                                      ),
+                                      const SizedBox(
+                                        height: 30,
+                                      ),
+                                      const SizedBox(
+                                        width: 300,
+                                        child: TextField(
+                                          decoration: InputDecoration(
+                                            border: InputBorder.none,
+                                            fillColor: Color.fromARGB(
+                                                255, 241, 240, 240),
+                                            filled: true,
+                                            hintText: 'Your Name',
+                                            hintStyle: TextStyle(
+                                                color: Color.fromARGB(
+                                                    255, 192, 192, 192)),
+                                          ),
+                                        ),
+                                      ),
+                                      const SizedBox(
+                                        height: 10,
+                                      ),
+                                      const SizedBox(
+                                        width: 300,
+                                        child: TextField(
+                                          decoration: InputDecoration(
+                                            border: InputBorder.none,
+                                            fillColor: Color.fromARGB(
+                                                255, 241, 240, 240),
+                                            filled: true,
+                                            hintText: 'Your Phone',
+                                            hintStyle: TextStyle(
+                                                color: Color.fromARGB(
+                                                    255, 192, 192, 192)),
+                                          ),
+                                        ),
+                                      ),
+                                      const SizedBox(
+                                        height: 10,
+                                      ),
+                                      const SizedBox(
+                                        width: 300,
+                                        child: TextField(
+                                          decoration: InputDecoration(
+                                            border: InputBorder.none,
+                                            fillColor: Color.fromARGB(
+                                                255, 241, 240, 240),
+                                            filled: true,
+                                            hintText: 'Your Email',
+                                            hintStyle: TextStyle(
+                                                color: Color.fromARGB(
+                                                    255, 192, 192, 192)),
+                                          ),
+                                        ),
+                                      ),
+                                      const SizedBox(
+                                        height: 30,
+                                      ),
+                                      TextButton(
+                                        style: TextButton.styleFrom(
+                                            backgroundColor: Colors.black,
+                                            shape:
+                                                const RoundedRectangleBorder()),
+                                        onPressed: () {},
+                                        child: const SizedBox(
+                                          width: 120,
+                                          height: 40,
+                                          child: Center(
+                                            child: Text(
+                                              "NOTIFY ME!",
+                                              style: TextStyle(
+                                                  fontSize: 16,
+                                                  color: Colors.white),
+                                            ),
+                                          ),
+                                        ),
+                                      ),
+                                      const SizedBox(
+                                        height: 30,
+                                      ),
+                                      TextButton(
+                                        style: TextButton.styleFrom(
+                                            backgroundColor: Colors.black,
+                                            shape:
+                                                const RoundedRectangleBorder()),
+                                        onPressed: () {},
+                                        child: const SizedBox(
+                                          width: 220,
+                                          height: 40,
+                                          child: Center(
+                                            child: Text(
+                                              "SHOW ALL LOCATIONS",
+                                              style: TextStyle(
+                                                  fontSize: 16,
+                                                  color: Colors.white),
+                                            ),
+                                          ),
+                                        ),
+                                      ),
+                                      const SizedBox(
+                                        height: 40,
+                                      )
+                                    ],
+                                  ),
+                                ),
+                                Padding(
+                                  padding: const EdgeInsets.only(left: 13),
+                                  child: SizedBox(
+                                    height: 720,
+                                    width: 800,
+                                    child: Stack(
+                                      children: [
+                                        GoogleMap(
+                                            polylines: polylines,
+                                            markers: stores,
+                                            indoorViewEnabled: true,
+                                            zoomControlsEnabled: false,
+                                            fortyFiveDegreeImageryEnabled: true,
+                                            mapType: MapType.normal,
+                                            initialCameraPosition: _kGooglePlex,
+                                            onMapCreated: onMapCreate),
+                                        Align(
+                                          alignment: Alignment.bottomRight,
+                                          child: Padding(
+                                            padding: const EdgeInsets.only(
+                                                bottom: 20.0, right: 20),
+                                            child: IconButton(
+                                              hoverColor: Color.fromARGB(
+                                                  158, 123, 122, 122),
+                                              icon: Icon(
+                                                Icons.directions,
+                                                size: 30,
+                                                color: Colors.white,
+                                              ),
+                                              onPressed: () async {
+                                                bool isFirst =
+                                                    await mapController!
+                                                        .isMarkerInfoWindowShown(
+                                                            MarkerId("first"));
+                                                bool isSecond =
+                                                    await mapController!
+                                                        .isMarkerInfoWindowShown(
+                                                            MarkerId("second"));
+                                                bool isThird =
+                                                    await mapController!
+                                                        .isMarkerInfoWindowShown(
+                                                            MarkerId("third"));
+                                                Location location =
+                                                    new Location();
+                                                var _permissionGranted =
+                                                    await location
+                                                        .requestPermission();
+
+                                                print(_permissionGranted.name);
+
+                                                LocationData userPosition =
+                                                    await location
+                                                        .getLocation();
+                                                print(userPosition.latitude);
+                                                print(userPosition.longitude);
+                                                if (isFirst) {
+                                                  var request = http.Request(
+                                                      'GET',
+                                                      Uri.parse(
+                                                          'http://0.0.0.0:8080/https://maps.googleapis.com/maps/api/directions/json?origin=35.552740,-97.626120&destination=${userPosition.latitude},${userPosition.longitude}&key=AIzaSyBJ5WtDvw2lyjzfljtKdNHwxdzgoQ-KTiQ'));
+
+                                                  http.StreamedResponse
+                                                      response =
+                                                      await request.send();
+
+                                                  Map values = jsonDecode(
+                                                      await response.stream
+                                                          .bytesToString());
+
+                                                  print(values["status"] ==
+                                                      "ZERO_RESULTS");
+                                                  if (values["status"] ==
+                                                      "ZERO_RESULTS") {
+                                                    print("Hi");
+                                                    IconSnackBar.show(
+                                                        duration: Duration(
+                                                            seconds: 3),
+                                                        context: context,
+                                                        snackBarType:
+                                                            SnackBarType.alert,
+                                                        label:
+                                                            'There is no route on land from your Location to the Dispensary');
+                                                    return;
+                                                  }
+                                                  decodePoly(values["routes"][0]
+                                                          ["overview_polyline"]
+                                                      ["points"]);
+                                                  ref
+                                                      .watch(
+                                                          polylineStateProvider
+                                                              .notifier)
+                                                      .addPolyline(Polyline(
+                                                          polylineId:
+                                                              PolylineId(
+                                                                  "first"),
+                                                          width: 4,
+                                                          points:
+                                                              polylineCoordinates,
+                                                          color: Colors.white));
+                                                } else if (isSecond) {
+                                                  var request = http.Request(
+                                                      'GET',
+                                                      Uri.parse(
+                                                          'http://0.0.0.0:8080/https://maps.googleapis.com/maps/api/directions/json?origin=35.552740,-97.626120&destination=${userPosition.latitude},${userPosition.longitude}&key=AIzaSyBJ5WtDvw2lyjzfljtKdNHwxdzgoQ-KTiQ'));
+
+                                                  http.StreamedResponse
+                                                      response =
+                                                      await request.send();
+
+                                                  Map values = jsonDecode(
+                                                      await response.stream
+                                                          .bytesToString());
+                                                  if (values["routes"] ==
+                                                      null) {
+                                                    IconSnackBar.show(
+                                                        duration: Duration(
+                                                            seconds: 3),
+                                                        context: context,
+                                                        snackBarType:
+                                                            SnackBarType.alert,
+                                                        label:
+                                                            'There is no route on land from your Location to the Dispensary');
+                                                    return;
+                                                  }
+                                                  decodePoly(values["routes"][0]
+                                                          ["overview_polyline"]
+                                                      ["points"]);
+                                                  ref
+                                                      .watch(
+                                                          polylineStateProvider
+                                                              .notifier)
+                                                      .addPolyline(Polyline(
+                                                          polylineId:
+                                                              PolylineId(
+                                                                  "first"),
+                                                          width: 4,
+                                                          points:
+                                                              polylineCoordinates,
+                                                          color: Colors.white));
+                                                } else if (isThird) {
+                                                  var request = http.Request(
+                                                      'GET',
+                                                      Uri.parse(
+                                                          'https://cors-anywhere-tj1q.onrender.com/https://maps.googleapis.com/maps/api/directions/json?origin=35.552740,-97.626120&destination=${userPosition.latitude},${userPosition.longitude}&key=AIzaSyBJ5WtDvw2lyjzfljtKdNHwxdzgoQ-KTiQ'));
+
+                                                  http.StreamedResponse
+                                                      response =
+                                                      await request.send();
+
+                                                  Map values = jsonDecode(
+                                                      await response.stream
+                                                          .bytesToString());
+                                                  if (values["routes"] ==
+                                                      null) {
+                                                    IconSnackBar.show(
+                                                        duration: Duration(
+                                                            seconds: 3),
+                                                        context: context,
+                                                        snackBarType:
+                                                            SnackBarType.alert,
+                                                        label:
+                                                            'There is no route on land from your Location to the Dispensary');
+                                                    return;
+                                                  }
+                                                  decodePoly(values["routes"][0]
+                                                          ["overview_polyline"]
+                                                      ["points"]);
+                                                  ref
+                                                      .watch(
+                                                          polylineStateProvider
+                                                              .notifier)
+                                                      .addPolyline(Polyline(
+                                                          polylineId:
+                                                              PolylineId(
+                                                                  "first"),
+                                                          width: 4,
+                                                          points:
+                                                              polylineCoordinates,
+                                                          color: Colors.white));
+                                                } else {
+                                                  IconSnackBar.show(
+                                                      duration:
+                                                          Duration(seconds: 3),
+                                                      context: context,
+                                                      snackBarType:
+                                                          SnackBarType.alert,
+                                                      label:
+                                                          'Please select a dispensary to get directions');
+                                                }
+                                              },
+                                            ),
+                                          ),
+                                        )
+                                      ],
+                                    ),
+                                  ),
+                                ),
+                              ])
+                        : Column(
+                            crossAxisAlignment: CrossAxisAlignment.center,
+                            children: [
                                 const SizedBox(
                                   height: 20,
                                 ),
@@ -673,10 +1095,11 @@ class DispensariesScreen extends ConsumerWidget {
                                       0.05 * MediaQuery.sizeOf(context).height,
                                 ),
                                 SizedBox(
-                                  width: 0.3 * MediaQuery.sizeOf(context).width,
+                                  width: 0.7 * MediaQuery.sizeOf(context).width,
                                   child: const Text(
                                     "Search using address city and state or ZIP",
                                     softWrap: true,
+                                    textAlign: TextAlign.center,
                                     style: TextStyle(
                                         fontSize: 18, color: Colors.black),
                                   ),
@@ -736,13 +1159,213 @@ class DispensariesScreen extends ConsumerWidget {
                                         ),
                                       ),
                                       const SizedBox(
-                                        width: 15,
+                                        width: 10,
                                       ),
                                       Transform.rotate(
                                           angle: 45 * math.pi / 180,
                                           child: const Icon(
                                               Icons.navigation_rounded))
                                     ],
+                                  ),
+                                ),
+                                SizedBox(
+                                  height: 50,
+                                ),
+                                Padding(
+                                  padding: const EdgeInsets.only(left: 13),
+                                  child: SizedBox(
+                                    height: 720,
+                                    width: 800,
+                                    child: Stack(
+                                      children: [
+                                        GoogleMap(
+                                            polylines: polylines,
+                                            markers: stores,
+                                            indoorViewEnabled: true,
+                                            zoomControlsEnabled: false,
+                                            fortyFiveDegreeImageryEnabled: true,
+                                            mapType: MapType.normal,
+                                            initialCameraPosition: _kGooglePlex,
+                                            onMapCreated: onMapCreate),
+                                        Align(
+                                          alignment: Alignment.bottomRight,
+                                          child: Padding(
+                                            padding: const EdgeInsets.only(
+                                                bottom: 20.0, right: 20),
+                                            child: IconButton(
+                                              hoverColor: Color.fromARGB(
+                                                  158, 123, 122, 122),
+                                              icon: Icon(
+                                                Icons.directions,
+                                                size: 30,
+                                                color: Colors.white,
+                                              ),
+                                              onPressed: () async {
+                                                bool isFirst =
+                                                    await mapController!
+                                                        .isMarkerInfoWindowShown(
+                                                            MarkerId("first"));
+                                                bool isSecond =
+                                                    await mapController!
+                                                        .isMarkerInfoWindowShown(
+                                                            MarkerId("second"));
+                                                bool isThird =
+                                                    await mapController!
+                                                        .isMarkerInfoWindowShown(
+                                                            MarkerId("third"));
+                                                Location location =
+                                                    new Location();
+                                                var _permissionGranted =
+                                                    await location
+                                                        .requestPermission();
+
+                                                print(_permissionGranted.name);
+
+                                                LocationData userPosition =
+                                                    await location
+                                                        .getLocation();
+                                                print(userPosition.latitude);
+                                                print(userPosition.longitude);
+                                                if (isFirst) {
+                                                  var request = http.Request(
+                                                      'GET',
+                                                      Uri.parse(
+                                                          'http://0.0.0.0:8080/https://maps.googleapis.com/maps/api/directions/json?origin=35.552740,-97.626120&destination=${userPosition.latitude},${userPosition.longitude}&key=AIzaSyBJ5WtDvw2lyjzfljtKdNHwxdzgoQ-KTiQ'));
+
+                                                  http.StreamedResponse
+                                                      response =
+                                                      await request.send();
+
+                                                  Map values = jsonDecode(
+                                                      await response.stream
+                                                          .bytesToString());
+
+                                                  print(values["status"] ==
+                                                      "ZERO_RESULTS");
+                                                  if (values["status"] ==
+                                                      "ZERO_RESULTS") {
+                                                    print("Hi");
+                                                    IconSnackBar.show(
+                                                        duration: Duration(
+                                                            seconds: 3),
+                                                        context: context,
+                                                        snackBarType:
+                                                            SnackBarType.alert,
+                                                        label:
+                                                            'There is no route on land from your Location to the Dispensary');
+                                                    return;
+                                                  }
+                                                  decodePoly(values["routes"][0]
+                                                          ["overview_polyline"]
+                                                      ["points"]);
+                                                  ref
+                                                      .watch(
+                                                          polylineStateProvider
+                                                              .notifier)
+                                                      .addPolyline(Polyline(
+                                                          polylineId:
+                                                              PolylineId(
+                                                                  "first"),
+                                                          width: 4,
+                                                          points:
+                                                              polylineCoordinates,
+                                                          color: Colors.white));
+                                                } else if (isSecond) {
+                                                  var request = http.Request(
+                                                      'GET',
+                                                      Uri.parse(
+                                                          'http://0.0.0.0:8080/https://maps.googleapis.com/maps/api/directions/json?origin=35.552740,-97.626120&destination=${userPosition.latitude},${userPosition.longitude}&key=AIzaSyBJ5WtDvw2lyjzfljtKdNHwxdzgoQ-KTiQ'));
+
+                                                  http.StreamedResponse
+                                                      response =
+                                                      await request.send();
+
+                                                  Map values = jsonDecode(
+                                                      await response.stream
+                                                          .bytesToString());
+                                                  if (values["routes"] ==
+                                                      null) {
+                                                    IconSnackBar.show(
+                                                        duration: Duration(
+                                                            seconds: 3),
+                                                        context: context,
+                                                        snackBarType:
+                                                            SnackBarType.alert,
+                                                        label:
+                                                            'There is no route on land from your Location to the Dispensary');
+                                                    return;
+                                                  }
+                                                  decodePoly(values["routes"][0]
+                                                          ["overview_polyline"]
+                                                      ["points"]);
+                                                  ref
+                                                      .watch(
+                                                          polylineStateProvider
+                                                              .notifier)
+                                                      .addPolyline(Polyline(
+                                                          polylineId:
+                                                              PolylineId(
+                                                                  "first"),
+                                                          width: 4,
+                                                          points:
+                                                              polylineCoordinates,
+                                                          color: Colors.white));
+                                                } else if (isThird) {
+                                                  var request = http.Request(
+                                                      'GET',
+                                                      Uri.parse(
+                                                          'https://cors-anywhere-tj1q.onrender.com/https://maps.googleapis.com/maps/api/directions/json?origin=35.552740,-97.626120&destination=${userPosition.latitude},${userPosition.longitude}&key=AIzaSyBJ5WtDvw2lyjzfljtKdNHwxdzgoQ-KTiQ'));
+
+                                                  http.StreamedResponse
+                                                      response =
+                                                      await request.send();
+
+                                                  Map values = jsonDecode(
+                                                      await response.stream
+                                                          .bytesToString());
+                                                  if (values["routes"] ==
+                                                      null) {
+                                                    IconSnackBar.show(
+                                                        duration: Duration(
+                                                            seconds: 3),
+                                                        context: context,
+                                                        snackBarType:
+                                                            SnackBarType.alert,
+                                                        label:
+                                                            'There is no route on land from your Location to the Dispensary');
+                                                    return;
+                                                  }
+                                                  decodePoly(values["routes"][0]
+                                                          ["overview_polyline"]
+                                                      ["points"]);
+                                                  ref
+                                                      .watch(
+                                                          polylineStateProvider
+                                                              .notifier)
+                                                      .addPolyline(Polyline(
+                                                          polylineId:
+                                                              PolylineId(
+                                                                  "first"),
+                                                          width: 4,
+                                                          points:
+                                                              polylineCoordinates,
+                                                          color: Colors.white));
+                                                } else {
+                                                  IconSnackBar.show(
+                                                      duration:
+                                                          Duration(seconds: 3),
+                                                      context: context,
+                                                      snackBarType:
+                                                          SnackBarType.alert,
+                                                      label:
+                                                          'Please select a dispensary to get directions');
+                                                }
+                                              },
+                                            ),
+                                          ),
+                                        )
+                                      ],
+                                    ),
                                   ),
                                 ),
                                 SizedBox(
@@ -849,188 +1472,8 @@ class DispensariesScreen extends ConsumerWidget {
                                 ),
                                 const SizedBox(
                                   height: 40,
-                                )
-                              ],
-                            ),
-                          ),
-                          Padding(
-                            padding: const EdgeInsets.only(left: 13),
-                            child: SizedBox(
-                              height: 720,
-                              width: 800,
-                              child: Stack(
-                                children: [
-                                  GoogleMap(
-                                      polylines: polylines,
-                                      markers: stores,
-                                      indoorViewEnabled: true,
-                                      zoomControlsEnabled: false,
-                                      fortyFiveDegreeImageryEnabled: true,
-                                      mapType: MapType.normal,
-                                      initialCameraPosition: _kGooglePlex,
-                                      onMapCreated: onMapCreate),
-                                  Align(
-                                    alignment: Alignment.bottomRight,
-                                    child: Padding(
-                                      padding: const EdgeInsets.only(
-                                          bottom: 20.0, right: 20),
-                                      child: IconButton(
-                                        hoverColor:
-                                            Color.fromARGB(158, 123, 122, 122),
-                                        icon: Icon(
-                                          Icons.directions,
-                                          size: 30,
-                                          color: Colors.white,
-                                        ),
-                                        onPressed: () async {
-                                          bool isFirst = await mapController!
-                                              .isMarkerInfoWindowShown(
-                                                  MarkerId("first"));
-                                          bool isSecond = await mapController!
-                                              .isMarkerInfoWindowShown(
-                                                  MarkerId("second"));
-                                          bool isThird = await mapController!
-                                              .isMarkerInfoWindowShown(
-                                                  MarkerId("third"));
-                                          Location location = new Location();
-                                          var _permissionGranted =
-                                              await location
-                                                  .requestPermission();
-
-                                          print(_permissionGranted.name);
-
-                                          LocationData userPosition =
-                                              await location.getLocation();
-                                          print(userPosition.latitude);
-                                          print(userPosition.longitude);
-                                          if (isFirst) {
-                                            var request = http.Request(
-                                                'GET',
-                                                Uri.parse(
-                                                    'http://0.0.0.0:8080/https://maps.googleapis.com/maps/api/directions/json?origin=35.552740,-97.626120&destination=${userPosition.latitude},${userPosition.longitude}&key=AIzaSyBJ5WtDvw2lyjzfljtKdNHwxdzgoQ-KTiQ'));
-
-                                            http.StreamedResponse response =
-                                                await request.send();
-
-                                            Map values = jsonDecode(
-                                                await response.stream
-                                                    .bytesToString());
-
-                                            print(values["status"] ==
-                                                "ZERO_RESULTS");
-                                            if (values["status"] ==
-                                                "ZERO_RESULTS") {
-                                              print("Hi");
-                                              IconSnackBar.show(
-                                                  duration:
-                                                      Duration(seconds: 3),
-                                                  context: context,
-                                                  snackBarType:
-                                                      SnackBarType.alert,
-                                                  label:
-                                                      'There is no route on land from your Location to the Dispensary');
-                                              return;
-                                            }
-                                            decodePoly(values["routes"][0]
-                                                    ["overview_polyline"]
-                                                ["points"]);
-                                            ref
-                                                .watch(polylineStateProvider
-                                                    .notifier)
-                                                .addPolyline(Polyline(
-                                                    polylineId:
-                                                        PolylineId("first"),
-                                                    width: 4,
-                                                    points: polylineCoordinates,
-                                                    color: Colors.white));
-                                          } else if (isSecond) {
-                                            var request = http.Request(
-                                                'GET',
-                                                Uri.parse(
-                                                    'http://0.0.0.0:8080/https://maps.googleapis.com/maps/api/directions/json?origin=35.552740,-97.626120&destination=${userPosition.latitude},${userPosition.longitude}&key=AIzaSyBJ5WtDvw2lyjzfljtKdNHwxdzgoQ-KTiQ'));
-
-                                            http.StreamedResponse response =
-                                                await request.send();
-
-                                            Map values = jsonDecode(
-                                                await response.stream
-                                                    .bytesToString());
-                                            if (values["routes"] == null) {
-                                              IconSnackBar.show(
-                                                  duration:
-                                                      Duration(seconds: 3),
-                                                  context: context,
-                                                  snackBarType:
-                                                      SnackBarType.alert,
-                                                  label:
-                                                      'There is no route on land from your Location to the Dispensary');
-                                              return;
-                                            }
-                                            decodePoly(values["routes"][0]
-                                                    ["overview_polyline"]
-                                                ["points"]);
-                                            ref
-                                                .watch(polylineStateProvider
-                                                    .notifier)
-                                                .addPolyline(Polyline(
-                                                    polylineId:
-                                                        PolylineId("first"),
-                                                    width: 4,
-                                                    points: polylineCoordinates,
-                                                    color: Colors.white));
-                                          } else if (isThird) {
-                                            var request = http.Request(
-                                                'GET',
-                                                Uri.parse(
-                                                    'https://cors-anywhere-tj1q.onrender.com/https://maps.googleapis.com/maps/api/directions/json?origin=35.552740,-97.626120&destination=${userPosition.latitude},${userPosition.longitude}&key=AIzaSyBJ5WtDvw2lyjzfljtKdNHwxdzgoQ-KTiQ'));
-
-                                            http.StreamedResponse response =
-                                                await request.send();
-
-                                            Map values = jsonDecode(
-                                                await response.stream
-                                                    .bytesToString());
-                                            if (values["routes"] == null) {
-                                              IconSnackBar.show(
-                                                  duration:
-                                                      Duration(seconds: 3),
-                                                  context: context,
-                                                  snackBarType:
-                                                      SnackBarType.alert,
-                                                  label:
-                                                      'There is no route on land from your Location to the Dispensary');
-                                              return;
-                                            }
-                                            decodePoly(values["routes"][0]
-                                                    ["overview_polyline"]
-                                                ["points"]);
-                                            ref
-                                                .watch(polylineStateProvider
-                                                    .notifier)
-                                                .addPolyline(Polyline(
-                                                    polylineId:
-                                                        PolylineId("first"),
-                                                    width: 4,
-                                                    points: polylineCoordinates,
-                                                    color: Colors.white));
-                                          } else {
-                                            IconSnackBar.show(
-                                                duration: Duration(seconds: 3),
-                                                context: context,
-                                                snackBarType:
-                                                    SnackBarType.alert,
-                                                label:
-                                                    'Please select a dispensary to get directions');
-                                          }
-                                        },
-                                      ),
-                                    ),
-                                  )
-                                ],
-                              ),
-                            ),
-                          ),
-                        ]),
+                                ),
+                              ]),
                   ),
                 ),
                 ExpansionPanelList(
