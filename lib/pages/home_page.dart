@@ -1761,6 +1761,17 @@ class HomePage extends ConsumerWidget {
                 const SizedBox(
                   height: 120,
                 ),
+                Container(
+                  height: firstFoldHeight + 180,
+                  width: 1440,
+                  child: !videoInitialised
+                      ? CircularProgressIndicator()
+                      : VideoPlayer(
+                          videoPlayerController), // Include the video player widget here
+                ),
+                const SizedBox(
+                  height: 50,
+                ),
                 Wrap(
                   spacing: 20,
                   runSpacing: 50,
