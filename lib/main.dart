@@ -2,6 +2,7 @@ import 'dart:ui';
 import 'package:fineartsociety/pages/about_page.dart';
 import 'package:fineartsociety/pages/all_artist_page.dart';
 import 'package:fineartsociety/pages/bussiness_inquiry_page.dart';
+import 'package:fineartsociety/pages/cart_page.dart';
 import 'package:fineartsociety/pages/contact_page.dart';
 import 'package:fineartsociety/pages/dispensaries_page.dart';
 import 'package:fineartsociety/pages/events_page.dart';
@@ -55,7 +56,8 @@ class MyApp extends StatelessWidget {
         '/products': (context) => ProductPage(),
         '/merch': (context) => const MerchPage(),
         '/indivisualMerchPage': (context) => IndividualMerchPage(),
-        '/categoryProducts': (context) => CategoryProducts()
+        '/categoryProducts': (context) => CategoryProducts(),
+        '/cart': (context) => CartPage()
       },
     );
   }

@@ -21,6 +21,10 @@ class Count extends _$Count {
     state++;
   }
 
+  void initialise() {
+    state = 1;
+  }
+
   void decrement(BuildContext context) {
     if (state != 1) {
       state--;
@@ -79,7 +83,7 @@ class MerchPage extends ConsumerWidget {
     IndexController _controller = IndexController();
     return Scaffold(
       backgroundColor: Colors.white,
-      appBar: CustomAppBar(),
+      appBar: CustomAppBar(shouldShow: false,),
       body: LayoutBuilder(
         builder: (context, constraints) {
           bool isDesktop = MediaQuery.of(context).size.width > 1168;
@@ -296,6 +300,9 @@ class MerchPage extends ConsumerWidget {
                                                   BorderRadius.circular(40)),
                                           child: GestureDetector(
                                             onTap: () {
+                                              ref
+                                                  .watch(countProvider.notifier)
+                                                  .initialise();
                                               Navigator.pushNamed(context,
                                                   '/indivisualMerchPage',
                                                   arguments: [
@@ -339,6 +346,9 @@ class MerchPage extends ConsumerWidget {
                                                   BorderRadius.circular(40)),
                                           child: GestureDetector(
                                             onTap: () {
+                                              ref
+                                                  .watch(countProvider.notifier)
+                                                  .initialise();
                                               Navigator.pushNamed(context,
                                                   '/indivisualMerchPage',
                                                   arguments: [
@@ -382,6 +392,9 @@ class MerchPage extends ConsumerWidget {
                                                   BorderRadius.circular(40)),
                                           child: GestureDetector(
                                             onTap: () {
+                                              ref
+                                                  .watch(countProvider.notifier)
+                                                  .initialise();
                                               Navigator.pushNamed(context,
                                                   '/indivisualMerchPage',
                                                   arguments: [
@@ -425,6 +438,9 @@ class MerchPage extends ConsumerWidget {
                                                   BorderRadius.circular(40)),
                                           child: GestureDetector(
                                             onTap: () {
+                                              ref
+                                                  .watch(countProvider.notifier)
+                                                  .initialise();
                                               Navigator.pushNamed(context,
                                                   '/indivisualMerchPage',
                                                   arguments: [
@@ -474,6 +490,9 @@ class MerchPage extends ConsumerWidget {
                                                   BorderRadius.circular(40)),
                                           child: GestureDetector(
                                             onTap: () {
+                                              ref
+                                                  .watch(countProvider.notifier)
+                                                  .initialise();
                                               Navigator.pushNamed(context,
                                                   '/indivisualMerchPage',
                                                   arguments: [
@@ -517,6 +536,9 @@ class MerchPage extends ConsumerWidget {
                                                   BorderRadius.circular(40)),
                                           child: GestureDetector(
                                             onTap: () {
+                                              ref
+                                                  .watch(countProvider.notifier)
+                                                  .initialise();
                                               Navigator.pushNamed(context,
                                                   '/indivisualMerchPage',
                                                   arguments: [
@@ -560,6 +582,9 @@ class MerchPage extends ConsumerWidget {
                                                   BorderRadius.circular(40)),
                                           child: GestureDetector(
                                             onTap: () {
+                                              ref
+                                                  .watch(countProvider.notifier)
+                                                  .initialise();
                                               Navigator.pushNamed(context,
                                                   '/indivisualMerchPage',
                                                   arguments: [

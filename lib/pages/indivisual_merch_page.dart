@@ -1,3 +1,4 @@
+import 'package:fineartsociety/pages/cart_page.dart';
 import 'package:fineartsociety/pages/merch_page.dart';
 import 'package:fineartsociety/widgets/custom_app_bar.dart';
 import 'package:flutter/material.dart';
@@ -13,7 +14,7 @@ class IndividualMerchPage extends ConsumerWidget {
     dynamic info = ModalRoute.of(context)!.settings.arguments!;
     int value = ref.watch(countProvider);
     return Scaffold(
-      appBar: CustomAppBar(),
+      appBar: CustomAppBar(shouldShow: false,),
       body: SingleChildScrollView(
         controller: scrollController,
         child: Column(
@@ -207,7 +208,10 @@ class IndividualMerchPage extends ConsumerWidget {
                                     shape: RoundedRectangleBorder(
                                         borderRadius:
                                             BorderRadius.circular(100))),
-                                onPressed: () {},
+                                onPressed: () {
+                                  ref.watch(cartStateProvider.notifier).addItem(
+                                      [info[0], info[3], value, info[4]]);
+                                },
                                 child: const Text(
                                   "Add to cart",
                                   style: TextStyle(color: Colors.white),

@@ -10,7 +10,7 @@ environment:
 dependencies:
   flutter:
     sdk: flutter
-  cupertino_icons: ^1.0.2
+  cupertino_icons: ^1.0.6
   carousel_slider: 4.2.1
   url_launcher: ^6.0.13
   http:
@@ -31,6 +31,7 @@ dependencies:
   video_player: ^2.8.2
   flutter_polyline_points: ^2.0.0
   location: ^5.0.0-dev.8
+  animated_emoji: ^3.1.0
 
 dev_dependencies:
   flutter_test:

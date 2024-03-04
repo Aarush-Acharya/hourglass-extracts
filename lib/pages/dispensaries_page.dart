@@ -633,9 +633,8 @@ class DispensariesScreen extends ConsumerWidget {
     }
 
     return Scaffold(
-      endDrawer: CustomAppBar(),
       backgroundColor: Colors.white,
-      appBar: CustomAppBar(),
+      appBar: CustomAppBar(shouldShow: false,),
       body: LayoutBuilder(
         builder: (context, constraints) {
           return SingleChildScrollView(

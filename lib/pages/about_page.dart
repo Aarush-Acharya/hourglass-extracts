@@ -26,9 +26,10 @@ class AboutPage extends ConsumerWidget {
       "https://placekitten.com/1440/700"
     ];
     IndexController _controller = IndexController();
+    
     return Scaffold(
       backgroundColor: Colors.white,
-      appBar: CustomAppBar(),
+      appBar: CustomAppBar(shouldShow: false,),
       body: LayoutBuilder(
         builder: (context, constraints) {
           bool isDesktop = MediaQuery.of(context).size.width > 1168;

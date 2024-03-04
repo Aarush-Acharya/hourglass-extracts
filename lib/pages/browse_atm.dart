@@ -38,9 +38,8 @@ class BrowseAtm extends ConsumerWidget {
   @override
   Widget build(BuildContext context, WidgetRef ref) {
     return Scaffold(
-      endDrawer: CustomAppBar(),
       backgroundColor: Colors.white,
-      appBar: CustomAppBar(),
+      appBar: CustomAppBar(shouldShow: false,),
       body: LayoutBuilder(
         builder: (context, constraints) {
           double firstFoldHeight =

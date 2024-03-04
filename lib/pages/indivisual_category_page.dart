@@ -8,9 +8,10 @@ class CategoryProducts extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     dynamic productsData = ModalRoute.of(context)!.settings.arguments!;
+    
     return Scaffold(
       backgroundColor: Colors.white,
-      appBar: CustomAppBar(),
+      appBar: CustomAppBar(shouldShow: false,),
       body: SingleChildScrollView(
         child: Column(
           children: [

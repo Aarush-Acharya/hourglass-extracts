@@ -2,6 +2,7 @@ import 'dart:async';
 import 'dart:convert';
 import 'dart:ui';
 import 'package:fineartsociety/pages/indivisual_category_page.dart';
+import 'package:fineartsociety/widgets/drawer_altrd.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter/src/scheduler/ticker.dart';
@@ -491,7 +492,7 @@ class HomePage extends ConsumerWidget {
       "Thundersticks",
       "Moonrocks"
     ];
-
+    bool shouldShowSideBar = MediaQuery.sizeOf(context).width < 724;
     bool isNewReleases = ref.watch(merchTypeStateProvider);
     List scales = ref.watch(cardScaleStateProvider);
     int hoveredIndex = -1;
@@ -517,9 +518,12 @@ class HomePage extends ConsumerWidget {
       ref.read(isVideoInitializedProvider.notifier).changeState();
     });
     return Scaffold(
+      endDrawer: AltrdDrawer(),
       extendBodyBehindAppBar: true,
       backgroundColor: Colors.white,
-      appBar: const CustomAppBar(),
+      appBar: CustomAppBar(
+        shouldShow: shouldShowSideBar,
+      ),
       body: LayoutBuilder(
         builder: (context, constraints) {
           double firstFoldHeight = MediaQuery.of(context).size.height * 0.75;
@@ -542,7 +546,7 @@ class HomePage extends ConsumerWidget {
                                   .centerRight, // Align the image to the right
                               child: ImageFiltered(
                                 imageFilter:
-                                    ImageFilter.blur(sigmaX: 0, sigmaY: 0),
+                                    ImageFilter.blur(sigmaX: 1, sigmaY: 1),
                                 child: GFAnimation(
                                   turnsAnimation: animation,
                                   controller: controller,
@@ -706,158 +710,156 @@ class HomePage extends ConsumerWidget {
                         mainAxisAlignment: MainAxisAlignment
                             .spaceBetween, // Ensures equal spacing
                         children: List.generate(productNames.length, (index) {
-                          return Expanded(
-                            child: Column(
-                              mainAxisAlignment: MainAxisAlignment.center,
-                              children: [
-                                InkWell(
-                                  hoverColor: null,
-                                  onTap: () {
-                                    if (index == 0) {
-                                      Navigator.pushNamed(
-                                          context, '/categoryProducts',
-                                          arguments: [
-                                            "Edibles",
-                                            [
-                                              "STIIIZY BATTERY",
-                                              "The STIIIZY Battery Starter Kit is your essential power pack, featuring a standard battery, a USB charging cable, and easy charging via any USB port.",
-                                              "assets/prod 5.png"
-                                            ],
-                                            [
-                                              "STIIIZY BIIIG BATTERY",
-                                              "Experience longer-lasting sessions with the STIIIZY BIIIG Battery, designed for durability and smooth operation. USB charging accessories included.",
-                                              "assets/prod 5.png"
-                                            ],
-                                            [
-                                              "STIIIZY PORTABLE POWER CASE",
-                                              "Keep your devices powered on-the-go with the sleek STIIIZY Portable Power Case, complete with a USB charging cable and Micro USB Power Adapter.",
-                                              "assets/prod 5.png"
-                                            ]
-                                          ]);
-                                    } else if (index == 1) {
-                                      Navigator.pushNamed(
-                                          context, '/categoryProducts',
-                                          arguments: [
-                                            "MoonRocks",
-                                            [
-                                              "STIIIZY BATTERY",
-                                              "The STIIIZY Battery Starter Kit is your essential power pack, featuring a standard battery, a USB charging cable, and easy charging via any USB port.",
-                                              "assets/prod 5.png"
-                                            ],
-                                            [
-                                              "STIIIZY BIIIG BATTERY",
-                                              "Experience longer-lasting sessions with the STIIIZY BIIIG Battery, designed for durability and smooth operation. USB charging accessories included.",
-                                              "assets/prod 5.png"
-                                            ],
-                                            [
-                                              "STIIIZY PORTABLE POWER CASE",
-                                              "Keep your devices powered on-the-go with the sleek STIIIZY Portable Power Case, complete with a USB charging cable and Micro USB Power Adapter.",
-                                              "assets/prod 5.png"
-                                            ]
-                                          ]);
-                                    } else if (index == 2) {
-                                          Navigator.pushNamed(
-                                          context, '/categoryProducts',
-                                          arguments: [
-                                            "Edibles",
-                                            [
-                                              "STIIIZY BATTERY",
-                                              "The STIIIZY Battery Starter Kit is your essential power pack, featuring a standard battery, a USB charging cable, and easy charging via any USB port.",
-                                              "assets/prod 5.png"
-                                            ],
-                                            [
-                                              "STIIIZY BIIIG BATTERY",
-                                              "Experience longer-lasting sessions with the STIIIZY BIIIG Battery, designed for durability and smooth operation. USB charging accessories included.",
-                                              "assets/prod 5.png"
-                                            ],
-                                            [
-                                              "STIIIZY PORTABLE POWER CASE",
-                                              "Keep your devices powered on-the-go with the sleek STIIIZY Portable Power Case, complete with a USB charging cable and Micro USB Power Adapter.",
-                                              "assets/prod 5.png"
-                                            ]
-                                          ]);
-                                    } else if (index == 3) {
-                                          Navigator.pushNamed(
-                                          context, '/categoryProducts',
-                                          arguments: [
-                                            "Edibles",
-                                            [
-                                              "STIIIZY BATTERY",
-                                              "The STIIIZY Battery Starter Kit is your essential power pack, featuring a standard battery, a USB charging cable, and easy charging via any USB port.",
-                                              "assets/prod 5.png"
-                                            ],
-                                            [
-                                              "STIIIZY BIIIG BATTERY",
-                                              "Experience longer-lasting sessions with the STIIIZY BIIIG Battery, designed for durability and smooth operation. USB charging accessories included.",
-                                              "assets/prod 5.png"
-                                            ],
-                                            [
-                                              "STIIIZY PORTABLE POWER CASE",
-                                              "Keep your devices powered on-the-go with the sleek STIIIZY Portable Power Case, complete with a USB charging cable and Micro USB Power Adapter.",
-                                              "assets/prod 5.png"
-                                            ]
-                                          ]);
-                                    } else {
-                                          Navigator.pushNamed(
-                                          context, '/categoryProducts',
-                                          arguments: [
-                                            "Edibles",
-                                            [
-                                              "STIIIZY BATTERY",
-                                              "The STIIIZY Battery Starter Kit is your essential power pack, featuring a standard battery, a USB charging cable, and easy charging via any USB port.",
-                                              "assets/prod 5.png"
-                                            ],
-                                            [
-                                              "STIIIZY BIIIG BATTERY",
-                                              "Experience longer-lasting sessions with the STIIIZY BIIIG Battery, designed for durability and smooth operation. USB charging accessories included.",
-                                              "assets/prod 5.png"
-                                            ],
-                                            [
-                                              "STIIIZY PORTABLE POWER CASE",
-                                              "Keep your devices powered on-the-go with the sleek STIIIZY Portable Power Case, complete with a USB charging cable and Micro USB Power Adapter.",
-                                              "assets/prod 5.png"
-                                            ]
-                                          ]);
-                                    }
-                                  },
-                                  onHover: (value) {
-                                    ref
-                                        .watch(cardScaleStateProvider.notifier)
-                                        .changeScale(index);
-                                  },
-                                  child: ClipRRect(
-                                    child: AnimatedContainer(
-                                      height: 300,
-                                      width: 230,
-                                      color: Colors.white,
-                                      transformAlignment: Alignment.center,
-                                      duration: const Duration(
-                                          milliseconds:
-                                              300), // Adjust the duration as needed
-                                      curve: Curves
-                                          .easeInOut, // Adjust the curve as needed
-                                      transform: Matrix4.identity()
-                                        ..scale(scales[index]),
-                                      child: Padding(
-                                        padding: const EdgeInsets.symmetric(
-                                            horizontal: 25.0),
-                                        child: Image.asset(
-                                            'assets/prod ${index + 1}.png',
-                                            fit: BoxFit.contain),
-                                      ),
+                          return Column(
+                            mainAxisAlignment: MainAxisAlignment.center,
+                            children: [
+                              InkWell(
+                                hoverColor: null,
+                                onTap: () {
+                                  if (index == 0) {
+                                    Navigator.pushNamed(
+                                        context, '/categoryProducts',
+                                        arguments: [
+                                          "Edibles",
+                                          [
+                                            "STIIIZY BATTERY",
+                                            "The STIIIZY Battery Starter Kit is your essential power pack, featuring a standard battery, a USB charging cable, and easy charging via any USB port.",
+                                            "assets/prod 5.png"
+                                          ],
+                                          [
+                                            "STIIIZY BIIIG BATTERY",
+                                            "Experience longer-lasting sessions with the STIIIZY BIIIG Battery, designed for durability and smooth operation. USB charging accessories included.",
+                                            "assets/prod 5.png"
+                                          ],
+                                          [
+                                            "STIIIZY PORTABLE POWER CASE",
+                                            "Keep your devices powered on-the-go with the sleek STIIIZY Portable Power Case, complete with a USB charging cable and Micro USB Power Adapter.",
+                                            "assets/prod 5.png"
+                                          ]
+                                        ]);
+                                  } else if (index == 1) {
+                                    Navigator.pushNamed(
+                                        context, '/categoryProducts',
+                                        arguments: [
+                                          "MoonRocks",
+                                          [
+                                            "STIIIZY BATTERY",
+                                            "The STIIIZY Battery Starter Kit is your essential power pack, featuring a standard battery, a USB charging cable, and easy charging via any USB port.",
+                                            "assets/prod 5.png"
+                                          ],
+                                          [
+                                            "STIIIZY BIIIG BATTERY",
+                                            "Experience longer-lasting sessions with the STIIIZY BIIIG Battery, designed for durability and smooth operation. USB charging accessories included.",
+                                            "assets/prod 5.png"
+                                          ],
+                                          [
+                                            "STIIIZY PORTABLE POWER CASE",
+                                            "Keep your devices powered on-the-go with the sleek STIIIZY Portable Power Case, complete with a USB charging cable and Micro USB Power Adapter.",
+                                            "assets/prod 5.png"
+                                          ]
+                                        ]);
+                                  } else if (index == 2) {
+                                    Navigator.pushNamed(
+                                        context, '/categoryProducts',
+                                        arguments: [
+                                          "Edibles",
+                                          [
+                                            "STIIIZY BATTERY",
+                                            "The STIIIZY Battery Starter Kit is your essential power pack, featuring a standard battery, a USB charging cable, and easy charging via any USB port.",
+                                            "assets/prod 5.png"
+                                          ],
+                                          [
+                                            "STIIIZY BIIIG BATTERY",
+                                            "Experience longer-lasting sessions with the STIIIZY BIIIG Battery, designed for durability and smooth operation. USB charging accessories included.",
+                                            "assets/prod 5.png"
+                                          ],
+                                          [
+                                            "STIIIZY PORTABLE POWER CASE",
+                                            "Keep your devices powered on-the-go with the sleek STIIIZY Portable Power Case, complete with a USB charging cable and Micro USB Power Adapter.",
+                                            "assets/prod 5.png"
+                                          ]
+                                        ]);
+                                  } else if (index == 3) {
+                                    Navigator.pushNamed(
+                                        context, '/categoryProducts',
+                                        arguments: [
+                                          "Edibles",
+                                          [
+                                            "STIIIZY BATTERY",
+                                            "The STIIIZY Battery Starter Kit is your essential power pack, featuring a standard battery, a USB charging cable, and easy charging via any USB port.",
+                                            "assets/prod 5.png"
+                                          ],
+                                          [
+                                            "STIIIZY BIIIG BATTERY",
+                                            "Experience longer-lasting sessions with the STIIIZY BIIIG Battery, designed for durability and smooth operation. USB charging accessories included.",
+                                            "assets/prod 5.png"
+                                          ],
+                                          [
+                                            "STIIIZY PORTABLE POWER CASE",
+                                            "Keep your devices powered on-the-go with the sleek STIIIZY Portable Power Case, complete with a USB charging cable and Micro USB Power Adapter.",
+                                            "assets/prod 5.png"
+                                          ]
+                                        ]);
+                                  } else {
+                                    Navigator.pushNamed(
+                                        context, '/categoryProducts',
+                                        arguments: [
+                                          "Edibles",
+                                          [
+                                            "STIIIZY BATTERY",
+                                            "The STIIIZY Battery Starter Kit is your essential power pack, featuring a standard battery, a USB charging cable, and easy charging via any USB port.",
+                                            "assets/prod 5.png"
+                                          ],
+                                          [
+                                            "STIIIZY BIIIG BATTERY",
+                                            "Experience longer-lasting sessions with the STIIIZY BIIIG Battery, designed for durability and smooth operation. USB charging accessories included.",
+                                            "assets/prod 5.png"
+                                          ],
+                                          [
+                                            "STIIIZY PORTABLE POWER CASE",
+                                            "Keep your devices powered on-the-go with the sleek STIIIZY Portable Power Case, complete with a USB charging cable and Micro USB Power Adapter.",
+                                            "assets/prod 5.png"
+                                          ]
+                                        ]);
+                                  }
+                                },
+                                onHover: (value) {
+                                  ref
+                                      .watch(cardScaleStateProvider.notifier)
+                                      .changeScale(index);
+                                },
+                                child: ClipRRect(
+                                  child: AnimatedContainer(
+                                    height: 300,
+                                    width: 230,
+                                    color: Colors.white,
+                                    transformAlignment: Alignment.center,
+                                    duration: const Duration(
+                                        milliseconds:
+                                            300), // Adjust the duration as needed
+                                    curve: Curves
+                                        .easeInOut, // Adjust the curve as needed
+                                    transform: Matrix4.identity()
+                                      ..scale(scales[index]),
+                                    child: Padding(
+                                      padding: const EdgeInsets.symmetric(
+                                          horizontal: 25.0),
+                                      child: Image.asset(
+                                          'assets/prod ${index + 1}.png',
+                                          fit: BoxFit.contain),
                                     ),
                                   ),
                                 ),
-                                Text(
-                                  productNames[index],
-                                  style: const TextStyle(
-                                    fontSize: 20,
-                                    color: Colors.black,
-                                    fontWeight: FontWeight.w600,
-                                  ),
+                              ),
+                              Text(
+                                productNames[index],
+                                style: const TextStyle(
+                                  fontSize: 20,
+                                  color: Colors.black,
+                                  fontWeight: FontWeight.w600,
                                 ),
-                              ],
-                            ),
+                              ),
+                            ],
                           );
                         }),
                       )
@@ -865,51 +867,49 @@ class HomePage extends ConsumerWidget {
                         mainAxisAlignment: MainAxisAlignment
                             .spaceBetween, // Ensures equal spacing
                         children: List.generate(productNames.length, (index) {
-                          return Expanded(
-                            child: Column(
-                              mainAxisAlignment: MainAxisAlignment.center,
-                              children: [
-                                InkWell(
-                                  hoverColor: null,
-                                  onTap: () {},
-                                  onHover: (value) {
-                                    ref
-                                        .watch(cardScaleStateProvider.notifier)
-                                        .changeScale(index);
-                                  },
-                                  child: ClipRRect(
-                                    child: AnimatedContainer(
-                                      height: 300,
-                                      width: 230,
-                                      color: Colors.white,
-                                      transformAlignment: Alignment.center,
-                                      duration: const Duration(
-                                          milliseconds:
-                                              700), // Adjust the duration as needed
-                                      curve: Curves
-                                          .easeInOut, // Adjust the curve as needed
-                                      transform: Matrix4.identity()
-                                        ..scale(scales[index]),
-                                      child: Padding(
-                                        padding: const EdgeInsets.symmetric(
-                                            horizontal: 25.0),
-                                        child: Image.asset(
-                                            'assets/prod ${index + 1}.png',
-                                            fit: BoxFit.contain),
-                                      ),
+                          return Column(
+                            mainAxisAlignment: MainAxisAlignment.center,
+                            children: [
+                              InkWell(
+                                hoverColor: null,
+                                onTap: () {},
+                                onHover: (value) {
+                                  ref
+                                      .watch(cardScaleStateProvider.notifier)
+                                      .changeScale(index);
+                                },
+                                child: ClipRRect(
+                                  child: AnimatedContainer(
+                                    height: 300,
+                                    width: 230,
+                                    color: Colors.white,
+                                    transformAlignment: Alignment.center,
+                                    duration: const Duration(
+                                        milliseconds:
+                                            700), // Adjust the duration as needed
+                                    curve: Curves
+                                        .easeInOut, // Adjust the curve as needed
+                                    transform: Matrix4.identity()
+                                      ..scale(scales[index]),
+                                    child: Padding(
+                                      padding: const EdgeInsets.symmetric(
+                                          horizontal: 25.0),
+                                      child: Image.asset(
+                                          'assets/prod ${index + 1}.png',
+                                          fit: BoxFit.contain),
                                     ),
                                   ),
                                 ),
-                                Text(
-                                  productNames[index],
-                                  style: const TextStyle(
-                                    fontSize: 20,
-                                    color: Colors.black,
-                                    fontWeight: FontWeight.w600,
-                                  ),
+                              ),
+                              Text(
+                                productNames[index],
+                                style: const TextStyle(
+                                  fontSize: 20,
+                                  color: Colors.black,
+                                  fontWeight: FontWeight.w600,
                                 ),
-                              ],
-                            ),
+                              ),
+                            ],
                           );
                         }),
                       ),
@@ -1060,7 +1060,7 @@ class HomePage extends ConsumerWidget {
                                 const Text(
                                   "WHAT IS ALTRD?",
                                   style: TextStyle(
-                                      color: Colors.white, fontSize: 30),
+                                      color: Colors.black, fontSize: 30),
                                   softWrap: true,
                                 ),
                                 const SizedBox(
@@ -1072,7 +1072,7 @@ class HomePage extends ConsumerWidget {
                                   child: const Text(
                                     "Started in a garage, ALTRD embodies the spirit of picking yourself up and following opportunity. STIIIZY's proprietary pod system has garnered a cult-like following since its launch and has emerged as a leading lifestyle brand in cannabis.",
                                     style: TextStyle(
-                                        color: Colors.white, fontSize: 15),
+                                        color: Colors.black, fontSize: 15),
                                     softWrap: true,
                                   ),
                                 ),
@@ -1135,297 +1135,604 @@ class HomePage extends ConsumerWidget {
                 const SizedBox(
                   height: 40,
                 ),
-                isNewReleases
-                    ? Row(
-                        mainAxisAlignment: MainAxisAlignment.spaceAround,
-                        children: [
-                          Container(
-                            decoration: BoxDecoration(
-                                // color: Colors.red,
-                                borderRadius: BorderRadius.circular(40)),
-                            child: GestureDetector(
-                              onTap: () {
-                                Navigator.pushNamed(
-                                    context, '/indivisualMerchPage',
-                                    arguments: [
-                                      "Merch 1",
-                                      3.2,
-                                      20,
-                                      90.00,
-                                      'assets/merch-shirt.png'
-                                    ]);
-                              },
-                              child: Column(
-                                children: [
-                                  ClipRRect(
-                                    borderRadius: BorderRadius.circular(50),
-                                    child: Image.asset(
-                                      'assets/merch-shirt.png',
-                                      fit: BoxFit.cover,
-                                      width: 250,
-                                      height: 250,
-                                    ),
+                !isDesktop
+                    ? isNewReleases
+                        ? Row(
+                            mainAxisAlignment: MainAxisAlignment.spaceAround,
+                            children: [
+                              Container(
+                                decoration: BoxDecoration(
+                                    // color: Colors.red,
+                                    borderRadius: BorderRadius.circular(40)),
+                                child: GestureDetector(
+                                  onTap: () {
+                                    Navigator.pushNamed(
+                                        context, '/indivisualMerchPage',
+                                        arguments: [
+                                          "Merch 1",
+                                          3.2,
+                                          20,
+                                          90.00,
+                                          'assets/merch-shirt.png'
+                                        ]);
+                                  },
+                                  child: Column(
+                                    children: [
+                                      ClipRRect(
+                                        borderRadius: BorderRadius.circular(50),
+                                        child: Image.asset(
+                                          'assets/merch-shirt.png',
+                                          fit: BoxFit.cover,
+                                          width: 250,
+                                          height: 250,
+                                        ),
+                                      ),
+                                      SizedBox(
+                                        height: 20,
+                                      ),
+                                      Text(
+                                        "Prod 1",
+                                        style: TextStyle(color: Colors.black),
+                                      )
+                                    ],
                                   ),
-                                  SizedBox(
-                                    height: 20,
-                                  ),
-                                  Text(
-                                    "Prod 1",
-                                    style: TextStyle(color: Colors.black),
-                                  )
-                                ],
+                                ),
+                                height: 300,
+                                width: 250,
                               ),
-                            ),
-                            height: 300,
-                            width: 250,
-                          ),
-                          Container(
-                            decoration: BoxDecoration(
-                                // color: Colors.red,
-                                borderRadius: BorderRadius.circular(40)),
-                            child: GestureDetector(
-                              onTap: () {
-                                Navigator.pushNamed(
-                                    context, '/indivisualMerchPage',
-                                    arguments: [
-                                      "Merch 2",
-                                      3.9,
-                                      40.00,
-                                      70,
-                                      'assets/merch-shirt.png'
-                                    ]);
-                              },
-                              child: Column(
-                                children: [
-                                  ClipRRect(
-                                    borderRadius: BorderRadius.circular(50),
-                                    child: Image.asset(
-                                      'assets/merch-shirt.png',
-                                      fit: BoxFit.cover,
-                                      width: 250,
-                                      height: 250,
-                                    ),
+                              Container(
+                                decoration: BoxDecoration(
+                                    // color: Colors.red,
+                                    borderRadius: BorderRadius.circular(40)),
+                                child: GestureDetector(
+                                  onTap: () {
+                                    Navigator.pushNamed(
+                                        context, '/indivisualMerchPage',
+                                        arguments: [
+                                          "Merch 2",
+                                          3.9,
+                                          40.00,
+                                          70,
+                                          'assets/merch-shirt.png'
+                                        ]);
+                                  },
+                                  child: Column(
+                                    children: [
+                                      ClipRRect(
+                                        borderRadius: BorderRadius.circular(50),
+                                        child: Image.asset(
+                                          'assets/merch-shirt.png',
+                                          fit: BoxFit.cover,
+                                          width: 250,
+                                          height: 250,
+                                        ),
+                                      ),
+                                      SizedBox(
+                                        height: 20,
+                                      ),
+                                      Text(
+                                        "Prod 2",
+                                        style: TextStyle(color: Colors.black),
+                                      )
+                                    ],
                                   ),
-                                  SizedBox(
-                                    height: 20,
-                                  ),
-                                  Text(
-                                    "Prod 2",
-                                    style: TextStyle(color: Colors.black),
-                                  )
-                                ],
+                                ),
+                                height: 300,
+                                width: 250,
                               ),
-                            ),
-                            height: 300,
-                            width: 250,
-                          ),
-                          Container(
-                            decoration: BoxDecoration(
-                                // color: Colors.red,
-                                borderRadius: BorderRadius.circular(40)),
-                            child: GestureDetector(
-                              onTap: () {
-                                Navigator.pushNamed(
-                                    context, '/indivisualMerchPage',
-                                    arguments: [
-                                      "Merch 3",
-                                      3.0,
-                                      100,
-                                      220.00,
-                                      'assets/merch-shirt.png'
-                                    ]);
-                              },
-                              child: Column(
-                                children: [
-                                  ClipRRect(
-                                    borderRadius: BorderRadius.circular(50),
-                                    child: Image.asset(
-                                      'assets/merch-shirt.png',
-                                      fit: BoxFit.cover,
-                                      width: 250,
-                                      height: 250,
-                                    ),
+                              Container(
+                                decoration: BoxDecoration(
+                                    // color: Colors.red,
+                                    borderRadius: BorderRadius.circular(40)),
+                                child: GestureDetector(
+                                  onTap: () {
+                                    Navigator.pushNamed(
+                                        context, '/indivisualMerchPage',
+                                        arguments: [
+                                          "Merch 3",
+                                          3.0,
+                                          100,
+                                          220.00,
+                                          'assets/merch-shirt.png'
+                                        ]);
+                                  },
+                                  child: Column(
+                                    children: [
+                                      ClipRRect(
+                                        borderRadius: BorderRadius.circular(50),
+                                        child: Image.asset(
+                                          'assets/merch-shirt.png',
+                                          fit: BoxFit.cover,
+                                          width: 250,
+                                          height: 250,
+                                        ),
+                                      ),
+                                      SizedBox(
+                                        height: 20,
+                                      ),
+                                      Text(
+                                        "Prod 3",
+                                        style: TextStyle(color: Colors.black),
+                                      )
+                                    ],
                                   ),
-                                  SizedBox(
-                                    height: 20,
-                                  ),
-                                  Text(
-                                    "Prod 3",
-                                    style: TextStyle(color: Colors.black),
-                                  )
-                                ],
+                                ),
+                                height: 300,
+                                width: 250,
                               ),
-                            ),
-                            height: 300,
-                            width: 250,
-                          ),
-                          Container(
-                            decoration: BoxDecoration(
-                                // color: Colors.red,
-                                borderRadius: BorderRadius.circular(40)),
-                            child: GestureDetector(
-                              onTap: () {
-                                Navigator.pushNamed(
-                                    context, '/indivisualMerchPage',
-                                    arguments: [
-                                      "Merch 4",
-                                      4.2,
-                                      312,
-                                      134,
-                                      'assets/merch-shirt.png'
-                                    ]);
-                              },
-                              child: Column(
-                                children: [
-                                  ClipRRect(
-                                    borderRadius: BorderRadius.circular(50),
-                                    child: Image.asset(
-                                      'assets/merch-shirt.png',
-                                      fit: BoxFit.cover,
-                                      width: 250,
-                                      height: 250,
-                                    ),
+                              Container(
+                                decoration: BoxDecoration(
+                                    // color: Colors.red,
+                                    borderRadius: BorderRadius.circular(40)),
+                                child: GestureDetector(
+                                  onTap: () {
+                                    Navigator.pushNamed(
+                                        context, '/indivisualMerchPage',
+                                        arguments: [
+                                          "Merch 4",
+                                          4.2,
+                                          312,
+                                          134,
+                                          'assets/merch-shirt.png'
+                                        ]);
+                                  },
+                                  child: Column(
+                                    children: [
+                                      ClipRRect(
+                                        borderRadius: BorderRadius.circular(50),
+                                        child: Image.asset(
+                                          'assets/merch-shirt.png',
+                                          fit: BoxFit.cover,
+                                          width: 250,
+                                          height: 250,
+                                        ),
+                                      ),
+                                      SizedBox(
+                                        height: 20,
+                                      ),
+                                      Text(
+                                        "Prod 4",
+                                        style: TextStyle(color: Colors.black),
+                                      )
+                                    ],
                                   ),
-                                  SizedBox(
-                                    height: 20,
-                                  ),
-                                  Text(
-                                    "Prod 4",
-                                    style: TextStyle(color: Colors.black),
-                                  )
-                                ],
+                                ),
+                                height: 300,
+                                width: 250,
                               ),
-                            ),
-                            height: 300,
-                            width: 250,
-                          ),
-                        ],
-                      )
-                    : Row(
-                        mainAxisAlignment: MainAxisAlignment.spaceAround,
-                        children: [
-                          Container(
-                            decoration: BoxDecoration(
-                                // color: Colors.red,
-                                borderRadius: BorderRadius.circular(40)),
-                            child: GestureDetector(
-                              onTap: () {
-                                Navigator.pushNamed(
-                                    context, '/indivisualMerchPage',
-                                    arguments: [
-                                      "Merch 3",
-                                      3.0,
-                                      100,
-                                      220.00,
-                                      'assets/merch-shirt.png'
-                                    ]);
-                              },
-                              child: Column(
-                                children: [
-                                  ClipRRect(
-                                    borderRadius: BorderRadius.circular(50),
-                                    child: Image.asset(
-                                      'assets/merch-shirt.png',
-                                      fit: BoxFit.cover,
-                                      width: 250,
-                                      height: 250,
-                                    ),
+                            ],
+                          )
+                        : Row(
+                            mainAxisAlignment: MainAxisAlignment.spaceAround,
+                            children: [
+                              Container(
+                                decoration: BoxDecoration(
+                                    // color: Colors.red,
+                                    borderRadius: BorderRadius.circular(40)),
+                                child: GestureDetector(
+                                  onTap: () {
+                                    Navigator.pushNamed(
+                                        context, '/indivisualMerchPage',
+                                        arguments: [
+                                          "Merch 3",
+                                          3.0,
+                                          100,
+                                          220.00,
+                                          'assets/merch-shirt.png'
+                                        ]);
+                                  },
+                                  child: Column(
+                                    children: [
+                                      ClipRRect(
+                                        borderRadius: BorderRadius.circular(50),
+                                        child: Image.asset(
+                                          'assets/merch-shirt.png',
+                                          fit: BoxFit.cover,
+                                          width: 250,
+                                          height: 250,
+                                        ),
+                                      ),
+                                      SizedBox(
+                                        height: 20,
+                                      ),
+                                      Text(
+                                        "Prod 5",
+                                        style: TextStyle(color: Colors.black),
+                                      )
+                                    ],
                                   ),
-                                  SizedBox(
-                                    height: 20,
-                                  ),
-                                  Text(
-                                    "Prod 5",
-                                    style: TextStyle(color: Colors.black),
-                                  )
-                                ],
+                                ),
+                                height: 300,
+                                width: 250,
                               ),
-                            ),
-                            height: 300,
-                            width: 250,
-                          ),
-                          Container(
-                            decoration: BoxDecoration(
-                                // color: Colors.red,
-                                borderRadius: BorderRadius.circular(40)),
-                            child: GestureDetector(
-                              onTap: () {
-                                Navigator.pushNamed(
-                                    context, '/indivisualMerchPage',
-                                    arguments: [
-                                      "Merch 5",
-                                      3.7,
-                                      120,
-                                      190.00,
-                                      'assets/merch-shirt.png'
-                                    ]);
-                              },
-                              child: Column(
-                                children: [
-                                  ClipRRect(
-                                    borderRadius: BorderRadius.circular(50),
-                                    child: Image.asset(
-                                      'assets/merch-shirt.png',
-                                      fit: BoxFit.cover,
-                                      width: 250,
-                                      height: 250,
-                                    ),
+                              Container(
+                                decoration: BoxDecoration(
+                                    // color: Colors.red,
+                                    borderRadius: BorderRadius.circular(40)),
+                                child: GestureDetector(
+                                  onTap: () {
+                                    Navigator.pushNamed(
+                                        context, '/indivisualMerchPage',
+                                        arguments: [
+                                          "Merch 5",
+                                          3.7,
+                                          120,
+                                          190.00,
+                                          'assets/merch-shirt.png'
+                                        ]);
+                                  },
+                                  child: Column(
+                                    children: [
+                                      ClipRRect(
+                                        borderRadius: BorderRadius.circular(50),
+                                        child: Image.asset(
+                                          'assets/merch-shirt.png',
+                                          fit: BoxFit.cover,
+                                          width: 250,
+                                          height: 250,
+                                        ),
+                                      ),
+                                      SizedBox(
+                                        height: 20,
+                                      ),
+                                      Text(
+                                        "Prod 6",
+                                        style: TextStyle(color: Colors.black),
+                                      )
+                                    ],
                                   ),
-                                  SizedBox(
-                                    height: 20,
-                                  ),
-                                  Text(
-                                    "Prod 6",
-                                    style: TextStyle(color: Colors.black),
-                                  )
-                                ],
+                                ),
+                                height: 300,
+                                width: 250,
                               ),
-                            ),
-                            height: 300,
-                            width: 250,
-                          ),
-                          Container(
-                            decoration: BoxDecoration(
-                                // color: Colors.red,
-                                borderRadius: BorderRadius.circular(40)),
-                            child: GestureDetector(
-                              onTap: () {
-                                Navigator.pushNamed(
-                                    context, '/indivisualMerchPage',
-                                    arguments: [
-                                      "Merch 7",
-                                      4.8,
-                                      200,
-                                      280.00,
-                                      'assets/merch-shirt.png'
-                                    ]);
-                              },
-                              child: Column(
-                                children: [
-                                  ClipRRect(
-                                    borderRadius: BorderRadius.circular(50),
-                                    child: Image.asset(
-                                      'assets/merch-shirt.png',
-                                      fit: BoxFit.cover,
-                                      width: 250,
-                                      height: 250,
-                                    ),
+                              Container(
+                                decoration: BoxDecoration(
+                                    // color: Colors.red,
+                                    borderRadius: BorderRadius.circular(40)),
+                                child: GestureDetector(
+                                  onTap: () {
+                                    Navigator.pushNamed(
+                                        context, '/indivisualMerchPage',
+                                        arguments: [
+                                          "Merch 7",
+                                          4.8,
+                                          200,
+                                          280.00,
+                                          'assets/merch-shirt.png'
+                                        ]);
+                                  },
+                                  child: Column(
+                                    children: [
+                                      ClipRRect(
+                                        borderRadius: BorderRadius.circular(50),
+                                        child: Image.asset(
+                                          'assets/merch-shirt.png',
+                                          fit: BoxFit.cover,
+                                          width: 250,
+                                          height: 250,
+                                        ),
+                                      ),
+                                      SizedBox(
+                                        height: 20,
+                                      ),
+                                      Text(
+                                        "Prod 7",
+                                        style: TextStyle(color: Colors.black),
+                                      )
+                                    ],
                                   ),
-                                  SizedBox(
-                                    height: 20,
-                                  ),
-                                  Text(
-                                    "Prod 7",
-                                    style: TextStyle(color: Colors.black),
-                                  )
-                                ],
+                                ),
+                                height: 300,
+                                width: 250,
                               ),
-                            ),
-                            height: 300,
-                            width: 250,
+                            ],
+                          )
+                    : isNewReleases
+                        ? Column(
+                            mainAxisAlignment: MainAxisAlignment.spaceAround,
+                            children: [
+                              Container(
+                                decoration: BoxDecoration(
+                                    // color: Colors.red,
+                                    borderRadius: BorderRadius.circular(40)),
+                                child: GestureDetector(
+                                  onTap: () {
+                                    Navigator.pushNamed(
+                                        context, '/indivisualMerchPage',
+                                        arguments: [
+                                          "Merch 1",
+                                          3.2,
+                                          20,
+                                          90.00,
+                                          'assets/merch-shirt.png'
+                                        ]);
+                                  },
+                                  child: Column(
+                                    children: [
+                                      ClipRRect(
+                                        borderRadius: BorderRadius.circular(50),
+                                        child: Image.asset(
+                                          'assets/merch-shirt.png',
+                                          fit: BoxFit.cover,
+                                          width: 250,
+                                          height: 250,
+                                        ),
+                                      ),
+                                      SizedBox(
+                                        height: 20,
+                                      ),
+                                      Text(
+                                        "Prod 1",
+                                        style: TextStyle(color: Colors.black),
+                                      )
+                                    ],
+                                  ),
+                                ),
+                                height: 300,
+                                width: 250,
+                              ),
+                              SizedBox(
+                                height: 30,
+                              ),
+                              Container(
+                                decoration: BoxDecoration(
+                                    // color: Colors.red,
+                                    borderRadius: BorderRadius.circular(40)),
+                                child: GestureDetector(
+                                  onTap: () {
+                                    Navigator.pushNamed(
+                                        context, '/indivisualMerchPage',
+                                        arguments: [
+                                          "Merch 2",
+                                          3.9,
+                                          40.00,
+                                          70,
+                                          'assets/merch-shirt.png'
+                                        ]);
+                                  },
+                                  child: Column(
+                                    children: [
+                                      ClipRRect(
+                                        borderRadius: BorderRadius.circular(50),
+                                        child: Image.asset(
+                                          'assets/merch-shirt.png',
+                                          fit: BoxFit.cover,
+                                          width: 250,
+                                          height: 250,
+                                        ),
+                                      ),
+                                      SizedBox(
+                                        height: 20,
+                                      ),
+                                      Text(
+                                        "Prod 2",
+                                        style: TextStyle(color: Colors.black),
+                                      )
+                                    ],
+                                  ),
+                                ),
+                                height: 300,
+                                width: 250,
+                              ),
+                              SizedBox(
+                                height: 30,
+                              ),
+                              Container(
+                                decoration: BoxDecoration(
+                                    // color: Colors.red,
+                                    borderRadius: BorderRadius.circular(40)),
+                                child: GestureDetector(
+                                  onTap: () {
+                                    Navigator.pushNamed(
+                                        context, '/indivisualMerchPage',
+                                        arguments: [
+                                          "Merch 3",
+                                          3.0,
+                                          100,
+                                          220.00,
+                                          'assets/merch-shirt.png'
+                                        ]);
+                                  },
+                                  child: Column(
+                                    children: [
+                                      ClipRRect(
+                                        borderRadius: BorderRadius.circular(50),
+                                        child: Image.asset(
+                                          'assets/merch-shirt.png',
+                                          fit: BoxFit.cover,
+                                          width: 250,
+                                          height: 250,
+                                        ),
+                                      ),
+                                      SizedBox(
+                                        height: 20,
+                                      ),
+                                      Text(
+                                        "Prod 3",
+                                        style: TextStyle(color: Colors.black),
+                                      )
+                                    ],
+                                  ),
+                                ),
+                                height: 300,
+                                width: 250,
+                              ),
+                              SizedBox(
+                                height: 30,
+                              ),
+                              Container(
+                                decoration: BoxDecoration(
+                                    // color: Colors.red,
+                                    borderRadius: BorderRadius.circular(40)),
+                                child: GestureDetector(
+                                  onTap: () {
+                                    Navigator.pushNamed(
+                                        context, '/indivisualMerchPage',
+                                        arguments: [
+                                          "Merch 4",
+                                          4.2,
+                                          312,
+                                          134,
+                                          'assets/merch-shirt.png'
+                                        ]);
+                                  },
+                                  child: Column(
+                                    children: [
+                                      ClipRRect(
+                                        borderRadius: BorderRadius.circular(50),
+                                        child: Image.asset(
+                                          'assets/merch-shirt.png',
+                                          fit: BoxFit.cover,
+                                          width: 250,
+                                          height: 250,
+                                        ),
+                                      ),
+                                      SizedBox(
+                                        height: 20,
+                                      ),
+                                      Text(
+                                        "Prod 4",
+                                        style: TextStyle(color: Colors.black),
+                                      )
+                                    ],
+                                  ),
+                                ),
+                                height: 300,
+                                width: 250,
+                              ),
+                            ],
+                          )
+                        : Column(
+                            mainAxisAlignment: MainAxisAlignment.spaceAround,
+                            children: [
+                              Container(
+                                decoration: BoxDecoration(
+                                    // color: Colors.red,
+                                    borderRadius: BorderRadius.circular(40)),
+                                child: GestureDetector(
+                                  onTap: () {
+                                    Navigator.pushNamed(
+                                        context, '/indivisualMerchPage',
+                                        arguments: [
+                                          "Merch 3",
+                                          3.0,
+                                          100,
+                                          220.00,
+                                          'assets/merch-shirt.png'
+                                        ]);
+                                  },
+                                  child: Column(
+                                    children: [
+                                      ClipRRect(
+                                        borderRadius: BorderRadius.circular(50),
+                                        child: Image.asset(
+                                          'assets/merch-shirt.png',
+                                          fit: BoxFit.cover,
+                                          width: 250,
+                                          height: 250,
+                                        ),
+                                      ),
+                                      SizedBox(
+                                        height: 20,
+                                      ),
+                                      Text(
+                                        "Prod 5",
+                                        style: TextStyle(color: Colors.black),
+                                      )
+                                    ],
+                                  ),
+                                ),
+                                height: 300,
+                                width: 250,
+                              ),
+                              SizedBox(
+                                height: 30,
+                              ),
+                              Container(
+                                decoration: BoxDecoration(
+                                    // color: Colors.red,
+                                    borderRadius: BorderRadius.circular(40)),
+                                child: GestureDetector(
+                                  onTap: () {
+                                    Navigator.pushNamed(
+                                        context, '/indivisualMerchPage',
+                                        arguments: [
+                                          "Merch 5",
+                                          3.7,
+                                          120,
+                                          190.00,
+                                          'assets/merch-shirt.png'
+                                        ]);
+                                  },
+                                  child: Column(
+                                    children: [
+                                      ClipRRect(
+                                        borderRadius: BorderRadius.circular(50),
+                                        child: Image.asset(
+                                          'assets/merch-shirt.png',
+                                          fit: BoxFit.cover,
+                                          width: 250,
+                                          height: 250,
+                                        ),
+                                      ),
+                                      SizedBox(
+                                        height: 20,
+                                      ),
+                                      Text(
+                                        "Prod 6",
+                                        style: TextStyle(color: Colors.black),
+                                      )
+                                    ],
+                                  ),
+                                ),
+                                height: 300,
+                                width: 250,
+                              ),
+                              SizedBox(
+                                height: 30,
+                              ),
+                              Container(
+                                decoration: BoxDecoration(
+                                    // color: Colors.red,
+                                    borderRadius: BorderRadius.circular(40)),
+                                child: GestureDetector(
+                                  onTap: () {
+                                    Navigator.pushNamed(
+                                        context, '/indivisualMerchPage',
+                                        arguments: [
+                                          "Merch 7",
+                                          4.8,
+                                          200,
+                                          280.00,
+                                          'assets/merch-shirt.png'
+                                        ]);
+                                  },
+                                  child: Column(
+                                    children: [
+                                      ClipRRect(
+                                        borderRadius: BorderRadius.circular(50),
+                                        child: Image.asset(
+                                          'assets/merch-shirt.png',
+                                          fit: BoxFit.cover,
+                                          width: 250,
+                                          height: 250,
+                                        ),
+                                      ),
+                                      SizedBox(
+                                        height: 20,
+                                      ),
+                                      Text(
+                                        "Prod 7",
+                                        style: TextStyle(color: Colors.black),
+                                      )
+                                    ],
+                                  ),
+                                ),
+                                height: 300,
+                                width: 250,
+                              ),
+                            ],
                           ),
-                        ],
-                      ),
                 const SizedBox(
                   height: 60,
                 ),
@@ -1451,211 +1758,39 @@ class HomePage extends ConsumerWidget {
                 const SizedBox(
                   height: 120,
                 ),
-                Container(
-                  height: firstFoldHeight + 180,
-                  width: 1440,
-                  child: !videoInitialised
-                      ? CircularProgressIndicator()
-                      : VideoPlayer(
-                          videoPlayerController), // Include the video player widget here
-                ),
-                const SizedBox(
-                  height: 50,
-                ),
-                // ElevatedButton(
-                //     onPressed: () {
-                //       videoController.play();
-                //       videoController.setLooping(true);
-                //     },
-                //     child: Text("play")),
-                const SizedBox(
-                  height: 50,
-                ),
-                const Text(
-                  "Blogs",
-                  style: TextStyle(color: Colors.black, fontSize: 30),
-                ),
-                const SizedBox(
-                  height: 30,
-                ),
-                Column(
-                  children: [
-                    // First row of blogs
-                    Row(
-                      mainAxisAlignment: MainAxisAlignment
-                          .spaceEvenly, // Distribute space evenly
+                Wrap(
+                  spacing: 20,
+                  runSpacing: 50,
+                  alignment: WrapAlignment.center,
+                  children: List.generate(
+                    6,
+                    (index) => Column(
                       children: [
-                        // Wrap each blog container in a Column to add headings
-                        Column(
-                          children: [
-                            Container(
-                              color: Colors.black54,
-                              height: 290, // Adjust the height as needed
-                              margin: EdgeInsets.symmetric(
-                                  horizontal:
-                                      8), // Add some horizontal margin between containers
-                              child: Center(
-                                child: Image.asset('assets/1.jpeg',
-                                    fit: BoxFit.fill), // Your image asset
-                              ),
-                            ),
-                            SizedBox(
-                              height: 10,
-                            ),
-                            Text(
-                              "Sample Blog Title",
-                              style: TextStyle(
-                                  color: Colors.black,
-                                  fontSize: 20,
-                                  fontWeight: FontWeight.bold),
-                              textAlign: TextAlign.start,
-                            ),
-                          ],
-                        ),
-                        Expanded(
-                          child: Column(
-                            children: [
-                              Container(
-                                color: Colors.black54,
-                                height: 290,
-                                margin: EdgeInsets.symmetric(horizontal: 8),
-                                child: Center(
-                                  child: Image.asset('assets/6.jpeg',
-                                      fit: BoxFit.fill),
-                                ),
-                              ),
-                              SizedBox(
-                                height: 10,
-                              ),
-                              Text(
-                                "Sample Blog Title",
-                                style: TextStyle(
-                                    color: Colors.black,
-                                    fontSize: 20,
-                                    fontWeight: FontWeight.bold),
-                                textAlign: TextAlign.start,
-                              ),
-                            ],
+                        Container(
+                          color: Colors.black54,
+                          width: 400, // Adjust the height as needed
+                          margin: EdgeInsets.symmetric(
+                              horizontal:
+                                  8), // Add some horizontal margin between containers
+                          child: Center(
+                            child: Image.asset('assets/${index + 1}.jpeg',
+                                fit: BoxFit.fill), // Your image asset
                           ),
                         ),
-                        Expanded(
-                          child: Column(
-                            children: [
-                              Container(
-                                color: Colors.black54,
-                                height: 290,
-                                margin: EdgeInsets.symmetric(horizontal: 8),
-                                child: Center(
-                                  child: Image.asset('assets/2.jpeg',
-                                      fit: BoxFit.fill),
-                                ),
-                              ),
-                              SizedBox(
-                                height: 10,
-                              ),
-                              Text(
-                                "Sample Blog Title",
-                                style: TextStyle(
-                                    color: Colors.black,
-                                    fontSize: 20,
-                                    fontWeight: FontWeight.bold),
-                                textAlign: TextAlign.start,
-                              ),
-                            ],
-                          ),
+                        SizedBox(
+                          height: 10,
+                        ),
+                        Text(
+                          "Sample Blog Title",
+                          style: TextStyle(
+                              color: Colors.black,
+                              fontSize: 20,
+                              fontWeight: FontWeight.bold),
+                          textAlign: TextAlign.start,
                         ),
                       ],
                     ),
-                    const SizedBox(
-                      height: 20, // Space between the two rows
-                    ),
-                    // Second row of blogs, structured similarly
-                    Row(
-                      mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                      children: [
-                        Expanded(
-                          child: Column(
-                            children: [
-                              Container(
-                                color: Colors.black54,
-                                height: 290,
-                                margin: EdgeInsets.symmetric(horizontal: 8),
-                                child: Center(
-                                  child: Image.asset('assets/3.jpeg',
-                                      fit: BoxFit.fill),
-                                ),
-                              ),
-                              SizedBox(
-                                height: 10,
-                              ),
-                              Text(
-                                "Sample Blog Title",
-                                style: TextStyle(
-                                    color: Colors.black,
-                                    fontSize: 20,
-                                    fontWeight: FontWeight.bold),
-                                textAlign: TextAlign.start,
-                              ),
-                            ],
-                          ),
-                        ),
-                        Expanded(
-                          child: Column(
-                            children: [
-                              Container(
-                                color: Colors.black54,
-                                height: 290,
-                                margin: EdgeInsets.symmetric(horizontal: 8),
-                                child: Center(
-                                  child: Image.asset('assets/4.jpeg',
-                                      fit: BoxFit.fill),
-                                ),
-                              ),
-                              SizedBox(
-                                height: 10,
-                              ),
-                              Text(
-                                "Sample Blog Title",
-                                style: TextStyle(
-                                    color: Colors.black,
-                                    fontSize: 20,
-                                    fontWeight: FontWeight.bold),
-                                textAlign: TextAlign.start,
-                              ),
-                            ],
-                          ),
-                        ),
-                        Expanded(
-                          child: Column(
-                            children: [
-                              Container(
-                                color: Colors.black54,
-                                height: 290,
-                                margin: EdgeInsets.symmetric(horizontal: 8),
-                                child: Center(
-                                  child: Image.asset(
-                                    'assets/5.jpeg',
-                                    fit: BoxFit.fill,
-                                  ),
-                                ),
-                              ),
-                              SizedBox(
-                                height: 10,
-                              ),
-                              Text(
-                                "Sample Blog Title",
-                                style: TextStyle(
-                                    color: Colors.black,
-                                    fontSize: 20,
-                                    fontWeight: FontWeight.bold),
-                                textAlign: TextAlign.start,
-                              ),
-                            ],
-                          ),
-                        ),
-                      ],
-                    ),
-                  ],
+                  ),
                 ),
 
                 const SizedBox(

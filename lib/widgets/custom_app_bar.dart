@@ -25,7 +25,8 @@ class CurrentHoveringStates extends _$CurrentHoveringStates {
 }
 
 class CustomAppBar extends ConsumerWidget implements PreferredSizeWidget {
-  const CustomAppBar({super.key});
+  bool shouldShow;
+  CustomAppBar({super.key, required this.shouldShow});
 
   @override
   Size get preferredSize => const Size.fromHeight(60);
@@ -68,78 +69,93 @@ class CustomAppBar extends ConsumerWidget implements PreferredSizeWidget {
                           color: Colors.black,
                         ))),
               ),
-              Expanded(
-                child: Row(
-                  mainAxisAlignment: MainAxisAlignment.center,
-                  children:
-                      appbarHeaders.keys.toList().asMap().entries.map((entry) {
-                    int index = entry.key;
-                    String header = entry.value;
-                    return Row(
-                      children: [
-                        SizedBox(width: screenSize.width / 20),
-                        InkWell(
-                          onHover: (value) {
-                            ref
-                                .read(currentHoveringStatesProvider.notifier)
-                                .changeState(index);
-                          },
-                          onTap: () {
-                            print("Here");
-                            Navigator.pushNamed(
-                                context, '/${appbarHeaders[header]!}');
-                          },
-                          child: Padding(
-                            padding: const EdgeInsets.only(top: 7),
-                            child: Column(
-                              mainAxisSize: MainAxisSize.min,
-                              mainAxisAlignment: MainAxisAlignment.center,
-                              children: [
-                                Text(
-                                  header,
-                                  style: TextStyle(
-                                      color: _isHovering[index]
-                                          ? Color.fromARGB(255, 36, 98, 7)
-                                          : Colors.black, // Changed text color
-                                      fontWeight: FontWeight.w600,
-                                      fontSize: 16),
+              !shouldShow
+                  ? Expanded(
+                      child: Row(
+                        mainAxisAlignment: MainAxisAlignment.center,
+                        children: appbarHeaders.keys
+                            .toList()
+                            .asMap()
+                            .entries
+                            .map((entry) {
+                          int index = entry.key;
+                          String header = entry.value;
+                          return Row(
+                            children: [
+                              SizedBox(width: screenSize.width / 20),
+                              InkWell(
+                                onHover: (value) {
+                                  ref
+                                      .read(currentHoveringStatesProvider
+                                          .notifier)
+                                      .changeState(index);
+                                },
+                                onTap: () {
+                                  print("Here");
+                                  Navigator.pushNamed(
+                                      context, '/${appbarHeaders[header]!}');
+                                },
+                                child: Padding(
+                                  padding: const EdgeInsets.only(top: 7),
+                                  child: Column(
+                                    mainAxisSize: MainAxisSize.min,
+                                    mainAxisAlignment: MainAxisAlignment.center,
+                                    children: [
+                                      Text(
+                                        header,
+                                        style: TextStyle(
+                                            color: _isHovering[index]
+                                                ? Color.fromARGB(255, 36, 98, 7)
+                                                : Colors
+                                                    .black, // Changed text color
+                                            fontWeight: FontWeight.w600,
+                                            fontSize: 16),
+                                      ),
+                                      SizedBox(height: 5),
+                                      Visibility(
+                                        maintainAnimation: true,
+                                        maintainState: true,
+                                        maintainSize: true,
+                                        visible: _isHovering[index],
+                                        child: AnimatedContainer(
+                                            duration:
+                                                Duration(milliseconds: 250),
+                                            height: 2,
+                                            width: _isHovering[index] ? 40 : 0,
+                                            color: Colors
+                                                .black), // Adjusted for visibility
+                                      )
+                                    ],
+                                  ),
                                 ),
-                                SizedBox(height: 5),
-                                Visibility(
-                                  maintainAnimation: true,
-                                  maintainState: true,
-                                  maintainSize: true,
-                                  visible: _isHovering[index],
-                                  child: AnimatedContainer(
-                                      duration: Duration(milliseconds: 250),
-                                      height: 2,
-                                      width: _isHovering[index] ? 40 : 0,
-                                      color: Colors
-                                          .black), // Adjusted for visibility
-                                )
-                              ],
-                            ),
-                          ),
-                        ),
-                        SizedBox(width: screenSize.width / 40),
-                      ],
-                    );
-                  }).toList(),
-                ),
-              ),
-              InkWell(
-                  onTap: () {},
-                  child: Icon(
-                    Icons.search,
-                    color: Colors.black, // Adjust icon color for visibility
-                  )),
-              SizedBox(
-                width: screenSize.width / 50,
-              ),
-              InkWell(
-                  onTap: () {},
-                  child: Icon(Icons.shopping_bag,
-                      color: Colors.black)), // Adjust icon color
+                              ),
+                              SizedBox(width: screenSize.width / 40),
+                            ],
+                          );
+                        }).toList(),
+                      ),
+                    )
+                  : SizedBox(),
+              !shouldShow
+                  ? InkWell(
+                      onTap: () {},
+                      child: Icon(
+                        Icons.search,
+                        color: Colors.black, // Adjust icon color for visibility
+                      ))
+                  : SizedBox(),
+              !shouldShow
+                  ? SizedBox(
+                      width: screenSize.width / 50,
+                    )
+                  : SizedBox(),
+              !shouldShow
+                  ? InkWell(
+                      onTap: () {
+                        Navigator.pushNamed(context, '/cart');
+                      },
+                      child: Icon(Icons.shopping_bag, color: Colors.black))
+                  : SizedBox() // Adjust icon color
             ],
           ),
         ),

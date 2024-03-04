@@ -6,7 +6,7 @@ part of 'merch_page.dart';
 // RiverpodGenerator
 // **************************************************************************
 
-String _$countHash() => r'eeba35dcf891c0cea297250d20306aa179755166';
+String _$countHash() => r'60c84cc8548ac97c636f3812dc01f4f9d7f2a4f2';
 
 /// See also [Count].
 @ProviderFor(Count)
