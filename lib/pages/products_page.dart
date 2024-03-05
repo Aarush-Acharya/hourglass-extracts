@@ -68,7 +68,7 @@ class ProductPage extends ConsumerWidget {
             child: Column(
               children: [
                 SizedBox(
-                  height: 50,
+                  height: 80,
                 ),
                 Text('Products',
                     style: TextStyle(

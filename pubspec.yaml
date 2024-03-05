@@ -32,6 +32,11 @@ dependencies:
   flutter_polyline_points: ^2.0.0
   location: ^5.0.0-dev.8
   animated_emoji: ^3.1.0
+  razorpay_web: ^1.4.2
+  flutter_dotenv: ^5.1.0
+  flutter_stripe: ^10.1.0
+  flutter_stripe_web: ^5.1.0
+  font_awesome_flutter: ^10.7.0
 
 dev_dependencies:
   flutter_test:
@@ -48,6 +53,7 @@ flutter:
   assets:
   
     - assets/
+    - lib/
     - assets/altrd-vid.mp4
 
     # Add paths to all artist images

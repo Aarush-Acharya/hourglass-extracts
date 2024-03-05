@@ -888,9 +888,12 @@ class DispensariesScreen extends ConsumerWidget {
                                     child: Stack(
                                       children: [
                                         GoogleMap(
+                                          myLocationEnabled: true,
                                             polylines: polylines,
+                                            trafficEnabled: true,
                                             markers: stores,
                                             indoorViewEnabled: true,
+                                            mapToolbarEnabled: true,
                                             zoomControlsEnabled: false,
                                             fortyFiveDegreeImageryEnabled: true,
                                             mapType: MapType.normal,

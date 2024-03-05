@@ -45,6 +45,8 @@ class CustomAppBar extends ConsumerWidget implements PreferredSizeWidget {
 
     return shouldShow
         ? AppBar(
+          surfaceTintColor: Colors.transparent,
+
             title: Material(
                 child: InkWell(
                     onTap: () {

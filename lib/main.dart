@@ -14,13 +14,22 @@ import 'package:fineartsociety/pages/news_page.dart';
 import 'package:fineartsociety/pages/merch_page.dart';
 import 'package:fineartsociety/pages/products_page.dart';
 import 'package:flutter/material.dart';
+
+import 'package:flutter_dotenv/flutter_dotenv.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'pages/home_page.dart';
 import 'pages/artist_page.dart';
 
 void main() {
+
+  // Load our .env file that contains our Stripe Secret key
+  dotenv.load(fileName: "lib/.env");
+
+
   runApp(const ProviderScope(child: MyApp()));
 }
+
+
 
 class AppScrollBehavior extends MaterialScrollBehavior {
   @override

@@ -1,5 +1,7 @@
+import 'package:animated_emoji/animated_emoji.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:riverpod_annotation/riverpod_annotation.dart';
 part 'drawer_altrd.g.dart';
 
@@ -23,48 +25,126 @@ class AltrdDrawer extends ConsumerWidget {
       child: ListView(
         padding: EdgeInsets.zero,
         children: [
+          DrawerHeader(
+              decoration: BoxDecoration(
+                color: Color.fromARGB(255, 175, 222, 176),
+              ),
+              child: Center(
+                child: AnimatedEmoji(
+                  AnimatedEmojis.leaves,
+                  repeat: true,
+                  size: 180,
+                ),
+              )),
           ListTile(
-            title: const Text('Products'),
-            selected: state == 0 ? true : false,
-            selectedColor: Color.fromARGB(255, 36, 98, 7),
-            onTap: () {
-              // Update the state of the app
-              // Then close the drawer
-              Navigator.pushNamed(context, '/products');
-              ref.read(stateProvider.notifier).changeState(0);
-            },
-          ),
-          ListTile(
-            title: const Text('Merch'),
+            title: Row(
+              children: [
+                Icon(Icons.forest_outlined,
+                    color: state == 1
+                        ? Color.fromARGB(255, 36, 98, 7)
+                        : Colors.black),
+                SizedBox(
+                  width: 20,
+                ),
+                const Text('Products'),
+              ],
+            ),
             selected: state == 1 ? true : false,
             selectedColor: Color.fromARGB(255, 36, 98, 7),
             onTap: () {
               // Update the state of the app
               // Then close the drawer
-              Navigator.pushNamed(context, '/merch');
+              Navigator.pushNamed(context, '/products');
               ref.read(stateProvider.notifier).changeState(1);
             },
           ),
           ListTile(
-            title: const Text('Dispensaries'),
+            title: Row(
+              children: [
+                FaIcon(FontAwesomeIcons.shirt,
+                    size: 20,
+                    color: state == 2
+                        ? Color.fromARGB(255, 36, 98, 7)
+                        : Colors.black),
+                SizedBox(
+                  width: 20,
+                ),
+                const Text('Merch'),
+              ],
+            ),
             selected: state == 2 ? true : false,
             selectedColor: Color.fromARGB(255, 36, 98, 7),
             onTap: () {
               // Update the state of the app
               // Then close the drawer
-              Navigator.pushNamed(context, '/dispensaries');
+              Navigator.pushNamed(context, '/merch');
               ref.read(stateProvider.notifier).changeState(2);
             },
           ),
           ListTile(
-            title: const Text('About'),
+            title: Row(
+              children: [
+                Icon(Icons.location_city_outlined,
+                    color: state == 3
+                        ? Color.fromARGB(255, 36, 98, 7)
+                        : Colors.black),
+                SizedBox(
+                  width: 20,
+                ),
+                const Text('Dispensaries'),
+              ],
+            ),
             selected: state == 3 ? true : false,
             selectedColor: Color.fromARGB(255, 36, 98, 7),
             onTap: () {
               // Update the state of the app
               // Then close the drawer
-              Navigator.pushNamed(context, '/about');
+              Navigator.pushNamed(context, '/dispensaries');
               ref.read(stateProvider.notifier).changeState(3);
+            },
+          ),
+          ListTile(
+            title: Row(
+              children: [
+                Icon(Icons.info_outline_rounded,
+                    color: state == 4
+                        ? Color.fromARGB(255, 36, 98, 7)
+                        : Colors.black),
+                SizedBox(
+                  width: 20,
+                ),
+                const Text('About'),
+              ],
+            ),
+            selected: state == 4 ? true : false,
+            selectedColor: Color.fromARGB(255, 36, 98, 7),
+            onTap: () {
+              // Update the state of the app
+              // Then close the drawer
+              Navigator.pushNamed(context, '/about');
+              ref.read(stateProvider.notifier).changeState(4);
+            },
+          ),
+          ListTile(
+            title: Row(
+              children: [
+                Icon(Icons.shopping_cart,
+                    color: state == 5
+                        ? Color.fromARGB(255, 36, 98, 7)
+                        : Colors.black),
+                SizedBox(
+                  width: 20,
+                ),
+                const Text('Cart'),
+              ],
+            ),
+            selected: state == 5 ? true : false,
+            selectedColor: Color.fromARGB(255, 36, 98, 7),
+            onTap: () {
+              // Update the state of the app
+              // Then close the drawer
+              Navigator.pushNamed(context, '/cart');
+              ref.read(stateProvider.notifier).changeState(5);
             },
           ),
         ],
