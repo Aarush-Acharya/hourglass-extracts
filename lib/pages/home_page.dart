@@ -575,7 +575,7 @@ class HomePage extends ConsumerWidget {
 
                                 children: [
                                   Text(
-                                    "ALTR YOUR LIFESTYLE",
+                                    "HOURGLASS YOUR LIFESTYLE",
                                     textAlign: shouldShowSideBar
                                         ? TextAlign.center
                                         : TextAlign.left,

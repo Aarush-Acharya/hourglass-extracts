@@ -56,11 +56,9 @@ class CustomAppBar extends ConsumerWidget implements PreferredSizeWidget {
                         color: Colors.black,
                         height: 170,
                         width: 70,
-                        child: SvgPicture.asset(
-                          "assets/Altrd Cannabis Asset.svg",
+                        child: Image.asset(
+                          "assets/hourglass.png",
                           fit: BoxFit.contain,
-                          // Adjust SVG color for better visibility against white background
-                          color: Colors.white,
                         )))),
             automaticallyImplyLeading: false,
             backgroundColor: Colors.black,
@@ -82,14 +80,12 @@ class CustomAppBar extends ConsumerWidget implements PreferredSizeWidget {
                             Navigator.pushNamed(context, '/');
                           },
                           child: Ink(
-                              height: 170,
-                              width: 70,
-                              child: SvgPicture.asset(
-                                "assets/Altrd Cannabis Asset.svg",
-                                fit: BoxFit.fill,
-                                // Adjust SVG color for better visibility against white background
-                                color: Colors.white,
-                              ))),
+                              height: 230,
+                              width: 100,
+                              child: Image.asset(
+                          "assets/hourglass.png",
+                          fit: BoxFit.contain,
+                        ))),
                     ),
                     Expanded(
                       child: Row(
