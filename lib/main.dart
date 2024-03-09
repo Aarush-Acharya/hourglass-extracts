@@ -47,7 +47,7 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
       scrollBehavior: AppScrollBehavior(),
-      title: 'Altrd',
+      title: 'Hourglass',
       theme: ThemeData(primarySwatch: Colors.amber, fontFamily: 'Brown'),
       initialRoute: '/',
       routes: {
