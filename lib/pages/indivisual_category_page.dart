@@ -15,7 +15,7 @@ class CategoryProducts extends StatelessWidget {
     return Scaffold(
       endDrawer: AltrdDrawer(),
       extendBodyBehindAppBar: true,
-      backgroundColor: Colors.white,
+      backgroundColor: Colors.black,
       appBar: CustomAppBar(
         shouldShow: shouldShowSideBar,
       ),
@@ -30,7 +30,7 @@ class CategoryProducts extends StatelessWidget {
               Text(
                 productsData[0],
                 style: TextStyle(
-                    color: Colors.black,
+                    color: Colors.white,
                     fontSize: 40,
                     fontWeight: FontWeight.w700),
               ),
@@ -76,7 +76,7 @@ class CategoryProducts extends StatelessWidget {
                                                 Text(
                                                   productsData[index + 1][0],
                                                   style: TextStyle(
-                                                      color: Colors.black,
+                                                      color: Colors.white,
                                                       fontSize: 35),
                                                 ),
                                                 SizedBox(
@@ -88,7 +88,7 @@ class CategoryProducts extends StatelessWidget {
                                                     productsData[index + 1][1],
                                                     softWrap: true,
                                                     style: TextStyle(
-                                                        color: Colors.black,
+                                                        color: Colors.white,
                                                         fontSize: 16),
                                                   ),
                                                 ),
@@ -99,7 +99,7 @@ class CategoryProducts extends StatelessWidget {
                                                     style: TextButton.styleFrom(
                                                         side: BorderSide(
                                                             color:
-                                                                Colors.black)),
+                                                                Colors.white)),
                                                     onPressed: () {},
                                                     child: Padding(
                                                       padding:
@@ -108,7 +108,7 @@ class CategoryProducts extends StatelessWidget {
                                                       child: Text(
                                                         "Get Directions",
                                                         style: TextStyle(
-                                                          color: Colors.black,
+                                                          color: Colors.white,
                                                           letterSpacing: 5,
                                                         ),
                                                       ),
@@ -136,7 +136,7 @@ class CategoryProducts extends StatelessWidget {
                                                 Text(
                                                   productsData[index + 1][0],
                                                   style: TextStyle(
-                                                      color: Colors.black,
+                                                      color: Colors.white,
                                                       fontSize: 35),
                                                 ),
                                                 SizedBox(
@@ -148,7 +148,7 @@ class CategoryProducts extends StatelessWidget {
                                                     productsData[index + 1][1],
                                                     softWrap: true,
                                                     style: TextStyle(
-                                                        color: Colors.black,
+                                                        color: Colors.white,
                                                         fontSize: 16),
                                                   ),
                                                 ),
@@ -159,7 +159,7 @@ class CategoryProducts extends StatelessWidget {
                                                     style: TextButton.styleFrom(
                                                         side: BorderSide(
                                                             color:
-                                                                Colors.black)),
+                                                                Colors.white)),
                                                     onPressed: () {},
                                                     child: Padding(
                                                       padding:
@@ -168,7 +168,7 @@ class CategoryProducts extends StatelessWidget {
                                                       child: Text(
                                                         "Get Directions",
                                                         style: TextStyle(
-                                                          color: Colors.black,
+                                                          color: Colors.white,
                                                           letterSpacing: 5,
                                                         ),
                                                       ),
@@ -223,7 +223,7 @@ class CategoryProducts extends StatelessWidget {
                               Text(
                                 productsData[index + 1][0],
                                 style: TextStyle(
-                                    color: Colors.black, fontSize: 35),
+                                    color: Colors.white, fontSize: 35),
                                 textAlign: TextAlign.center,
                               ),
                               SizedBox(
@@ -235,7 +235,7 @@ class CategoryProducts extends StatelessWidget {
                                   productsData[index + 1][1],
                                   softWrap: true,
                                   style: TextStyle(
-                                      color: Colors.black, fontSize: 16),
+                                      color: Colors.white, fontSize: 16),
                                   textAlign: TextAlign.center,
                                 ),
                               ),
@@ -244,14 +244,14 @@ class CategoryProducts extends StatelessWidget {
                               ),
                               TextButton(
                                   style: TextButton.styleFrom(
-                                      side: BorderSide(color: Colors.black)),
+                                      side: BorderSide(color: Colors.white)),
                                   onPressed: () {},
                                   child: Padding(
                                     padding: const EdgeInsets.all(10.0),
                                     child: Text(
                                       "Get Directions",
                                       style: TextStyle(
-                                        color: Colors.black,
+                                        color: Colors.white,
                                         letterSpacing: 5,
                                       ),
                                     ),

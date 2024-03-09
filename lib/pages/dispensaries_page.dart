@@ -638,7 +638,7 @@ class DispensariesScreen extends ConsumerWidget {
     return Scaffold(
       endDrawer: AltrdDrawer(),
       extendBodyBehindAppBar: true,
-      backgroundColor: Colors.white,
+      backgroundColor: Colors.black,
       appBar: CustomAppBar(
         shouldShow: shouldShowSideBar,
       ),
@@ -656,7 +656,7 @@ class DispensariesScreen extends ConsumerWidget {
                     padding: const EdgeInsets.only(
                       top: 40,
                     ),
-                    color: Colors.white,
+                    color: Colors.black,
                     child: isDesktop
                         ? Row(
                             crossAxisAlignment: CrossAxisAlignment.start,
@@ -675,7 +675,7 @@ class DispensariesScreen extends ConsumerWidget {
                                         "Find A Location",
                                         softWrap: true,
                                         style: TextStyle(
-                                            color: Colors.black, fontSize: 30),
+                                            color: Colors.white, fontSize: 30),
                                       ),
                                       SizedBox(
                                         height: 0.05 *
@@ -689,7 +689,7 @@ class DispensariesScreen extends ConsumerWidget {
                                           softWrap: true,
                                           style: TextStyle(
                                               fontSize: 18,
-                                              color: Colors.black),
+                                              color: Colors.white),
                                         ),
                                       ),
                                       SizedBox(
@@ -715,7 +715,10 @@ class DispensariesScreen extends ConsumerWidget {
                                                     mainAxisSize:
                                                         MainAxisSize.min,
                                                     children: [
-                                                      Icon(Icons.search),
+                                                      Icon(
+                                                        Icons.search,
+                                                        color: Colors.white,
+                                                      ),
                                                       SizedBox(
                                                         width: 5,
                                                       )
@@ -737,7 +740,7 @@ class DispensariesScreen extends ConsumerWidget {
                                                       OutlineInputBorder(
                                                     borderSide:
                                                         const BorderSide(
-                                                      color: Colors.black,
+                                                      color: Colors.white,
                                                       width: 2,
                                                     ),
                                                     borderRadius:
@@ -764,7 +767,9 @@ class DispensariesScreen extends ConsumerWidget {
                                             Transform.rotate(
                                                 angle: 45 * math.pi / 180,
                                                 child: const Icon(
-                                                    Icons.navigation_rounded))
+                                                  Icons.navigation_rounded,
+                                                  color: Colors.white,
+                                                ))
                                           ],
                                         ),
                                       ),
@@ -774,7 +779,8 @@ class DispensariesScreen extends ConsumerWidget {
                                       ),
                                       const Text(
                                         "Get notified of new locations",
-                                        style: TextStyle(fontSize: 16),
+                                        style: TextStyle(
+                                            fontSize: 16, color: Colors.white),
                                       ),
                                       const SizedBox(
                                         height: 30,
@@ -784,8 +790,7 @@ class DispensariesScreen extends ConsumerWidget {
                                         child: TextField(
                                           decoration: InputDecoration(
                                             border: InputBorder.none,
-                                            fillColor: Color.fromARGB(
-                                                255, 241, 240, 240),
+                                            fillColor: Colors.black,
                                             filled: true,
                                             hintText: 'Your Name',
                                             hintStyle: TextStyle(
@@ -802,8 +807,7 @@ class DispensariesScreen extends ConsumerWidget {
                                         child: TextField(
                                           decoration: InputDecoration(
                                             border: InputBorder.none,
-                                            fillColor: Color.fromARGB(
-                                                255, 241, 240, 240),
+                                            fillColor: Colors.black,
                                             filled: true,
                                             hintText: 'Your Phone',
                                             hintStyle: TextStyle(
@@ -820,8 +824,7 @@ class DispensariesScreen extends ConsumerWidget {
                                         child: TextField(
                                           decoration: InputDecoration(
                                             border: InputBorder.none,
-                                            fillColor: Color.fromARGB(
-                                                255, 241, 240, 240),
+                                            fillColor: Colors.black,
                                             filled: true,
                                             hintText: 'Your Email',
                                             hintStyle: TextStyle(
@@ -835,7 +838,7 @@ class DispensariesScreen extends ConsumerWidget {
                                       ),
                                       TextButton(
                                         style: TextButton.styleFrom(
-                                            backgroundColor: Colors.black,
+                                            backgroundColor: Colors.white,
                                             shape:
                                                 const RoundedRectangleBorder()),
                                         onPressed: () {},
@@ -847,7 +850,7 @@ class DispensariesScreen extends ConsumerWidget {
                                               "NOTIFY ME!",
                                               style: TextStyle(
                                                   fontSize: 16,
-                                                  color: Colors.white),
+                                                  color: Colors.black),
                                             ),
                                           ),
                                         ),
@@ -857,7 +860,7 @@ class DispensariesScreen extends ConsumerWidget {
                                       ),
                                       TextButton(
                                         style: TextButton.styleFrom(
-                                            backgroundColor: Colors.black,
+                                            backgroundColor: Colors.white,
                                             shape:
                                                 const RoundedRectangleBorder()),
                                         onPressed: () {},
@@ -869,7 +872,7 @@ class DispensariesScreen extends ConsumerWidget {
                                               "SHOW ALL LOCATIONS",
                                               style: TextStyle(
                                                   fontSize: 16,
-                                                  color: Colors.white),
+                                                  color: Colors.black),
                                             ),
                                           ),
                                         ),
@@ -888,7 +891,7 @@ class DispensariesScreen extends ConsumerWidget {
                                     child: Stack(
                                       children: [
                                         GoogleMap(
-                                          myLocationEnabled: true,
+                                            myLocationEnabled: true,
                                             polylines: polylines,
                                             trafficEnabled: true,
                                             markers: stores,
@@ -1091,7 +1094,7 @@ class DispensariesScreen extends ConsumerWidget {
                                   "Find A Location",
                                   softWrap: true,
                                   style: TextStyle(
-                                      color: Colors.black, fontSize: 30),
+                                      color: Colors.white, fontSize: 30),
                                 ),
                                 SizedBox(
                                   height:
@@ -1104,7 +1107,7 @@ class DispensariesScreen extends ConsumerWidget {
                                     softWrap: true,
                                     textAlign: TextAlign.center,
                                     style: TextStyle(
-                                        fontSize: 18, color: Colors.black),
+                                        fontSize: 18, color: Colors.white),
                                   ),
                                 ),
                                 SizedBox(
@@ -1128,7 +1131,10 @@ class DispensariesScreen extends ConsumerWidget {
                                             suffixIcon: const Row(
                                               mainAxisSize: MainAxisSize.min,
                                               children: [
-                                                Icon(Icons.search),
+                                                Icon(
+                                                  Icons.search,
+                                                  color: Colors.white,
+                                                ),
                                                 SizedBox(
                                                   width: 5,
                                                 )
@@ -1144,7 +1150,7 @@ class DispensariesScreen extends ConsumerWidget {
                                             ),
                                             focusedBorder: OutlineInputBorder(
                                               borderSide: const BorderSide(
-                                                color: Colors.black,
+                                                color: Colors.white,
                                                 width: 2,
                                               ),
                                               borderRadius:
@@ -1167,7 +1173,9 @@ class DispensariesScreen extends ConsumerWidget {
                                       Transform.rotate(
                                           angle: 45 * math.pi / 180,
                                           child: const Icon(
-                                              Icons.navigation_rounded))
+                                            Icons.navigation_rounded,
+                                            color: Colors.white,
+                                          ))
                                     ],
                                   ),
                                 ),
@@ -1377,7 +1385,8 @@ class DispensariesScreen extends ConsumerWidget {
                                 ),
                                 const Text(
                                   "Get notified of new locations",
-                                  style: TextStyle(fontSize: 16),
+                                  style: TextStyle(
+                                      fontSize: 16, color: Colors.white),
                                 ),
                                 const SizedBox(
                                   height: 30,
@@ -1387,8 +1396,7 @@ class DispensariesScreen extends ConsumerWidget {
                                   child: TextField(
                                     decoration: InputDecoration(
                                       border: InputBorder.none,
-                                      fillColor:
-                                          Color.fromARGB(255, 241, 240, 240),
+                                      fillColor: Colors.black,
                                       filled: true,
                                       hintText: 'Your Name',
                                       hintStyle: TextStyle(
@@ -1405,8 +1413,7 @@ class DispensariesScreen extends ConsumerWidget {
                                   child: TextField(
                                     decoration: InputDecoration(
                                       border: InputBorder.none,
-                                      fillColor:
-                                          Color.fromARGB(255, 241, 240, 240),
+                                      fillColor: Colors.black,
                                       filled: true,
                                       hintText: 'Your Phone',
                                       hintStyle: TextStyle(
@@ -1423,8 +1430,7 @@ class DispensariesScreen extends ConsumerWidget {
                                   child: TextField(
                                     decoration: InputDecoration(
                                       border: InputBorder.none,
-                                      fillColor:
-                                          Color.fromARGB(255, 241, 240, 240),
+                                      fillColor: Colors.black,
                                       filled: true,
                                       hintText: 'Your Email',
                                       hintStyle: TextStyle(
@@ -1438,7 +1444,7 @@ class DispensariesScreen extends ConsumerWidget {
                                 ),
                                 TextButton(
                                   style: TextButton.styleFrom(
-                                      backgroundColor: Colors.black,
+                                      backgroundColor: Colors.white,
                                       shape: const RoundedRectangleBorder()),
                                   onPressed: () {},
                                   child: const SizedBox(
@@ -1448,7 +1454,7 @@ class DispensariesScreen extends ConsumerWidget {
                                       child: Text(
                                         "NOTIFY ME!",
                                         style: TextStyle(
-                                            fontSize: 16, color: Colors.white),
+                                            fontSize: 16, color: Colors.black),
                                       ),
                                     ),
                                   ),
@@ -1458,7 +1464,7 @@ class DispensariesScreen extends ConsumerWidget {
                                 ),
                                 TextButton(
                                   style: TextButton.styleFrom(
-                                      backgroundColor: Colors.black,
+                                      backgroundColor: Colors.white,
                                       shape: const RoundedRectangleBorder()),
                                   onPressed: () {},
                                   child: const SizedBox(
@@ -1468,7 +1474,7 @@ class DispensariesScreen extends ConsumerWidget {
                                       child: Text(
                                         "SHOW ALL LOCATIONS",
                                         style: TextStyle(
-                                            fontSize: 16, color: Colors.white),
+                                            fontSize: 16, color: Colors.black),
                                       ),
                                     ),
                                   ),
@@ -1490,7 +1496,7 @@ class DispensariesScreen extends ConsumerWidget {
                     return ExpansionPanel(
                         isExpanded: data.value[0],
                         canTapOnHeader: true,
-                        backgroundColor: Colors.white,
+                        backgroundColor: Colors.black,
                         headerBuilder: (BuildContext context, bool isExpanded) {
                           // Your header widget or logic here
                           return SizedBox(
@@ -1504,7 +1510,7 @@ class DispensariesScreen extends ConsumerWidget {
                                 Text(
                                   data.key,
                                   style: const TextStyle(
-                                      fontSize: 28, color: Colors.black),
+                                      fontSize: 28, color: Colors.white),
                                 )
                               ],
                             ),

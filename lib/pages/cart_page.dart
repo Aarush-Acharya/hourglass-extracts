@@ -148,7 +148,7 @@ class CartPage extends ConsumerWidget {
     return Scaffold(
       endDrawer: AltrdDrawer(),
       extendBodyBehindAppBar: true,
-      backgroundColor: Colors.white,
+      backgroundColor: Colors.black,
       appBar: CustomAppBar(
         shouldShow: shouldShowSideBar,
       ),
@@ -196,7 +196,7 @@ class CartPage extends ConsumerWidget {
                                                   Text(
                                                     cart[index][0],
                                                     style: TextStyle(
-                                                        color: Colors.black,
+                                                        color: Colors.white,
                                                         fontSize: 30),
                                                   ),
                                                   SizedBox(
@@ -208,7 +208,7 @@ class CartPage extends ConsumerWidget {
                                                       '\$ ${cart[index][1]}.00',
                                                       softWrap: true,
                                                       style: TextStyle(
-                                                          color: Colors.black,
+                                                          color: Colors.white,
                                                           fontSize: 20),
                                                     ),
                                                   ),
@@ -227,7 +227,7 @@ class CartPage extends ConsumerWidget {
                                                           softWrap: true,
                                                           style: TextStyle(
                                                               color:
-                                                                  Colors.black,
+                                                                  Colors.white,
                                                               fontSize: 18),
                                                         ),
                                                         SizedBox(
@@ -316,7 +316,7 @@ class CartPage extends ConsumerWidget {
                                         Text(
                                           cart[index][0],
                                           style: TextStyle(
-                                              color: Colors.black,
+                                              color: Colors.white,
                                               fontSize: 30),
                                         ),
                                         SizedBox(
@@ -328,7 +328,7 @@ class CartPage extends ConsumerWidget {
                                             '\$ ${cart[index][1]}.00',
                                             softWrap: true,
                                             style: TextStyle(
-                                                color: Colors.black,
+                                                color: Colors.white,
                                                 fontSize: 20),
                                           ),
                                         ),
@@ -345,7 +345,7 @@ class CartPage extends ConsumerWidget {
                                                 "x ${cart[index][2]}",
                                                 softWrap: true,
                                                 style: TextStyle(
-                                                    color: Colors.black,
+                                                    color: Colors.white,
                                                     fontSize: 18),
                                               ),
                                               SizedBox(
@@ -403,11 +403,11 @@ class CartPage extends ConsumerWidget {
                           children: [
                             Text(
                               "Total",
-                              style: TextStyle(fontSize: 25),
+                              style: TextStyle(fontSize: 25, color: Colors.white),
                             ),
                             Text(
                               "\$ ${total}.00",
-                              style: TextStyle(fontSize: 25),
+                              style: TextStyle(fontSize: 25,color: Colors.white),
                             ),
                           ],
                         ),
@@ -455,7 +455,7 @@ class CartPage extends ConsumerWidget {
                         child: Text(
                           "The cart is empty, please add items to the cart.",
                           style: TextStyle(
-                            color: Colors.black,
+                            color: Colors.white,
                             fontSize: 20,
                           ),
                           textAlign: TextAlign.center,

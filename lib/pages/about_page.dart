@@ -31,7 +31,7 @@ class AboutPage extends ConsumerWidget {
     return Scaffold(
       endDrawer: AltrdDrawer(),
       extendBodyBehindAppBar: true,
-      backgroundColor: Colors.white,
+      backgroundColor: Colors.black,
       appBar: CustomAppBar(
         shouldShow: shouldShowSideBar,
       ),
@@ -87,7 +87,7 @@ class AboutPage extends ConsumerWidget {
                                                 Text(
                                                   "Vision Statement",
                                                   style: TextStyle(
-                                                      color: Colors.black,
+                                                      color: Colors.white,
                                                       fontSize: 35),
                                                 ),
                                                 SizedBox(
@@ -99,7 +99,7 @@ class AboutPage extends ConsumerWidget {
                                                     "At ALTRD, we're dedicated to crafting premium cannabis products and experiences that fuel the adventurous spirit within us all. Through innovation, creativity, and a commitment to quality, we strive to inspire individuals to embrace life's journeys, explore new horizons, and celebrate every moment with boldness and authenticity.",
                                                     softWrap: true,
                                                     style: TextStyle(
-                                                        color: Colors.black,
+                                                        color: Colors.white,
                                                         fontSize: 16),
                                                   ),
                                                 ),
@@ -134,7 +134,7 @@ class AboutPage extends ConsumerWidget {
                                     const Text(
                                       "Vision Statement",
                                       style: TextStyle(
-                                          color: Colors.black, fontSize: 35),
+                                          color: Colors.white, fontSize: 35),
                                     ),
                                     const SizedBox(
                                       height: 40,
@@ -146,7 +146,7 @@ class AboutPage extends ConsumerWidget {
                                         softWrap: true,
                                         textAlign: TextAlign.center,
                                         style: TextStyle(
-                                            color: Colors.black, fontSize: 16),
+                                            color: Colors.white, fontSize: 16),
                                       ),
                                     ),
                                   ],
@@ -172,7 +172,7 @@ class AboutPage extends ConsumerWidget {
                                             child: Text(
                                               "Mission Statement",
                                               style: TextStyle(
-                                                  color: Colors.black,
+                                                  color: Colors.white,
                                                   fontSize: 40),
                                               softWrap: true,
                                             ),
@@ -186,7 +186,7 @@ class AboutPage extends ConsumerWidget {
                                               "ALTRD thrives on adventure, pushing boundaries, and living life to the fullest. Our culture is built on a foundation of passion, exploration, and a shared love for the extraordinary. We embrace the thrill of the unknown and encourage our community to seek out new experiences, forge meaningful connections, and create unforgettable memories. With a focus on style and sophistication, we embody the essence of modern cannabis culture, where every moment is an opportunity to elevate your lifestyle and embrace the extraordinary.",
                                               softWrap: true,
                                               style: TextStyle(
-                                                  color: Colors.black,
+                                                  color: Colors.white,
                                                   fontSize: 16),
                                             ),
                                           ),
@@ -225,7 +225,7 @@ class AboutPage extends ConsumerWidget {
                                         "Mission Statement",
                                         textAlign: TextAlign.center,
                                         style: TextStyle(
-                                            color: Colors.black, fontSize: 40),
+                                            color: Colors.white, fontSize: 40),
                                         softWrap: true,
                                       ),
                                     ),
@@ -239,7 +239,7 @@ class AboutPage extends ConsumerWidget {
                                         softWrap: true,
                                         textAlign: TextAlign.center,
                                         style: TextStyle(
-                                            color: Colors.black, fontSize: 16),
+                                            color: Colors.white, fontSize: 16),
                                       ),
                                     ),
                                   ],
@@ -275,7 +275,7 @@ class AboutPage extends ConsumerWidget {
                                                 Text(
                                                   "Brand Culture",
                                                   style: TextStyle(
-                                                      color: Colors.black,
+                                                      color: Colors.white,
                                                       fontSize: 35),
                                                 ),
                                                 SizedBox(
@@ -287,7 +287,7 @@ class AboutPage extends ConsumerWidget {
                                                     "Cannabis culture is a vibrant and diverse community that welcomes individuals from all walks of life - whether you're a skater, an elderly person, a college student, a veteran, or a family member. We take pride in creating an inclusive environment that encourages everyone to express themselves freely. Our culture fosters unity and promotes open and honest dialogue, bringing together people from different backgrounds and experiences.",
                                                     softWrap: true,
                                                     style: TextStyle(
-                                                        color: Colors.black,
+                                                        color: Colors.white,
                                                         fontSize: 16),
                                                   ),
                                                 ),
@@ -317,7 +317,7 @@ class AboutPage extends ConsumerWidget {
                                     const Text(
                                       "Brand Culture",
                                       style: TextStyle(
-                                          color: Colors.black, fontSize: 35),
+                                          color: Colors.white, fontSize: 35),
                                       textAlign: TextAlign.center,
                                     ),
                                     const SizedBox(
@@ -330,7 +330,7 @@ class AboutPage extends ConsumerWidget {
                                         softWrap: true,
                                         textAlign: TextAlign.center,
                                         style: TextStyle(
-                                            color: Colors.black, fontSize: 16),
+                                            color: Colors.white, fontSize: 16),
                                       ),
                                     ),
                                   ],
@@ -341,7 +341,7 @@ class AboutPage extends ConsumerWidget {
                           const Text(
                             "DARE TO REDEFINE.",
                             textAlign: TextAlign.center,
-                            style: TextStyle(color: Colors.black, fontSize: 42),
+                            style: TextStyle(color: Colors.white, fontSize: 42),
                           ),
                         ],
                       )),

@@ -20,14 +20,14 @@ class IndividualMerchPage extends ConsumerWidget {
     return Scaffold(
       endDrawer: AltrdDrawer(),
       extendBodyBehindAppBar: true,
-      backgroundColor: Colors.white,
+      backgroundColor: Colors.black,
       appBar: CustomAppBar(
         shouldShow: shouldShowSideBar,
       ),
       body: SingleChildScrollView(
         controller: scrollController,
         child: Column(
-                                  crossAxisAlignment: CrossAxisAlignment.center,
+          crossAxisAlignment: CrossAxisAlignment.center,
           children: [
             SizedBox(
               height: 80,
@@ -61,7 +61,7 @@ class IndividualMerchPage extends ConsumerWidget {
                                   Text(
                                     info[0],
                                     style: TextStyle(
-                                        color: Colors.black, fontSize: 35),
+                                        color: Colors.white, fontSize: 35),
                                   ),
                                   const SizedBox(
                                     height: 25,
@@ -101,7 +101,7 @@ class IndividualMerchPage extends ConsumerWidget {
                                           Text(
                                             "·",
                                             style: TextStyle(
-                                                color: Colors.black,
+                                                color: Colors.white,
                                                 fontSize: 30),
                                           ),
                                           SizedBox(
@@ -110,7 +110,7 @@ class IndividualMerchPage extends ConsumerWidget {
                                           Text(
                                             '${info[1]}',
                                             style: TextStyle(
-                                                color: Colors.black,
+                                                color: Colors.white,
                                                 fontSize: 25),
                                           ),
                                           SizedBox(
@@ -126,7 +126,7 @@ class IndividualMerchPage extends ConsumerWidget {
                                     child: Text(
                                       '${info[2]} ratings',
                                       style: TextStyle(
-                                          color: Colors.black, fontSize: 20),
+                                          color: Colors.white, fontSize: 20),
                                     ),
                                   ),
                                   const SizedBox(
@@ -135,7 +135,7 @@ class IndividualMerchPage extends ConsumerWidget {
                                   Text(
                                     '\$ ${info[3]}.00',
                                     style: TextStyle(
-                                        color: Colors.black, fontSize: 30),
+                                        color: Colors.white, fontSize: 30),
                                   ),
                                   const SizedBox(
                                     height: 10,
@@ -143,7 +143,7 @@ class IndividualMerchPage extends ConsumerWidget {
                                   const Text(
                                     "Shipping calculated at checkout",
                                     style: TextStyle(
-                                        color: Colors.black, fontSize: 16),
+                                        color: Colors.white, fontSize: 16),
                                   ),
                                   const SizedBox(
                                     height: 40,
@@ -151,7 +151,7 @@ class IndividualMerchPage extends ConsumerWidget {
                                   const Text(
                                     "Quantity",
                                     style: TextStyle(
-                                        color: Colors.black, fontSize: 23),
+                                        color: Colors.white, fontSize: 23),
                                   ),
                                   const SizedBox(
                                     height: 20,
@@ -174,13 +174,13 @@ class IndividualMerchPage extends ConsumerWidget {
                                           },
                                           icon: const Icon(
                                             Icons.add,
-                                            color: Colors.black,
+                                            color: Colors.white,
                                           ),
                                         ),
                                         Text(
                                           '$value',
                                           style: const TextStyle(
-                                              color: Colors.black,
+                                              color: Colors.white,
                                               fontSize: 24),
                                         ),
                                         IconButton(
@@ -191,7 +191,7 @@ class IndividualMerchPage extends ConsumerWidget {
                                           },
                                           icon: const Icon(
                                             Icons.remove,
-                                            color: Colors.black,
+                                            color: Colors.white,
                                           ),
                                         )
                                       ],
@@ -203,14 +203,14 @@ class IndividualMerchPage extends ConsumerWidget {
                                   TextButton(
                                       style: TextButton.styleFrom(
                                           minimumSize: const Size(280, 50),
-                                          backgroundColor: Colors.black,
+                                          backgroundColor: Colors.white,
                                           shape: RoundedRectangleBorder(
                                               borderRadius:
                                                   BorderRadius.circular(100))),
                                       onPressed: () {},
                                       child: const Text(
                                         "Buy now",
-                                        style: TextStyle(color: Colors.white),
+                                        style: TextStyle(color: Colors.black),
                                       )),
                                   const SizedBox(
                                     height: 20,
@@ -218,7 +218,7 @@ class IndividualMerchPage extends ConsumerWidget {
                                   TextButton(
                                       style: TextButton.styleFrom(
                                           minimumSize: const Size(280, 50),
-                                          backgroundColor: Colors.black,
+                                          backgroundColor: Colors.white,
                                           shape: RoundedRectangleBorder(
                                               borderRadius:
                                                   BorderRadius.circular(100))),
@@ -234,7 +234,7 @@ class IndividualMerchPage extends ConsumerWidget {
                                       },
                                       child: const Text(
                                         "Add to cart",
-                                        style: TextStyle(color: Colors.white),
+                                        style: TextStyle(color: Colors.black),
                                       )),
                                 ],
                               ),
@@ -272,7 +272,7 @@ class IndividualMerchPage extends ConsumerWidget {
                                   Text(
                                     info[0],
                                     style: TextStyle(
-                                        color: Colors.black, fontSize: 35),
+                                        color: Colors.white, fontSize: 35),
                                   ),
                                   const SizedBox(
                                     height: 25,
@@ -312,7 +312,7 @@ class IndividualMerchPage extends ConsumerWidget {
                                           Text(
                                             "·",
                                             style: TextStyle(
-                                                color: Colors.black,
+                                                color: Colors.white,
                                                 fontSize: 30),
                                           ),
                                           SizedBox(
@@ -321,7 +321,7 @@ class IndividualMerchPage extends ConsumerWidget {
                                           Text(
                                             '${info[1]}',
                                             style: TextStyle(
-                                                color: Colors.black,
+                                                color: Colors.white,
                                                 fontSize: 25),
                                           ),
                                           SizedBox(
@@ -337,7 +337,7 @@ class IndividualMerchPage extends ConsumerWidget {
                                     child: Text(
                                       '${info[2]} ratings',
                                       style: TextStyle(
-                                          color: Colors.black, fontSize: 20),
+                                          color: Colors.white, fontSize: 20),
                                     ),
                                   ),
                                   const SizedBox(
@@ -346,7 +346,7 @@ class IndividualMerchPage extends ConsumerWidget {
                                   Text(
                                     '\$ ${info[3]}.00',
                                     style: TextStyle(
-                                        color: Colors.black, fontSize: 30),
+                                        color: Colors.white, fontSize: 30),
                                   ),
                                   const SizedBox(
                                     height: 10,
@@ -354,7 +354,7 @@ class IndividualMerchPage extends ConsumerWidget {
                                   const Text(
                                     "Shipping calculated at checkout",
                                     style: TextStyle(
-                                        color: Colors.black, fontSize: 16),
+                                        color: Colors.white, fontSize: 16),
                                   ),
                                   const SizedBox(
                                     height: 40,
@@ -362,7 +362,7 @@ class IndividualMerchPage extends ConsumerWidget {
                                   const Text(
                                     "Quantity",
                                     style: TextStyle(
-                                        color: Colors.black, fontSize: 23),
+                                        color: Colors.white, fontSize: 23),
                                   ),
                                   const SizedBox(
                                     height: 20,
@@ -385,13 +385,13 @@ class IndividualMerchPage extends ConsumerWidget {
                                           },
                                           icon: const Icon(
                                             Icons.add,
-                                            color: Colors.black,
+                                            color: Colors.white,
                                           ),
                                         ),
                                         Text(
                                           '$value',
                                           style: const TextStyle(
-                                              color: Colors.black,
+                                              color: Colors.white,
                                               fontSize: 24),
                                         ),
                                         IconButton(
@@ -402,7 +402,7 @@ class IndividualMerchPage extends ConsumerWidget {
                                           },
                                           icon: const Icon(
                                             Icons.remove,
-                                            color: Colors.black,
+                                            color: Colors.white,
                                           ),
                                         )
                                       ],
@@ -414,14 +414,14 @@ class IndividualMerchPage extends ConsumerWidget {
                                   TextButton(
                                       style: TextButton.styleFrom(
                                           minimumSize: const Size(280, 50),
-                                          backgroundColor: Colors.black,
+                                          backgroundColor: Colors.white,
                                           shape: RoundedRectangleBorder(
                                               borderRadius:
                                                   BorderRadius.circular(100))),
                                       onPressed: () {},
                                       child: const Text(
                                         "Buy now",
-                                        style: TextStyle(color: Colors.white),
+                                        style: TextStyle(color: Colors.black),
                                       )),
                                   const SizedBox(
                                     height: 20,
@@ -429,7 +429,7 @@ class IndividualMerchPage extends ConsumerWidget {
                                   TextButton(
                                       style: TextButton.styleFrom(
                                           minimumSize: const Size(280, 50),
-                                          backgroundColor: Colors.black,
+                                          backgroundColor: Colors.white,
                                           shape: RoundedRectangleBorder(
                                               borderRadius:
                                                   BorderRadius.circular(100))),
@@ -445,8 +445,11 @@ class IndividualMerchPage extends ConsumerWidget {
                                       },
                                       child: const Text(
                                         "Add to cart",
-                                        style: TextStyle(color: Colors.white),
+                                        style: TextStyle(color: Colors.black),
                                       )),
+                                  SizedBox(
+                                    height: 50,
+                                  )
                                 ],
                               ),
                             ),

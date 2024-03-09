@@ -86,7 +86,7 @@ class MerchPage extends ConsumerWidget {
     return Scaffold(
       endDrawer: AltrdDrawer(),
       extendBodyBehindAppBar: true,
-      backgroundColor: Colors.white,
+      backgroundColor: Colors.black,
       appBar: CustomAppBar(
         shouldShow: shouldShowSideBar,
       ),
@@ -160,7 +160,7 @@ class MerchPage extends ConsumerWidget {
                         children: [
                           const Text(
                             "Merch",
-                            style: TextStyle(color: Colors.black, fontSize: 20),
+                            style: TextStyle(color: Colors.white, fontSize: 20),
                           ),
                           const SizedBox(
                             height: 30,
@@ -176,7 +176,7 @@ class MerchPage extends ConsumerWidget {
                                   },
                                   child: const Text(
                                     "New Releases",
-                                    style: TextStyle(color: Colors.black),
+                                    style: TextStyle(color: Colors.white),
                                   )),
                               const SizedBox(
                                 width: 100,
@@ -188,7 +188,7 @@ class MerchPage extends ConsumerWidget {
                                         .changeState(false);
                                   },
                                   child: const Text("Accessories",
-                                      style: TextStyle(color: Colors.black))),
+                                      style: TextStyle(color: Colors.white))),
                             ],
                           ),
                           const SizedBox(
@@ -235,7 +235,7 @@ class MerchPage extends ConsumerWidget {
                                                 Text(
                                                   "Prod 1",
                                                   style: TextStyle(
-                                                      color: Colors.black),
+                                                      color: Colors.white),
                                                 )
                                               ],
                                             ),
@@ -278,7 +278,7 @@ class MerchPage extends ConsumerWidget {
                                                 Text(
                                                   "Prod 2",
                                                   style: TextStyle(
-                                                      color: Colors.black),
+                                                      color: Colors.white),
                                                 )
                                               ],
                                             ),
@@ -321,7 +321,7 @@ class MerchPage extends ConsumerWidget {
                                                 Text(
                                                   "Prod 3",
                                                   style: TextStyle(
-                                                      color: Colors.black),
+                                                      color: Colors.white),
                                                 )
                                               ],
                                             ),
@@ -364,7 +364,7 @@ class MerchPage extends ConsumerWidget {
                                                 Text(
                                                   "Prod 4",
                                                   style: TextStyle(
-                                                      color: Colors.black),
+                                                      color: Colors.white),
                                                 )
                                               ],
                                             ),
@@ -413,7 +413,7 @@ class MerchPage extends ConsumerWidget {
                                                 Text(
                                                   "Prod 5",
                                                   style: TextStyle(
-                                                      color: Colors.black),
+                                                      color: Colors.white),
                                                 )
                                               ],
                                             ),
@@ -456,7 +456,7 @@ class MerchPage extends ConsumerWidget {
                                                 Text(
                                                   "Prod 6",
                                                   style: TextStyle(
-                                                      color: Colors.black),
+                                                      color: Colors.white),
                                                 )
                                               ],
                                             ),
@@ -499,7 +499,7 @@ class MerchPage extends ConsumerWidget {
                                                 Text(
                                                   "Prod 7",
                                                   style: TextStyle(
-                                                      color: Colors.black),
+                                                      color: Colors.white),
                                                 )
                                               ],
                                             ),
@@ -549,7 +549,7 @@ class MerchPage extends ConsumerWidget {
                                                 Text(
                                                   "Prod 1",
                                                   style: TextStyle(
-                                                      color: Colors.black),
+                                                      color: Colors.white),
                                                 )
                                               ],
                                             ),
@@ -595,7 +595,7 @@ class MerchPage extends ConsumerWidget {
                                                 Text(
                                                   "Prod 2",
                                                   style: TextStyle(
-                                                      color: Colors.black),
+                                                      color: Colors.white),
                                                 )
                                               ],
                                             ),
@@ -641,7 +641,7 @@ class MerchPage extends ConsumerWidget {
                                                 Text(
                                                   "Prod 3",
                                                   style: TextStyle(
-                                                      color: Colors.black),
+                                                      color: Colors.white),
                                                 )
                                               ],
                                             ),
@@ -687,7 +687,7 @@ class MerchPage extends ConsumerWidget {
                                                 Text(
                                                   "Prod 4",
                                                   style: TextStyle(
-                                                      color: Colors.black),
+                                                      color: Colors.white),
                                                 )
                                               ],
                                             ),
@@ -736,7 +736,7 @@ class MerchPage extends ConsumerWidget {
                                                 Text(
                                                   "Prod 5",
                                                   style: TextStyle(
-                                                      color: Colors.black),
+                                                      color: Colors.white),
                                                 )
                                               ],
                                             ),
@@ -782,7 +782,7 @@ class MerchPage extends ConsumerWidget {
                                                 Text(
                                                   "Prod 6",
                                                   style: TextStyle(
-                                                      color: Colors.black),
+                                                      color: Colors.white),
                                                 )
                                               ],
                                             ),
@@ -828,7 +828,7 @@ class MerchPage extends ConsumerWidget {
                                                 Text(
                                                   "Prod 7",
                                                   style: TextStyle(
-                                                      color: Colors.black),
+                                                      color: Colors.white),
                                                 )
                                               ],
                                             ),
@@ -849,13 +849,13 @@ class MerchPage extends ConsumerWidget {
                       TextButton(
                           style: TextButton.styleFrom(
                               minimumSize: const Size(180, 50),
-                              backgroundColor: Colors.black,
+                              backgroundColor: Colors.white,
                               shape: RoundedRectangleBorder(
                                   borderRadius: BorderRadius.circular(100))),
                           onPressed: () {},
                           child: const Text(
                             "All new arrivals",
-                            style: TextStyle(color: Colors.white),
+                            style: TextStyle(color: Colors.black),
                           )),
                       SizedBox(
                         width: 20,
@@ -863,15 +863,18 @@ class MerchPage extends ConsumerWidget {
                       TextButton(
                           style: TextButton.styleFrom(
                               minimumSize: const Size(180, 50),
-                              backgroundColor: Colors.black,
+                              backgroundColor: Colors.white,
                               shape: RoundedRectangleBorder(
                                   borderRadius: BorderRadius.circular(100))),
                           onPressed: () {},
                           child: const Text(
                             "Shop Now",
-                            style: TextStyle(color: Colors.white),
+                            style: TextStyle(color: Colors.black),
                           )),
                     ],
+                  ),
+                  SizedBox(
+                    height: 50,
                   ),
                   FooterWidget()
                 ],

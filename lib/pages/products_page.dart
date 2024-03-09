@@ -54,11 +54,18 @@ class ProductPage extends ConsumerWidget {
     bool isDesktop = MediaQuery.of(context).size.width > 1168;
     bool shouldShowSideBar = MediaQuery.sizeOf(context).width < 724;
     double firstFoldHeight = MediaQuery.of(context).size.height * 0.75;
+    Map products = {
+      "Cart": "cartrage_yellow",
+      "Disposables": "disposables",
+      "Pre-Roll Pack": "preeroll_pack_blue",
+      "Single Pre-Roll": "single_prerolls_blue",
+      "Jar": "prod 5"
+    };
 
     return Scaffold(
         endDrawer: AltrdDrawer(),
         extendBodyBehindAppBar: true,
-        backgroundColor: Colors.white,
+        backgroundColor: Colors.black,
         appBar: CustomAppBar(
           shouldShow: shouldShowSideBar,
         ),
@@ -71,14 +78,12 @@ class ProductPage extends ConsumerWidget {
                   height: 80,
                 ),
                 Text('Products',
-                    style: TextStyle(
-                      fontSize: 30,
-                    )),
+                    style: TextStyle(fontSize: 30, color: Colors.white)),
                 isDesktop
                     ? Row(
                         mainAxisAlignment: MainAxisAlignment
                             .spaceBetween, // Ensures equal spacing
-                        children: List.generate(productNames.length, (index) {
+                        children: List.generate(products.length, (index) {
                           return Column(
                             mainAxisAlignment: MainAxisAlignment.center,
                             children: [
@@ -89,106 +94,71 @@ class ProductPage extends ConsumerWidget {
                                     Navigator.pushNamed(
                                         context, '/categoryProducts',
                                         arguments: [
-                                          "Edibles",
+                                          "Cart",
                                           [
-                                            "STIIIZY BATTERY",
+                                            "Cartrage",
                                             "The STIIIZY Battery Starter Kit is your essential power pack, featuring a standard battery, a USB charging cable, and easy charging via any USB port.",
-                                            "assets/prod 5.png"
+                                            "assets/cartrage_yellow.png"
                                           ],
-                                          [
-                                            "STIIIZY BIIIG BATTERY",
-                                            "Experience longer-lasting sessions with the STIIIZY BIIIG Battery, designed for durability and smooth operation. USB charging accessories included.",
-                                            "assets/prod 5.png"
-                                          ],
-                                          [
-                                            "STIIIZY PORTABLE POWER CASE",
-                                            "Keep your devices powered on-the-go with the sleek STIIIZY Portable Power Case, complete with a USB charging cable and Micro USB Power Adapter.",
-                                            "assets/prod 5.png"
-                                          ]
                                         ]);
                                   } else if (index == 1) {
                                     Navigator.pushNamed(
                                         context, '/categoryProducts',
                                         arguments: [
-                                          "MoonRocks",
+                                          "Disposables",
                                           [
-                                            "STIIIZY BATTERY",
-                                            "The STIIIZY Battery Starter Kit is your essential power pack, featuring a standard battery, a USB charging cable, and easy charging via any USB port.",
-                                            "assets/prod 5.png"
+                                            "Disposables",
+                                            "Whatever this is it is disposable for sure.",
+                                            "assets/disposables.png"
                                           ],
-                                          [
-                                            "STIIIZY BIIIG BATTERY",
-                                            "Experience longer-lasting sessions with the STIIIZY BIIIG Battery, designed for durability and smooth operation. USB charging accessories included.",
-                                            "assets/prod 5.png"
-                                          ],
-                                          [
-                                            "STIIIZY PORTABLE POWER CASE",
-                                            "Keep your devices powered on-the-go with the sleek STIIIZY Portable Power Case, complete with a USB charging cable and Micro USB Power Adapter.",
-                                            "assets/prod 5.png"
-                                          ]
                                         ]);
                                   } else if (index == 2) {
                                     Navigator.pushNamed(
                                         context, '/categoryProducts',
                                         arguments: [
-                                          "Edibles",
+                                          "Pre-Roll Pack",
                                           [
-                                            "STIIIZY BATTERY",
-                                            "The STIIIZY Battery Starter Kit is your essential power pack, featuring a standard battery, a USB charging cable, and easy charging via any USB port.",
-                                            "assets/prod 5.png"
+                                            "Pre-Roll Pack Blue",
+                                            "Packs of pre-rolls blue represents some flavour I guess.",
+                                            "assets/preeroll_pack_blue.png"
                                           ],
                                           [
-                                            "STIIIZY BIIIG BATTERY",
-                                            "Experience longer-lasting sessions with the STIIIZY BIIIG Battery, designed for durability and smooth operation. USB charging accessories included.",
-                                            "assets/prod 5.png"
-                                          ],
-                                          [
-                                            "STIIIZY PORTABLE POWER CASE",
-                                            "Keep your devices powered on-the-go with the sleek STIIIZY Portable Power Case, complete with a USB charging cable and Micro USB Power Adapter.",
-                                            "assets/prod 5.png"
+                                            "Pre-Roll Pack Yellow",
+                                            "Pack of pre-rolls but yellow indicating a different colour.",
+                                            "assets/preeroll_pack_yellow.png"
                                           ]
                                         ]);
                                   } else if (index == 3) {
                                     Navigator.pushNamed(
                                         context, '/categoryProducts',
                                         arguments: [
-                                          "Edibles",
+                                          "Single Pre-Roll",
                                           [
-                                            "STIIIZY BATTERY",
-                                            "The STIIIZY Battery Starter Kit is your essential power pack, featuring a standard battery, a USB charging cable, and easy charging via any USB port.",
-                                            "assets/prod 5.png"
+                                            "Single Pre-Roll Blue",
+                                            "Single pre-roll of blue colour wrapping indicating a flavour",
+                                            "assets/single_prerolls_blue.png"
                                           ],
                                           [
-                                            "STIIIZY BIIIG BATTERY",
-                                            "Experience longer-lasting sessions with the STIIIZY BIIIG Battery, designed for durability and smooth operation. USB charging accessories included.",
-                                            "assets/prod 5.png"
+                                            "Single Pre-Roll Red",
+                                            "Single pre-roll but red in colour this time, exciting isnt it.",
+                                            "assets/single_prerolls_red.png"
                                           ],
                                           [
-                                            "STIIIZY PORTABLE POWER CASE",
-                                            "Keep your devices powered on-the-go with the sleek STIIIZY Portable Power Case, complete with a USB charging cable and Micro USB Power Adapter.",
-                                            "assets/prod 5.png"
+                                            "Single Pre-Roll Yellow",
+                                            "Again single pre-roll just yellow now.",
+                                            "assets/single_prerolls_yellow.png"
                                           ]
                                         ]);
                                   } else {
                                     Navigator.pushNamed(
                                         context, '/categoryProducts',
                                         arguments: [
-                                          "Edibles",
+                                          "Jars",
                                           [
-                                            "STIIIZY BATTERY",
-                                            "The STIIIZY Battery Starter Kit is your essential power pack, featuring a standard battery, a USB charging cable, and easy charging via any USB port.",
+                                            "A Mystry Jar",
+                                            "=== No info yet need more info asap XD ===",
                                             "assets/prod 5.png"
                                           ],
-                                          [
-                                            "STIIIZY BIIIG BATTERY",
-                                            "Experience longer-lasting sessions with the STIIIZY BIIIG Battery, designed for durability and smooth operation. USB charging accessories included.",
-                                            "assets/prod 5.png"
-                                          ],
-                                          [
-                                            "STIIIZY PORTABLE POWER CASE",
-                                            "Keep your devices powered on-the-go with the sleek STIIIZY Portable Power Case, complete with a USB charging cable and Micro USB Power Adapter.",
-                                            "assets/prod 5.png"
-                                          ]
                                         ]);
                                   }
                                 },
@@ -201,7 +171,7 @@ class ProductPage extends ConsumerWidget {
                                   child: AnimatedContainer(
                                     height: 300,
                                     width: 230,
-                                    color: Colors.white,
+                                    color: Colors.black,
                                     transformAlignment: Alignment.center,
                                     duration: const Duration(
                                         milliseconds:
@@ -214,17 +184,17 @@ class ProductPage extends ConsumerWidget {
                                       padding: const EdgeInsets.symmetric(
                                           horizontal: 25.0),
                                       child: Image.asset(
-                                          'assets/prod ${index + 1}.png',
+                                          'assets/${products.values.toList()[index]}.png',
                                           fit: BoxFit.contain),
                                     ),
                                   ),
                                 ),
                               ),
                               Text(
-                                productNames[index],
+                                products.keys.toList()[index],
                                 style: const TextStyle(
                                   fontSize: 20,
-                                  color: Colors.black,
+                                  color: Colors.white,
                                   fontWeight: FontWeight.w600,
                                 ),
                               ),
@@ -234,7 +204,7 @@ class ProductPage extends ConsumerWidget {
                       )
                     : Column(
                         // Ensures equal spacing
-                        children: List.generate(productNames.length, (index) {
+                        children: List.generate(products.length, (index) {
                           return Column(
                             mainAxisAlignment: MainAxisAlignment.center,
                             children: [
@@ -245,106 +215,71 @@ class ProductPage extends ConsumerWidget {
                                     Navigator.pushNamed(
                                         context, '/categoryProducts',
                                         arguments: [
-                                          "Edibles",
+                                          "Cart",
                                           [
-                                            "STIIIZY BATTERY",
+                                            "Cartrage",
                                             "The STIIIZY Battery Starter Kit is your essential power pack, featuring a standard battery, a USB charging cable, and easy charging via any USB port.",
-                                            "assets/prod 5.png"
+                                            "assets/cartrage_yellow.png"
                                           ],
-                                          [
-                                            "STIIIZY BIIIG BATTERY",
-                                            "Experience longer-lasting sessions with the STIIIZY BIIIG Battery, designed for durability and smooth operation. USB charging accessories included.",
-                                            "assets/prod 5.png"
-                                          ],
-                                          [
-                                            "STIIIZY PORTABLE POWER CASE",
-                                            "Keep your devices powered on-the-go with the sleek STIIIZY Portable Power Case, complete with a USB charging cable and Micro USB Power Adapter.",
-                                            "assets/prod 5.png"
-                                          ]
                                         ]);
                                   } else if (index == 1) {
                                     Navigator.pushNamed(
                                         context, '/categoryProducts',
                                         arguments: [
-                                          "MoonRocks",
+                                          "Disposables",
                                           [
-                                            "STIIIZY BATTERY",
-                                            "The STIIIZY Battery Starter Kit is your essential power pack, featuring a standard battery, a USB charging cable, and easy charging via any USB port.",
-                                            "assets/prod 5.png"
+                                            "Disposables",
+                                            "Whatever this is it is disposable for sure.",
+                                            "assets/disposables.png"
                                           ],
-                                          [
-                                            "STIIIZY BIIIG BATTERY",
-                                            "Experience longer-lasting sessions with the STIIIZY BIIIG Battery, designed for durability and smooth operation. USB charging accessories included.",
-                                            "assets/prod 5.png"
-                                          ],
-                                          [
-                                            "STIIIZY PORTABLE POWER CASE",
-                                            "Keep your devices powered on-the-go with the sleek STIIIZY Portable Power Case, complete with a USB charging cable and Micro USB Power Adapter.",
-                                            "assets/prod 5.png"
-                                          ]
                                         ]);
                                   } else if (index == 2) {
                                     Navigator.pushNamed(
                                         context, '/categoryProducts',
                                         arguments: [
-                                          "Edibles",
+                                          "Pre-Roll Pack",
                                           [
-                                            "STIIIZY BATTERY",
-                                            "The STIIIZY Battery Starter Kit is your essential power pack, featuring a standard battery, a USB charging cable, and easy charging via any USB port.",
-                                            "assets/prod 5.png"
+                                            "Pre-Roll Pack Blue",
+                                            "Packs of pre-rolls blue represents some flavour I guess.",
+                                            "assets/preeroll_pack_blue.png"
                                           ],
                                           [
-                                            "STIIIZY BIIIG BATTERY",
-                                            "Experience longer-lasting sessions with the STIIIZY BIIIG Battery, designed for durability and smooth operation. USB charging accessories included.",
-                                            "assets/prod 5.png"
-                                          ],
-                                          [
-                                            "STIIIZY PORTABLE POWER CASE",
-                                            "Keep your devices powered on-the-go with the sleek STIIIZY Portable Power Case, complete with a USB charging cable and Micro USB Power Adapter.",
-                                            "assets/prod 5.png"
+                                            "Pre-Roll Pack Yellow",
+                                            "Pack of pre-rolls but yellow indicating a different colour.",
+                                            "assets/preeroll_pack_yellow.png"
                                           ]
                                         ]);
                                   } else if (index == 3) {
                                     Navigator.pushNamed(
                                         context, '/categoryProducts',
                                         arguments: [
-                                          "Edibles",
+                                          "Single Pre-Roll",
                                           [
-                                            "STIIIZY BATTERY",
-                                            "The STIIIZY Battery Starter Kit is your essential power pack, featuring a standard battery, a USB charging cable, and easy charging via any USB port.",
-                                            "assets/prod 5.png"
+                                            "Single Pre-Roll Blue",
+                                            "Single pre-roll of blue colour wrapping indicating a flavour",
+                                            "assets/single_prerolls_blue.png"
                                           ],
                                           [
-                                            "STIIIZY BIIIG BATTERY",
-                                            "Experience longer-lasting sessions with the STIIIZY BIIIG Battery, designed for durability and smooth operation. USB charging accessories included.",
-                                            "assets/prod 5.png"
+                                            "Single Pre-Roll Red",
+                                            "Single pre-roll but red in colour this time, exciting isnt it.",
+                                            "assets/single_prerolls_red.png"
                                           ],
                                           [
-                                            "STIIIZY PORTABLE POWER CASE",
-                                            "Keep your devices powered on-the-go with the sleek STIIIZY Portable Power Case, complete with a USB charging cable and Micro USB Power Adapter.",
-                                            "assets/prod 5.png"
+                                            "Single Pre-Roll Yellow",
+                                            "Again single pre-roll just yellow now.",
+                                            "assets/single_prerolls_yellow.png"
                                           ]
                                         ]);
                                   } else {
                                     Navigator.pushNamed(
                                         context, '/categoryProducts',
                                         arguments: [
-                                          "Edibles",
+                                          "Jars",
                                           [
-                                            "STIIIZY BATTERY",
-                                            "The STIIIZY Battery Starter Kit is your essential power pack, featuring a standard battery, a USB charging cable, and easy charging via any USB port.",
+                                            "A Mystry Jar",
+                                            "=== No info yet need more info asap XD ===",
                                             "assets/prod 5.png"
                                           ],
-                                          [
-                                            "STIIIZY BIIIG BATTERY",
-                                            "Experience longer-lasting sessions with the STIIIZY BIIIG Battery, designed for durability and smooth operation. USB charging accessories included.",
-                                            "assets/prod 5.png"
-                                          ],
-                                          [
-                                            "STIIIZY PORTABLE POWER CASE",
-                                            "Keep your devices powered on-the-go with the sleek STIIIZY Portable Power Case, complete with a USB charging cable and Micro USB Power Adapter.",
-                                            "assets/prod 5.png"
-                                          ]
                                         ]);
                                   }
                                 },
@@ -357,7 +292,7 @@ class ProductPage extends ConsumerWidget {
                                   child: AnimatedContainer(
                                     height: 300,
                                     width: 230,
-                                    color: Colors.white,
+                                    color: Colors.black,
                                     transformAlignment: Alignment.center,
                                     duration: const Duration(
                                         milliseconds:
@@ -370,17 +305,17 @@ class ProductPage extends ConsumerWidget {
                                       padding: const EdgeInsets.symmetric(
                                           horizontal: 25.0),
                                       child: Image.asset(
-                                          'assets/prod ${index + 1}.png',
+                                          'assets/${products.values.toList()[index]}.png',
                                           fit: BoxFit.contain),
                                     ),
                                   ),
                                 ),
                               ),
                               Text(
-                                productNames[index],
+                                products.keys.toList()[index],
                                 style: const TextStyle(
                                   fontSize: 20,
-                                  color: Colors.black,
+                                  color: Colors.white,
                                   fontWeight: FontWeight.w600,
                                 ),
                               ),
@@ -391,7 +326,7 @@ class ProductPage extends ConsumerWidget {
                 const SizedBox(height: 100),
                 Text(
                   "#1 BRAND IN CALIFORNIA FOR INNOVATIVE CANNABIS PRODUCTS",
-                  style: TextStyle(color: Colors.black, fontSize: 30),
+                  style: TextStyle(color: Colors.white, fontSize: 30),
                   textAlign: TextAlign.center,
                 ),
                 SizedBox(
@@ -402,7 +337,7 @@ class ProductPage extends ConsumerWidget {
                   child: Text(
                     "ALTRD specializes in a diverse array of cannabis delights, ranging from gourmet edibles to potent moonrocks, pure resins, and our signature thundersticks. Explore the pinnacle of flavor and effect with our meticulously crafted edibles, indulge in the celestial experience of our premium moonrocks, or dive deep into the essence of cannabis with our rich, aromatic resins. Our thundersticks offer an unparalleled experience, combining innovation and tradition for a truly electrifying session.",
                     style: TextStyle(
-                      color: Colors.black,
+                      color: Colors.white,
                     ),
                     softWrap: true,
                     textAlign: TextAlign.center,
@@ -413,7 +348,7 @@ class ProductPage extends ConsumerWidget {
                 ),
                 Text(
                   "EDIBLES:",
-                  style: TextStyle(color: Colors.black, fontSize: 20),
+                  style: TextStyle(color: Colors.white, fontSize: 20),
                 ),
                 SizedBox(
                   height: 10,
@@ -423,7 +358,7 @@ class ProductPage extends ConsumerWidget {
                   child: Text(
                     "ALTRD's edibles redefine the boundaries of taste and potency, offering a gourmet journey through an array of flavors. Each edible is crafted with the finest ingredients and the purest extracts, ensuring a consistent and enjoyable experience. From the subtle elegance of our infused chocolates to the bold burst of our gummy delights, our edibles are designed for discerning palates and refined effects.",
                     style: TextStyle(
-                      color: Colors.black,
+                      color: Colors.white,
                     ),
                     softWrap: true,
                     textAlign: TextAlign.center,
@@ -434,7 +369,7 @@ class ProductPage extends ConsumerWidget {
                 ),
                 Text(
                   "MOONROCKS:",
-                  style: TextStyle(color: Colors.black, fontSize: 20),
+                  style: TextStyle(color: Colors.white, fontSize: 20),
                 ),
                 SizedBox(
                   height: 10,
@@ -444,7 +379,7 @@ class ProductPage extends ConsumerWidget {
                   child: Text(
                     "Experience the zenith of potency with ALTRD's moonrocks, a harmonious blend of top-shelf flower, golden hash oil, and kief. Each moonrock is a masterpiece of flavor and intensity, designed to elevate your experience to cosmic proportions. Whether enjoyed alone or shared among friends, our moonrocks promise an unforgettable journey.",
                     style: TextStyle(
-                      color: Colors.black,
+                      color: Colors.white,
                     ),
                     softWrap: true,
                     textAlign: TextAlign.center,
@@ -455,7 +390,7 @@ class ProductPage extends ConsumerWidget {
                 ),
                 Text(
                   "RESINS & THUNDERSTICKS:",
-                  style: TextStyle(color: Colors.black, fontSize: 20),
+                  style: TextStyle(color: Colors.white, fontSize: 20),
                 ),
                 SizedBox(
                   height: 10,
@@ -465,7 +400,7 @@ class ProductPage extends ConsumerWidget {
                   child: Text(
                     "Dive into the pure essence of cannabis with ALTRD's resins, capturing the full spectrum of cannabinoids and terpenes for an authentic and potent experience. Our thundersticks, a bold fusion of premium flower and concentrate, offer a unique experience that ignites the senses and propels you to new heights. Embrace the power and purity of ALTRD's resins and thundersticks for a transcendent cannabis experience.",
                     style: TextStyle(
-                      color: Colors.black,
+                      color: Colors.white,
                     ),
                     softWrap: true,
                     textAlign: TextAlign.center,
@@ -477,13 +412,13 @@ class ProductPage extends ConsumerWidget {
                 TextButton(
                     style: TextButton.styleFrom(
                         minimumSize: const Size(180, 50),
-                        backgroundColor: Colors.black,
+                        backgroundColor: Colors.white,
                         shape: RoundedRectangleBorder(
                             borderRadius: BorderRadius.circular(100))),
                     onPressed: () {},
                     child: const Text(
                       "Go to Dispensary",
-                      style: TextStyle(color: Colors.white),
+                      style: TextStyle(color: Colors.black),
                     )),
                 SizedBox(
                   height: 40,

@@ -485,13 +485,6 @@ class HomePage extends ConsumerWidget {
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
-    List<String> productNames = [
-      "Edibles",
-      "Moonrocks",
-      "Resins",
-      "Thundersticks",
-      "Moonrocks"
-    ];
     bool shouldShowSideBar = MediaQuery.sizeOf(context).width < 724;
 
     List scales = ref.watch(cardScaleStateProvider);
@@ -521,10 +514,17 @@ class HomePage extends ConsumerWidget {
     bool videoInitialised = ref.watch(isVideoInitializedProvider);
     double firstFoldHeight = MediaQuery.of(context).size.height * 0.75;
     ScrollController scrollController = ScrollController();
+    Map products = {
+      "Cart": "cartrage_yellow",
+      "Disposables": "disposables",
+      "Pre-Roll Pack": "preeroll_pack_blue",
+      "Single Pre-Roll": "single_prerolls_blue",
+      "Jar": "prod 5"
+    };
     return Scaffold(
         endDrawer: AltrdDrawer(),
         extendBodyBehindAppBar: true,
-        backgroundColor: Colors.white,
+        backgroundColor: Colors.black,
         appBar: CustomAppBar(
           shouldShow: shouldShowSideBar,
         ),
@@ -703,7 +703,7 @@ class HomePage extends ConsumerWidget {
               ),
               const Text(
                 "Explore Our Products",
-                style: TextStyle(color: Colors.black, fontSize: 30),
+                style: TextStyle(color: Colors.white, fontSize: 30),
               ),
               const SizedBox(
                 height: 30,
@@ -712,7 +712,7 @@ class HomePage extends ConsumerWidget {
                   ? Row(
                       mainAxisAlignment: MainAxisAlignment
                           .spaceBetween, // Ensures equal spacing
-                      children: List.generate(productNames.length, (index) {
+                      children: List.generate(products.length, (index) {
                         return Column(
                           mainAxisAlignment: MainAxisAlignment.center,
                           children: [
@@ -723,106 +723,71 @@ class HomePage extends ConsumerWidget {
                                   Navigator.pushNamed(
                                       context, '/categoryProducts',
                                       arguments: [
-                                        "Edibles",
+                                        "Cart",
                                         [
-                                          "STIIIZY BATTERY",
+                                          "Cartrage",
                                           "The STIIIZY Battery Starter Kit is your essential power pack, featuring a standard battery, a USB charging cable, and easy charging via any USB port.",
-                                          "assets/prod 5.png"
+                                          "assets/cartrage_yellow.png"
                                         ],
-                                        [
-                                          "STIIIZY BIIIG BATTERY",
-                                          "Experience longer-lasting sessions with the STIIIZY BIIIG Battery, designed for durability and smooth operation. USB charging accessories included.",
-                                          "assets/prod 5.png"
-                                        ],
-                                        [
-                                          "STIIIZY PORTABLE POWER CASE",
-                                          "Keep your devices powered on-the-go with the sleek STIIIZY Portable Power Case, complete with a USB charging cable and Micro USB Power Adapter.",
-                                          "assets/prod 5.png"
-                                        ]
                                       ]);
                                 } else if (index == 1) {
                                   Navigator.pushNamed(
                                       context, '/categoryProducts',
                                       arguments: [
-                                        "MoonRocks",
+                                        "Disposables",
                                         [
-                                          "STIIIZY BATTERY",
-                                          "The STIIIZY Battery Starter Kit is your essential power pack, featuring a standard battery, a USB charging cable, and easy charging via any USB port.",
-                                          "assets/prod 5.png"
+                                          "Disposables",
+                                          "Whatever this is it is disposable for sure.",
+                                          "assets/disposables.png"
                                         ],
-                                        [
-                                          "STIIIZY BIIIG BATTERY",
-                                          "Experience longer-lasting sessions with the STIIIZY BIIIG Battery, designed for durability and smooth operation. USB charging accessories included.",
-                                          "assets/prod 5.png"
-                                        ],
-                                        [
-                                          "STIIIZY PORTABLE POWER CASE",
-                                          "Keep your devices powered on-the-go with the sleek STIIIZY Portable Power Case, complete with a USB charging cable and Micro USB Power Adapter.",
-                                          "assets/prod 5.png"
-                                        ]
                                       ]);
                                 } else if (index == 2) {
                                   Navigator.pushNamed(
                                       context, '/categoryProducts',
                                       arguments: [
-                                        "Edibles",
+                                        "Pre-Roll Pack",
                                         [
-                                          "STIIIZY BATTERY",
-                                          "The STIIIZY Battery Starter Kit is your essential power pack, featuring a standard battery, a USB charging cable, and easy charging via any USB port.",
-                                          "assets/prod 5.png"
+                                          "Pre-Roll Pack Blue",
+                                          "Packs of pre-rolls blue represents some flavour I guess.",
+                                          "assets/preeroll_pack_blue.png"
                                         ],
                                         [
-                                          "STIIIZY BIIIG BATTERY",
-                                          "Experience longer-lasting sessions with the STIIIZY BIIIG Battery, designed for durability and smooth operation. USB charging accessories included.",
-                                          "assets/prod 5.png"
-                                        ],
-                                        [
-                                          "STIIIZY PORTABLE POWER CASE",
-                                          "Keep your devices powered on-the-go with the sleek STIIIZY Portable Power Case, complete with a USB charging cable and Micro USB Power Adapter.",
-                                          "assets/prod 5.png"
+                                          "Pre-Roll Pack Yellow",
+                                          "Pack of pre-rolls but yellow indicating a different colour.",
+                                          "assets/preeroll_pack_yellow.png"
                                         ]
                                       ]);
                                 } else if (index == 3) {
                                   Navigator.pushNamed(
                                       context, '/categoryProducts',
                                       arguments: [
-                                        "Edibles",
+                                        "Single Pre-Roll",
                                         [
-                                          "STIIIZY BATTERY",
-                                          "The STIIIZY Battery Starter Kit is your essential power pack, featuring a standard battery, a USB charging cable, and easy charging via any USB port.",
-                                          "assets/prod 5.png"
+                                          "Single Pre-Roll Blue",
+                                          "Single pre-roll of blue colour wrapping indicating a flavour",
+                                          "assets/single_prerolls_blue.png"
                                         ],
                                         [
-                                          "STIIIZY BIIIG BATTERY",
-                                          "Experience longer-lasting sessions with the STIIIZY BIIIG Battery, designed for durability and smooth operation. USB charging accessories included.",
-                                          "assets/prod 5.png"
+                                          "Single Pre-Roll Red",
+                                          "Single pre-roll but red in colour this time, exciting isnt it.",
+                                          "assets/single_prerolls_red.png"
                                         ],
                                         [
-                                          "STIIIZY PORTABLE POWER CASE",
-                                          "Keep your devices powered on-the-go with the sleek STIIIZY Portable Power Case, complete with a USB charging cable and Micro USB Power Adapter.",
-                                          "assets/prod 5.png"
+                                          "Single Pre-Roll Yellow",
+                                          "Again single pre-roll just yellow now.",
+                                          "assets/single_prerolls_yellow.png"
                                         ]
                                       ]);
                                 } else {
                                   Navigator.pushNamed(
                                       context, '/categoryProducts',
                                       arguments: [
-                                        "Edibles",
+                                        "Jars",
                                         [
-                                          "STIIIZY BATTERY",
-                                          "The STIIIZY Battery Starter Kit is your essential power pack, featuring a standard battery, a USB charging cable, and easy charging via any USB port.",
+                                          "A Mystry Jar",
+                                          "=== No info yet need more info asap XD ===",
                                           "assets/prod 5.png"
                                         ],
-                                        [
-                                          "STIIIZY BIIIG BATTERY",
-                                          "Experience longer-lasting sessions with the STIIIZY BIIIG Battery, designed for durability and smooth operation. USB charging accessories included.",
-                                          "assets/prod 5.png"
-                                        ],
-                                        [
-                                          "STIIIZY PORTABLE POWER CASE",
-                                          "Keep your devices powered on-the-go with the sleek STIIIZY Portable Power Case, complete with a USB charging cable and Micro USB Power Adapter.",
-                                          "assets/prod 5.png"
-                                        ]
                                       ]);
                                 }
                               },
@@ -835,7 +800,7 @@ class HomePage extends ConsumerWidget {
                                 child: AnimatedContainer(
                                   height: 300,
                                   width: 230,
-                                  color: Colors.white,
+                                  color: Colors.black,
                                   transformAlignment: Alignment.center,
                                   duration: const Duration(
                                       milliseconds:
@@ -848,17 +813,17 @@ class HomePage extends ConsumerWidget {
                                     padding: const EdgeInsets.symmetric(
                                         horizontal: 25.0),
                                     child: Image.asset(
-                                        'assets/prod ${index + 1}.png',
+                                        'assets/${products.values.toList()[index]}.png',
                                         fit: BoxFit.contain),
                                   ),
                                 ),
                               ),
                             ),
                             Text(
-                              productNames[index],
+                              products.keys.toList()[index],
                               style: const TextStyle(
                                 fontSize: 20,
-                                color: Colors.black,
+                                color: Colors.white,
                                 fontWeight: FontWeight.w600,
                               ),
                             ),
@@ -867,9 +832,8 @@ class HomePage extends ConsumerWidget {
                       }),
                     )
                   : Column(
-                      mainAxisAlignment: MainAxisAlignment
-                          .spaceBetween, // Ensures equal spacing
-                      children: List.generate(productNames.length, (index) {
+                      // Ensures equal spacing
+                      children: List.generate(products.length, (index) {
                         return Column(
                           mainAxisAlignment: MainAxisAlignment.center,
                           children: [
@@ -880,106 +844,71 @@ class HomePage extends ConsumerWidget {
                                   Navigator.pushNamed(
                                       context, '/categoryProducts',
                                       arguments: [
-                                        "Edibles",
+                                        "Cart",
                                         [
-                                          "STIIIZY BATTERY",
+                                          "Cartrage",
                                           "The STIIIZY Battery Starter Kit is your essential power pack, featuring a standard battery, a USB charging cable, and easy charging via any USB port.",
-                                          "assets/prod 5.png"
+                                          "assets/cartrage_yellow.png"
                                         ],
-                                        [
-                                          "STIIIZY BIIIG BATTERY",
-                                          "Experience longer-lasting sessions with the STIIIZY BIIIG Battery, designed for durability and smooth operation. USB charging accessories included.",
-                                          "assets/prod 5.png"
-                                        ],
-                                        [
-                                          "STIIIZY PORTABLE POWER CASE",
-                                          "Keep your devices powered on-the-go with the sleek STIIIZY Portable Power Case, complete with a USB charging cable and Micro USB Power Adapter.",
-                                          "assets/prod 5.png"
-                                        ]
                                       ]);
                                 } else if (index == 1) {
                                   Navigator.pushNamed(
                                       context, '/categoryProducts',
                                       arguments: [
-                                        "MoonRocks",
+                                        "Disposables",
                                         [
-                                          "STIIIZY BATTERY",
-                                          "The STIIIZY Battery Starter Kit is your essential power pack, featuring a standard battery, a USB charging cable, and easy charging via any USB port.",
-                                          "assets/prod 5.png"
+                                          "Disposables",
+                                          "Whatever this is it is disposable for sure.",
+                                          "assets/disposables.png"
                                         ],
-                                        [
-                                          "STIIIZY BIIIG BATTERY",
-                                          "Experience longer-lasting sessions with the STIIIZY BIIIG Battery, designed for durability and smooth operation. USB charging accessories included.",
-                                          "assets/prod 5.png"
-                                        ],
-                                        [
-                                          "STIIIZY PORTABLE POWER CASE",
-                                          "Keep your devices powered on-the-go with the sleek STIIIZY Portable Power Case, complete with a USB charging cable and Micro USB Power Adapter.",
-                                          "assets/prod 5.png"
-                                        ]
                                       ]);
                                 } else if (index == 2) {
                                   Navigator.pushNamed(
                                       context, '/categoryProducts',
                                       arguments: [
-                                        "Edibles",
+                                        "Pre-Roll Pack",
                                         [
-                                          "STIIIZY BATTERY",
-                                          "The STIIIZY Battery Starter Kit is your essential power pack, featuring a standard battery, a USB charging cable, and easy charging via any USB port.",
-                                          "assets/prod 5.png"
+                                          "Pre-Roll Pack Blue",
+                                          "Packs of pre-rolls blue represents some flavour I guess.",
+                                          "assets/preeroll_pack_blue.png"
                                         ],
                                         [
-                                          "STIIIZY BIIIG BATTERY",
-                                          "Experience longer-lasting sessions with the STIIIZY BIIIG Battery, designed for durability and smooth operation. USB charging accessories included.",
-                                          "assets/prod 5.png"
-                                        ],
-                                        [
-                                          "STIIIZY PORTABLE POWER CASE",
-                                          "Keep your devices powered on-the-go with the sleek STIIIZY Portable Power Case, complete with a USB charging cable and Micro USB Power Adapter.",
-                                          "assets/prod 5.png"
+                                          "Pre-Roll Pack Yellow",
+                                          "Pack of pre-rolls but yellow indicating a different colour.",
+                                          "assets/preeroll_pack_yellow.png"
                                         ]
                                       ]);
                                 } else if (index == 3) {
                                   Navigator.pushNamed(
                                       context, '/categoryProducts',
                                       arguments: [
-                                        "Edibles",
+                                        "Single Pre-Roll",
                                         [
-                                          "STIIIZY BATTERY",
-                                          "The STIIIZY Battery Starter Kit is your essential power pack, featuring a standard battery, a USB charging cable, and easy charging via any USB port.",
-                                          "assets/prod 5.png"
+                                          "Single Pre-Roll Blue",
+                                          "Single pre-roll of blue colour wrapping indicating a flavour",
+                                          "assets/single_prerolls_blue.png"
                                         ],
                                         [
-                                          "STIIIZY BIIIG BATTERY",
-                                          "Experience longer-lasting sessions with the STIIIZY BIIIG Battery, designed for durability and smooth operation. USB charging accessories included.",
-                                          "assets/prod 5.png"
+                                          "Single Pre-Roll Red",
+                                          "Single pre-roll but red in colour this time, exciting isnt it.",
+                                          "assets/single_prerolls_red.png"
                                         ],
                                         [
-                                          "STIIIZY PORTABLE POWER CASE",
-                                          "Keep your devices powered on-the-go with the sleek STIIIZY Portable Power Case, complete with a USB charging cable and Micro USB Power Adapter.",
-                                          "assets/prod 5.png"
+                                          "Single Pre-Roll Yellow",
+                                          "Again single pre-roll just yellow now.",
+                                          "assets/single_prerolls_yellow.png"
                                         ]
                                       ]);
                                 } else {
                                   Navigator.pushNamed(
                                       context, '/categoryProducts',
                                       arguments: [
-                                        "Edibles",
+                                        "Jars",
                                         [
-                                          "STIIIZY BATTERY",
-                                          "The STIIIZY Battery Starter Kit is your essential power pack, featuring a standard battery, a USB charging cable, and easy charging via any USB port.",
+                                          "A Mystry Jar",
+                                          "=== No info yet need more info asap XD ===",
                                           "assets/prod 5.png"
                                         ],
-                                        [
-                                          "STIIIZY BIIIG BATTERY",
-                                          "Experience longer-lasting sessions with the STIIIZY BIIIG Battery, designed for durability and smooth operation. USB charging accessories included.",
-                                          "assets/prod 5.png"
-                                        ],
-                                        [
-                                          "STIIIZY PORTABLE POWER CASE",
-                                          "Keep your devices powered on-the-go with the sleek STIIIZY Portable Power Case, complete with a USB charging cable and Micro USB Power Adapter.",
-                                          "assets/prod 5.png"
-                                        ]
                                       ]);
                                 }
                               },
@@ -992,11 +921,11 @@ class HomePage extends ConsumerWidget {
                                 child: AnimatedContainer(
                                   height: 300,
                                   width: 230,
-                                  color: Colors.white,
+                                  color: Colors.black,
                                   transformAlignment: Alignment.center,
                                   duration: const Duration(
                                       milliseconds:
-                                          700), // Adjust the duration as needed
+                                          300), // Adjust the duration as needed
                                   curve: Curves
                                       .easeInOut, // Adjust the curve as needed
                                   transform: Matrix4.identity()
@@ -1005,17 +934,17 @@ class HomePage extends ConsumerWidget {
                                     padding: const EdgeInsets.symmetric(
                                         horizontal: 25.0),
                                     child: Image.asset(
-                                        'assets/prod ${index + 1}.png',
+                                        'assets/${products.values.toList()[index]}.png',
                                         fit: BoxFit.contain),
                                   ),
                                 ),
                               ),
                             ),
                             Text(
-                              productNames[index],
+                              products.keys.toList()[index],
                               style: const TextStyle(
                                 fontSize: 20,
-                                color: Colors.black,
+                                color: Colors.white,
                                 fontWeight: FontWeight.w600,
                               ),
                             ),
@@ -1028,7 +957,7 @@ class HomePage extends ConsumerWidget {
               ),
               const Text(
                 "Our Stores",
-                style: TextStyle(color: Colors.black, fontSize: 30),
+                style: TextStyle(color: Colors.white, fontSize: 30),
               ),
               const SizedBox(
                 height: 20,
@@ -1066,7 +995,7 @@ class HomePage extends ConsumerWidget {
                 child: const Text(
                   "Find the nearest ALTRD store now",
                   style: TextStyle(
-                    color: Colors.black,
+                    color: Colors.white,
                     fontSize: 20,
                   ),
                   softWrap: true,
@@ -1168,7 +1097,7 @@ class HomePage extends ConsumerWidget {
                               const Text(
                                 "WHAT IS ALTRD?",
                                 style: TextStyle(
-                                    color: Colors.black, fontSize: 30),
+                                    color: Colors.white, fontSize: 30),
                                 softWrap: true,
                               ),
                               const SizedBox(
@@ -1179,7 +1108,7 @@ class HomePage extends ConsumerWidget {
                                 child: const Text(
                                   "Change or cause to change in character or composition, typically in a comparatively small but significant way",
                                   style: TextStyle(
-                                      color: Colors.black, fontSize: 15),
+                                      color: Colors.white, fontSize: 15),
                                   softWrap: true,
                                   textAlign: TextAlign.center,
                                 ),
@@ -1200,7 +1129,7 @@ class HomePage extends ConsumerWidget {
               ),
               const Text(
                 "Merch",
-                style: TextStyle(color: Colors.black, fontSize: 30),
+                style: TextStyle(color: Colors.white, fontSize: 30),
               ),
               const SizedBox(
                 height: 30,
@@ -1219,7 +1148,7 @@ class HomePage extends ConsumerWidget {
                             horizontal: 8.0, vertical: 2),
                         child: const Text(
                           "New Releases",
-                          style: TextStyle(color: Colors.black, fontSize: 18),
+                          style: TextStyle(color: Colors.white, fontSize: 18),
                         ),
                       )),
                   const SizedBox(
@@ -1236,7 +1165,7 @@ class HomePage extends ConsumerWidget {
                             horizontal: 8.0, vertical: 2),
                         child: const Text("Accessories",
                             style:
-                                TextStyle(color: Colors.black, fontSize: 18)),
+                                TextStyle(color: Colors.white, fontSize: 18)),
                       )),
                 ],
               ),
@@ -1280,7 +1209,7 @@ class HomePage extends ConsumerWidget {
                                     ),
                                     Text(
                                       "Prod 1",
-                                      style: TextStyle(color: Colors.black),
+                                      style: TextStyle(color: Colors.white),
                                     )
                                   ],
                                 ),
@@ -1320,7 +1249,7 @@ class HomePage extends ConsumerWidget {
                                     ),
                                     Text(
                                       "Prod 2",
-                                      style: TextStyle(color: Colors.black),
+                                      style: TextStyle(color: Colors.white),
                                     )
                                   ],
                                 ),
@@ -1360,7 +1289,7 @@ class HomePage extends ConsumerWidget {
                                     ),
                                     Text(
                                       "Prod 3",
-                                      style: TextStyle(color: Colors.black),
+                                      style: TextStyle(color: Colors.white),
                                     )
                                   ],
                                 ),
@@ -1400,7 +1329,7 @@ class HomePage extends ConsumerWidget {
                                     ),
                                     Text(
                                       "Prod 4",
-                                      style: TextStyle(color: Colors.black),
+                                      style: TextStyle(color: Colors.white),
                                     )
                                   ],
                                 ),
@@ -1445,7 +1374,7 @@ class HomePage extends ConsumerWidget {
                                     ),
                                     Text(
                                       "Prod 5",
-                                      style: TextStyle(color: Colors.black),
+                                      style: TextStyle(color: Colors.white),
                                     )
                                   ],
                                 ),
@@ -1485,7 +1414,7 @@ class HomePage extends ConsumerWidget {
                                     ),
                                     Text(
                                       "Prod 6",
-                                      style: TextStyle(color: Colors.black),
+                                      style: TextStyle(color: Colors.white),
                                     )
                                   ],
                                 ),
@@ -1525,7 +1454,7 @@ class HomePage extends ConsumerWidget {
                                     ),
                                     Text(
                                       "Prod 7",
-                                      style: TextStyle(color: Colors.black),
+                                      style: TextStyle(color: Colors.white),
                                     )
                                   ],
                                 ),
@@ -1571,7 +1500,7 @@ class HomePage extends ConsumerWidget {
                                     ),
                                     Text(
                                       "Prod 1",
-                                      style: TextStyle(color: Colors.black),
+                                      style: TextStyle(color: Colors.white),
                                     )
                                   ],
                                 ),
@@ -1614,7 +1543,7 @@ class HomePage extends ConsumerWidget {
                                     ),
                                     Text(
                                       "Prod 2",
-                                      style: TextStyle(color: Colors.black),
+                                      style: TextStyle(color: Colors.white),
                                     )
                                   ],
                                 ),
@@ -1657,7 +1586,7 @@ class HomePage extends ConsumerWidget {
                                     ),
                                     Text(
                                       "Prod 3",
-                                      style: TextStyle(color: Colors.black),
+                                      style: TextStyle(color: Colors.white),
                                     )
                                   ],
                                 ),
@@ -1700,7 +1629,7 @@ class HomePage extends ConsumerWidget {
                                     ),
                                     Text(
                                       "Prod 4",
-                                      style: TextStyle(color: Colors.black),
+                                      style: TextStyle(color: Colors.white),
                                     )
                                   ],
                                 ),
@@ -1745,7 +1674,7 @@ class HomePage extends ConsumerWidget {
                                     ),
                                     Text(
                                       "Prod 5",
-                                      style: TextStyle(color: Colors.black),
+                                      style: TextStyle(color: Colors.white),
                                     )
                                   ],
                                 ),
@@ -1788,7 +1717,7 @@ class HomePage extends ConsumerWidget {
                                     ),
                                     Text(
                                       "Prod 6",
-                                      style: TextStyle(color: Colors.black),
+                                      style: TextStyle(color: Colors.white),
                                     )
                                   ],
                                 ),
@@ -1831,7 +1760,7 @@ class HomePage extends ConsumerWidget {
                                     ),
                                     Text(
                                       "Prod 7",
-                                      style: TextStyle(color: Colors.black),
+                                      style: TextStyle(color: Colors.white),
                                     )
                                   ],
                                 ),
@@ -1876,6 +1805,13 @@ class HomePage extends ConsumerWidget {
               const SizedBox(
                 height: 50,
               ),
+              const Text(
+                "Blogs",
+                style: TextStyle(color: Colors.white, fontSize: 30),
+              ),
+              const SizedBox(
+                height: 50,
+              ),
               Wrap(
                 spacing: 20,
                 runSpacing: 50,
@@ -1901,7 +1837,7 @@ class HomePage extends ConsumerWidget {
                       Text(
                         "Sample Blog Title",
                         style: TextStyle(
-                            color: Colors.black,
+                            color: Colors.white,
                             fontSize: 20,
                             fontWeight: FontWeight.bold),
                         textAlign: TextAlign.start,
@@ -1920,7 +1856,7 @@ class HomePage extends ConsumerWidget {
                   style: TextStyle(
                       fontSize: 30,
                       color: Colors
-                          .black), // Ensure the text color is white for visibility
+                          .white), // Ensure the text color is white for visibility
                 ),
               ),
               Center(

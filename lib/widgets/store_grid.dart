@@ -18,7 +18,7 @@ class StoreGrid extends ConsumerWidget {
   Widget build(BuildContext contex, WidgetRef ref) {
     GoogleMapController? mapController = ref.watch(mapControllerProvider);
     return Container(
-      color: Colors.white, // Set the background color here
+      color: Colors.black, // Set the background color here
       child: Column(
         children: [
           Wrap(
@@ -45,7 +45,7 @@ class StoreGrid extends ConsumerWidget {
                       Text(
                         girdData[index]["name"],
                         style: TextStyle(
-                            color: Colors.black,
+                            color: Colors.white,
                             fontSize: 24,
                             fontWeight: FontWeight.w600),
                       ),
@@ -55,7 +55,7 @@ class StoreGrid extends ConsumerWidget {
                       Text(
                         girdData[index]["description"],
                         style: TextStyle(
-                          color: Colors.black,
+                          color: Colors.white,
                         ),
                       ),
                       SizedBox(
@@ -66,7 +66,7 @@ class StoreGrid extends ConsumerWidget {
                         child: Text(
                           address,
                           style: TextStyle(
-                            color: Colors.black,
+                            color: Colors.white,
                           ),
                         ),
                       ),
@@ -76,7 +76,7 @@ class StoreGrid extends ConsumerWidget {
                       Text(
                         girdData[index]["timings"],
                         style: TextStyle(
-                          color: Colors.black,
+                          color: Colors.white,
                         ),
                       ),
                       SizedBox(

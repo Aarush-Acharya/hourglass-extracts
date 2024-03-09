@@ -45,29 +45,30 @@ class CustomAppBar extends ConsumerWidget implements PreferredSizeWidget {
 
     return shouldShow
         ? AppBar(
-          surfaceTintColor: Colors.transparent,
-
+           iconTheme: IconThemeData(color: Colors.white),
+            surfaceTintColor: Colors.transparent,
             title: Material(
                 child: InkWell(
                     onTap: () {
                       Navigator.pushNamed(context, '/');
                     },
                     child: Ink(
+                        color: Colors.black,
                         height: 170,
                         width: 70,
                         child: SvgPicture.asset(
                           "assets/Altrd Cannabis Asset.svg",
                           fit: BoxFit.contain,
                           // Adjust SVG color for better visibility against white background
-                          color: Colors.black,
+                          color: Colors.white,
                         )))),
             automaticallyImplyLeading: false,
-            backgroundColor: Colors.white,
+            backgroundColor: Colors.black,
             centerTitle: false)
         : PreferredSize(
             preferredSize: Size(screenSize.width, 1000),
             child: Container(
-              color: Colors.white, // Set the background color to white
+              color: Colors.black, // Set the background color to white
               padding: EdgeInsets.only(left: 30, top: 5, bottom: 5, right: 40),
               child: Padding(
                 padding: const EdgeInsets.all(4),
@@ -87,7 +88,7 @@ class CustomAppBar extends ConsumerWidget implements PreferredSizeWidget {
                                 "assets/Altrd Cannabis Asset.svg",
                                 fit: BoxFit.fill,
                                 // Adjust SVG color for better visibility against white background
-                                color: Colors.black,
+                                color: Colors.white,
                               ))),
                     ),
                     Expanded(
@@ -125,9 +126,10 @@ class CustomAppBar extends ConsumerWidget implements PreferredSizeWidget {
                                         header,
                                         style: TextStyle(
                                             color: _isHovering[index]
-                                                ? Color.fromARGB(255, 36, 98, 7)
+                                                ? Color.fromARGB(
+                                                    255, 246, 204, 18)
                                                 : Colors
-                                                    .black, // Changed text color
+                                                    .white, // Changed text color
                                             fontWeight: FontWeight.w600,
                                             fontSize: 16),
                                       ),
@@ -160,7 +162,7 @@ class CustomAppBar extends ConsumerWidget implements PreferredSizeWidget {
                         child: Icon(
                           Icons.search,
                           color:
-                              Colors.black, // Adjust icon color for visibility
+                              Colors.white, // Adjust icon color for visibility
                         )),
                     SizedBox(
                       width: screenSize.width / 50,
@@ -169,7 +171,7 @@ class CustomAppBar extends ConsumerWidget implements PreferredSizeWidget {
                         onTap: () {
                           Navigator.pushNamed(context, '/cart');
                         },
-                        child: Icon(Icons.shopping_bag, color: Colors.black))
+                        child: Icon(Icons.shopping_bag, color: Colors.white))
                   ],
                 ),
               ),

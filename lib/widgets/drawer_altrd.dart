@@ -22,35 +22,39 @@ class AltrdDrawer extends ConsumerWidget {
   Widget build(BuildContext context, WidgetRef ref) {
     int state = ref.watch(stateProvider);
     return Drawer(
+      backgroundColor: Colors.black,
       child: ListView(
         padding: EdgeInsets.zero,
         children: [
-          DrawerHeader(
-              decoration: BoxDecoration(
-                color: Color.fromARGB(255, 175, 222, 176),
-              ),
-              child: Center(
-                child: AnimatedEmoji(
-                  AnimatedEmojis.leaves,
-                  repeat: true,
-                  size: 180,
-                ),
-              )),
+          SizedBox(
+            height: 50,
+          ),
+          AnimatedEmoji(
+            AnimatedEmojis.cowboy,
+            repeat: true,
+            size: 110,
+          ),
+          SizedBox(
+            height: 50,
+          ),
           ListTile(
             title: Row(
               children: [
                 Icon(Icons.forest_outlined,
                     color: state == 1
-                        ? Color.fromARGB(255, 36, 98, 7)
-                        : Colors.black),
+                        ? Color.fromARGB(255, 246, 204, 18)
+                        : Colors.white),
                 SizedBox(
                   width: 20,
                 ),
-                const Text('Products'),
+                const Text(
+                  'Products',
+                  style: TextStyle(color: Colors.white),
+                ),
               ],
             ),
             selected: state == 1 ? true : false,
-            selectedColor: Color.fromARGB(255, 36, 98, 7),
+            selectedColor: Color.fromARGB(255, 246, 204, 18),
             onTap: () {
               // Update the state of the app
               // Then close the drawer
@@ -58,22 +62,28 @@ class AltrdDrawer extends ConsumerWidget {
               ref.read(stateProvider.notifier).changeState(1);
             },
           ),
+          SizedBox(
+            height: 20,
+          ),
           ListTile(
             title: Row(
               children: [
                 FaIcon(FontAwesomeIcons.shirt,
                     size: 20,
                     color: state == 2
-                        ? Color.fromARGB(255, 36, 98, 7)
-                        : Colors.black),
+                        ? Color.fromARGB(255, 246, 204, 18)
+                        : Colors.white),
                 SizedBox(
                   width: 20,
                 ),
-                const Text('Merch'),
+                const Text(
+                  'Merch',
+                  style: TextStyle(color: Colors.white),
+                ),
               ],
             ),
             selected: state == 2 ? true : false,
-            selectedColor: Color.fromARGB(255, 36, 98, 7),
+            selectedColor: Color.fromARGB(255, 246, 204, 18),
             onTap: () {
               // Update the state of the app
               // Then close the drawer
@@ -81,21 +91,25 @@ class AltrdDrawer extends ConsumerWidget {
               ref.read(stateProvider.notifier).changeState(2);
             },
           ),
+          SizedBox(
+            height: 20,
+          ),
           ListTile(
             title: Row(
               children: [
                 Icon(Icons.location_city_outlined,
                     color: state == 3
-                        ? Color.fromARGB(255, 36, 98, 7)
-                        : Colors.black),
+                        ? Color.fromARGB(255, 246, 204, 18)
+                        : Colors.white),
                 SizedBox(
                   width: 20,
                 ),
-                const Text('Dispensaries'),
+                const Text('Dispensaries',
+                    style: TextStyle(color: Colors.white)),
               ],
             ),
             selected: state == 3 ? true : false,
-            selectedColor: Color.fromARGB(255, 36, 98, 7),
+            selectedColor: Color.fromARGB(255, 246, 204, 18),
             onTap: () {
               // Update the state of the app
               // Then close the drawer
@@ -103,21 +117,24 @@ class AltrdDrawer extends ConsumerWidget {
               ref.read(stateProvider.notifier).changeState(3);
             },
           ),
+          SizedBox(
+            height: 20,
+          ),
           ListTile(
             title: Row(
               children: [
                 Icon(Icons.info_outline_rounded,
                     color: state == 4
-                        ? Color.fromARGB(255, 36, 98, 7)
-                        : Colors.black),
+                        ? Color.fromARGB(255, 246, 204, 18)
+                        : Colors.white),
                 SizedBox(
                   width: 20,
                 ),
-                const Text('About'),
+                const Text('About', style: TextStyle(color: Colors.white)),
               ],
             ),
             selected: state == 4 ? true : false,
-            selectedColor: Color.fromARGB(255, 36, 98, 7),
+            selectedColor: Color.fromARGB(255, 246, 204, 18),
             onTap: () {
               // Update the state of the app
               // Then close the drawer
@@ -125,21 +142,24 @@ class AltrdDrawer extends ConsumerWidget {
               ref.read(stateProvider.notifier).changeState(4);
             },
           ),
+          SizedBox(
+            height: 20,
+          ),
           ListTile(
             title: Row(
               children: [
                 Icon(Icons.shopping_cart,
                     color: state == 5
-                        ? Color.fromARGB(255, 36, 98, 7)
-                        : Colors.black),
+                        ? Color.fromARGB(255, 246, 204, 18)
+                        : Colors.white),
                 SizedBox(
                   width: 20,
                 ),
-                const Text('Cart'),
+                const Text('Cart', style: TextStyle(color: Colors.white)),
               ],
             ),
             selected: state == 5 ? true : false,
-            selectedColor: Color.fromARGB(255, 36, 98, 7),
+            selectedColor: Color.fromARGB(255, 246, 204, 18),
             onTap: () {
               // Update the state of the app
               // Then close the drawer
