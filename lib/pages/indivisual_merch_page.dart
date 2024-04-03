@@ -1,6 +1,6 @@
-import 'package:fineartsociety/pages/cart_page.dart';
-import 'package:fineartsociety/pages/merch_page.dart';
-import 'package:fineartsociety/widgets/custom_app_bar.dart';
+import 'package:hourglass/pages/cart_page.dart';
+import 'package:hourglass/pages/merch_page.dart';
+import 'package:hourglass/widgets/custom_app_bar.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_rating_bar/flutter_rating_bar.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';

@@ -1,8 +1,8 @@
 import 'dart:async';
 import 'dart:convert';
 import 'dart:js_interop';
-import 'package:fineartsociety/widgets/drawer_altrd.dart';
-import 'package:fineartsociety/widgets/store_grid.dart';
+import 'package:hourglass/widgets/drawer_altrd.dart';
+import 'package:hourglass/widgets/store_grid.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/scheduler.dart';
 import 'package:flutter/services.dart';

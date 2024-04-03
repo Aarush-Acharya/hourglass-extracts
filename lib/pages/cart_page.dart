@@ -2,8 +2,8 @@ import 'dart:convert';
 
 import 'package:animated_emoji/animated_emoji.dart';
 import 'package:animated_emoji/emoji.dart';
-import 'package:fineartsociety/widgets/custom_app_bar.dart';
-import 'package:fineartsociety/widgets/footer_widget.dart';
+import 'package:hourglass/widgets/custom_app_bar.dart';
+import 'package:hourglass/widgets/footer_widget.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_dotenv/flutter_dotenv.dart';

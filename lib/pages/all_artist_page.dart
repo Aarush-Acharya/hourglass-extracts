@@ -1,7 +1,7 @@
 import 'dart:convert';
-import 'package:fineartsociety/widgets/custom_app_bar.dart';
-import 'package:fineartsociety/widgets/blocks_grid.dart';
-import 'package:fineartsociety/widgets/footer_widget.dart';
+import 'package:hourglass/widgets/custom_app_bar.dart';
+import 'package:hourglass/widgets/blocks_grid.dart';
+import 'package:hourglass/widgets/footer_widget.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 

@@ -1,24 +1,23 @@
 import 'dart:ui';
-import 'package:fineartsociety/pages/about_page.dart';
-import 'package:fineartsociety/pages/all_artist_page.dart';
-import 'package:fineartsociety/pages/bussiness_inquiry_page.dart';
-import 'package:fineartsociety/pages/cart_page.dart';
-import 'package:fineartsociety/pages/contact_page.dart';
-import 'package:fineartsociety/pages/dispensaries_page.dart';
-import 'package:fineartsociety/pages/events_page.dart';
-import 'package:fineartsociety/pages/exhibitions_page.dart';
-import 'package:fineartsociety/pages/indivisual_category_page.dart';
-import 'package:fineartsociety/pages/indivisual_merch_page.dart';
-import 'package:fineartsociety/pages/indivisual_page.dart';
-import 'package:fineartsociety/pages/news_page.dart';
-import 'package:fineartsociety/pages/merch_page.dart';
-import 'package:fineartsociety/pages/products_page.dart';
+import 'package:hourglass/pages/about_page.dart';
+import 'package:hourglass/pages/all_artist_page.dart';
+import 'package:hourglass/pages/bussiness_inquiry_page.dart';
+import 'package:hourglass/pages/cart_page.dart';
+import 'package:hourglass/pages/contact_page.dart';
+import 'package:hourglass/pages/dispensaries_page.dart';
+import 'package:hourglass/pages/events_page.dart';
+import 'package:hourglass/pages/exhibitions_page.dart';
+import 'package:hourglass/pages/indivisual_category_page.dart';
+import 'package:hourglass/pages/indivisual_merch_page.dart';
+import 'package:hourglass/pages/indivisual_page.dart';
+import 'package:hourglass/pages/news_page.dart';
+import 'package:hourglass/pages/merch_page.dart';
+import 'package:hourglass/pages/products_page.dart';
 import 'package:flutter/material.dart';
 
 import 'package:flutter_dotenv/flutter_dotenv.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'pages/home_page.dart';
-import 'pages/artist_page.dart';
 
 void main() {
 
@@ -53,7 +52,6 @@ class MyApp extends StatelessWidget {
       routes: {
         '/': (context) => HomePage(),
         '/bussinessInquiry': (context) => BussinessInquiryPage(),
-        '/artist': (context) => const ArtistPage(),
         '/news': (context) => const NewsPage(),
         '/allArtist': (context) => const AllArtistsPage(),
         '/events': (context) => const EventsPage(),

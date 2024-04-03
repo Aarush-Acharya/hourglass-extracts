@@ -2,9 +2,9 @@ import 'dart:async';
 import 'dart:ui';
 import 'package:another_transformer_page_view/another_transformer_page_view.dart';
 import 'package:carousel_slider/carousel_slider.dart';
-import 'package:fineartsociety/widgets/custom_app_bar.dart';
-import 'package:fineartsociety/widgets/drawer_altrd.dart';
-import 'package:fineartsociety/widgets/footer_widget.dart';
+import 'package:hourglass/widgets/custom_app_bar.dart';
+import 'package:hourglass/widgets/drawer_altrd.dart';
+import 'package:hourglass/widgets/footer_widget.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_icon_snackbar/flutter_icon_snackbar.dart';
 import 'package:flutter_rating_bar/flutter_rating_bar.dart';
@@ -97,65 +97,18 @@ class MerchPage extends ConsumerWidget {
               controller: scrollController,
               child: Column(
                 children: [
-                  SizedBox(
-                    height: 500,
-                    child: Stack(
-                      children: [
-                        PageView(
-                          controller: pageViewController,
-                          onPageChanged: (value) {
-                            print(value);
-                            ref
-                                .read(currentItemStateProvider.notifier)
-                                .changeState(value);
-                          },
-                          children: <Widget>[
-                            Image.asset(
-                              'assets/merch-hero-1.png',
-                              fit: BoxFit.cover,
-                              width: 250,
-                              height: 250,
-                            ),
-                            Image.asset(
-                              'assets/merch-hero-2.png',
-                              fit: BoxFit.cover,
-                              width: 250,
-                              height: 250,
-                            ),
-                            Image.asset(
-                              'assets/merch-hero-3.png',
-                              fit: BoxFit.cover,
-                              width: 250,
-                              height: 250,
-                            ),
-                            Image.asset(
-                              'assets/merch-hero-1.png',
-                              fit: BoxFit.cover,
-                              width: 250,
-                              height: 250,
-                            ),
-                          ],
-                        ),
-                        Positioned(
-                          top: 480,
-                          child: PageViewDotIndicator(
-                              currentItem: currentItem,
-                              count: 4,
-                              unselectedColor:
-                                  const Color.fromARGB(255, 219, 219, 219),
-                              selectedColor: Colors.white,
-                              size: const Size(12, 12),
-                              unselectedSize: const Size(8, 8),
-                              duration: const Duration(milliseconds: 200),
-                              margin: const EdgeInsets.symmetric(horizontal: 8),
-                              onItemClicked: (index) {}),
-                        ),
-                      ],
+
+                  Padding(
+                    padding:  EdgeInsets.symmetric(vertical: isDesktop? 0: 60.0),
+                    child: Image.asset(
+                      'assets/merch_header.jpeg',
+                      fit: BoxFit.fitWidth,
+                      width: 1440,
                     ),
                   ),
                   Padding(
-                      padding: const EdgeInsets.symmetric(
-                          horizontal: 50, vertical: 60),
+                      padding: EdgeInsets.symmetric(
+                          horizontal: 50, vertical: isDesktop ? 60 : 30),
                       child: Column(
                         children: [
                           const Text(
@@ -178,8 +131,9 @@ class MerchPage extends ConsumerWidget {
                                     "New Releases",
                                     style: TextStyle(color: Colors.white),
                                   )),
-                              const SizedBox(
-                                width: 100,
+                              SizedBox(
+                                width: 0.06944444444 *
+                                    MediaQuery.sizeOf(context).width,
                               ),
                               TextButton(
                                   onPressed: () {

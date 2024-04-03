@@ -1,9 +1,9 @@
 import 'dart:async';
 import 'package:another_transformer_page_view/another_transformer_page_view.dart';
-import 'package:fineartsociety/widgets/card_grid.dart';
-import 'package:fineartsociety/widgets/custom_app_bar.dart';
-import 'package:fineartsociety/widgets/drawer_altrd.dart';
-import 'package:fineartsociety/widgets/footer_widget.dart';
+import 'package:hourglass/widgets/card_grid.dart';
+import 'package:hourglass/widgets/custom_app_bar.dart';
+import 'package:hourglass/widgets/drawer_altrd.dart';
+import 'package:hourglass/widgets/footer_widget.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 
@@ -56,7 +56,7 @@ class AboutPage extends ConsumerWidget {
                           ),
                           isDesktop
                               ? Row(
-                                  crossAxisAlignment: CrossAxisAlignment.start,
+                                  crossAxisAlignment: CrossAxisAlignment.center,
                                   children: [
                                     Container(
                                       decoration: BoxDecoration(
@@ -65,7 +65,7 @@ class AboutPage extends ConsumerWidget {
                                       child: ClipRRect(
                                         borderRadius: BorderRadius.circular(50),
                                         child: Image.asset(
-                                          'assets/stiizy.jpeg',
+                                          'assets/about_header.jpeg',
                                           fit: BoxFit.cover,
                                           width: 700,
                                           height: 500,
@@ -82,10 +82,10 @@ class AboutPage extends ConsumerWidget {
                                           child: SizedBox(
                                             child: Column(
                                               crossAxisAlignment:
-                                                  CrossAxisAlignment.start,
+                                                  CrossAxisAlignment.center,
                                               children: [
                                                 Text(
-                                                  "Vision Statement",
+                                                  "Who We Are",
                                                   style: TextStyle(
                                                       color: Colors.white,
                                                       fontSize: 35),
@@ -96,8 +96,9 @@ class AboutPage extends ConsumerWidget {
                                                 SizedBox(
                                                   width: 400,
                                                   child: Text(
-                                                    "At ALTRD, we're dedicated to crafting premium cannabis products and experiences that fuel the adventurous spirit within us all. Through innovation, creativity, and a commitment to quality, we strive to inspire individuals to embrace life's journeys, explore new horizons, and celebrate every moment with boldness and authenticity.",
+                                                    "Hourglass Extracts stands as a testament to the timeless quality and enduring value of premium cannabis. Rooted in the heart of Oklahoma, we are dedicated to providing our patients with the highest caliber of medicinal cannabis at the best possible value.",
                                                     softWrap: true,
+                                                    textAlign: TextAlign.center,
                                                     style: TextStyle(
                                                         color: Colors.white,
                                                         fontSize: 16),
@@ -121,7 +122,7 @@ class AboutPage extends ConsumerWidget {
                                       child: ClipRRect(
                                         borderRadius: BorderRadius.circular(50),
                                         child: Image.asset(
-                                          'assets/stiizy.jpeg',
+                                          'assets/about_header.jpeg',
                                           fit: BoxFit.cover,
                                           width: 700,
                                           height: 500,
@@ -132,7 +133,7 @@ class AboutPage extends ConsumerWidget {
                                       height: 50,
                                     ),
                                     const Text(
-                                      "Vision Statement",
+                                      "Who We Are",
                                       style: TextStyle(
                                           color: Colors.white, fontSize: 35),
                                     ),
@@ -142,191 +143,7 @@ class AboutPage extends ConsumerWidget {
                                     const SizedBox(
                                       width: 400,
                                       child: Text(
-                                        "At ALTRD, we're dedicated to crafting premium cannabis products and experiences that fuel the adventurous spirit within us all. Through innovation, creativity, and a commitment to quality, we strive to inspire individuals to embrace life's journeys, explore new horizons, and celebrate every moment with boldness and authenticity.",
-                                        softWrap: true,
-                                        textAlign: TextAlign.center,
-                                        style: TextStyle(
-                                            color: Colors.white, fontSize: 16),
-                                      ),
-                                    ),
-                                  ],
-                                ),
-                          const SizedBox(
-                            height: 120,
-                          ),
-                          isDesktop
-                              ? Row(
-                                  crossAxisAlignment: CrossAxisAlignment.start,
-                                  mainAxisAlignment:
-                                      MainAxisAlignment.spaceBetween,
-                                  children: [
-                                    const Padding(
-                                      padding: EdgeInsets.only(
-                                          top: 30, bottom: 60, left: 60),
-                                      child: Column(
-                                        crossAxisAlignment:
-                                            CrossAxisAlignment.start,
-                                        children: [
-                                          SizedBox(
-                                            width: 300,
-                                            child: Text(
-                                              "Mission Statement",
-                                              style: TextStyle(
-                                                  color: Colors.white,
-                                                  fontSize: 40),
-                                              softWrap: true,
-                                            ),
-                                          ),
-                                          SizedBox(
-                                            height: 40,
-                                          ),
-                                          SizedBox(
-                                            width: 400,
-                                            child: Text(
-                                              "ALTRD thrives on adventure, pushing boundaries, and living life to the fullest. Our culture is built on a foundation of passion, exploration, and a shared love for the extraordinary. We embrace the thrill of the unknown and encourage our community to seek out new experiences, forge meaningful connections, and create unforgettable memories. With a focus on style and sophistication, we embody the essence of modern cannabis culture, where every moment is an opportunity to elevate your lifestyle and embrace the extraordinary.",
-                                              softWrap: true,
-                                              style: TextStyle(
-                                                  color: Colors.white,
-                                                  fontSize: 16),
-                                            ),
-                                          ),
-                                        ],
-                                      ),
-                                    ),
-                                    ClipRRect(
-                                      borderRadius: BorderRadius.circular(50),
-                                      child: Image.asset(
-                                        'assets/abt-1.png',
-                                        fit: BoxFit.cover,
-                                        width: 700,
-                                        height: 500,
-                                      ),
-                                    ),
-                                  ],
-                                )
-                              : Column(
-                                  crossAxisAlignment: CrossAxisAlignment.center,
-                                  children: [
-                                    ClipRRect(
-                                      borderRadius: BorderRadius.circular(50),
-                                      child: Image.asset(
-                                        'assets/abt-1.png',
-                                        fit: BoxFit.cover,
-                                        width: 700,
-                                        height: 500,
-                                      ),
-                                    ),
-                                    SizedBox(
-                                      height: 40,
-                                    ),
-                                    SizedBox(
-                                      width: 300,
-                                      child: Text(
-                                        "Mission Statement",
-                                        textAlign: TextAlign.center,
-                                        style: TextStyle(
-                                            color: Colors.white, fontSize: 40),
-                                        softWrap: true,
-                                      ),
-                                    ),
-                                    SizedBox(
-                                      height: 40,
-                                    ),
-                                    SizedBox(
-                                      width: 400,
-                                      child: Text(
-                                        "ALTRD thrives on adventure, pushing boundaries, and living life to the fullest. Our culture is built on a foundation of passion, exploration, and a shared love for the extraordinary. We embrace the thrill of the unknown and encourage our community to seek out new experiences, forge meaningful connections, and create unforgettable memories. With a focus on style and sophistication, we embody the essence of modern cannabis culture, where every moment is an opportunity to elevate your lifestyle and embrace the extraordinary.",
-                                        softWrap: true,
-                                        textAlign: TextAlign.center,
-                                        style: TextStyle(
-                                            color: Colors.white, fontSize: 16),
-                                      ),
-                                    ),
-                                  ],
-                                ),
-                          const SizedBox(
-                            height: 120,
-                          ),
-                          isDesktop
-                              ? Row(
-                                  crossAxisAlignment: CrossAxisAlignment.start,
-                                  children: [
-                                    ClipRRect(
-                                      borderRadius: BorderRadius.circular(50),
-                                      child: Image.asset(
-                                        'assets/abt-2.png',
-                                        fit: BoxFit.cover,
-                                        width: 700,
-                                        height: 500,
-                                      ),
-                                    ),
-                                    const SizedBox(
-                                      width: 120,
-                                    ),
-                                    const Column(
-                                      children: [
-                                        Padding(
-                                          padding: EdgeInsets.only(bottom: 30),
-                                          child: SizedBox(
-                                            child: Column(
-                                              crossAxisAlignment:
-                                                  CrossAxisAlignment.start,
-                                              children: [
-                                                Text(
-                                                  "Brand Culture",
-                                                  style: TextStyle(
-                                                      color: Colors.white,
-                                                      fontSize: 35),
-                                                ),
-                                                SizedBox(
-                                                  height: 40,
-                                                ),
-                                                SizedBox(
-                                                  width: 400,
-                                                  child: Text(
-                                                    "Cannabis culture is a vibrant and diverse community that welcomes individuals from all walks of life - whether you're a skater, an elderly person, a college student, a veteran, or a family member. We take pride in creating an inclusive environment that encourages everyone to express themselves freely. Our culture fosters unity and promotes open and honest dialogue, bringing together people from different backgrounds and experiences.",
-                                                    softWrap: true,
-                                                    style: TextStyle(
-                                                        color: Colors.white,
-                                                        fontSize: 16),
-                                                  ),
-                                                ),
-                                              ],
-                                            ),
-                                          ),
-                                        ),
-                                      ],
-                                    ),
-                                  ],
-                                )
-                              : Column(
-                                  crossAxisAlignment: CrossAxisAlignment.center,
-                                  children: [
-                                    ClipRRect(
-                                      borderRadius: BorderRadius.circular(50),
-                                      child: Image.asset(
-                                        'assets/abt-2.png',
-                                        fit: BoxFit.cover,
-                                        width: 700,
-                                        height: 500,
-                                      ),
-                                    ),
-                                    const SizedBox(
-                                      height: 50,
-                                    ),
-                                    const Text(
-                                      "Brand Culture",
-                                      style: TextStyle(
-                                          color: Colors.white, fontSize: 35),
-                                      textAlign: TextAlign.center,
-                                    ),
-                                    const SizedBox(
-                                      height: 40,
-                                    ),
-                                    const SizedBox(
-                                      width: 400,
-                                      child: Text(
-                                        "Cannabis culture is a vibrant and diverse community that welcomes individuals from all walks of life - whether you're a skater, an elderly person, a college student, a veteran, or a family member. We take pride in creating an inclusive environment that encourages everyone to express themselves freely. Our culture fosters unity and promotes open and honest dialogue, bringing together people from different backgrounds and experiences.",
+                                        "Hourglass Extracts stands as a testament to the timeless quality and enduring value of premium cannabis. Rooted in the heart of Oklahoma, we are dedicated to providing our patients with the highest caliber of medicinal cannabis at the best possible value.",
                                         softWrap: true,
                                         textAlign: TextAlign.center,
                                         style: TextStyle(
@@ -339,7 +156,7 @@ class AboutPage extends ConsumerWidget {
                             height: 100,
                           ),
                           const Text(
-                            "DARE TO REDEFINE.",
+                            "TAKE YOUR TIME",
                             textAlign: TextAlign.center,
                             style: TextStyle(color: Colors.white, fontSize: 42),
                           ),

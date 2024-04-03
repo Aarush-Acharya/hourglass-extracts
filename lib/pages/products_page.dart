@@ -1,6 +1,6 @@
 import 'dart:convert';
-import 'package:fineartsociety/pages/home_page.dart';
-import 'package:fineartsociety/widgets/drawer_altrd.dart';
+import 'package:hourglass/pages/home_page.dart';
+import 'package:hourglass/widgets/drawer_altrd.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter/src/scheduler/ticker.dart';

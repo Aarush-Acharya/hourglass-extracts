@@ -1,8 +1,8 @@
 import 'dart:async';
 import 'dart:convert';
 import 'dart:ui';
-import 'package:fineartsociety/pages/indivisual_category_page.dart';
-import 'package:fineartsociety/widgets/drawer_altrd.dart';
+import 'package:hourglass/pages/indivisual_category_page.dart';
+import 'package:hourglass/widgets/drawer_altrd.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter/src/scheduler/ticker.dart';
@@ -517,9 +517,8 @@ class HomePage extends ConsumerWidget {
     Map products = {
       "Cart": "cartrage_yellow",
       "Disposables": "disposables",
-      "Pre-Roll Pack": "preeroll_pack_blue",
-      "Single Pre-Roll": "single_prerolls_blue",
-      "Jar": "prod 5"
+      "Pre-Rolls": "single_prerolls_blue",
+      "Concentrates": "preeroll_pack_blue"
     };
     return Scaffold(
         endDrawer: AltrdDrawer(),
@@ -536,132 +535,70 @@ class HomePage extends ConsumerWidget {
               Container(
                 height: firstFoldHeight + 105,
                 child: Stack(
+                  alignment: Alignment.center,
                   children: [
                     Container(
                       height: firstFoldHeight + 80,
                       child: Stack(
+                        alignment: Alignment.bottomCenter,
                         children: [
-                          Align(
-                            alignment: Alignment
-                                .centerRight, // Align the image to the right
-                            child: ImageFiltered(
-                              imageFilter:
-                                  ImageFilter.blur(sigmaX: 1, sigmaY: 1),
-                              child: GFAnimation(
-                                turnsAnimation: animation,
-                                controller: controller,
-                                type: GFAnimationType.scaleTransition,
-                                child: Image.asset(
-                                  'assets/people_adventure.jpeg',
-                                  fit: BoxFit.cover,
-                                  width: double.infinity,
-                                  height: double.infinity,
-                                ),
+                          ImageFiltered(
+                            imageFilter: ImageFilter.blur(sigmaX: 1, sigmaY: 1),
+                            child: GFAnimation(
+                              turnsAnimation: animation,
+                              controller: controller,
+                              type: GFAnimationType.scaleTransition,
+                              child: Image.asset(
+                                'assets/people_adventure.jpeg',
+                                fit: BoxFit.cover,
+                                width: double.infinity,
+                                height: double.infinity,
                               ),
                             ),
                           ),
-                          Align(
-                            alignment: Alignment
-                                .centerLeft, // Align the text to the left
-                            child: Padding(
-                              padding: EdgeInsets.only(
-                                  left: shouldShowSideBar
-                                      ? 0
-                                      : 50), // Adjust padding as needed
-                              child: Column(
-                                mainAxisAlignment: MainAxisAlignment.center,
-                                crossAxisAlignment: CrossAxisAlignment
-                                    .start, // Align text to start
-
-                                children: [
-                                  Text(
-                                    "HOURGLASS YOUR LIFESTYLE",
-                                    textAlign: shouldShowSideBar
-                                        ? TextAlign.center
-                                        : TextAlign.left,
-                                    style: TextStyle(
-                                        color: Colors.white,
-                                        fontSize: 55,
-                                        fontWeight: FontWeight.w900),
-                                  ),
-                                  const SizedBox(
-                                    height: 20,
-                                  ),
-                                  SizedBox(
-                                    width: 500,
-                                    child: Padding(
-                                      padding: EdgeInsets.symmetric(
-                                          horizontal:
-                                              shouldShowSideBar ? 20 : 0),
-                                      child: Text(
-                                        "Discover your perfect high with over 100 curated strains, personalized recommendations, and precise weight by the gram - elevating your experience to new heights. Altrd, EST 2021",
-                                        style: TextStyle(
-                                            color: Colors.white,
-                                            fontSize: 20,
-                                            fontWeight: FontWeight.w500),
-                                        softWrap: true,
-                                        textAlign: shouldShowSideBar
-                                            ? TextAlign.center
-                                            : TextAlign
-                                                .left, // Align text to left
-                                      ),
-                                    ),
-                                  ),
-                                  const SizedBox(
-                                    height: 40,
-                                  ),
-                                  Row(
-                                    mainAxisAlignment: shouldShowSideBar
-                                        ? MainAxisAlignment.center
-                                        : MainAxisAlignment
-                                            .start, // Align buttons to start
-                                    children: [
-                                      TextButton(
-                                          style: TextButton.styleFrom(
-                                              minimumSize: const Size(180, 50),
-                                              backgroundColor: Colors.black,
-                                              shape: RoundedRectangleBorder(
-                                                  borderRadius:
-                                                      BorderRadius.circular(
-                                                          100))),
-                                          onPressed: () {
-                                            Navigator.pushNamed(
-                                                context, '/products');
-                                          },
-                                          child: const Text(
-                                            "Explore Products",
-                                            style:
-                                                TextStyle(color: Colors.white),
-                                          )),
-                                      const SizedBox(
-                                          width:
-                                              20), // Add spacing between buttons
-                                      TextButton(
-                                          style: TextButton.styleFrom(
-                                              minimumSize: const Size(180, 50),
-                                              backgroundColor: Colors.white,
-                                              shape: RoundedRectangleBorder(
-                                                  side: const BorderSide(
-                                                      color: Colors.black),
-                                                  borderRadius:
-                                                      BorderRadius.circular(
-                                                          100))),
-                                          onPressed: () {
-                                            Navigator.pushNamed(
-                                                context, "/dispensaries");
-                                          },
-                                          child: const Text(
-                                            "Get Directions",
-                                            style: TextStyle(
-                                                color: Colors.black,
-                                                fontWeight: FontWeight.bold),
-                                          ))
-                                    ],
-                                  )
-                                ],
-                              ),
+                          Padding(
+                            padding: const EdgeInsets.only(bottom: 70.0),
+                            child: Row(
+                              mainAxisAlignment: MainAxisAlignment.center,
+                              children: [
+                                TextButton(
+                                    style: TextButton.styleFrom(
+                                        minimumSize: const Size(180, 50),
+                                        backgroundColor: Colors.black,
+                                        shape: RoundedRectangleBorder(
+                                            borderRadius:
+                                                BorderRadius.circular(100))),
+                                    onPressed: () {
+                                      Navigator.pushNamed(context, '/products');
+                                    },
+                                    child: const Text(
+                                      "Explore Products",
+                                      style: TextStyle(color: Colors.white),
+                                    )),
+                                const SizedBox(
+                                    width: 20), // Add spacing between buttons
+                                TextButton(
+                                    style: TextButton.styleFrom(
+                                        minimumSize: const Size(180, 50),
+                                        backgroundColor: Colors.white,
+                                        shape: RoundedRectangleBorder(
+                                            side: const BorderSide(
+                                                color: Colors.black),
+                                            borderRadius:
+                                                BorderRadius.circular(100))),
+                                    onPressed: () {
+                                      Navigator.pushNamed(
+                                          context, "/dispensaries");
+                                    },
+                                    child: const Text(
+                                      "Get Directions",
+                                      style: TextStyle(
+                                          color: Colors.black,
+                                          fontWeight: FontWeight.bold),
+                                    ))
+                              ],
                             ),
-                          ),
+                          )
                         ],
                       ),
                     ),
@@ -745,7 +682,38 @@ class HomePage extends ConsumerWidget {
                                   Navigator.pushNamed(
                                       context, '/categoryProducts',
                                       arguments: [
-                                        "Pre-Roll Pack",
+                                        "Pre-Rolls",
+                                        [
+                                          "Infused Pre-Roll Indica",
+                                          "1G Hourglass Pre Roll Infused with High Quality Concentrates and Rolled in Keef",
+                                          "assets/single_prerolls_blue.png"
+                                        ],
+                                        [
+                                          "Infused Pre-Roll Sativa",
+                                          "1G Hourglass Pre Roll Infused with High Quality Concentrates and Rolled in Keef",
+                                          "assets/single_prerolls_red.png"
+                                        ],
+                                        [
+                                          "Infused Pre-Roll Hybrid",
+                                          "1G Hourglass Pre Roll Infused with High Quality Concentrates and Rolled in Keef",
+                                          "assets/single_prerolls_yellow.png"
+                                        ],
+                                        [
+                                          "Infused Pre-Roll Pack Indica",
+                                          "28 1G Indica Pre-Roll Pack",
+                                          "assets/preeroll_pack_blue.png"
+                                        ],
+                                        [
+                                          "Infused Pre-Roll Pack Hybrid",
+                                          "28 1G Hybrid Pre-Roll Pack",
+                                          "assets/preeroll_pack_yellow.png"
+                                        ]
+                                      ]);
+                                } else {
+                                  Navigator.pushNamed(
+                                      context, '/categoryProducts',
+                                      arguments: [
+                                        "Concentrates",
                                         [
                                           "Pre-Roll Pack Blue",
                                           "Packs of pre-rolls blue represents some flavour I guess.",
@@ -756,38 +724,6 @@ class HomePage extends ConsumerWidget {
                                           "Pack of pre-rolls but yellow indicating a different colour.",
                                           "assets/preeroll_pack_yellow.png"
                                         ]
-                                      ]);
-                                } else if (index == 3) {
-                                  Navigator.pushNamed(
-                                      context, '/categoryProducts',
-                                      arguments: [
-                                        "Single Pre-Roll",
-                                        [
-                                          "Single Pre-Roll Blue",
-                                          "Single pre-roll of blue colour wrapping indicating a flavour",
-                                          "assets/single_prerolls_blue.png"
-                                        ],
-                                        [
-                                          "Single Pre-Roll Red",
-                                          "Single pre-roll but red in colour this time, exciting isnt it.",
-                                          "assets/single_prerolls_red.png"
-                                        ],
-                                        [
-                                          "Single Pre-Roll Yellow",
-                                          "Again single pre-roll just yellow now.",
-                                          "assets/single_prerolls_yellow.png"
-                                        ]
-                                      ]);
-                                } else {
-                                  Navigator.pushNamed(
-                                      context, '/categoryProducts',
-                                      arguments: [
-                                        "Jars",
-                                        [
-                                          "A Mystry Jar",
-                                          "=== No info yet need more info asap XD ===",
-                                          "assets/prod 5.png"
-                                        ],
                                       ]);
                                 }
                               },
@@ -986,26 +922,34 @@ class HomePage extends ConsumerWidget {
               //   height: 50,
               // ),
               const SizedBox(
-                height: 20,
+                height: 50,
               ),
-              TextButton(
-                onPressed: () {
-                  Navigator.pushNamed(context, '/dispensaries');
-                },
-                child: const Text(
-                  "Find the nearest ALTRD store now",
-                  style: TextStyle(
-                    color: Colors.white,
-                    fontSize: 20,
+              Padding(
+                padding: const EdgeInsets.symmetric(horizontal: 50.0),
+                child: TextButton(
+                  style: TextButton.styleFrom(
+                      backgroundColor: Colors.black,
+                      side: BorderSide(color: Colors.amber)),
+                  onPressed: () {
+                    Navigator.pushNamed(context, '/dispensaries');
+                  },
+                  child: Padding(
+                    padding: EdgeInsets.symmetric(
+                        horizontal: isDesktop ? 0 : 20, vertical: 10),
+                    child: const Text(
+                      "Find the nearest Hourglass Retailer",
+                      style: TextStyle(
+                        color: Colors.white,
+                        fontSize: 20,
+                      ),
+                      textAlign: TextAlign.center,
+                      softWrap: true,
+                    ),
                   ),
-                  softWrap: true,
                 ),
               ),
               const SizedBox(
-                height: 50,
-              ),
-              const Divider(
-                color: Color.fromARGB(112, 255, 255, 255),
+                height: 80,
               ),
               // const SizedBox(
               //   height: 100,
@@ -1019,55 +963,9 @@ class HomePage extends ConsumerWidget {
                           MediaQuery.of(context).size.height, // Adjusted height
                       decoration: BoxDecoration(
                         image: DecorationImage(
-                          image: AssetImage('assets/stiizy-crop.jpeg'),
+                          image: AssetImage('assets/hourglass.jpeg'),
                           fit: BoxFit
                               .cover, // Cover the container with the image
-                        ),
-                      ),
-                      child: Padding(
-                        padding: const EdgeInsets.all(
-                            0), // Padding to create space between the edge of the image and the text container
-                        child: Container(
-                          decoration: BoxDecoration(
-                            color: Colors.black.withOpacity(
-                                0.5), // Semi-transparent black background for the text container
-                            borderRadius: BorderRadius.circular(
-                                0), // Optional: Adds rounded corners to the text container
-                          ),
-                          child: Padding(
-                            padding: const EdgeInsets.all(
-                                50), // Padding inside the text container for spacing around the text
-                            child: Column(
-                              crossAxisAlignment: CrossAxisAlignment.start,
-                              mainAxisAlignment: MainAxisAlignment
-                                  .center, // Center the column vertically
-                              children: [
-                                const Text(
-                                  "WHAT IS ALTRD?",
-                                  style: TextStyle(
-                                      color: Colors.white,
-                                      fontSize: 55,
-                                      fontWeight: FontWeight.w700),
-                                  softWrap: true,
-                                ),
-                                const SizedBox(height: 40),
-                                SizedBox(
-                                  width: 0.41 *
-                                      MediaQuery.of(context)
-                                          .size
-                                          .width, // Width of the text content
-                                  child: const Text(
-                                    "Change or cause to change in character or composition, typically in a comparatively small but significant way.",
-                                    style: TextStyle(
-                                      color: Colors.white,
-                                      fontSize: 22,
-                                    ),
-                                    softWrap: true,
-                                  ),
-                                ),
-                              ],
-                            ),
-                          ),
                         ),
                       ),
                     )
@@ -1080,41 +978,9 @@ class HomePage extends ConsumerWidget {
                         ),
                         Image.asset(
                           'assets/stiizy.jpeg',
-                          fit: BoxFit.cover,
-                          width:
-                              0.4861111111 * MediaQuery.sizeOf(context).width,
-                          height:
-                              0.4294478528 * MediaQuery.sizeOf(context).height,
-                        ),
-                        const SizedBox(
-                          height: 50,
-                        ),
-                        Padding(
-                          padding: const EdgeInsets.only(bottom: 50),
-                          child: Column(
-                            crossAxisAlignment: CrossAxisAlignment.center,
-                            children: [
-                              const Text(
-                                "WHAT IS ALTRD?",
-                                style: TextStyle(
-                                    color: Colors.white, fontSize: 30),
-                                softWrap: true,
-                              ),
-                              const SizedBox(
-                                height: 40,
-                              ),
-                              SizedBox(
-                                width: 0.41 * MediaQuery.sizeOf(context).width,
-                                child: const Text(
-                                  "Change or cause to change in character or composition, typically in a comparatively small but significant way",
-                                  style: TextStyle(
-                                      color: Colors.white, fontSize: 15),
-                                  softWrap: true,
-                                  textAlign: TextAlign.center,
-                                ),
-                              ),
-                            ],
-                          ),
+                          fit: BoxFit.fill,
+                          width: 1440,
+                          height: 200,
                         ),
                       ],
                     ),
@@ -1151,8 +1017,8 @@ class HomePage extends ConsumerWidget {
                           style: TextStyle(color: Colors.white, fontSize: 18),
                         ),
                       )),
-                  const SizedBox(
-                    width: 100,
+                  SizedBox(
+                    width: 0.06944444444 * MediaQuery.sizeOf(context).width,
                   ),
                   TextButton(
                       onPressed: () {
@@ -1776,6 +1642,7 @@ class HomePage extends ConsumerWidget {
               ElevatedButton(
                 onPressed: () {},
                 style: ElevatedButton.styleFrom(
+                  side: BorderSide(color: Colors.amber),
                   backgroundColor:
                       Colors.black, // Set the background color to black
                   padding: EdgeInsets.symmetric(
@@ -1785,26 +1652,30 @@ class HomePage extends ConsumerWidget {
                   textStyle: TextStyle(fontSize: 20), // Increase the font size
                 ),
                 child: const Text(
-                  "All new releases",
+                  "All New Releases",
                   style: TextStyle(
                       color: Colors
                           .white), // Ensure the text color is white for contrast
                 ),
               ),
-              const SizedBox(
-                height: 120,
-              ),
+              isDesktop
+                  ? SizedBox()
+                  : SizedBox(
+                      height: 40,
+                    ),
               Container(
-                height: firstFoldHeight + 180,
+                height: isDesktop ? 400 : firstFoldHeight + 180,
                 width: 1440,
                 child: !videoInitialised
                     ? CircularProgressIndicator()
                     : VideoPlayer(
                         videoPlayerController), // Include the video player widget here
               ),
-              const SizedBox(
-                height: 50,
-              ),
+              isDesktop
+                  ? SizedBox()
+                  : SizedBox(
+                      height: 40,
+                    ),
               const Text(
                 "Blogs",
                 style: TextStyle(color: Colors.white, fontSize: 30),
