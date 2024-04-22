@@ -97,7 +97,6 @@ class MerchPage extends ConsumerWidget {
               controller: scrollController,
               child: Column(
                 children: [
-
                   Padding(
                     padding:  EdgeInsets.symmetric(vertical: isDesktop? 0: 60.0),
                     child: Image.asset(
@@ -820,7 +819,9 @@ class MerchPage extends ConsumerWidget {
                               backgroundColor: Colors.white,
                               shape: RoundedRectangleBorder(
                                   borderRadius: BorderRadius.circular(100))),
-                          onPressed: () {},
+                          onPressed: () {
+                          
+                          },
                           child: const Text(
                             "Shop Now",
                             style: TextStyle(color: Colors.black),
