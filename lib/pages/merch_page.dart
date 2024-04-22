@@ -98,7 +98,8 @@ class MerchPage extends ConsumerWidget {
               child: Column(
                 children: [
                   Padding(
-                    padding:  EdgeInsets.symmetric(vertical: isDesktop? 0: 60.0),
+                    padding:
+                        EdgeInsets.symmetric(vertical: isDesktop ? 0 : 60.0),
                     child: Image.asset(
                       'assets/merch_header.jpeg',
                       fit: BoxFit.fitWidth,
@@ -117,717 +118,377 @@ class MerchPage extends ConsumerWidget {
                           const SizedBox(
                             height: 30,
                           ),
-                          Row(
-                            mainAxisAlignment: MainAxisAlignment.center,
-                            children: [
-                              TextButton(
-                                  onPressed: () {
-                                    ref
-                                        .read(merchTypeStateProvider.notifier)
-                                        .changeState(true);
-                                  },
-                                  child: const Text(
-                                    "New Releases",
-                                    style: TextStyle(color: Colors.white),
-                                  )),
-                              SizedBox(
-                                width: 0.06944444444 *
-                                    MediaQuery.sizeOf(context).width,
-                              ),
-                              TextButton(
-                                  onPressed: () {
-                                    ref
-                                        .read(merchTypeStateProvider.notifier)
-                                        .changeState(false);
-                                  },
-                                  child: const Text("Accessories",
-                                      style: TextStyle(color: Colors.white))),
-                            ],
-                          ),
-                          const SizedBox(
-                            height: 60,
-                          ),
                           isDesktop
-                              ? isNewReleases
-                                  ? Row(
-                                      mainAxisAlignment:
-                                          MainAxisAlignment.spaceAround,
-                                      children: [
-                                        Container(
-                                          decoration: BoxDecoration(
-                                              // color: Colors.red,
+                              ? Row(
+                                  mainAxisAlignment:
+                                      MainAxisAlignment.spaceAround,
+                                  children: [
+                                    Container(
+                                      decoration: BoxDecoration(
+                                          // color: Colors.red,
+                                          borderRadius:
+                                              BorderRadius.circular(40)),
+                                      child: GestureDetector(
+                                        onTap: () {
+                                          Navigator.pushNamed(
+                                              context, '/indivisualMerchPage',
+                                              arguments: [
+                                                "Merch 1",
+                                                3.2,
+                                                20,
+                                                90.00,
+                                                'assets/merch-shirt.png'
+                                              ]);
+                                        },
+                                        child: Column(
+                                          children: [
+                                            ClipRRect(
                                               borderRadius:
-                                                  BorderRadius.circular(40)),
-                                          child: GestureDetector(
-                                            onTap: () {
-                                              Navigator.pushNamed(context,
-                                                  '/indivisualMerchPage',
-                                                  arguments: [
-                                                    "Merch 1",
-                                                    3.2,
-                                                    20,
-                                                    90.00,
-                                                    'assets/merch-shirt.png'
-                                                  ]);
-                                            },
-                                            child: Column(
-                                              children: [
-                                                ClipRRect(
-                                                  borderRadius:
-                                                      BorderRadius.circular(50),
-                                                  child: Image.asset(
-                                                    'assets/merch-shirt.png',
-                                                    fit: BoxFit.cover,
-                                                    width: 250,
-                                                    height: 250,
-                                                  ),
-                                                ),
-                                                SizedBox(
-                                                  height: 20,
-                                                ),
-                                                Text(
-                                                  "Prod 1",
-                                                  style: TextStyle(
-                                                      color: Colors.white),
-                                                )
-                                              ],
+                                                  BorderRadius.circular(50),
+                                              child: Image.asset(
+                                                'assets/merch-shirt.png',
+                                                fit: BoxFit.cover,
+                                                width: 250,
+                                                height: 250,
+                                              ),
                                             ),
-                                          ),
-                                          height: 300,
-                                          width: 250,
-                                        ),
-                                        Container(
-                                          decoration: BoxDecoration(
-                                              // color: Colors.red,
-                                              borderRadius:
-                                                  BorderRadius.circular(40)),
-                                          child: GestureDetector(
-                                            onTap: () {
-                                              Navigator.pushNamed(context,
-                                                  '/indivisualMerchPage',
-                                                  arguments: [
-                                                    "Merch 2",
-                                                    3.9,
-                                                    40.00,
-                                                    70,
-                                                    'assets/merch-shirt.png'
-                                                  ]);
-                                            },
-                                            child: Column(
-                                              children: [
-                                                ClipRRect(
-                                                  borderRadius:
-                                                      BorderRadius.circular(50),
-                                                  child: Image.asset(
-                                                    'assets/merch-shirt.png',
-                                                    fit: BoxFit.cover,
-                                                    width: 250,
-                                                    height: 250,
-                                                  ),
-                                                ),
-                                                SizedBox(
-                                                  height: 20,
-                                                ),
-                                                Text(
-                                                  "Prod 2",
-                                                  style: TextStyle(
-                                                      color: Colors.white),
-                                                )
-                                              ],
+                                            SizedBox(
+                                              height: 20,
                                             ),
-                                          ),
-                                          height: 300,
-                                          width: 250,
+                                            Text(
+                                              "Prod 1",
+                                              style: TextStyle(
+                                                  color: Colors.white),
+                                            )
+                                          ],
                                         ),
-                                        Container(
-                                          decoration: BoxDecoration(
-                                              // color: Colors.red,
-                                              borderRadius:
-                                                  BorderRadius.circular(40)),
-                                          child: GestureDetector(
-                                            onTap: () {
-                                              Navigator.pushNamed(context,
-                                                  '/indivisualMerchPage',
-                                                  arguments: [
-                                                    "Merch 3",
-                                                    3.0,
-                                                    100,
-                                                    220.00,
-                                                    'assets/merch-shirt.png'
-                                                  ]);
-                                            },
-                                            child: Column(
-                                              children: [
-                                                ClipRRect(
-                                                  borderRadius:
-                                                      BorderRadius.circular(50),
-                                                  child: Image.asset(
-                                                    'assets/merch-shirt.png',
-                                                    fit: BoxFit.cover,
-                                                    width: 250,
-                                                    height: 250,
-                                                  ),
-                                                ),
-                                                SizedBox(
-                                                  height: 20,
-                                                ),
-                                                Text(
-                                                  "Prod 3",
-                                                  style: TextStyle(
-                                                      color: Colors.white),
-                                                )
-                                              ],
-                                            ),
-                                          ),
-                                          height: 300,
-                                          width: 250,
-                                        ),
-                                        Container(
-                                          decoration: BoxDecoration(
-                                              // color: Colors.red,
-                                              borderRadius:
-                                                  BorderRadius.circular(40)),
-                                          child: GestureDetector(
-                                            onTap: () {
-                                              Navigator.pushNamed(context,
-                                                  '/indivisualMerchPage',
-                                                  arguments: [
-                                                    "Merch 4",
-                                                    4.2,
-                                                    312,
-                                                    134,
-                                                    'assets/merch-shirt.png'
-                                                  ]);
-                                            },
-                                            child: Column(
-                                              children: [
-                                                ClipRRect(
-                                                  borderRadius:
-                                                      BorderRadius.circular(50),
-                                                  child: Image.asset(
-                                                    'assets/merch-shirt.png',
-                                                    fit: BoxFit.cover,
-                                                    width: 250,
-                                                    height: 250,
-                                                  ),
-                                                ),
-                                                SizedBox(
-                                                  height: 20,
-                                                ),
-                                                Text(
-                                                  "Prod 4",
-                                                  style: TextStyle(
-                                                      color: Colors.white),
-                                                )
-                                              ],
-                                            ),
-                                          ),
-                                          height: 300,
-                                          width: 250,
-                                        ),
-                                      ],
-                                    )
-                                  : Row(
-                                      mainAxisAlignment:
-                                          MainAxisAlignment.spaceAround,
-                                      children: [
-                                        Container(
-                                          decoration: BoxDecoration(
-                                              // color: Colors.red,
-                                              borderRadius:
-                                                  BorderRadius.circular(40)),
-                                          child: GestureDetector(
-                                            onTap: () {
-                                              Navigator.pushNamed(context,
-                                                  '/indivisualMerchPage',
-                                                  arguments: [
-                                                    "Merch 3",
-                                                    3.0,
-                                                    100,
-                                                    220.00,
-                                                    'assets/merch-shirt.png'
-                                                  ]);
-                                            },
-                                            child: Column(
-                                              children: [
-                                                ClipRRect(
-                                                  borderRadius:
-                                                      BorderRadius.circular(50),
-                                                  child: Image.asset(
-                                                    'assets/merch-shirt.png',
-                                                    fit: BoxFit.cover,
-                                                    width: 250,
-                                                    height: 250,
-                                                  ),
-                                                ),
-                                                SizedBox(
-                                                  height: 20,
-                                                ),
-                                                Text(
-                                                  "Prod 5",
-                                                  style: TextStyle(
-                                                      color: Colors.white),
-                                                )
-                                              ],
-                                            ),
-                                          ),
-                                          height: 300,
-                                          width: 250,
-                                        ),
-                                        Container(
-                                          decoration: BoxDecoration(
-                                              // color: Colors.red,
-                                              borderRadius:
-                                                  BorderRadius.circular(40)),
-                                          child: GestureDetector(
-                                            onTap: () {
-                                              Navigator.pushNamed(context,
-                                                  '/indivisualMerchPage',
-                                                  arguments: [
-                                                    "Merch 5",
-                                                    3.7,
-                                                    120,
-                                                    190.00,
-                                                    'assets/merch-shirt.png'
-                                                  ]);
-                                            },
-                                            child: Column(
-                                              children: [
-                                                ClipRRect(
-                                                  borderRadius:
-                                                      BorderRadius.circular(50),
-                                                  child: Image.asset(
-                                                    'assets/merch-shirt.png',
-                                                    fit: BoxFit.cover,
-                                                    width: 250,
-                                                    height: 250,
-                                                  ),
-                                                ),
-                                                SizedBox(
-                                                  height: 20,
-                                                ),
-                                                Text(
-                                                  "Prod 6",
-                                                  style: TextStyle(
-                                                      color: Colors.white),
-                                                )
-                                              ],
-                                            ),
-                                          ),
-                                          height: 300,
-                                          width: 250,
-                                        ),
-                                        Container(
-                                          decoration: BoxDecoration(
-                                              // color: Colors.red,
-                                              borderRadius:
-                                                  BorderRadius.circular(40)),
-                                          child: GestureDetector(
-                                            onTap: () {
-                                              Navigator.pushNamed(context,
-                                                  '/indivisualMerchPage',
-                                                  arguments: [
-                                                    "Merch 7",
-                                                    4.8,
-                                                    200,
-                                                    280.00,
-                                                    'assets/merch-shirt.png'
-                                                  ]);
-                                            },
-                                            child: Column(
-                                              children: [
-                                                ClipRRect(
-                                                  borderRadius:
-                                                      BorderRadius.circular(50),
-                                                  child: Image.asset(
-                                                    'assets/merch-shirt.png',
-                                                    fit: BoxFit.cover,
-                                                    width: 250,
-                                                    height: 250,
-                                                  ),
-                                                ),
-                                                SizedBox(
-                                                  height: 20,
-                                                ),
-                                                Text(
-                                                  "Prod 7",
-                                                  style: TextStyle(
-                                                      color: Colors.white),
-                                                )
-                                              ],
-                                            ),
-                                          ),
-                                          height: 300,
-                                          width: 250,
-                                        ),
-                                      ],
-                                    )
-                              : isNewReleases
-                                  ? Column(
-                                      mainAxisAlignment:
-                                          MainAxisAlignment.spaceAround,
-                                      children: [
-                                        Container(
-                                          decoration: BoxDecoration(
-                                              // color: Colors.red,
-                                              borderRadius:
-                                                  BorderRadius.circular(40)),
-                                          child: GestureDetector(
-                                            onTap: () {
-                                              Navigator.pushNamed(context,
-                                                  '/indivisualMerchPage',
-                                                  arguments: [
-                                                    "Merch 1",
-                                                    3.2,
-                                                    20,
-                                                    90.00,
-                                                    'assets/merch-shirt.png'
-                                                  ]);
-                                            },
-                                            child: Column(
-                                              children: [
-                                                ClipRRect(
-                                                  borderRadius:
-                                                      BorderRadius.circular(50),
-                                                  child: Image.asset(
-                                                    'assets/merch-shirt.png',
-                                                    fit: BoxFit.cover,
-                                                    width: 250,
-                                                    height: 250,
-                                                  ),
-                                                ),
-                                                SizedBox(
-                                                  height: 20,
-                                                ),
-                                                Text(
-                                                  "Prod 1",
-                                                  style: TextStyle(
-                                                      color: Colors.white),
-                                                )
-                                              ],
-                                            ),
-                                          ),
-                                          height: 300,
-                                          width: 250,
-                                        ),
-                                        SizedBox(
-                                          height: 30,
-                                        ),
-                                        Container(
-                                          decoration: BoxDecoration(
-                                              // color: Colors.red,
-                                              borderRadius:
-                                                  BorderRadius.circular(40)),
-                                          child: GestureDetector(
-                                            onTap: () {
-                                              Navigator.pushNamed(context,
-                                                  '/indivisualMerchPage',
-                                                  arguments: [
-                                                    "Merch 2",
-                                                    3.9,
-                                                    40.00,
-                                                    70,
-                                                    'assets/merch-shirt.png'
-                                                  ]);
-                                            },
-                                            child: Column(
-                                              children: [
-                                                ClipRRect(
-                                                  borderRadius:
-                                                      BorderRadius.circular(50),
-                                                  child: Image.asset(
-                                                    'assets/merch-shirt.png',
-                                                    fit: BoxFit.cover,
-                                                    width: 250,
-                                                    height: 250,
-                                                  ),
-                                                ),
-                                                SizedBox(
-                                                  height: 20,
-                                                ),
-                                                Text(
-                                                  "Prod 2",
-                                                  style: TextStyle(
-                                                      color: Colors.white),
-                                                )
-                                              ],
-                                            ),
-                                          ),
-                                          height: 300,
-                                          width: 250,
-                                        ),
-                                        SizedBox(
-                                          height: 30,
-                                        ),
-                                        Container(
-                                          decoration: BoxDecoration(
-                                              // color: Colors.red,
-                                              borderRadius:
-                                                  BorderRadius.circular(40)),
-                                          child: GestureDetector(
-                                            onTap: () {
-                                              Navigator.pushNamed(context,
-                                                  '/indivisualMerchPage',
-                                                  arguments: [
-                                                    "Merch 3",
-                                                    3.0,
-                                                    100,
-                                                    220.00,
-                                                    'assets/merch-shirt.png'
-                                                  ]);
-                                            },
-                                            child: Column(
-                                              children: [
-                                                ClipRRect(
-                                                  borderRadius:
-                                                      BorderRadius.circular(50),
-                                                  child: Image.asset(
-                                                    'assets/merch-shirt.png',
-                                                    fit: BoxFit.cover,
-                                                    width: 250,
-                                                    height: 250,
-                                                  ),
-                                                ),
-                                                SizedBox(
-                                                  height: 20,
-                                                ),
-                                                Text(
-                                                  "Prod 3",
-                                                  style: TextStyle(
-                                                      color: Colors.white),
-                                                )
-                                              ],
-                                            ),
-                                          ),
-                                          height: 300,
-                                          width: 250,
-                                        ),
-                                        SizedBox(
-                                          height: 30,
-                                        ),
-                                        Container(
-                                          decoration: BoxDecoration(
-                                              // color: Colors.red,
-                                              borderRadius:
-                                                  BorderRadius.circular(40)),
-                                          child: GestureDetector(
-                                            onTap: () {
-                                              Navigator.pushNamed(context,
-                                                  '/indivisualMerchPage',
-                                                  arguments: [
-                                                    "Merch 4",
-                                                    4.2,
-                                                    312,
-                                                    134,
-                                                    'assets/merch-shirt.png'
-                                                  ]);
-                                            },
-                                            child: Column(
-                                              children: [
-                                                ClipRRect(
-                                                  borderRadius:
-                                                      BorderRadius.circular(50),
-                                                  child: Image.asset(
-                                                    'assets/merch-shirt.png',
-                                                    fit: BoxFit.cover,
-                                                    width: 250,
-                                                    height: 250,
-                                                  ),
-                                                ),
-                                                SizedBox(
-                                                  height: 20,
-                                                ),
-                                                Text(
-                                                  "Prod 4",
-                                                  style: TextStyle(
-                                                      color: Colors.white),
-                                                )
-                                              ],
-                                            ),
-                                          ),
-                                          height: 300,
-                                          width: 250,
-                                        ),
-                                      ],
-                                    )
-                                  : Column(
-                                      mainAxisAlignment:
-                                          MainAxisAlignment.spaceAround,
-                                      children: [
-                                        Container(
-                                          decoration: BoxDecoration(
-                                              // color: Colors.red,
-                                              borderRadius:
-                                                  BorderRadius.circular(40)),
-                                          child: GestureDetector(
-                                            onTap: () {
-                                              Navigator.pushNamed(context,
-                                                  '/indivisualMerchPage',
-                                                  arguments: [
-                                                    "Merch 3",
-                                                    3.0,
-                                                    100,
-                                                    220.00,
-                                                    'assets/merch-shirt.png'
-                                                  ]);
-                                            },
-                                            child: Column(
-                                              children: [
-                                                ClipRRect(
-                                                  borderRadius:
-                                                      BorderRadius.circular(50),
-                                                  child: Image.asset(
-                                                    'assets/merch-shirt.png',
-                                                    fit: BoxFit.cover,
-                                                    width: 250,
-                                                    height: 250,
-                                                  ),
-                                                ),
-                                                SizedBox(
-                                                  height: 20,
-                                                ),
-                                                Text(
-                                                  "Prod 5",
-                                                  style: TextStyle(
-                                                      color: Colors.white),
-                                                )
-                                              ],
-                                            ),
-                                          ),
-                                          height: 300,
-                                          width: 250,
-                                        ),
-                                        SizedBox(
-                                          height: 30,
-                                        ),
-                                        Container(
-                                          decoration: BoxDecoration(
-                                              // color: Colors.red,
-                                              borderRadius:
-                                                  BorderRadius.circular(40)),
-                                          child: GestureDetector(
-                                            onTap: () {
-                                              Navigator.pushNamed(context,
-                                                  '/indivisualMerchPage',
-                                                  arguments: [
-                                                    "Merch 5",
-                                                    3.7,
-                                                    120,
-                                                    190.00,
-                                                    'assets/merch-shirt.png'
-                                                  ]);
-                                            },
-                                            child: Column(
-                                              children: [
-                                                ClipRRect(
-                                                  borderRadius:
-                                                      BorderRadius.circular(50),
-                                                  child: Image.asset(
-                                                    'assets/merch-shirt.png',
-                                                    fit: BoxFit.cover,
-                                                    width: 250,
-                                                    height: 250,
-                                                  ),
-                                                ),
-                                                SizedBox(
-                                                  height: 20,
-                                                ),
-                                                Text(
-                                                  "Prod 6",
-                                                  style: TextStyle(
-                                                      color: Colors.white),
-                                                )
-                                              ],
-                                            ),
-                                          ),
-                                          height: 300,
-                                          width: 250,
-                                        ),
-                                        SizedBox(
-                                          height: 30,
-                                        ),
-                                        Container(
-                                          decoration: BoxDecoration(
-                                              // color: Colors.red,
-                                              borderRadius:
-                                                  BorderRadius.circular(40)),
-                                          child: GestureDetector(
-                                            onTap: () {
-                                              Navigator.pushNamed(context,
-                                                  '/indivisualMerchPage',
-                                                  arguments: [
-                                                    "Merch 7",
-                                                    4.8,
-                                                    200,
-                                                    280.00,
-                                                    'assets/merch-shirt.png'
-                                                  ]);
-                                            },
-                                            child: Column(
-                                              children: [
-                                                ClipRRect(
-                                                  borderRadius:
-                                                      BorderRadius.circular(50),
-                                                  child: Image.asset(
-                                                    'assets/merch-shirt.png',
-                                                    fit: BoxFit.cover,
-                                                    width: 250,
-                                                    height: 250,
-                                                  ),
-                                                ),
-                                                SizedBox(
-                                                  height: 20,
-                                                ),
-                                                Text(
-                                                  "Prod 7",
-                                                  style: TextStyle(
-                                                      color: Colors.white),
-                                                )
-                                              ],
-                                            ),
-                                          ),
-                                          height: 300,
-                                          width: 250,
-                                        ),
-                                      ],
+                                      ),
+                                      height: 300,
+                                      width: 250,
                                     ),
+                                    Container(
+                                      decoration: BoxDecoration(
+                                          // color: Colors.red,
+                                          borderRadius:
+                                              BorderRadius.circular(40)),
+                                      child: GestureDetector(
+                                        onTap: () {
+                                          Navigator.pushNamed(
+                                              context, '/indivisualMerchPage',
+                                              arguments: [
+                                                "Merch 2",
+                                                3.9,
+                                                40.00,
+                                                70,
+                                                'assets/merch-shirt.png'
+                                              ]);
+                                        },
+                                        child: Column(
+                                          children: [
+                                            ClipRRect(
+                                              borderRadius:
+                                                  BorderRadius.circular(50),
+                                              child: Image.asset(
+                                                'assets/merch-shirt.png',
+                                                fit: BoxFit.cover,
+                                                width: 250,
+                                                height: 250,
+                                              ),
+                                            ),
+                                            SizedBox(
+                                              height: 20,
+                                            ),
+                                            Text(
+                                              "Prod 2",
+                                              style: TextStyle(
+                                                  color: Colors.white),
+                                            )
+                                          ],
+                                        ),
+                                      ),
+                                      height: 300,
+                                      width: 250,
+                                    ),
+                                    Container(
+                                      decoration: BoxDecoration(
+                                          // color: Colors.red,
+                                          borderRadius:
+                                              BorderRadius.circular(40)),
+                                      child: GestureDetector(
+                                        onTap: () {
+                                          Navigator.pushNamed(
+                                              context, '/indivisualMerchPage',
+                                              arguments: [
+                                                "Merch 3",
+                                                3.0,
+                                                100,
+                                                220.00,
+                                                'assets/merch-shirt.png'
+                                              ]);
+                                        },
+                                        child: Column(
+                                          children: [
+                                            ClipRRect(
+                                              borderRadius:
+                                                  BorderRadius.circular(50),
+                                              child: Image.asset(
+                                                'assets/merch-shirt.png',
+                                                fit: BoxFit.cover,
+                                                width: 250,
+                                                height: 250,
+                                              ),
+                                            ),
+                                            SizedBox(
+                                              height: 20,
+                                            ),
+                                            Text(
+                                              "Prod 3",
+                                              style: TextStyle(
+                                                  color: Colors.white),
+                                            )
+                                          ],
+                                        ),
+                                      ),
+                                      height: 300,
+                                      width: 250,
+                                    ),
+                                    Container(
+                                      decoration: BoxDecoration(
+                                          // color: Colors.red,
+                                          borderRadius:
+                                              BorderRadius.circular(40)),
+                                      child: GestureDetector(
+                                        onTap: () {
+                                          Navigator.pushNamed(
+                                              context, '/indivisualMerchPage',
+                                              arguments: [
+                                                "Merch 4",
+                                                4.2,
+                                                312,
+                                                134,
+                                                'assets/merch-shirt.png'
+                                              ]);
+                                        },
+                                        child: Column(
+                                          children: [
+                                            ClipRRect(
+                                              borderRadius:
+                                                  BorderRadius.circular(50),
+                                              child: Image.asset(
+                                                'assets/merch-shirt.png',
+                                                fit: BoxFit.cover,
+                                                width: 250,
+                                                height: 250,
+                                              ),
+                                            ),
+                                            SizedBox(
+                                              height: 20,
+                                            ),
+                                            Text(
+                                              "Prod 4",
+                                              style: TextStyle(
+                                                  color: Colors.white),
+                                            )
+                                          ],
+                                        ),
+                                      ),
+                                      height: 300,
+                                      width: 250,
+                                    ),
+                                  ],
+                                )
+                              : Column(
+                                  mainAxisAlignment:
+                                      MainAxisAlignment.spaceAround,
+                                  children: [
+                                    Container(
+                                      decoration: BoxDecoration(
+                                          // color: Colors.red,
+                                          borderRadius:
+                                              BorderRadius.circular(40)),
+                                      child: GestureDetector(
+                                        onTap: () {
+                                          Navigator.pushNamed(
+                                              context, '/indivisualMerchPage',
+                                              arguments: [
+                                                "Merch 1",
+                                                3.2,
+                                                20,
+                                                90.00,
+                                                'assets/merch-shirt.png'
+                                              ]);
+                                        },
+                                        child: Column(
+                                          children: [
+                                            ClipRRect(
+                                              borderRadius:
+                                                  BorderRadius.circular(50),
+                                              child: Image.asset(
+                                                'assets/merch-shirt.png',
+                                                fit: BoxFit.cover,
+                                                width: 250,
+                                                height: 250,
+                                              ),
+                                            ),
+                                            SizedBox(
+                                              height: 20,
+                                            ),
+                                            Text(
+                                              "Prod 1",
+                                              style: TextStyle(
+                                                  color: Colors.white),
+                                            )
+                                          ],
+                                        ),
+                                      ),
+                                      height: 300,
+                                      width: 250,
+                                    ),
+                                    SizedBox(
+                                      height: 30,
+                                    ),
+                                    Container(
+                                      decoration: BoxDecoration(
+                                          // color: Colors.red,
+                                          borderRadius:
+                                              BorderRadius.circular(40)),
+                                      child: GestureDetector(
+                                        onTap: () {
+                                          Navigator.pushNamed(
+                                              context, '/indivisualMerchPage',
+                                              arguments: [
+                                                "Merch 2",
+                                                3.9,
+                                                40.00,
+                                                70,
+                                                'assets/merch-shirt.png'
+                                              ]);
+                                        },
+                                        child: Column(
+                                          children: [
+                                            ClipRRect(
+                                              borderRadius:
+                                                  BorderRadius.circular(50),
+                                              child: Image.asset(
+                                                'assets/merch-shirt.png',
+                                                fit: BoxFit.cover,
+                                                width: 250,
+                                                height: 250,
+                                              ),
+                                            ),
+                                            SizedBox(
+                                              height: 20,
+                                            ),
+                                            Text(
+                                              "Prod 2",
+                                              style: TextStyle(
+                                                  color: Colors.white),
+                                            )
+                                          ],
+                                        ),
+                                      ),
+                                      height: 300,
+                                      width: 250,
+                                    ),
+                                    SizedBox(
+                                      height: 30,
+                                    ),
+                                    Container(
+                                      decoration: BoxDecoration(
+                                          // color: Colors.red,
+                                          borderRadius:
+                                              BorderRadius.circular(40)),
+                                      child: GestureDetector(
+                                        onTap: () {
+                                          Navigator.pushNamed(
+                                              context, '/indivisualMerchPage',
+                                              arguments: [
+                                                "Merch 3",
+                                                3.0,
+                                                100,
+                                                220.00,
+                                                'assets/merch-shirt.png'
+                                              ]);
+                                        },
+                                        child: Column(
+                                          children: [
+                                            ClipRRect(
+                                              borderRadius:
+                                                  BorderRadius.circular(50),
+                                              child: Image.asset(
+                                                'assets/merch-shirt.png',
+                                                fit: BoxFit.cover,
+                                                width: 250,
+                                                height: 250,
+                                              ),
+                                            ),
+                                            SizedBox(
+                                              height: 20,
+                                            ),
+                                            Text(
+                                              "Prod 3",
+                                              style: TextStyle(
+                                                  color: Colors.white),
+                                            )
+                                          ],
+                                        ),
+                                      ),
+                                      height: 300,
+                                      width: 250,
+                                    ),
+                                    SizedBox(
+                                      height: 30,
+                                    ),
+                                    Container(
+                                      decoration: BoxDecoration(
+                                          // color: Colors.red,
+                                          borderRadius:
+                                              BorderRadius.circular(40)),
+                                      child: GestureDetector(
+                                        onTap: () {
+                                          Navigator.pushNamed(
+                                              context, '/indivisualMerchPage',
+                                              arguments: [
+                                                "Merch 4",
+                                                4.2,
+                                                312,
+                                                134,
+                                                'assets/merch-shirt.png'
+                                              ]);
+                                        },
+                                        child: Column(
+                                          children: [
+                                            ClipRRect(
+                                              borderRadius:
+                                                  BorderRadius.circular(50),
+                                              child: Image.asset(
+                                                'assets/merch-shirt.png',
+                                                fit: BoxFit.cover,
+                                                width: 250,
+                                                height: 250,
+                                              ),
+                                            ),
+                                            SizedBox(
+                                              height: 20,
+                                            ),
+                                            Text(
+                                              "Prod 4",
+                                              style: TextStyle(
+                                                  color: Colors.white),
+                                            )
+                                          ],
+                                        ),
+                                      ),
+                                      height: 300,
+                                      width: 250,
+                                    ),
+                                  ],
+                                ),
                           const SizedBox(
                             height: 60,
                           ),
                         ],
                       )),
-                  Row(
-                    mainAxisAlignment: MainAxisAlignment.center,
-                    children: [
-                      TextButton(
-                          style: TextButton.styleFrom(
-                              minimumSize: const Size(180, 50),
-                              backgroundColor: Colors.white,
-                              shape: RoundedRectangleBorder(
-                                  borderRadius: BorderRadius.circular(100))),
-                          onPressed: () {},
-                          child: const Text(
-                            "All new arrivals",
-                            style: TextStyle(color: Colors.black),
-                          )),
-                      SizedBox(
-                        width: 20,
-                      ),
-                      TextButton(
-                          style: TextButton.styleFrom(
-                              minimumSize: const Size(180, 50),
-                              backgroundColor: Colors.white,
-                              shape: RoundedRectangleBorder(
-                                  borderRadius: BorderRadius.circular(100))),
-                          onPressed: () {
-                          
-                          },
-                          child: const Text(
-                            "Shop Now",
-                            style: TextStyle(color: Colors.black),
-                          )),
-                    ],
-                  ),
                   SizedBox(
                     height: 50,
                   ),

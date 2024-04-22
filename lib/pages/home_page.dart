@@ -684,27 +684,27 @@ class HomePage extends ConsumerWidget {
                                       arguments: [
                                         "Pre-Rolls",
                                         [
-                                          "Infused Pre-Roll Indica",
+                                          "Pre-Roll Indica",
                                           "1G Hourglass Pre Roll Infused with High Quality Concentrates and Rolled in Keef",
                                           "assets/single_prerolls_blue.png"
                                         ],
                                         [
-                                          "Infused Pre-Roll Sativa",
+                                          "Pre-Roll Sativa",
                                           "1G Hourglass Pre Roll Infused with High Quality Concentrates and Rolled in Keef",
                                           "assets/single_prerolls_red.png"
                                         ],
                                         [
-                                          "Infused Pre-Roll Hybrid",
+                                          "Pre-Roll Hybrid",
                                           "1G Hourglass Pre Roll Infused with High Quality Concentrates and Rolled in Keef",
                                           "assets/single_prerolls_yellow.png"
                                         ],
                                         [
-                                          "Infused Pre-Roll Pack Indica",
+                                          "Pre-Roll Pack Indica",
                                           "28 1G Indica Pre-Roll Pack",
                                           "assets/preeroll_pack_blue.png"
                                         ],
                                         [
-                                          "Infused Pre-Roll Pack Hybrid",
+                                          "Pre-Roll Pack Hybrid",
                                           "28 1G Hybrid Pre-Roll Pack",
                                           "assets/preeroll_pack_yellow.png"
                                         ]
@@ -714,14 +714,14 @@ class HomePage extends ConsumerWidget {
                                       context, '/categoryProducts',
                                       arguments: [
                                         "Concentrates",
-                                        [
-                                          "Pre-Roll Pack Blue",
-                                          "Packs of pre-rolls blue represents some flavour I guess.",
+                                          [
+                                          "Pre-Roll Pack Indica",
+                                          "28 1G Indica Pre-Roll Pack",
                                           "assets/preeroll_pack_blue.png"
                                         ],
                                         [
-                                          "Pre-Roll Pack Yellow",
-                                          "Pack of pre-rolls but yellow indicating a different colour.",
+                                          "Pre-Roll Pack Hybrid",
+                                          "28 1G Hybrid Pre-Roll Pack",
                                           "assets/preeroll_pack_yellow.png"
                                         ]
                                       ]);
@@ -804,27 +804,27 @@ class HomePage extends ConsumerWidget {
                                       arguments: [
                                         "Pre-Rolls",
                                         [
-                                          "Infused Pre-Roll Indica",
+                                          "Pre-Roll Indica",
                                           "1G Hourglass Pre Roll Infused with High Quality Concentrates and Rolled in Keef",
                                           "assets/single_prerolls_blue.png"
                                         ],
                                         [
-                                          "Infused Pre-Roll Sativa",
+                                          "Pre-Roll Sativa",
                                           "1G Hourglass Pre Roll Infused with High Quality Concentrates and Rolled in Keef",
                                           "assets/single_prerolls_red.png"
                                         ],
                                         [
-                                          "Infused Pre-Roll Hybrid",
+                                          "Pre-Roll Hybrid",
                                           "1G Hourglass Pre Roll Infused with High Quality Concentrates and Rolled in Keef",
                                           "assets/single_prerolls_yellow.png"
                                         ],
                                         [
-                                          "Infused Pre-Roll Pack Indica",
+                                          "Pre-Roll Pack Indica",
                                           "28 1G Indica Pre-Roll Pack",
                                           "assets/preeroll_pack_blue.png"
                                         ],
                                         [
-                                          "Infused Pre-Roll Pack Hybrid",
+                                          "Pre-Roll Pack Hybrid",
                                           "28 1G Hybrid Pre-Roll Pack",
                                           "assets/preeroll_pack_yellow.png"
                                         ]
@@ -835,12 +835,12 @@ class HomePage extends ConsumerWidget {
                                       arguments: [
                                         "Concentrates",
                                         [
-                                          "Infused Pre-Roll Pack Indica",
+                                          "Pre-Roll Pack Indica",
                                           "28 1G Indica Pre-Roll Pack",
                                           "assets/preeroll_pack_blue.png"
                                         ],
                                         [
-                                          "Infused Pre-Roll Pack Hybrid",
+                                          "Pre-Roll Pack Hybrid",
                                           "28 1G Hybrid Pre-Roll Pack",
                                           "assets/preeroll_pack_yellow.png"
                                         ]

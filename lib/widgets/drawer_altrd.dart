@@ -29,11 +29,13 @@ class AltrdDrawer extends ConsumerWidget {
           SizedBox(
             height: 50,
           ),
-          AnimatedEmoji(
-            AnimatedEmojis.cowboy,
-            repeat: true,
-            size: 110,
-          ),
+          Ink(
+              height: 150,
+              width: 150,
+              child: Image.asset(
+                "assets/hourglass.png",
+                fit: BoxFit.contain,
+              )),
           SizedBox(
             height: 50,
           ),
