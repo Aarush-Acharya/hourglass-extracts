@@ -135,7 +135,6 @@ class CartPage extends ConsumerWidget {
         var paymentIntent = await createPaymentIntent('${Amount}', 'USD');
         print("Intent Created");
         //STEP 2: Initialize Payment Sheet
-        
 
         print("about to display payment sheet");
         //STEP 3: Display Payment sheet
@@ -403,11 +402,13 @@ class CartPage extends ConsumerWidget {
                           children: [
                             Text(
                               "Total",
-                              style: TextStyle(fontSize: 25, color: Colors.white),
+                              style:
+                                  TextStyle(fontSize: 25, color: Colors.white),
                             ),
                             Text(
                               "\$ ${total}.00",
-                              style: TextStyle(fontSize: 25,color: Colors.white),
+                              style:
+                                  TextStyle(fontSize: 25, color: Colors.white),
                             ),
                           ],
                         ),
@@ -460,14 +461,6 @@ class CartPage extends ConsumerWidget {
                           ),
                           textAlign: TextAlign.center,
                         ),
-                      ),
-                      SizedBox(
-                        height: 40,
-                      ),
-                      AnimatedEmoji(
-                        AnimatedEmojis.sad,
-                        repeat: true,
-                        size: 200,
                       ),
                     ],
                   ),

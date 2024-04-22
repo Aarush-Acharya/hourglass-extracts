@@ -1,6 +1,7 @@
 import 'dart:ui';
 import 'package:hourglass/pages/about_page.dart';
 import 'package:hourglass/pages/all_artist_page.dart';
+import 'package:hourglass/pages/blog_page.dart';
 import 'package:hourglass/pages/bussiness_inquiry_page.dart';
 import 'package:hourglass/pages/cart_page.dart';
 import 'package:hourglass/pages/contact_page.dart';
@@ -64,6 +65,7 @@ class MyApp extends StatelessWidget {
         '/merch': (context) => const MerchPage(),
         '/indivisualMerchPage': (context) => IndividualMerchPage(),
         '/categoryProducts': (context) => CategoryProducts(),
+        '/blog': (context) => BlogPage(),
         '/cart': (context) => CartPage()
       },
     );

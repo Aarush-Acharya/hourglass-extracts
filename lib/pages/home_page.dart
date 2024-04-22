@@ -91,6 +91,22 @@ class HomePage extends ConsumerWidget {
     return featuredArtists;
   }
 
+  List<String> blogNames = [
+    'Blog 1',
+    'Blog 2',
+    'Blog 3',
+    'Blog 4',
+    'Blog 5',
+    'Blog 6'
+  ];
+  List<String> blogContent = [
+    'Blog Content 1 is the entire blog content of Blog 1 including images and all',
+    'Blog Content 2 is the entire blog content of Blog 2 including images and all',
+    'Blog Content 3 is the entire blog content of Blog 3 including images and all',
+    'Blog Content 4 is the entire blog content of Blog 4 including images and all',
+    'Blog Content 5 is the entire blog content of Blog 5 including images and all',
+    'Blog Content 6 is the entire blog content of Blog 6 including images and all'
+  ];
   Set<Marker> stores = {
     Marker(
         markerId: MarkerId("first"), position: LatLng(35.503120, -97.565740)),
@@ -714,7 +730,7 @@ class HomePage extends ConsumerWidget {
                                       context, '/categoryProducts',
                                       arguments: [
                                         "Concentrates",
-                                          [
+                                        [
                                           "Pre-Roll Pack Indica",
                                           "28 1G Indica Pre-Roll Pack",
                                           "assets/preeroll_pack_blue.png"
@@ -1386,31 +1402,42 @@ class HomePage extends ConsumerWidget {
                 alignment: WrapAlignment.center,
                 children: List.generate(
                   6,
-                  (index) => Column(
-                    children: [
-                      Container(
-                        color: Colors.black54,
-                        width: 400, // Adjust the height as needed
-                        margin: EdgeInsets.symmetric(
-                            horizontal:
-                                8), // Add some horizontal margin between containers
-                        child: Center(
-                          child: Image.asset('assets/${index + 1}.jpeg',
-                              fit: BoxFit.fill), // Your image asset
-                        ),
+                  (index) => InkWell(
+                    onTap: () {
+                      Navigator.pushNamed(context, '/blog', arguments: {
+                        'image': 'assets/${index + 1}.jpeg',
+                        'title': blogNames[index],
+                        'content': blogContent[index]
+                      });
+                    },
+                    child: Ink(
+                      child: Column(
+                        children: [
+                          Container(
+                            color: Colors.black54,
+                            width: 400, // Adjust the height as needed
+                            margin: EdgeInsets.symmetric(
+                                horizontal:
+                                    8), // Add some horizontal margin between containers
+                            child: Center(
+                              child: Image.asset('assets/${index + 1}.jpeg',
+                                  fit: BoxFit.fill), // Your image asset
+                            ),
+                          ),
+                          SizedBox(
+                            height: 10,
+                          ),
+                          Text(
+                            blogNames[index],
+                            style: TextStyle(
+                                color: Colors.white,
+                                fontSize: 20,
+                                fontWeight: FontWeight.bold),
+                            textAlign: TextAlign.start,
+                          ),
+                        ],
                       ),
-                      SizedBox(
-                        height: 10,
-                      ),
-                      Text(
-                        "Sample Blog Title",
-                        style: TextStyle(
-                            color: Colors.white,
-                            fontSize: 20,
-                            fontWeight: FontWeight.bold),
-                        textAlign: TextAlign.start,
-                      ),
-                    ],
+                    ),
                   ),
                 ),
               ),
