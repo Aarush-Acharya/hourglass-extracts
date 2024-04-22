@@ -103,7 +103,7 @@ class FooterWidget extends StatelessWidget {
           // Copyright Text
           const Center(
             child: Text(
-              'Altrd © All Rights Reserved.',
+              'Hourglass Extracts © All Rights Reserved.',
               style: TextStyle(
                 color: Colors.white,
                 fontSize: 12,
